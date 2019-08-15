@@ -6,6 +6,12 @@
 #
 # "Update to latest version. Dr. Robinson's file date: MMM DD, YYYY"
 #
+# Written by Ulrik Sandborg-Petersen.
+#
+# Copyright (C) 2019  Ulrik Sandborg-Petersen.
+#
+# Released under the MIT License.
+#
 
 FILENAME="$1"
 
