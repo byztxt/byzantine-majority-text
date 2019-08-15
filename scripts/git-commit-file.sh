@@ -4,7 +4,7 @@
 #
 # The commit message will be:
 #
-# "Update to latest version. Dr. Robinson's file date: MMM DD, YYYY"
+# "Update to latest version. Original file date: MMM DD, YYYY"
 #
 # Written by Ulrik Sandborg-Petersen.
 #
@@ -30,7 +30,7 @@ fi
 
 DATE=`ls -l ${FILENAME} | awk '{print $6 " " $7 ", " $8;}'`
 
-MESSAGE="Update to the latest version from Dr. Robinson. His original file date: ${DATE}"
+MESSAGE="Update to the latest version. Original file date: ${DATE}"
 
 echo "Now git adding ${FILENAME}"
 echo ""
