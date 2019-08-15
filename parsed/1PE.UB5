@@ -212,12 +212,12 @@ strateuontai 4754 5731 {V-PMI-3P} kata 2596 {PREP} thv 3588
 {T-GSF} yuchv 5590 {N-GSF}
      2:12 thn 3588 {T-ASF} anastrofhn 391 {N-ASF} umwn 4771
 {P-2GP} econtev 2192 5723 {V-PAP-NPM} kalhn 2570 {A-ASF} 
-en 1722 {PREP} toiv 3588 {T-DPN} eqnesin 1484 {N-DPN} ina 2443 {CONJ}
+en 1722 {PREP} toiv 3588 {T-DPN} eqnesin 1484 {N-DPN} ina 2443 {CONJ} 
 en 1722 {PREP} w 3739 {R-DSN} katalalousin 2635 5719 {V-PAI-3P} 
 umwn 4771 {P-2GP} wv 5613 {ADV} kakopoiwn 2555 {A-GPM} ek 1537 {PREP}
 twn 3588 {T-GPN} kalwn 2570 {A-GPN} ergwn 2041 {N-GPN} 
 epopteusantev 2029 5660 {V-AAP-NPM} doxaswsin 1392 5661 {V-AAS-3P} 
-ton 3588 {T-ASM} qeon 2316 {N-ASM} en 1722 {PREP} hmera 2250 {N-DSF}
+ton 3588 {T-ASM} qeon 2316 {N-ASM} en 1722 {PREP} hmera 2250 {N-DSF} 
 episkophv 1984 {N-GSF}
      2:13 upotaghte 5293 5649 {V-2APM-2P} oun 3767 {CONJ} pash
 3956 {A-DSF} anqrwpinh 442 {A-DSF} ktisei 2937 {N-DSF} dia 1223
@@ -398,7 +398,7 @@ pascein 3958 5721 {V-PAN} h 2228 {PRT} kakopoiountav 2554 5723
 apax 530 {ADV} peri 4012 {PREP} amartiwn 266 {N-GPF} epaqen 3958
 5627 {V-2AAI-3S} dikaiov 1342 {A-NSM} uper 5228 {PREP} adikwn 94
 {A-GPM} ina 2443 {CONJ} umav 4771 {P-2AP} prosagagh 4317
-5632 {V-2AAS-3S} tw 3588 {T-DSM} qew 2316 {N-DSM} qanatwqeiv 2289
+5632 {V-2AAS-3S} tw 3588 {T-DSM} qew 2316 {N-DSM} qanatwqeiv 2289 
 5685 {V-APP-NSM} men 3303 {PRT} sarki 4561 {N-DSF} zwopoihqeiv 2227
 5685 {V-APP-NSM} de 1161 {CONJ} pneumati 4151 {N-DSN}
      3:19 en 1722 {PREP} w 3739 {R-DSN} kai 2532 {CONJ} toiv 3588
@@ -406,7 +406,7 @@ apax 530 {ADV} peri 4012 {PREP} amartiwn 266 {N-GPF} epaqen 3958
 poreuqeiv 4198 5679 {V-AOP-NSM} ekhruxen 2784 5656 {V-AAI-3S}
      3:20 apeiqhsasin 544 5660 {V-AAP-DPN} pote 4218 {PRT} ote
 3753 {ADV} apexedeceto 553 5711 {V-INI-3S} h 3588 {T-NSF} 
-tou 3588 {T-GSM} qeou 2316 {N-GSM} makroqumia 3115 {N-NSF}
+tou 3588 {T-GSM} qeou 2316 {N-GSM} makroqumia 3115 {N-NSF} 
 en 1722 {PREP} hmeraiv 2250 {N-DPF} nwe 3575 {N-PRI} 
 kataskeuazomenhv 2680 5746 {V-PPP-GSF} kibwtou 2787 {N-GSF} eiv 1519 
 {PREP} hn 3739 {R-ASF} oligai 3641 {A-NPF} tout 3778 {D-NSN}
@@ -539,7 +539,7 @@ pou 4226 {ADV-I} faneitai 5316 5695 {V-FDI-3S}
 pascontev 3958 5723 {V-PAP-NPM} kata 2596 {PREP} to 3588 {T-ASN}
 qelhma 2307 {N-ASN} tou 3588 {T-GSM} qeou 2316 {N-GSM} wv 5613
 {ADV} pistw 4103 {A-DSM} ktisth 2939 {N-DSM} paratiqesqwsan 3908
-5744 {V-PPM-3P} tav 3588 {T-APF} yucav 5590 {N-APF} autwn 846 {P-GPM}
+5744 {V-PPM-3P} tav 3588 {T-APF} yucav 5590 {N-APF} autwn 846 {P-GPM} 
 en 1722 {PREP} agaqopoiia 16 {N-DSF}
      5:1 presbuterouv 4245 {A-APM-C} touv 3588 {T-APM} en 1722
 {PREP} umin 4771 {P-2DP} parakalw 3870 5719 {V-PAI-1S} o 3588
