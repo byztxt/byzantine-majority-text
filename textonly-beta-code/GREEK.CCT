@@ -1,0 +1,44 @@
+         CODING FOR TRANSLITERATION OF CCAT-BASED GREEK
+
+ Greek        (Greek
+
+ alfa             a
+ beta             b
+ gamma            g
+ delta            d
+ epsilon          e
+ zeta             z
+ eta              h
+ theta            q
+ iota             i
+ kappa            k
+ lamda            l
+ mu               m
+ nu               n
+ ksi              c
+ omicron          o
+ pi               p
+ rho              r
+ sigma            s (both -- no distinction in our coding for final sigma)
+ tau              t
+ upsilon          u
+ phi              f
+ chi              x
+ psi              y
+ omega            w
+
+ smooth breathing )
+ rough breathing  (
+ iota subscript   |
+
+ acute accent     /
+ grave accent     \
+ circumflex acc.  ^
+ diaeresis        +
+ midpoint punct.  :         
+ dash      -
+ 
+ Note that for capital vowel letters the  breathing and/or accent 
+ precedes rather than follows.
+
+-end of file-
