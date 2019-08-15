@@ -364,11 +364,11 @@ tropon 5158 {N-ASM} prwton 4412 {ADV-S} men 3303 {PRT} gar 1063
 pistin 4102 {N-ASF} tou 3588 {T-GSM} qeou 2316 {N-GSM} katarghsei
 2673 5692 {V-FAI-3S}
 
-     3:4 mh 3361 {PRT-N} genoito 1096 5636 {V-2ADO-3S} ginesqw 1096
-5737 {V-PNM-3S} de 1161 {CONJ} o 3588 {T-NSM} qeov 2316 {N-NSM} alhqhv
-227 {A-NSM} pav 3956 {A-NSM} de 1161 {CONJ} anqrwpov 444 {N-NSM}
-yeusthv 5583 {N-NSM} kaqwv 2531 {ADV} gegraptai 1125 5769 {V-RPI-3S}
-opwv 3704 {ADV} an 302 {PRT} dikaiwqhv 1344 5686 {V-APS-2S} en 1722
+     3:4 mh 3361 {PRT-N} genoito 1096 5636 {V-2ADO-3S} ginesqw 1096 
+5737 {V-PNM-3S} de 1161 {CONJ} o 3588 {T-NSM} qeov 2316 {N-NSM} alhqhv 
+227 {A-NSM} pav 3956 {A-NSM} de 1161 {CONJ} anqrwpov 444 {N-NSM} 
+yeusthv 5583 {N-NSM} kaqwv 2531 {ADV} gegraptai 1125 5769 {V-RPI-3S} 
+opwv 3704 {ADV} an 302 {PRT} dikaiwqhv 1344 5686 {V-APS-2S} en 1722 
 {PREP} toiv 3588 {T-DPM} logoiv 3056 {N-DPM} sou 4771 {P-2GS} kai 2532 
 {CONJ} | nikhshv 3528 5661 {V-AAS-2S} | <nikhshv> 3528 5661 {V-AAS-2S} 
 VAR: nikhseiv 3528 5692 {V-FAI-2S} :END | en 1722 {PREP} tw 3588
@@ -646,7 +646,7 @@ logizesqai 3049 5745 {V-PPN} toiv 3588 {T-DPM} pisteuousin 4100
 kai 2532 {CONJ} hgerqh 1453 5681 {V-API-3S} dia 1223 {PREP} thn
 3588 {T-ASF} dikaiwsin 1347 {N-ASF} hmwn 1473 {P-1GP}
 
-     5:1 dikaiwqentev 1344 5685 {V-APP-NPM} oun 3767 {CONJ} ek 1537
+     5:1 dikaiwqentev 1344 5685 {V-APP-NPM} oun 3767 {CONJ} ek 1537 
 {PREP} pistewv 4102 {N-GSF} eirhnhn 1515 {N-ASF} | ecomen 2192 5719
 {V-PAI-1P} | <ecomen> 2192 5719 {V-PAI-1P} VAR: ecwmen 2192 5725
 {V-PAS-1P} :END | prov 4314 {PREP} ton 3588 {T-ASM} qeon 2316 {N-ASM}
@@ -1286,9 +1286,9 @@ hmin 1473 {P-1DP} carisetai 5483 5695 {V-FDI-3S}
      8:34 tiv 5101 {I-NSM} o 3588 {T-NSM} katakrinwn 2632 5723
 {V-PAP-NSM} cristov 5547 {N-NSM} o 3588 {T-NSM}
 apoqanwn 599 5631 {V-2AAP-NSM} mallon 3123 {ADV} de 1161 {CONJ}
-kai 2532 {CONJ} egerqeiv 1453 5685 {V-APP-NSM} ov 3739 {R-NSM}
+kai 2532 {CONJ} egerqeiv 1453 5685 {V-APP-NSM} ov 3739 {R-NSM} 
 kai 2532 {CONJ} estin 1510 5719 {V-PAI-3S} en 1722 {PREP} dexia
-1188 {A-DSF} tou 3588 {T-GSM} qeou 2316 {N-GSM} ov 3739 {R-NSM}
+1188 {A-DSF} tou 3588 {T-GSM} qeou 2316 {N-GSM} ov 3739 {R-NSM} 
 kai 2532 {CONJ} entugcanei 1793 5719 {V-PAI-3S} uper 5228 {PREP} 
 hmwn 1473 {P-1GP}
      8:35 tiv 5101 {I-NSM} hmav 1473 {P-1AP} cwrisei 5563 5692
@@ -1378,7 +1378,7 @@ enov 1520 {A-GSM} koithn 2845 {N-ASF} ecousa 2192 5723
 {V-APP-GPM} mhde 3366 {CONJ-N} praxantwn 4238 5660 {V-AAP-GPM} ti
 5100 {X-ASN} agaqon 18 {A-ASN} h 2228 {PRT} kakon 2556 {A-ASN}
 ina 2443 {CONJ} h 3588 {T-NSF} kat 2596 {PREP} ekloghn 1589
-{N-ASF} proqesiv 4286 {N-NSF} tou 3588 {T-GSM} qeou 2316 {N-GSM}
+{N-ASF} proqesiv 4286 {N-NSF} tou 3588 {T-GSM} qeou 2316 {N-GSM} 
 menh 3306 5725 {V-PAS-3S} ouk 3756 {PRT-N} ex 1537 {PREP} 
 ergwn 2041 {N-GPN} all 235 {CONJ} ek 1537 {PREP} tou 3588 {T-GSM} 
 kalountov 2564 5723 {V-PAP-GSM}
@@ -1844,16 +1844,16 @@ agian 40 {A-ASF} euareston 2101 {A-ASF} tw 3588 {T-DSM} qew 2316
 {N-DSM} thn 3588 {T-ASF} logikhn 3050 {A-ASF} latreian 2999
 {N-ASF} umwn 4771 {P-2GP}
 
-     12:2 kai 2532 {CONJ} mh 3361 {PRT-N} | suschmatizesqai 4964 5733
-{V-PMN} | <suschmatizesqai> 4964 5733 {V-PMN} VAR: suschmatizesqe 4964
+     12:2 kai 2532 {CONJ} mh 3361 {PRT-N} | suschmatizesqai 4964 5733 
+{V-PMN} | <suschmatizesqai> 4964 5733 {V-PMN} VAR: suschmatizesqe 4964 
 5732 {V-PMM-2P} :END | tw 3588 {T-DSM} aiwni 165 {N-DSM} toutw 3778
 {D-DSM} alla 235 {CONJ} | metamorfousqai 3339 5745 {V-PPN} |
 <metamorfousqai> 3339 5745 {V-PPN} VAR: metamorfousqe 3339 5744
 {V-PPM-2P} :END | th 3588 {T-DSF} anakainwsei 342 {N-DSF} tou 3588
 {T-GSM} noov 3563 {N-GSM} umwn 4771 {P-2GP} eiv 1519 {PREP} to 3588
 {T-ASN} dokimazein 1381 5721 {V-PAN} umav 4771 {P-2AP} ti 5101 {I-NSN} 
-to 3588 {T-NSN} qelhma 2307 {N-NSN} tou 3588 {T-GSM} qeou 2316 {N-GSM}
-to 3588 {T-NSN} agaqon 18 {A-NSN} kai 2532 {CONJ} euareston 2101
+to 3588 {T-NSN} qelhma 2307 {N-NSN} tou 3588 {T-GSM} qeou 2316 {N-GSM} 
+to 3588 {T-NSN} agaqon 18 {A-NSN} kai 2532 {CONJ} euareston 2101 
 {A-NSN} kai 2532 {CONJ} teleion 5046 {A-NSN}
 
      12:3 legw 3004 5719 {V-PAI-1S} gar 1063 {CONJ} dia 1223
