@@ -18,6 +18,16 @@ codes, Strong's numbers, and tense-voice-mood numbers.
 breathings, diarheses, iota subscripts, Byzantine variants, and
 a Nestle-Aland 27 collation.
 
+# Update status?
+
+Versions (1) and (3) were last updated in mid-August, 2019, with
+Dr. Robinson's latest versions of his files.  The date of each file as
+received from Dr. Robinson is stated in the git commit message of the
+given file.
+
+Version (2) has not been updated since 2017.
+
+
 ## Internet addresses?
 
 1. https://www.byzantinetext.com
