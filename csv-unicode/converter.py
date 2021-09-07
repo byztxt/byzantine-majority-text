@@ -62,92 +62,6 @@ def standardise_beta_code(text, drop_variants=True):
         text = re.sub(r'{.+?}', '', text) # See https://stackoverflow.com/a/8784436/6945498
         text = re.sub(' +', ' ', text) # Removing double spaces
     
-    # Moving subscripted iotas (|) to after the character when uppercase
-    iota_dict = {
-        '|A':'A|', 
-        '|B':'B|', 
-        '|G':'G|', 
-        '|D':'D|', 
-        '|E':'E|', 
-        '|V':'V|', 
-        '|Z':'Z|', 
-        '|H':'H|', 
-        '|Q':'Q|', 
-        '|I':'I|', 
-        '|K':'K|', 
-        '|L':'L|', 
-        '|M':'M|', 
-        '|N':'N|', 
-        '|C':'C|', 
-        '|O':'O|', 
-        '|P':'P|', 
-        '|R':'R|', 
-        '|S':'S|', 
-        '|T':'T|', 
-        '|U':'U|', 
-        '|F':'F|', 
-        '|X':'X|', 
-        '|Y':'Y|', 
-        '|W':'W|',
-    }
-    
-    # Moving accents (\ and /) to after the character when uppercase
-    accents_dict = {
-        '/A':'A/', 
-        '/B':'B/', 
-        '/G':'G/', 
-        '/D':'D/', 
-        '/E':'E/', 
-        '/V':'V/', 
-        '/Z':'Z/', 
-        '/H':'H/', 
-        '/Q':'Q/', 
-        '/I':'I/', 
-        '/K':'K/', 
-        '/L':'L/', 
-        '/M':'M/', 
-        '/N':'N/', 
-        '/C':'C/', 
-        '/O':'O/', 
-        '/P':'P/', 
-        '/R':'R/', 
-        '/S':'S/', 
-        '/T':'T/', 
-        '/U':'U/', 
-        '/F':'F/', 
-        '/X':'X/', 
-        '/Y':'Y/', 
-        '/W':'W/',
-        '\\A':'A\\', 
-        '\\B':'B\\', 
-        '\\G':'G\\', 
-        '\\D':'D\\', 
-        '\\E':'E\\', 
-        '\\V':'V\\', 
-        '\\Z':'Z\\', 
-        '\\H':'H\\', 
-        '\\Q':'Q\\', 
-        '\\I':'I\\', 
-        '\\K':'K\\', 
-        '\\L':'L\\', 
-        '\\M':'M\\', 
-        '\\N':'N\\', 
-        '\\C':'C\\', 
-        '\\O':'O\\', 
-        '\\P':'P\\', 
-        '\\R':'R\\', 
-        '\\S':'S\\', 
-        '\\T':'T\\', 
-        '\\U':'U\\', 
-        '\\F':'F\\', 
-        '\\X':'X\\', 
-        '\\Y':'Y\\', 
-        '\\W':'W\\',
-    }
-    
-    for key,value in accents_dict.items():
-        text = text.replace(key,value)
-    
     
     # Replacing uppercase letters with asterisked letters
     asterisked_dict = {
@@ -184,6 +98,137 @@ def standardise_beta_code(text, drop_variants=True):
     # Replacing carets (^) with equals signs (=)
     text = text.replace("^", "=")
     
+    # Moving subscripted iotas (|) to after the character when uppercase
+    iota_dict = {
+        '|*A':'*A|',
+        '|*B':'*B|', 
+        '|*G':'*G|', 
+        '|*D':'*D|', 
+        '|*E':'*E|', 
+        '|*V':'*V|', 
+        '|*Z':'*Z|', 
+        '|*H':'*H|', 
+        '|*Q':'*Q|', 
+        '|*I':'*I|', 
+        '|*K':'*K|', 
+        '|*L':'*L|', 
+        '|*M':'*M|', 
+        '|*N':'*N|', 
+        '|*C':'*C|', 
+        '|*O':'*O|', 
+        '|*P':'*P|', 
+        '|*R':'*R|', 
+        '|*S':'*S|', 
+        '|*T':'*T|', 
+        '|*U':'*U|', 
+        '|*F':'*F|', 
+        '|*X':'*X|', 
+        '|*Y':'*Y|', 
+        '|*W':'*W|',
+    }
+    
+    for key,value in iota_dict.items():
+        text = text.replace(key,value)
+    
+        
+    # Moving accents (\, = and /) to after the star when uppercase
+    accents_dict = {
+        '/*A':'*/A',
+        '\*A':'*\A',
+        '=*A':'*=A',
+        '/*B':'*/B',
+        '\*B':'*\B',
+        '=*B':'*=B',
+        '/*G':'*/G',
+        '\*G':'*\G',
+        '=*G':'*=G',
+        '/*D':'*/D',
+        '\*D':'*\D',
+        '=*D':'*=D',
+        '/*E':'*/E',
+        '\*E':'*\E',
+        '=*E':'*=E',
+        '/*V':'*/V',
+        '\*V':'*\V',
+        '=*V':'*=V',
+        '/*Z':'*/Z',
+        '\*Z':'*\Z',
+        '=*Z':'*=Z',
+        '/*H':'*/H',
+        '\*H':'*\H',
+        '=*H':'*=H',
+        '/*Q':'*/Q',
+        '\*Q':'*\Q',
+        '=*Q':'*=Q',
+        '/*I':'*/I',
+        '\*I':'*\I',
+        '=*I':'*=I',
+        '/*K':'*/K',
+        '\*K':'*\K',
+        '=*K':'*=K',
+        '/*L':'*/L',
+        '\*L':'*\L',
+        '=*L':'*=L',
+        '/*M':'*/M',
+        '\*M':'*\M',
+        '=*M':'*=M',
+        '/*N':'*/N',
+        '\*N':'*\A',
+        '=*N':'*=N',
+        '/*C':'*/C',
+        '\*C':'*\C',
+        '=*C':'*=C',
+        '/*O':'*/O',
+        '\*O':'*\O',
+        '=*O':'*=O',
+        '/*P':'*/P',
+        '\*P':'*\P',
+        '=*P':'*=P',
+        '/*R':'*/R',
+        '\*R':'*\R',
+        '=*R':'*=R',
+        '/*S':'*/S',
+        '\*S':'*\S',
+        '=*S':'*=S',
+        '/*T':'*/T',
+        '\*T':'*\T',
+        '=*T':'*=T',
+        '/*U':'*/U',
+        '\*U':'*\\U',
+        '=*U':'*=U',
+        '/*F':'*/F',
+        '\*F':'*\F',
+        '=*F':'*=F',
+        '/*X':'*/X',
+        '\*X':'*\X',
+        '=*X':'*=X',
+        '/*Y':'*/Y',
+        '\*Y':'*\Y',
+        '=*Y':'*=Y',
+        '/*W':'*/W',
+        '\*W':'*\W',
+        '=*W':'*=W',
+    }
+    
+    for key,value in accents_dict.items():
+        text = text.replace(key,value)
+    
+    # Moving breathings ( ( and ) ) to after the star when uppercase
+    breathings_dict = {
+        '(/*':'*(/',
+        ')/*':'*)/',
+        '(\*':'*(\\',
+        ')\*':'*)\\',
+        '(=*':'*(=',
+        ')=*':'*)=',
+        '(*':'*(',
+        ')*':'*)',
+    }
+    
+    for key,value in breathings_dict.items():
+        text = text.replace(key,value)
+    
+    
     # Removing leading and trailing spaces
     text = text.strip()
     
@@ -214,7 +259,7 @@ def convert_book(path, drop_variants, book):
         beta_line = standardise_beta_code(clean_line, drop_variants)
         unicode_line = convert_beta_to_unicode(beta_line)
         result.append([chap, verse, unicode_line])
-        #print(chap, verse, beta_line, unicode_line)
+        #print("     ",chap, verse, beta_line, unicode_line)
     
     # Converting to DataFrame and fixing the table format
     result = pd.DataFrame(result)
