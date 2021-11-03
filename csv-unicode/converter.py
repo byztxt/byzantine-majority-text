@@ -241,7 +241,13 @@ def convert_beta_to_unicode(beta):
     This function makes use of the beta_code_to_greek()
     function from the beta-code package.
     """
-    unicode_result = beta_code.beta_code_to_greek(beta)
+    word_tokenised_beta = beta.split(" ")
+    for i in range(0,len(word_tokenised_beta)):
+        if word_tokenised_beta[i][-2:] == "s]": # So that final sigmas that come before ] are properly converted (not made into medial sigmas)
+            word_tokenised_beta[i] = word_tokenised_beta[i].replace("]", " ]")
+    beta_line = " ".join(word_tokenised_beta)
+    unicode_result = beta_code.beta_code_to_greek(beta_line)
+    unicode_result = unicode_result.replace(" ]", "]") # Removing the auxiliary space we added for the sigmas
     return unicode_result
 
 def convert_book(path, drop_variants, book):
