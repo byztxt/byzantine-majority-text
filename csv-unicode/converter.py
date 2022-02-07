@@ -48,6 +48,9 @@ def standardise_beta_code(text, drop_variants=True):
     It also requires that uppercase Greek letters
     begin with an asterisk, which Prof. Robinson's text doesn't do.
     
+    It also requires that Dialytika and Tonos (/+) or Dialytika and Varia (\+) are written with the
+    slash before the plus sign, while Prof. Robinson's text puts the plus first.
+    
     Circumflex accents are represented with the = sign in the beta-code library,
     while Prof. Robinson's text represents them with the character ^
     
@@ -94,6 +97,10 @@ def standardise_beta_code(text, drop_variants=True):
     
     for key,value in asterisked_dict.items():
         text = text.replace(key,value)
+    
+    # Swapping the order of plus (+) followed by slash (/ or \)
+    text = text.replace('+/', '/+')
+    text = text.replace('+\\', '\\+')
     
     # Replacing carets (^) with equals signs (=)
     text = text.replace("^", "=")
