@@ -7,7 +7,7 @@ texts with morphological parsing and Strong's numbers.
 This repo contains the Robinson-Pierpont edition of the Greek New
 Testament in the Original Greek, Byzantine Majority Text.
 
-Three versions are available:
+Four versions are available:
 
 1. A parsed version in Online Bible format with morphological parsing
 codes, Strong's numbers, and tense-voice-mood numbers.
@@ -17,6 +17,9 @@ codes, Strong's numbers, and tense-voice-mood numbers.
 3. A "text only" version in something akin to BETA Code, with accents,
 breathings, diarheses, iota subscripts, Byzantine variants, and
 a Nestle-Aland 27 collation.
+
+4. A Unicode version of the BETA Code files. This version can be found in the `csv-unicode`
+folder (see the `README` file there for more information.)
 
 # Update status?
 
