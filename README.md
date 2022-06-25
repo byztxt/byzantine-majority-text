@@ -1,11 +1,14 @@
-# byzantine-majority-text
+# The New Testament in the original Greek: Byzantine textform
+
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/ByzTxt/byzantine-majority-text?style=for-the-badge)
+
 ## What is this?
 
-This is the official GitHub home for Dr. Maurice A. Robinson's Greek
+This is the official GitHub home for [Dr. Maurice A. Robinson](https://en.wikipedia.org/wiki/Maurice_A._Robinson)'s Greek
 texts with morphological parsing and Strong's numbers.
 
 This repo contains the Robinson-Pierpont edition of the Greek New
-Testament in the Original Greek, Byzantine Majority Text.
+Testament in the Original Greek, Byzantine Majority Text. The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/).
 
 Four versions are available:
 
@@ -30,12 +33,12 @@ given file.
 
 Version (2) has not been updated since 2017.
 
-
 ## Internet addresses?
 
-1. https://www.byzantinetext.com
+1. [https://www.byzantinetext.com](https://www.byzantinetext.com)
 
-2. https://github.com/byztxt/
+2. [https://github.com/byztxt/](https://github.com/byztxt/
+)
 
 ## License?
 
@@ -56,9 +59,7 @@ Yes.
 1. Dr. Robinson sometimes sends updates to Ulrik.
 
 2. Should you find any errors, please inform Ulrik via email or a
-Github pull request.  Ulrik will then correspond with Dr. Robinson to
-resolve any issues in his upstream version, and then publish a new
-drop here.
+Github issue or pull request. Ulrik will then correspond with Dr. Robinson to resolve any issues in his upstream version, and then publish a new drop here.
 
 
 ## Contact?
