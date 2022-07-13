@@ -53,6 +53,8 @@ def standardise_beta_code(text, drop_variants=True):
     It also requires that Dialytika and Tonos (/+) or Dialytika and Varia (\+) are written with the
     slash before the plus sign, while Prof. Robinson's text puts the plus first.
 
+    It also requires that the characters |/ are reversed, that is, like this: /|
+
     Circumflex accents are represented with the = sign in the beta-code library,
     while Prof. Robinson's text represents them with the character ^
 
@@ -105,6 +107,9 @@ def standardise_beta_code(text, drop_variants=True):
     text = text.replace("+/", "/+")
     text = text.replace("+\\", "\\+")
 
+    # Swapping the order of pipe followed by slash (|/)
+    text = text.replace("|/", "/|")
+
     # Replacing carets (^) with equals signs (=)
     text = text.replace("^", "=")
 
@@ -140,7 +145,7 @@ def standardise_beta_code(text, drop_variants=True):
     for key, value in iota_dict.items():
         text = text.replace(key, value)
 
-    # Moving accents (\, = and /) to after the star when uppercase
+    # Moving accents (\, =, and /) to after the star when uppercase
     accents_dict = {
         "/*A": "*/A",
         "\*A": "*\A",

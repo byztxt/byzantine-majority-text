@@ -1,2 +1,2 @@
-pandas
-beta-code
+pandas==1.4.2
+beta-code==1.0.0
