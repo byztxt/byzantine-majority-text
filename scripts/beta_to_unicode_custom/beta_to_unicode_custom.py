@@ -4,6 +4,7 @@
 import beta_code
 import re
 
+
 def standardise_beta_code(text, drop_variants=True):
     """
     Pre-process the beta code to make it compatible with the beta-code library.

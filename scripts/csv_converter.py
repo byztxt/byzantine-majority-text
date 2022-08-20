@@ -9,11 +9,11 @@ import os
 import beta_to_unicode_custom.beta_to_unicode_custom as buc
 
 # Creating the CSV folders
-if not os.path.exists('../csv-unicode/no-variants'):
-    os.makedirs('../csv-unicode/no-variants')
-    
-if not os.path.exists('../csv-unicode/with-variants'):
-    os.makedirs('../csv-unicode/with-variants')
+if not os.path.exists("../csv-unicode/no-variants"):
+    os.makedirs("../csv-unicode/no-variants")
+
+if not os.path.exists("../csv-unicode/with-variants"):
+    os.makedirs("../csv-unicode/with-variants")
 
 
 def extract_verse_chapter(line):
@@ -44,6 +44,7 @@ def extract_verse_chapter(line):
     clean_line = re.sub(chap_verse_patt, "", line).strip()
 
     return chap, verse, clean_line
+
 
 def convert_book(path, drop_variants, book):
     """
