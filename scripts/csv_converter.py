@@ -8,12 +8,22 @@ import pandas as pd
 import os
 import beta_to_unicode_custom.beta_to_unicode_custom as buc
 
-# Creating the CSV folders
-if not os.path.exists("../csv-unicode/no-variants"):
-    os.makedirs("../csv-unicode/no-variants")
+################################
+################################
+##### VERSION WITH ACCENTS #####
+################################
+################################
 
-if not os.path.exists("../csv-unicode/with-variants"):
-    os.makedirs("../csv-unicode/with-variants")
+# Creating the CSV folders
+
+path_accents_no_variants = "../csv-unicode/no-variants"
+path_accents_with_variants = "../csv-unicode/with-variants"
+
+if not os.path.exists(path_accents_no_variants):
+    os.makedirs(path_accents_no_variants)
+
+if not os.path.exists(path_accents_with_variants):
+    os.makedirs(path_accents_with_variants)
 
 
 def extract_verse_chapter(line):
@@ -72,9 +82,9 @@ def convert_book(path, drop_variants, book):
 
     # Saving to disk
     if drop_variants:
-        save_to = "../csv-unicode/no-variants/" + book + ".csv"
+        save_to = path_accents_no_variants + "/" + book + ".csv"
     else:
-        save_to = "../csv-unicode/with-variants/" + book + ".csv"
+        save_to = path_accents_with_variants + "/" + book + ".csv"
     result.to_csv(save_to, index=False)
 
 
