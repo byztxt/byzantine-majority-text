@@ -5,6 +5,14 @@
 import beta_code
 import re
 import pandas as pd
+import os
+
+# Creating the CSV folders
+if not os.path.exists('../csv-unicode/no-variants'):
+    os.makedirs('../csv-unicode/no-variants')
+    
+if not os.path.exists('../csv-unicode/with-variants'):
+    os.makedirs('../csv-unicode/with-variants')
 
 
 def extract_verse_chapter(line):
@@ -296,9 +304,9 @@ def convert_book(path, drop_variants, book):
 
     # Saving to disk
     if drop_variants:
-        save_to = "no-variants/" + book + ".csv"
+        save_to = "../csv-unicode/no-variants/" + book + ".csv"
     else:
-        save_to = "with-variants/" + book + ".csv"
+        save_to = "../csv-unicode/with-variants/" + book + ".csv"
     result.to_csv(save_to, index=False)
 
 
