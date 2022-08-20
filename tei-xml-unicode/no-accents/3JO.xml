@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TEI [
+<!-- entities used in individual transcriptions will be defined here -->
+]>
+<?xml-model href="TEI-NTMSS.rng" type="application/xml" 
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xml:id="Byz" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>The New Testament in the Original Greek: The Byzantine Textform</title>
+                <title type="collection" level="s" xml:lang="en">The New Testament</title>
+				<title type="work" level="m" xml:lang="en" n="25">Third John</title>
+				<title type="short" level="m" xml:lang="en" n="25">3JO</title>                
+                <respStmt>
+                    <resp>Created by</resp><name>Maurice A. Robinson and William Pierpont</name>
+                </respStmt>
+            </titleStmt> 
+        <editionStmt>
+            <edition n="2016">Last updated (XML version) <date>24.8.2022</date></edition>
+        </editionStmt>
+        <publicationStmt>
+            <availability><p>This file is in the Public Domain</p></availability>
+        </publicationStmt>
+        <sourceDesc>
+            <msDesc>
+            <msIdentifier>
+                <country>United States of America</country>
+                <msName xml:lang="en">The New Testament in the Original Greek: The Byzantine Textform</msName>
+                <altIdentifier type="Byz"></altIdentifier>
+            </msIdentifier>
+            </msDesc>
+        </sourceDesc>
+        </fileDesc>
+        <encodingDesc n="1.5">
+            <editorialDecl>
+                <p>The initial transcription file was a set of plain text files, later converted to XML. Further information about the procedures followed may be found in the electronic edition at <ptr target="https://github.com/byztxt/byzantine-majority-text/"/></p>
+                <p>The XML specifications used were version 1.5 of the IGNTP Guidelines available at <ptr target="http://epapers.bham.ac.uk/1892/"/></p>
+            </editorialDecl> 
+            <variantEncoding method="parallel-segmentation" location="internal"/>
+        </encodingDesc>
+    </teiHeader>
+    <text xml:lang="grc">
+        <body>
+			<div type="book" n="B25">
+				<div type="chapter" n="B25K1">
+					<ab n="B25K1V1">
+						<w>ο</w>
+						<w>πρεσβυτερος</w>
+						<w>γαιω</w>
+						<w>τω</w>
+						<w>αγαπητω</w>
+						<w>ον</w>
+						<w>εγω</w>
+						<w>αγαπω</w>
+						<w>εναληψεια</w>
+					</ab>
+					<ab n="B25K1V2">
+						<w>αγαπητε</w>
+						<w>περι</w>
+						<w>παντων</w>
+						<w>ευξομαι</w>
+						<w>σε</w>
+						<w>ευοδουσψαι</w>
+						<w>καιυγιαινειν</w>
+						<w>καψως</w>
+						<w>ευοδουται</w>
+						<w>σου</w>
+						<w>η</w>
+						<w>θυξη</w>
+					</ab>
+					<ab n="B25K1V3">
+						<w>εξαρην</w>
+						<w>γαρ</w>
+						<w>λιαν</w>
+						<w>ερξομενων</w>
+						<w>αδελφων</w>
+						<w>και</w>
+						<w>μαρτυρουντωνσου</w>
+						<w>τη</w>
+						<w>αληψεια</w>
+						<w>καψως</w>
+						<w>συ</w>
+						<w>εν</w>
+						<w>αληψεια</w>
+						<w>περιπατεις</w>
+					</ab>
+					<ab n="B25K1V4">
+						<w>μειζοτεραν</w>
+						<w>τουτων</w>
+						<w>ουκ</w>
+						<w>εξω</w>
+						<w>ξαραν</w>
+						<w>ινα</w>
+						<w>ακουω</w>
+						<w>τα</w>
+						<w>εματεκνα</w>
+						<w>εν</w>
+						<w>αληψεια</w>
+						<w>περιπατουντα</w>
+					</ab>
+					<ab n="B25K1V5">
+						<w>αγαπητε</w>
+						<w>πιστον</w>
+						<w>ποιεις</w>
+						<w>ο</w>
+						<w>εαν</w>
+						<w>εργαση</w>
+						<w>εις</w>
+						<w>τουσαδελφους</w>
+						<w>και</w>
+						<w>εις</w>
+						<w>τους</w>
+						<w>χενους</w>
+					</ab>
+					<ab n="B25K1V6">
+						<w>οι</w>
+						<w>εμαρτυρησαν</w>
+						<w>σου</w>
+						<w>τη</w>
+						<w>αγαπη</w>
+						<w>ενωπιον</w>
+						<w>εκκλησιας</w>
+						<w>ουσκαλως</w>
+						<w>ποιησεις</w>
+						<w>προπεμθας</w>
+						<w>αχιως</w>
+						<w>του</w>
+						<w>ψεου</w>
+					</ab>
+					<ab n="B25K1V7">
+						<w>υπερ</w>
+						<w>γαρ</w>
+						<w>του</w>
+						<w>ονοματος</w>
+						<w>εχηλψον</w>
+						<w>μηδεν</w>
+						<w>λαμβανοντεσαπο</w>
+						<w>των</w>
+						<w>εψνων</w>
+					</ab>
+					<ab n="B25K1V8">
+						<w>ημεις</w>
+						<w>ουν</w>
+						<w>οφειλομεν</w>
+						<w>απολαμβανειν</w>
+						<w>τους</w>
+						<w>τοιουτουσινα</w>
+						<w>συνεργοι</w>
+						<w>γινωμεψα</w>
+						<w>τη</w>
+						<w>αληψεια</w>
+					</ab>
+					<ab n="B25K1V9">
+						<w>εγραθα</w>
+						<w>τη</w>
+						<w>εκκλησια</w>
+						<w>αλλ</w>
+						<w>ο</w>
+						<w>φιλοπρωτευων</w>
+						<w>αυτωνδιοτρεφης</w>
+						<w>ουκ</w>
+						<w>επιδεξεται</w>
+						<w>ημας</w>
+					</ab>
+					<ab n="B25K1V10">
+						<w>δια</w>
+						<w>τουτο</w>
+						<w>εαν</w>
+						<w>ελψω</w>
+						<w>υπομνησω</w>
+						<w>αυτου</w>
+						<w>τα</w>
+						<w>εργα</w>
+						<w>α</w>
+						<w>ποιειλογοις</w>
+						<w>πονηροις</w>
+						<w>φλυαρων</w>
+						<w>ημας</w>
+						<w>και</w>
+						<w>μη</w>
+						<w>αρκουμενος</w>
+						<w>επι</w>
+						<w>τουτοισουτε</w>
+						<w>αυτος</w>
+						<w>επιδεξεται</w>
+						<w>τους</w>
+						<w>αδελφους</w>
+						<w>και</w>
+						<w>τους</w>
+						<w>βουλομενουσκωλυει</w>
+						<w>και</w>
+						<w>εκ</w>
+						<w>της</w>
+						<w>εκκλησιας</w>
+						<w>εκβαλλει</w>
+					</ab>
+					<ab n="B25K1V11">
+						<w>αγαπητε</w>
+						<w>μη</w>
+						<w>μιμου</w>
+						<w>το</w>
+						<w>κακον</w>
+						<w>αλλα</w>
+						<w>το</w>
+						<w>αγαψον</w>
+						<w>οαγαψοποιων</w>
+						<w>εκ</w>
+						<w>του</w>
+						<w>ψεου</w>
+						<w>εστιν</w>
+						<w>ο</w>
+						<w>κακοποιων</w>
+						<w>ουξ</w>
+						<w>εωρακεν</w>
+						<w>τονψεον</w>
+					</ab>
+					<ab n="B25K1V12">
+						<w>δημητριω</w>
+						<w>μεμαρτυρηται</w>
+						<w>υπο</w>
+						<w>παντων</w>
+						<w>και</w>
+						<w>υπ</w>
+						<w>αυτης</w>
+						<w>τησαληψειας</w>
+						<w>και</w>
+						<w>ημεις</w>
+						<w>δε</w>
+						<w>μαρτυρουμεν</w>
+						<w>και</w>
+						<w>οιδατε</w>
+						<w>οτι</w>
+						<w>η</w>
+						<w>μαρτυριαημων</w>
+						<w>αληψης</w>
+						<w>εστιν</w>
+					</ab>
+					<ab n="B25K1V13">
+						<w>πολλα</w>
+						<w>ειξον</w>
+						<w>γραφειν</w>
+						<w>αλλ</w>
+						<w>ου</w>
+						<w>ψελω</w>
+						<w>δια</w>
+						<w>μελανος</w>
+						<w>καικαλαμου</w>
+						<w>σοι</w>
+						<w>γραθαι</w>
+					</ab>
+					<ab n="B25K1V14">
+						<w>ελπιζω</w>
+						<w>δε</w>
+						<w>ευψεως</w>
+						<w>ιδειν</w>
+						<w>σε</w>
+						<w>και</w>
+						<w>στομα</w>
+						<w>προς</w>
+						<w>στομαλαλησομεν</w>
+						<w>ειρηνη</w>
+						<w>σοι</w>
+						<w>ασπαζονται</w>
+						<w>σε</w>
+						<w>οι</w>
+						<w>φιλοι</w>
+						<w>ασπαζου</w>
+						<w>τουσφιλους</w>
+						<w>κατ</w>
+						<w>ονομα</w>
+					</ab>
+				</div>
+			</div>
+		</body>
+	</text>
+</TEI>

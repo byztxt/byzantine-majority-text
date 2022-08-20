@@ -236,3 +236,15 @@ def convert_beta_to_unicode(beta):
         "  ]", "]"
     )  # Removing the auxiliary spaces we added for the sigmas
     return unicode_result
+
+
+def convert_asc_to_unicode(text):
+    """
+    Pre-process Professor Robinson's ASC to make it compatible with the beta-code library.
+
+    We use that library to do the actual conversion.
+    You can find more information here: https://github.com/perseids-tools/beta-code-py
+    """
+    text = text.replace("v", "s")
+    text = beta_code.beta_code_to_greek(text)
+    return text
