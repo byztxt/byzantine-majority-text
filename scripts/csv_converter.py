@@ -15,9 +15,8 @@ import beta_to_unicode_custom.beta_to_unicode_custom as buc
 ################################
 
 # Creating the CSV folders
-
-path_accents_no_variants = "../csv-unicode/no-variants"
-path_accents_with_variants = "../csv-unicode/with-variants"
+path_accents_no_variants = "../csv-unicode/accents/no-variants"
+path_accents_with_variants = "../csv-unicode/accents/with-variants"
 
 if not os.path.exists(path_accents_no_variants):
     os.makedirs(path_accents_no_variants)
@@ -148,3 +147,22 @@ print(
 )
 convert_all_books_to_unicode(drop_variants=True)
 print("Done.")
+
+
+###################################
+###################################
+##### VERSION WITHOUT ACCENTS #####
+###################################
+###################################
+
+
+# Creating the CSV folders
+path_no_accents_no_variants = "../csv-unicode/no-accents/no-variants"
+path_no_accents_with_variants = "../csv-unicode/no-accents/with-variants"
+
+if not os.path.exists(path_no_accents_no_variants):
+    os.makedirs(path_no_accents_no_variants)
+
+if not os.path.exists(path_accents_with_variants):
+    os.makedirs(path_accents_with_variants)
+
