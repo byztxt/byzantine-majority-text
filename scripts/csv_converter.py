@@ -174,7 +174,7 @@ def make_one_verse_one_line(book_text):
 
     In the original .ASC files, each verse can take several lines.
     """
-    book_text = book_text.replace("\n", "")
+    book_text = book_text.replace("\n", " ")
     separator = "     "  # Verses are all preceded by this in the original .ASC files
     separated_list = book_text.split(separator)  # Splitting the text into a list
     separated_list = [

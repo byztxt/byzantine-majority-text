@@ -246,5 +246,12 @@ def convert_asc_to_unicode(text):
     You can find more information here: https://github.com/perseids-tools/beta-code-py
     """
     text = text.replace("v", "s")
+    text = text.replace("y", "q")
+    
+    # This part is tricky. We need to replace c with x and viceverse
+    # We add a temporary character to help us with that
+    text = text.replace("c", "j") # j is the auxiliary character
+    text = text.replace("x", "c")
+    text = text.replace("j", "x") # Removing the auxiliary character
     text = beta_code.beta_code_to_greek(text)
     return text
