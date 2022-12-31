@@ -196,7 +196,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πορνοις</w>
 						<w>αρσενοκοιταις</w>
 						<w>ανδραποδισταις</w>
-						<w>θευσταις</w>
+						<w>ψευσταις</w>
 						<w>επιορκοις</w>
 						<w>και</w>
 						<w>ει</w>
@@ -494,7 +494,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εν</w>
 						<w>χριστω</w>
 						<w>ου</w>
-						<w>θευδομαι</w>
+						<w>ψευδομαι</w>
 						<w>διδασκαλος</w>
 						<w>εθνων</w>
 						<w>εν</w>
@@ -885,7 +885,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B15K4V2">
 						<w>εν</w>
 						<w>υποκρισει</w>
-						<w>θευδολογων</w>
+						<w>ψευδολογων</w>
 						<w>κεκαυτηριασμενων</w>
 						<w>την</w>
 						<w>ιδιαν</w>
@@ -901,7 +901,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεος</w>
 						<w>εκτισεν</w>
 						<w>εις</w>
-						<w>μεταληθιν</w>
+						<w>μεταληψιν</w>
 						<w>μετα</w>
 						<w>ευχαριστιας</w>
 						<w>τοις</w>
@@ -1259,7 +1259,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ει</w>
 						<w>αγιων</w>
 						<w>ποδας</w>
-						<w>ενιθεν</w>
+						<w>ενιψεν</w>
 						<w>ει</w>
 						<w>θλιβομενοις</w>
 						<w>επηρκεσεν</w>
@@ -1827,7 +1827,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αιωνι</w>
 						<w>παραγγελλε</w>
 						<w>μη</w>
-						<w>υθηλοφρονειν</w>
+						<w>υψηλοφρονειν</w>
 						<w>μηδε</w>
 						<w>ηλπικεναι</w>
 						<w>επι</w>
@@ -1884,7 +1884,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>αντιθεσεις</w>
 						<w>της</w>
-						<w>θευδωνυμου</w>
+						<w>ψευδωνυμου</w>
 						<w>γνωσεως</w>
 					</ab>
 					<ab n="B15K6V21">

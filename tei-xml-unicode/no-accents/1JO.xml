@@ -62,7 +62,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αι</w>
 						<w>χειρες</w>
 						<w>ημων</w>
-						<w>εθηλαφησαν</w>
+						<w>εψηλαφησαν</w>
 						<w>περι</w>
 						<w>του</w>
 						<w>λογου</w>
@@ -176,7 +176,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τω</w>
 						<w>σκοτει</w>
 						<w>περιπατωμεν</w>
-						<w>θευδομεθα</w>
+						<w>ψευδομεθα</w>
 						<w>και</w>
 						<w>ου</w>
 						<w>ποιουμεν</w>
@@ -259,7 +259,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οτι</w>
 						<w>ουχ</w>
 						<w>ημαρτηκαμεν</w>
-						<w>θευστην</w>
+						<w>ψευστην</w>
 						<w>ποιουμεν</w>
 						<w>αυτον</w>
 						<w>και</w>
@@ -342,7 +342,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αυτου</w>
 						<w>μη</w>
 						<w>τηρων</w>
-						<w>θευστης</w>
+						<w>ψευστης</w>
 						<w>εστιν</w>
 						<w>και</w>
 						<w>εν</w>
@@ -547,7 +547,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πατερα</w>
 					</ab>
 					<ab n="B23K2V14">
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>υμιν</w>
 						<w>πατερες</w>
 						<w>οτι</w>
@@ -555,7 +555,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τον</w>
 						<w>απ</w>
 						<w>αρχης</w>
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>υμιν</w>
 						<w>νεανισκοι</w>
 						<w>οτι</w>
@@ -717,7 +717,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B23K2V21">
 						<w>ουκ</w>
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>υμιν</w>
 						<w>οτι</w>
 						<w>ουκ</w>
@@ -731,7 +731,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>οτι</w>
 						<w>παν</w>
-						<w>θευδος</w>
+						<w>ψευδος</w>
 						<w>εκ</w>
 						<w>της</w>
 						<w>αληθειας</w>
@@ -742,7 +742,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τις</w>
 						<w>εστιν</w>
 						<w>ο</w>
-						<w>θευστης</w>
+						<w>ψευστης</w>
 						<w>ει</w>
 						<w>μη</w>
 						<w>ο</w>
@@ -822,7 +822,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B23K2V26">
 						<w>ταυτα</w>
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>υμιν</w>
 						<w>περι</w>
 						<w>των</w>
@@ -864,7 +864,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>ουκ</w>
 						<w>εστιν</w>
-						<w>θευδος</w>
+						<w>ψευδος</w>
 						<w>και</w>
 						<w>καθως</w>
 						<w>εδιδαξεν</w>
@@ -958,7 +958,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αυτω</w>
 						<w>εσομεθα</w>
 						<w>οτι</w>
-						<w>οθομεθα</w>
+						<w>οψομεθα</w>
 						<w>αυτον</w>
 						<w>καθως</w>
 						<w>εστιν</w>
@@ -1250,7 +1250,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υπερ</w>
 						<w>ημων</w>
 						<w>την</w>
-						<w>θυχην</w>
+						<w>ψυχην</w>
 						<w>αυτου</w>
 						<w>εθηκεν</w>
 						<w>και</w>
@@ -1260,7 +1260,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>των</w>
 						<w>αδελφων</w>
 						<w>τας</w>
-						<w>θυχας</w>
+						<w>ψυχας</w>
 						<w>τιθεναι</w>
 					</ab>
 					<ab n="B23K3V17">
@@ -1453,7 +1453,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εστιν</w>
 						<w>οτι</w>
 						<w>πολλοι</w>
-						<w>θευδοπροφηται</w>
+						<w>ψευδοπροφηται</w>
 						<w>εξεληλυθασιν</w>
 						<w>εις</w>
 						<w>τον</w>
@@ -1892,7 +1892,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αδελφον</w>
 						<w>αυτου</w>
 						<w>μιση</w>
-						<w>θευστης</w>
+						<w>ψευστης</w>
 						<w>εστιν</w>
 						<w>ο</w>
 						<w>γαρ</w>
@@ -2148,7 +2148,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πιστευων</w>
 						<w>τω</w>
 						<w>θεω</w>
-						<w>θευστην</w>
+						<w>ψευστην</w>
 						<w>πεποιηκεν</w>
 						<w>αυτον</w>
 						<w>οτι</w>
@@ -2211,7 +2211,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B23K5V13">
 						<w>ταυτα</w>
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>υμιν</w>
 						<w>τοις</w>
 						<w>πιστευουσιν</w>

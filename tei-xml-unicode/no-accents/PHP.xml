@@ -324,7 +324,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ουχ</w>
 						<w>αγνως</w>
 						<w>οιομενοι</w>
-						<w>θλιθιν</w>
+						<w>θλιψιν</w>
 						<w>επιφερειν</w>
 						<w>τοις</w>
 						<w>δεσμοις</w>
@@ -539,7 +539,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ενι</w>
 						<w>πνευματι</w>
 						<w>μια</w>
-						<w>θυχη</w>
+						<w>ψυχη</w>
 						<w>συναθλουντες</w>
 						<w>τη</w>
 						<w>πιστει</w>
@@ -640,7 +640,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αυτην</w>
 						<w>αγαπην</w>
 						<w>εχοντες</w>
-						<w>συμθυχοι</w>
+						<w>συμψυχοι</w>
 						<w>το</w>
 						<w>εν</w>
 						<w>φρονουντες</w>
@@ -731,7 +731,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ο</w>
 						<w>θεος</w>
 						<w>αυτον</w>
-						<w>υπερυθωσεν</w>
+						<w>υπερυψωσεν</w>
 						<w>και</w>
 						<w>εχαρισατο</w>
 						<w>αυτω</w>
@@ -749,7 +749,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ιησου</w>
 						<w>παν</w>
 						<w>γονυ</w>
-						<w>καμθη</w>
+						<w>καμψη</w>
 						<w>επουρανιων</w>
 						<w>και</w>
 						<w>επιγειων</w>
@@ -909,11 +909,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ιησου</w>
 						<w>τιμοθεον</w>
 						<w>ταχεως</w>
-						<w>πεμθαι</w>
+						<w>πεμψαι</w>
 						<w>υμιν</w>
 						<w>ινα</w>
 						<w>καγω</w>
-						<w>ευθυχω</w>
+						<w>ευψυχω</w>
 						<w>γνους</w>
 						<w>τα</w>
 						<w>περι</w>
@@ -923,7 +923,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ουδενα</w>
 						<w>γαρ</w>
 						<w>εχω</w>
-						<w>ισοθυχον</w>
+						<w>ισοψυχον</w>
 						<w>οστις</w>
 						<w>γνησιως</w>
 						<w>τα</w>
@@ -965,7 +965,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μεν</w>
 						<w>ουν</w>
 						<w>ελπιζω</w>
-						<w>πεμθαι</w>
+						<w>πεμψαι</w>
 						<w>ως</w>
 						<w>αν</w>
 						<w>απιδω</w>
@@ -1005,7 +1005,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>της</w>
 						<w>χρειας</w>
 						<w>μου</w>
-						<w>πεμθαι</w>
+						<w>πεμψαι</w>
 						<w>προς</w>
 						<w>υμας</w>
 					</ab>
@@ -1050,7 +1050,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B11K2V28">
 						<w>σπουδαιοτερως</w>
 						<w>ουν</w>
-						<w>επεμθα</w>
+						<w>επεμψα</w>
 						<w>αυτον</w>
 						<w>ινα</w>
 						<w>ιδοντες</w>
@@ -1088,7 +1088,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ηγγισεν</w>
 						<w>παραβουλευσαμενος</w>
 						<w>τη</w>
-						<w>θυχη</w>
+						<w>ψυχη</w>
 						<w>ινα</w>
 						<w>αναπληρωση</w>
 						<w>το</w>
@@ -1374,7 +1374,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ο</w>
 						<w>θεος</w>
 						<w>υμιν</w>
-						<w>αποκαλυθει</w>
+						<w>αποκαλυψει</w>
 					</ab>
 					<ab n="B11K3V16">
 						<w>πλην</w>
@@ -1741,7 +1741,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>συγκοινωνησαντες</w>
 						<w>μου</w>
 						<w>τη</w>
-						<w>θλιθει</w>
+						<w>θλιψει</w>
 					</ab>
 					<ab n="B11K4V15">
 						<w>οιδατε</w>
@@ -1766,7 +1766,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>λογον</w>
 						<w>δοσεως</w>
 						<w>και</w>
-						<w>ληθεως</w>
+						<w>ληψεως</w>
 						<w>ει</w>
 						<w>μη</w>
 						<w>υμεις</w>
@@ -1785,7 +1785,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>την</w>
 						<w>χρειαν</w>
 						<w>μοι</w>
-						<w>επεμθατε</w>
+						<w>επεμψατε</w>
 					</ab>
 					<ab n="B11K4V17">
 						<w>ουχ</w>

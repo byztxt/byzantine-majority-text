@@ -175,7 +175,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τον</w>
 						<w>λογον</w>
 						<w>εν</w>
-						<w>θλιθει</w>
+						<w>θλιψει</w>
 						<w>πολλη</w>
 						<w>μετα</w>
 						<w>χαρας</w>
@@ -249,7 +249,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υμας</w>
 						<w>και</w>
 						<w>πως</w>
-						<w>επεστρεθατε</w>
+						<w>επεστρεψατε</w>
 						<w>προς</w>
 						<w>τον</w>
 						<w>θεον</w>
@@ -438,7 +438,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>τας</w>
 						<w>εαυτων</w>
-						<w>θυχας</w>
+						<w>ψυχας</w>
 						<w>διοτι</w>
 						<w>αγαπητοι</w>
 						<w>ημιν</w>
@@ -680,7 +680,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>δις</w>
 						<w>και</w>
-						<w>ενεκοθεν</w>
+						<w>ενεκοψεν</w>
 						<w>ημας</w>
 						<w>ο</w>
 						<w>σατανας</w>
@@ -734,7 +734,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B13K3V2">
 						<w>και</w>
-						<w>επεμθαμεν</w>
+						<w>επεμψαμεν</w>
 						<w>τιμοθεον</w>
 						<w>τον</w>
 						<w>αδελφον</w>
@@ -769,7 +769,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σαινεσθαι</w>
 						<w>εν</w>
 						<w>ταις</w>
-						<w>θλιθεσιν</w>
+						<w>θλιψεσιν</w>
 						<w>ταυταις</w>
 						<w>αυτοι</w>
 						<w>γαρ</w>
@@ -803,7 +803,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καγω</w>
 						<w>μηκετι</w>
 						<w>στεγων</w>
-						<w>επεμθα</w>
+						<w>επεμψα</w>
 						<w>εις</w>
 						<w>το</w>
 						<w>γνωναι</w>
@@ -866,7 +866,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>επι</w>
 						<w>παση</w>
 						<w>τη</w>
-						<w>θλιθει</w>
+						<w>θλιψει</w>
 						<w>και</w>
 						<w>αναγκη</w>
 						<w>ημων</w>
@@ -1569,7 +1569,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ατακτους</w>
 						<w>παραμυθεισθε</w>
 						<w>τους</w>
-						<w>ολιγοθυχους</w>
+						<w>ολιγοψυχους</w>
 						<w>αντεχεσθε</w>
 						<w>των</w>
 						<w>ασθενων</w>
@@ -1663,7 +1663,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πνευμα</w>
 						<w>και</w>
 						<w>η</w>
-						<w>θυχη</w>
+						<w>ψυχη</w>
 						<w>και</w>
 						<w>το</w>
 						<w>σωμα</w>
