@@ -199,10 +199,8 @@ def convert_book_no_accents(path, book):
     result = []
     for line in one_line_verses_list:
         chap, verse, clean_line = extract_verse_chapter(line)
-        # beta_line = buc.standardise_beta_code(clean_line, False)
         unicode_line = buc.convert_asc_to_unicode(clean_line)
         result.append([chap, verse, unicode_line])
-        # print("     ",chap, verse, beta_line, unicode_line)
 
     # Converting to DataFrame and fixing the table format
     result = pd.DataFrame(result)
