@@ -159,7 +159,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υμας</w>
 						<w>και</w>
 						<w>θελοντες</w>
-						<w>μεταστρεθαι</w>
+						<w>μεταστρεψαι</w>
 						<w>το</w>
 						<w>ευαγγελιον</w>
 						<w>του</w>
@@ -252,7 +252,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εδιδαχθην</w>
 						<w>αλλα</w>
 						<w>δι</w>
-						<w>αποκαλυθεως</w>
+						<w>αποκαλυψεως</w>
 						<w>ιησου</w>
 						<w>χριστου</w>
 					</ab>
@@ -320,7 +320,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αυτου</w>
 					</ab>
 					<ab n="B09K1V16">
-						<w>αποκαλυθαι</w>
+						<w>αποκαλυψαι</w>
 						<w>τον</w>
 						<w>υιον</w>
 						<w>αυτου</w>
@@ -355,7 +355,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αραβιαν</w>
 						<w>και</w>
 						<w>παλιν</w>
-						<w>υπεστρεθα</w>
+						<w>υπεστρεψα</w>
 						<w>εις</w>
 						<w>δαμασκον</w>
 					</ab>
@@ -402,7 +402,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεου</w>
 						<w>οτι</w>
 						<w>ου</w>
-						<w>θευδομαι</w>
+						<w>ψευδομαι</w>
 					</ab>
 					<ab n="B09K1V21">
 						<w>επειτα</w>
@@ -477,7 +477,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ανεβην</w>
 						<w>δε</w>
 						<w>κατα</w>
-						<w>αποκαλυθιν</w>
+						<w>αποκαλυψιν</w>
 						<w>και</w>
 						<w>ανεθεμην</w>
 						<w>αυτοις</w>
@@ -517,7 +517,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δε</w>
 						<w>τους</w>
 						<w>παρεισακτους</w>
-						<w>θευδαδελφους</w>
+						<w>ψευδαδελφους</w>
 						<w>οιτινες</w>
 						<w>παρεισηλθον</w>
 						<w>κατασκοπησαι</w>
@@ -2014,7 +2014,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καλως</w>
 						<w>τις</w>
 						<w>υμας</w>
-						<w>ενεκοθεν</w>
+						<w>ενεκοψεν</w>
 						<w>τη</w>
 						<w>αληθεια</w>
 						<w>μη</w>
@@ -2080,7 +2080,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B09K5V12">
 						<w>οφελον</w>
 						<w>και</w>
-						<w>αποκοθονται</w>
+						<w>αποκοψονται</w>
 						<w>οι</w>
 						<w>αναστατουντες</w>
 						<w>υμας</w>
@@ -2467,7 +2467,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πηλικοις</w>
 						<w>υμιν</w>
 						<w>γραμμασιν</w>
-						<w>εγραθα</w>
+						<w>εγραψα</w>
 						<w>τη</w>
 						<w>εμη</w>
 						<w>χειρι</w>

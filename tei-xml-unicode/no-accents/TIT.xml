@@ -71,7 +71,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ην</w>
 						<w>επηγγειλατο</w>
 						<w>ο</w>
-						<w>αθευδης</w>
+						<w>αψευδης</w>
 						<w>θεος</w>
 						<w>προ</w>
 						<w>χρονων</w>
@@ -250,7 +250,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>προφητης</w>
 						<w>κρητες</w>
 						<w>αει</w>
-						<w>θευσται</w>
+						<w>ψευσται</w>
 						<w>κακα</w>
 						<w>θηρια</w>
 						<w>γαστερες</w>
@@ -736,7 +736,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B17K3V12">
 						<w>οταν</w>
-						<w>πεμθω</w>
+						<w>πεμψω</w>
 						<w>αρτεμαν</w>
 						<w>προς</w>
 						<w>σε</w>
@@ -760,7 +760,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>και</w>
 						<w>απολλω</w>
 						<w>σπουδαιως</w>
-						<w>προπεμθον</w>
+						<w>προπεμψον</w>
 						<w>ινα</w>
 						<w>μηδεν</w>
 						<w>αυτοις</w>
