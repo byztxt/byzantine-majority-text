@@ -56,6 +56,20 @@ if not os.path.exists(path_accents_with_variants):
     os.makedirs(path_accents_with_variants)
 
 
+###################################
+###################################
+##### VERSION WITHOUT ACCENTS #####
+###################################
+###################################
+
+
+# Creating the CSV folders
+path_no_accents = "../csv-unicode/no-accents"
+
+if not os.path.exists(path_no_accents):
+    os.makedirs(path_no_accents)
+
+
 def extract_verse_chapter(line):
     """
     Extract the verse and chapter numbers from the string.
@@ -86,88 +100,6 @@ def extract_verse_chapter(line):
     return chap, verse, clean_line
 
 
-def convert_book_accents(path, drop_variants, book):
-    """
-    Converts an individual book into Unicode (accents).
-    """
-    # Opening the file
-    with open(path) as f:
-        lines = f.readlines()
-
-    # Converting the text
-    result = []
-    for line in lines:
-        chap, verse, clean_line = extract_verse_chapter(line)
-        beta_line = buc.standardise_beta_code(clean_line, drop_variants)
-        unicode_line = buc.convert_beta_to_unicode(beta_line)
-        result.append([chap, verse, unicode_line])
-        # print("     ",chap, verse, beta_line, unicode_line)
-
-    # Converting to DataFrame and fixing the table format
-    result = pd.DataFrame(result)
-    result = result.replace("", pd.NA).dropna()
-    result.columns = ["chapter", "verse", "text"]
-    result["chapter"] = result["chapter"].astype(int)
-    result["verse"] = result["verse"].astype(int)
-
-    # Saving to disk
-    if drop_variants:
-        save_to = path_accents_no_variants + "/" + book + ".csv"
-    else:
-        save_to = path_accents_with_variants + "/" + book + ".csv"
-    result.to_csv(save_to, index=False)
-
-
-def convert_all_books_to_unicode_accents(book_list, drop_variants=True):
-    """
-    Convenience function to convert all books in the same batch.
-
-    Set drop_variants=False if you want to keep textual variants
-    in the output file.
-    """
-    list_of_all_books = copy.deepcopy(book_list)
-    list_of_all_books.append("AC24")  # Acts 24 and the Pericope Adulterae
-    list_of_all_books.append("PA")
-
-    for book in list_of_all_books:
-        if drop_variants:
-            print("     Converting " + book + " and dropping variants")
-        else:
-            print("     Converting " + book + " and keeping variants")
-        path = "../textonly-beta-code/" + book + ".CCT"
-        converted_book = convert_book_accents(
-            path=path, drop_variants=drop_variants, book=book
-        )
-
-
-######## Converting all books
-print(
-    "CONVERTING ALL BOOKS (WITH ACCENTS) AND KEEPING TEXTUAL VARIANTS - SAVING TO THE with-accents/with-variants FOLDER"
-)
-convert_all_books_to_unicode_accents(book_list, drop_variants=False)
-print("Done.")
-print("\n---\n")
-print(
-    "CONVERTING ALL BOOKS (WITH ACCENTS) AND DROPPING TEXTUAL VARIANTS - SAVING TO THE with-accents/no-variants FOLDER"
-)
-convert_all_books_to_unicode_accents(book_list, drop_variants=True)
-print("Done.")
-
-
-###################################
-###################################
-##### VERSION WITHOUT ACCENTS #####
-###################################
-###################################
-
-
-# Creating the CSV folders
-path_no_accents = "../csv-unicode/no-accents"
-
-if not os.path.exists(path_no_accents):
-    os.makedirs(path_no_accents)
-
-
 def make_one_verse_one_line(book_text):
     """
     Convert the text so that each verse takes only one line.
@@ -184,23 +116,39 @@ def make_one_verse_one_line(book_text):
     return separated_list
 
 
-def convert_book_no_accents(path, book):
+def read_book_lines(path, accents):
     """
-    Converts an individual book into Unicode (no accents).
+    Reads and splits up the text of a book into a list of lines, each containing one verse.
+    """
+    with open(path, "r") as file:
+        if accents:
+            # The .CCT files use one line for each verse
+            lines = file.readlines()
+        else:
+            # In the original .ASC files, each verse can take several lines.
+            book_text = file.read()
+            lines = make_one_verse_one_line(book_text)
+    return lines
+
+
+def convert_book(path, accents, drop_variants, book):
+    """
+    Converts an individual book into Unicode.
     """
     # Opening the file
-    with open(path, "r") as file:
-        book_text = file.read()
-
-    # Making each verse take only one line
-    one_line_verses_list = make_one_verse_one_line(book_text)
+    lines = read_book_lines(path, accents)
 
     # Converting the text
     result = []
-    for line in one_line_verses_list:
+    for line in lines:
         chap, verse, clean_line = extract_verse_chapter(line)
-        unicode_line = buc.convert_asc_to_unicode(clean_line)
+        beta_line = buc.standardise_beta_code(clean_line, drop_variants)
+        if accents:
+            unicode_line = buc.convert_beta_to_unicode(beta_line)
+        else:
+            unicode_line = buc.convert_asc_to_unicode(beta_line)
         result.append([chap, verse, unicode_line])
+        # print("     ",chap, verse, beta_line, unicode_line)
 
     # Converting to DataFrame and fixing the table format
     result = pd.DataFrame(result)
@@ -209,24 +157,64 @@ def convert_book_no_accents(path, book):
     result["chapter"] = result["chapter"].astype(int)
     result["verse"] = result["verse"].astype(int)
 
-    save_to = path_no_accents + "/" + book + ".csv"
+    # Saving to disk
+    if accents:
+        if drop_variants:
+            save_to = path_accents_no_variants + "/" + book + ".csv"
+        else:
+            save_to = path_accents_with_variants + "/" + book + ".csv"
+    else:
+        save_to = path_no_accents + "/" + book + ".csv"
     result.to_csv(save_to, index=False)
 
 
-def convert_all_books_to_unicode_no_accents(book_list):
+def convert_all_books_to_unicode(book_list, accents, drop_variants=True):
     """
     Convenience function to convert all books in the same batch.
+
+    Set drop_variants=False if you want to keep textual variants
+    in the output file.
     """
     list_of_all_books = copy.deepcopy(book_list)
+    if accents:
+        # Acts 24 and the Pericope Adulterae - the accented texts store these in separate files
+        list_of_all_books.append("AC24")
+        list_of_all_books.append("PA")
 
     for book in list_of_all_books:
-        print("     Converting " + book + " (no accents)")
-        path = "../textonly-online-bible/" + book + "05.ASC"
-        converted_book = convert_book_no_accents(path=path, book=book)
+        if accents:
+            # Use .CCT files as a source
+            if drop_variants:
+                print("     Converting " + book + " and dropping variants")
+            else:
+                print("     Converting " + book + " and keeping variants")
+            path = "../textonly-beta-code/" + book + ".CCT"
+        else:
+            # Use .ASC files as a source
+            print("     Converting " + book + " (no accents)")
+            path = "../textonly-online-bible/" + book + "05.ASC"
+
+        converted_book = convert_book(
+            path=path, accents=accents, drop_variants=drop_variants, book=book
+        )
 
 
 ######## Converting all books
+print(
+    "CONVERTING ALL BOOKS (WITH ACCENTS) AND KEEPING TEXTUAL VARIANTS - SAVING TO THE with-accents/with-variants FOLDER"
+)
+convert_all_books_to_unicode(book_list, accents=True, drop_variants=False)
+print("Done.")
+print("\n---\n")
+
+print(
+    "CONVERTING ALL BOOKS (WITH ACCENTS) AND DROPPING TEXTUAL VARIANTS - SAVING TO THE with-accents/no-variants FOLDER"
+)
+convert_all_books_to_unicode(book_list, accents=True, drop_variants=True)
+print("Done.")
+print("\n---\n")
+
 print("CONVERTING ALL BOOKS (NO ACCENTS) - SAVING TO THE no-accents FOLDER")
-convert_all_books_to_unicode_no_accents(book_list)
+convert_all_books_to_unicode(book_list, accents=False)
 print("Done.")
 print("\n---\n")
