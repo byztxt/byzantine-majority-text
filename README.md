@@ -8,7 +8,9 @@ This is the official GitHub home for [Dr. Maurice A. Robinson](https://en.wikipe
 texts with morphological parsing and Strong's numbers.
 
 This repo contains the Robinson-Pierpont edition of the Greek New
-Testament in the Original Greek, Byzantine Majority Text. The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/).
+Testament in the Original Greek, Byzantine Majority Text, 2005 edition.
+
+The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/).
 
 Five versions are available:
 
@@ -49,20 +51,17 @@ Public Domain. Copy freely.
 - Dr. Maurice A. Robinson, Wake Forest, North Carolina, USA is the
   primary author.
 
-- Dr. Ulrik Sandborg-Petersen, Scripture Systems ApS, Denmark, is the
-  maintainer of this repo.
+- Dr. Ulrik Sandborg-Petersen, Scripture Systems ApS, Denmark, was the
+  maintainer of this repo until February, 2023.
+
+- The current maintainer of this repo is Norman Simón Rodríguez,
+  Medellín, National University of Colombia.
 
 ## Maintenance?
 
 Yes.
 
-1. Dr. Robinson sometimes sends updates to Ulrik.
+1. Dr. Robinson sometimes sends updates to Norman.
 
-2. Should you find any errors, please inform Ulrik via email or a
-Github issue or pull request. Ulrik will then correspond with Dr. Robinson to resolve any issues in his upstream version, and then publish a new drop here.
-
-
-## Contact?
-
-Please write to Ulrik Sandborg-Petersen via
-ulrikp-write-the-sign-scripturesys-dot-com.
+2. Should you find any errors, please inform us by opening a
+Github issue or pull request. Norman will then correspond with Dr. Robinson to resolve any issues in his upstream version, and then publish a new drop here.
