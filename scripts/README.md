@@ -4,4 +4,4 @@ The scripts have dependencies, which are listed in the `requirements.txt` file. 
 
 ## Csv converter
 
-You call it using `python3 csv_converter.py` (or `python csv_converter.py` depending on your particular settings.) It has been tested on Ubuntu 20.04 and Python 3.8.
+You call it using `python3 csv_converter.py` (or `python csv_converter.py` depending on your particular settings.) It has been tested on Ubuntu 22.04 and Python 3.10.
