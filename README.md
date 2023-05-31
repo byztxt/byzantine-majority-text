@@ -2,66 +2,30 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ByzTxt/byzantine-majority-text?style=for-the-badge)
 
-## What is this?
+Welcome to the official GitHub home of [Dr. Maurice A. Robinson](https://en.wikipedia.org/wiki/Maurice_A._Robinson)'s Greek
+texts with variants, morphological parsing, and Strong's numbers.
 
-This is the official GitHub home for [Dr. Maurice A. Robinson](https://en.wikipedia.org/wiki/Maurice_A._Robinson)'s Greek
-texts with morphological parsing and Strong's numbers.
+This repository contains the Robinson-Pierpont edition of the Greek New Testament in the Original Greek, Byzantine Majority Text. The current form of the text is up-to-date as of May 29, 2023. 
 
-This repo contains the Robinson-Pierpont edition of the Greek New
-Testament in the Original Greek, Byzantine Majority Text, 2005 edition.
+The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/). This and other editions of the text, as well as additional resources, can be downloaded from [https://www.byzantinetext.com](https://www.byzantinetext.com).
 
-The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/).
+You can read professor Robinson's essay proposing the superiority of the Byzantine textform [here](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp-11-appendix.pdf) (a Spanish translation is available for free download [here](https://archive.org/details/libro-robinson-traducido/LIBRO%20ROBINSON%20TRADUCIDO/)).
 
-Five versions are available:
+Four versions are available:
 
-1. A parsed version in Online Bible format with morphological parsing codes, Strong's numbers, and tense-voice-mood numbers.
+1. A parsed version in BETA format, without accents (in the `source/Strongs` folder).
 
-2. A "text only" version in Online Bible ASCII format.
+2. A full version in BETA format, with accents, breathings, diarheses, iota subscripts, and an apparatus containing Byzantine variants and Nestle-Aland and *Editio Critica Maior* divergences (in the `source/CCAT` folder).
 
-3. A "text only" version in something akin to BETA Code, with accents, breathings, diarheses, iota subscripts, Byzantine variants, and
-a Nestle-Aland 27 collation.
+3. Unicode versions in CSV format. These files can be found in the `csv-unicode` folder (see the `README` file there for more information.)
 
-4. Unicode versions in CSV format. These files can be found in the `csv-unicode` folder (see the `README` file there for more information.)
+4. TEI-XML versions (in the `tei-xml-unicode` folder) created according to the [IGNTP guidelines for XML transcriptions of New Testament manuscripts using the TEI P5 (version 1.5)](http://epapers.bham.ac.uk/1892/5/IGNTP_XML_guidelines_1-5.pdf) (see the `README` file in the folder for more information). These files are directly collatable, using the [CollateX](https://collatex.net/) software, with the [Münster INTF transcriptions](https://ntvmr.uni-muenster.de/home) of the manuscripts used in the *Editio Critica Maior*.
 
-5. TEI-XML versions (in the `tei-xml-unicode` folder) created according to the [IGNTP guidelines for XML transcriptions of New Testament manuscripts using the TEI P5 (version 1.5)](http://epapers.bham.ac.uk/1892/5/IGNTP_XML_guidelines_1-5.pdf) (see the `README` file in the folder for more information). These files are directly collatable, using the [CollateX](https://collatex.net/) software, with the [Münster INTF transcriptions](https://ntvmr.uni-muenster.de/home) of the manuscripts used in the *Editio Critica Maior*.
+The official files produced by Professor Robinson are (1) and (2). The other versions have been generated using the utilities that can be found in the `scripts` folder. Professor Robinson's files are the source of truth.
 
-# Update status?
+Should you have a question or find any errors, please inform the maintainers by opening a Github issue or pull request. The maintainers will assess each situation and then correspond with Dr. Robinson if needed.
 
-Versions (1) and (3) were last updated in mid-August, 2019, with Dr. Robinson's latest versions of his files.  The date of each file as
-received from Dr. Robinson is stated in the git commit message of the given file.
 
-Version (2) has not been updated since 2017.
+## Copyright
 
-The CSV files of the accented version are derived from (3).
-
-The CSV files of the unaccented version are derived from (2). These files served as the basis for the TEI-XML version.
-
-## Internet addresses?
-
-1. [https://www.byzantinetext.com](https://www.byzantinetext.com)
-
-2. [https://github.com/byztxt/](https://github.com/byztxt/)
-
-## License?
-
-Public Domain. Copy freely.
-
-## Responsible parties?
-
-- Dr. Maurice A. Robinson, Wake Forest, North Carolina, USA is the
-  primary author.
-
-- Dr. Ulrik Sandborg-Petersen, Scripture Systems ApS, Denmark, was the
-  maintainer of this repo until February, 2023.
-
-- The current maintainer of this repo is Norman Simón Rodríguez,
-  Medellín, National University of Colombia.
-
-## Maintenance?
-
-Yes.
-
-1. Dr. Robinson sometimes sends updates to Norman.
-
-2. Should you find any errors, please inform us by opening a
-Github issue or pull request. Norman will then correspond with Dr. Robinson to resolve any issues in his upstream version, and then publish a new drop here.
+All the code and text contained in this folder is in the Public Domain.
