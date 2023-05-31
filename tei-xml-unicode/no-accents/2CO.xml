@@ -17,7 +17,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 </respStmt>
             </titleStmt> 
         <editionStmt>
-            <edition n="2016">Last updated (XML version) <date>24.8.2022</date></edition>
+            <edition n="2023">Last updated (XML version) <date>31.5.2023</date></edition>
         </editionStmt>
         <publicationStmt>
             <availability><p>This file is in the Public Domain</p></availability>
@@ -421,8 +421,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τουτο</w>
 						<w>ουν</w>
 						<w>βουλευομενος</w>
-						<w>μη</w>
-						<w>τι</w>
+						<w>μητι</w>
 						<w>αρα</w>
 						<w>τη</w>
 						<w>ελαφρια</w>
@@ -4729,8 +4728,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>συναπεστειλα</w>
 						<w>τον</w>
 						<w>αδελφον</w>
-						<w>μη</w>
-						<w>τι</w>
+						<w>μητι</w>
 						<w>επλεονεκτησεν</w>
 						<w>υμας</w>
 						<w>τιτος</w>
@@ -4933,8 +4931,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υμιν</w>
 						<w>εστιν</w>
 						<w>ει</w>
-						<w>μη</w>
-						<w>τι</w>
+						<w>μητι</w>
 						<w>αδοκιμοι</w>
 						<w>εστε</w>
 					</ab>

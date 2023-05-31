@@ -11,13 +11,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <title>The New Testament in the Original Greek: The Byzantine Textform</title>
                 <title type="collection" level="s" xml:lang="en">The New Testament</title>
 				<title type="work" level="m" xml:lang="en" n="27">Revelation</title>
-				<title type="short" level="m" xml:lang="en" n="27">RE</title>                
+				<title type="short" level="m" xml:lang="en" n="27">REV</title>                
                 <respStmt>
                     <resp>Created by</resp><name>Maurice A. Robinson and William Pierpont</name>
                 </respStmt>
             </titleStmt> 
         <editionStmt>
-            <edition n="2016">Last updated (XML version) <date>24.8.2022</date></edition>
+            <edition n="2023">Last updated (XML version) <date>31.5.2023</date></edition>
         </editionStmt>
         <publicationStmt>
             <availability><p>This file is in the Public Domain</p></availability>

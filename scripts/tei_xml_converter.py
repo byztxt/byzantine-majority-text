@@ -16,21 +16,21 @@ book_dict = {
     14: ["2TH", "Second Thessalonians"],
     16: ["2TI", "Second Timoty"],
     25: ["3JO", "Third John"],
-    5: ["AC", "Acts"],
+    5: ["ACT", "Acts"],
     12: ["COL", "Colossians"],
     10: ["EPH", "Ephesians"],
-    9: ["GA", "Galatians"],
+    9: ["GAL", "Galatians"],
     19: ["HEB", "Hebrews"],
-    20: ["JAS", "James"],
+    20: ["JAM", "James"],
     4: ["JOH", "John"],
-    26: ["JUDE", "Jude"],
-    3: ["LU", "Luke"],
-    2: ["MR", "Mark"],
-    1: ["MT", "Matthew"],
+    26: ["JUD", "Jude"],
+    3: ["LUK", "Luke"],
+    2: ["MAR", "Mark"],
+    1: ["MAT", "Matthew"],
     18: ["PHM", "Philemon"],
     11: ["PHP", "Phillipians"],
-    27: ["RE", "Revelation"],
-    6: ["RO", "Romans"],
+    27: ["REV", "Revelation"],
+    6: ["ROM", "Romans"],
     17: ["TIT", "Titus"],
 }
 
@@ -38,7 +38,7 @@ book_dict = {
 path_no_accents_xml = "../tei-xml-unicode/no-accents"
 
 # Defining the path where to find the CSVs
-path_no_accents_csv = "../csv-unicode/no-accents"
+path_no_accents_csv = "../csv-unicode/strongs/no-parsing"
 
 if not os.path.exists(path_no_accents_xml):
     os.makedirs(path_no_accents_xml)
@@ -180,3 +180,4 @@ def convert_save_book_byz(path_no_accents_csv):
 
 convert_byz(path_no_accents_csv)
 convert_save_book_byz(path_no_accents_csv)
+print("Done!")
