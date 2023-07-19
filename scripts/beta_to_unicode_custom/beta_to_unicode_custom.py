@@ -15,6 +15,11 @@ def standardise_beta_code(text, drop_variants=True):
     The beta-code library requires that Dialytika and Tonos (/+) or Dialytika
     and Varia (\+) are written with the slash before the plus sign,
     while Prof. Robinson's text puts the plus first.
+    
+    This function also replaces apostrophes with right quotation marks
+    in order to make the typography more consistent and aesthetically pleasing.
+    
+    It also adds a space after some final sigmas to avoid their conversion to medial sigmas.
 
     It has an option to remove textual variants.
     """
@@ -30,6 +35,9 @@ def standardise_beta_code(text, drop_variants=True):
     text = text.replace("+/", "/+")
     text = text.replace("+\\", "\\+")
 
+    # Replacing apostrophes with quotation marks
+    text = text.replace("'", "’")
+    
     # Adding a space between final sigma and dash/bracket (if not done, final sigma is rendered as a medial sigma)
     text = text.replace("S-", "S -")
     text = text.replace("S]", "S ]")
