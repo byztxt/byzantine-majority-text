@@ -58,17 +58,22 @@ def convert_beta_to_unicode(beta):
     word_tokenised_beta = beta.split(" ")
     beta_line = " ".join(word_tokenised_beta)
     unicode_line = beta_code.beta_code_to_greek(beta_line)
+    
+    # The following lines replace the apparatus codes
+    # These codes are explained in the README.md file that is inside the `source` folder.
+    # The codes are originally capital Latin letters, but they are converted to Greek letters by the converter
+    # In consequence, we replace the respective Greek letters in the converted Greek text
     unicode_line = unicode_line.replace(
         "{ν", "{NA"
-    )  # The letters marking the variants need to be uppercase
+    )
     unicode_line = unicode_line.replace("{β", "{Byz")
-    unicode_line = unicode_line.replace("{ξ", "{NA27/28")  # This code means NA 27/28
-    unicode_line = unicode_line.replace("{μ", "{ECM")  # This code means ECM
-    unicode_line = unicode_line.replace("{ς", "{NA27")  # This code means NA 27
-    unicode_line = unicode_line.replace("{ε", "{NA28")  # This code means NA 28
+    unicode_line = unicode_line.replace("{ξ", "{NA27/28")
+    unicode_line = unicode_line.replace("{μ", "{ECM")
+    unicode_line = unicode_line.replace("{ς", "{NA27")
+    unicode_line = unicode_line.replace("{ε", "{NA28")
     unicode_line = unicode_line.replace(
         "ς -", "ς-"
-    )  # Removing the extra space between final sigmas and dashes/brackets (we added it in the previous function)
+    )  # Removing the extra space between final sigmas and dashes/brackets that was added by the standardise_beta_code() function
     unicode_line = unicode_line.replace("ς ]", "ς]")
     return unicode_line
 
