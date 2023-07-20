@@ -14,7 +14,9 @@ book_dict = {
     "02": "MAR",
     "03": "LUK",
     "04": "JOH",
+    "04a": "PA",
     "05": "ACT",
+    "05a": "ACT24",
     "06": "ROM",
     "07": "1CO",
     "08": "2CO",
@@ -188,7 +190,9 @@ def convert_all_books_to_unicode(
             path = (
                 "../source/CCAT/" + booknum + "_" + dict_of_all_books[booknum] + ".TXT"
             )
-        elif input_format == "Strongs":
+        elif (input_format == "Strongs") and (
+            "a" not in booknum
+        ):  # If letter a is in booknum, then it is the CCAT of the PA or ACTS24 (Byzantine variants) and file doesn't have Strong's equivalent
             # Use .BP5 files as a source
             print("     Converting " + dict_of_all_books[booknum] + " (no accents)")
             path = (
@@ -198,14 +202,18 @@ def convert_all_books_to_unicode(
                 + dict_of_all_books[booknum]
                 + ".BP5"
             )
-
-        converted_book = convert_book(
-            path=path,
-            input_format=input_format,
-            drop_variants=drop_variants,
-            drop_parsing=drop_parsing,
-            book=dict_of_all_books[booknum],
-        )
+        if (input_format == "Strongs") and (
+            "a" in booknum
+        ):  # If letter a is in booknum, then it is the CCAT of the PA or ACTS24 (Byzantine variants) and file doesn't have Strong's equivalent
+            pass
+        else:
+            converted_book = convert_book(
+                path=path,
+                input_format=input_format,
+                drop_variants=drop_variants,
+                drop_parsing=drop_parsing,
+                book=dict_of_all_books[booknum],
+            )
 
 
 ######## Converting all books
