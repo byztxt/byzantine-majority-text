@@ -5,9 +5,9 @@
 Welcome to the official GitHub home of [Dr. Maurice A. Robinson](https://en.wikipedia.org/wiki/Maurice_A._Robinson)'s Greek
 texts with variants, morphological parsing, and Strong's numbers.
 
-This repository contains the Robinson-Pierpont edition of the Greek New Testament in the Original Greek, Byzantine Majority Text. The current form of the text is up-to-date as of May 29, 2023. 
+This repository contains the Robinson-Pierpont edition of the Greek New Testament in the Original Greek, Byzantine Majority Text. The current form of the text is up-to-date as of July 20, 2023 and represents the 2018 Robinson Pierpont edition (with some minor adjustments to the critical apparatus). 
 
-The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/). The 2018 edition (recommended) can be downloaded from [this link](https://archive.org/details/robinson-pierpont-2018-gnt-edition). Additional resources can be downloaded from [https://www.byzantinetext.com](https://www.byzantinetext.com).
+The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/). The 2018 edition can be downloaded from [this link](https://archive.org/details/robinson-pierpont-2018-gnt-edition). RP2018 is recommended over RP2005 for all practical purposes (read details below). Additional resources can be downloaded from [https://www.byzantinetext.com](https://www.byzantinetext.com).
 
 You can read professor Robinson's essay proposing the superiority of the Byzantine textform [here](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp-11-appendix.pdf) (a Spanish translation is available for free download [here](https://archive.org/details/libro-robinson-traducido/LIBRO%20ROBINSON%20TRADUCIDO/)).
 
@@ -33,7 +33,7 @@ It is strongly recommended that versions `3.x.x` be used instead of previous one
 
 * Previous to release 1.0.0 there was *no* Unicode version of the files. The source files (which were in a custom flavor of Beta code) *were* however in the repository and can be accessed by browsing the Git history.
 
-* A Unicode converter was added in release 1.0.0, but its output unfortunately contained various misspellings. The errors were successfully fixed in release 2.0.3. Should anyone want to use a text closest to RP2005, the suggested Unicode files are those of release 2.0.3. Please do **not** use the Unicode files of releases prior to 2.0.3 as those contain conversion errors (the source Beta code files, however, did not change between releases 1.0.0 and 2.0.3 and are official as they came directly from Professor Robinson).
+* A Unicode converter was added in release 1.0.0, but its output unfortunately produced various misspellings. The errors were successfully fixed in release 2.0.3. Should anyone want to use a text closest to RP2005, the suggested Unicode files are those of release 2.0.3. Please do **not** use the Unicode files of releases prior to 2.0.3 as those contain conversion errors (the source Beta code files, however, did not change between releases 1.0.0 and 2.0.3 and are official as they came directly from Professor Robinson).
 
 * Release 3.0.0 introduced the text of the RP2018 edition, with minor updates to the apparatus. By direct recommendation of professor Robinson, *the use of the RP2005 is discouraged in favor of RP2018*, as RP2005 had "numerous accent, breathing, and punctuation errors (caused by porting over an NA27 file, and then altering only where the Byz text differed)". Additionally, "the 2018 edition should be used, since those errors were corrected". The text was updated "in a very few places", and the apparatus was updated as well in order to "to reflect NA28 and ECM differences in the general epistles and Acts". Note that the *unaccented* text remained highly stable between RP2005 and RP2018.
 
