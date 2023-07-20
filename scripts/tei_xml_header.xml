@@ -15,7 +15,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 </respStmt>
             </titleStmt> 
         <editionStmt>
-            <edition n="2023">Last updated (XML version) <date>31.5.2023</date></edition>
+            <edition n="2018">Last updated (XML version) <date>31.5.2023</date></edition>
         </editionStmt>
         <publicationStmt>
             <availability><p>This file is in the Public Domain</p></availability>
