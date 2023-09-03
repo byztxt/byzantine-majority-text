@@ -9,7 +9,7 @@ This repository contains the Robinson-Pierpont edition of the Greek New Testamen
 
 The 2005 edition of the text can be freely downloaded as a PDF file from The Internet Archive [here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/). The 2018 edition can be downloaded from [this link](https://archive.org/details/robinson-pierpont-2018-gnt-edition). RP2018 is recommended over RP2005 for all practical purposes (read details below). Additional resources can be downloaded from [https://www.byzantinetext.com](https://www.byzantinetext.com).
 
-You can read professor Robinson's essay proposing the superiority of the Byzantine textform [here](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp-11-appendix.pdf) (a Spanish translation is available for free download [here](https://archive.org/details/libro-robinson-traducido/LIBRO%20ROBINSON%20TRADUCIDO/)).
+You can read professor Robinson's essay proposing the superiority of the Byzantine textform [here](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp-11-appendix.pdf) (a Spanish translation is available for free download [here](https://archive.org/details/libro-robinson-traducido/LIBRO%20ROBINSON%20TRADUCIDO/)). The essay can be found in a plain text format inside the `essay` folder.
 
 Four versions are available:
 

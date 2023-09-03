@@ -1,0 +1,3 @@
+# The case for Byzantine priority
+
+This folder contains the text of the "The case for Byzantine priority" essay, written by professor Robinson. It is a Markdown file with the `.qmd` extension, which means that it can be opened and converted using the [Quarto](https://quarto.org/) software package. You can open the file with [RStudio](https://posit.co/download/rstudio-desktop/) (install RStudio and double click on the `essay.Rproj` file, then open the `.qmd` file in RStudio) to easily convert it to a variety of formats, including Word, LaTeX, Html, etc. As it is a Markdown file, it can also be converted with Pandoc. It can be opened using any text editor.
