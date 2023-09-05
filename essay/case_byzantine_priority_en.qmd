@@ -1,3 +1,10 @@
+---
+format:
+  docx:
+    toc: false
+    number-sections: false
+---
+
 # The Case for Byzantine Priority
 
 Maurice A. Robinson
