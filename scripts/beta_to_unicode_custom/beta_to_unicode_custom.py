@@ -55,6 +55,9 @@ def convert_beta_to_unicode(beta):
     This function makes use of the beta_code_to_greek()
     function from the beta-code package.
     """
+    beta = beta.replace(
+        " = ", " ♦ "
+    )  # This is to avoid the equals sign being converted to an accent, see issue #33
     word_tokenised_beta = beta.split(" ")
     beta_line = " ".join(word_tokenised_beta)
     unicode_line = beta_code.beta_code_to_greek(beta_line)
@@ -73,6 +76,7 @@ def convert_beta_to_unicode(beta):
         "ς -", "ς-"
     )  # Removing the extra space between final sigmas and dashes/brackets that was added by the standardise_beta_code() function
     unicode_line = unicode_line.replace("ς ]", "ς]")
+    unicode_line = unicode_line.replace(" ♦ ", " = ")  # Placing the equals sign back
     return unicode_line
 
 
