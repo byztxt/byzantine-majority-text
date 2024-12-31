@@ -148,7 +148,7 @@ def convert_book(path, input_format, drop_variants, drop_parsing, book):
     # Saving to disk
     if input_format == "CCAT":
         # Lines that start with '? ' are new paragraphs.
-        result["text"] = result["text"].str.replace("? ", "\n", regex=False)
+        result["text"] = result["text"].str.replace("? ", "¶", regex=False)
         if drop_variants:
             save_to = path_ccat_no_variants + "/" + book + ".csv"
         else:
