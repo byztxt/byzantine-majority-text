@@ -103,6 +103,18 @@ The abbreviations which pertain to each of these categories are the following:
 | Dative                                                 | D            |
 | Accusative                                             | A            |
 
+#### Words with more than one parsing
+
+Some words are followed by two parsing codes instead of one. This happens when the form itself is ambiguous, so that its morphology allows either parsing; the two codes are alternatives, and context must decide which one applies to the occurrence. Typically this involves forms that are spelled identically in two different cases (e.g., neuter nominative and accusative) or in two different moods (e.g., second person plural present indicative and imperative).
+
+For example, in James 4:5 the text reads:
+
+> epipoqei 1971 {V-PAI-3S} to 3588 {T-NSN} 3588 {T-ASN} pneuma 4151 {N-NSN} 4151 {N-ASN} o 3739 {R-ASN} katwkhsen 2730 {V-AAI-3S}
+
+Both "to" and "pneuma" are neuter, so their nominative and accusative forms are spelled identically and neither parsing can be excluded on morphological grounds alone. The text therefore gives both possibilities: "to" may be parsed as `T-NSN` or `T-ASN`, and "pneuma" as `N-NSN` or `N-ASN`.
+
+Each alternative parsing is accompanied by its own Strong's number. Most of the time the number is the same for both alternatives (as in the example above), but it may differ when the alternatives belong to different lexical roots (for example 2 Timothy 2:6: `prwton 4412 {ADV-S} 4413 {A-ASN-S}`). The convention is preserved in the Unicode `.csv` files that keep the parsing (`csv-unicode/strongs/with-parsing`), where the word is likewise followed by two sets of Strong's number and parsing code; the `.csv` files without parsing and the TEI-XML files list each word only once.
+
 ### Strong's numbers
 
 To access the lexical root form definition of any Greek word, the appropriate Strong's concordance number immediately follows each Greek word. The definition then can be obtained by the normal routine for definitions as used for English texts.
