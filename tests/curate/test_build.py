@@ -41,7 +41,9 @@ class BuildTests(unittest.TestCase):
                 "     24:6 os 3739 {R-NSM} (24:7) parelqwn 3928 5631 {V-2AAP-NSM} "
                 "(24:8) keleusav 2753 5660 {V-AAP-NSM}\n"
                 "     24:7 par 3844 {PREP} ou 3739 {R-GSM}\n"
-                "     24:8 keleusav 2753 5660 {V-AAP-NSM} touv 3588 {T-APM}\n",
+                "     24:8 keleusav 2753 5660 {V-AAP-NSM} touv 3588 {T-APM}\n"
+                "     1:3 ekperissou 0 4053 {ADV}\n"
+                "     1:4 dienqumoumenou 0 1760 5740 {V-PNP-GSM}\n",
                 encoding="utf-8",
             )
             parsed, text_only = build.parse_parsed_ub5(path)
@@ -58,6 +60,10 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(text_only[(24, 6)], "ος")
             self.assertEqual(text_only[(24, 7)], "παρ ου")
             self.assertEqual(text_only[(24, 8)], "κελευσας τους")
+            self.assertEqual(parsed[(1, 3)], "εκπερισσου 4053 {ADV}")
+            self.assertEqual(
+                parsed[(1, 4)], "διενθυμουμενου 1760 {V-PNP-GSM}"
+            )
 
     @unittest.skipUnless(
         importlib.util.find_spec("beta_code") is not None,

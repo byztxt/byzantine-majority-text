@@ -159,6 +159,9 @@ class CurateIntegrationTests(unittest.TestCase):
                         self.assertNotIn(marker, text, f"{path.name}:{row}")
                     if kind == "no-parsing":
                         self.assertNotRegex(text, r"\d|\{|\}")
+                    else:
+                        self.assertNotIn(" 0 ", text)
+                        self.assertNotIn(" 0 {", text)
 
     def test_historical_strongs_matches_unaccented_except_segmentation(self):
         base = editions.edition_dir("rp2005-2019") / "csv"

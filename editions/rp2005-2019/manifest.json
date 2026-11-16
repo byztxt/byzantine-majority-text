@@ -442,13 +442,13 @@
     },
     {
       "path": "csv/strongs/with-parsing/1TH.csv",
-      "sha256": "70c5c0253a70fc423920c9806ad4d81dee0349f39052fd1874c16e9c0cf4ec83",
-      "size": 36423
+      "sha256": "eb844b3cc13f49c78bddef013c86288db072c29a8b8e496e8e3a95fe154ff2b2",
+      "size": 36429
     },
     {
       "path": "csv/strongs/with-parsing/1TI.csv",
-      "sha256": "53a527bcf05382785ec6bf49a429d4b496cabc759538e322ff7e65658f7d370a",
-      "size": 41596
+      "sha256": "e5a0344116b5f3a4636a73dad58bc449e0139ca63210694442f14a5356bcb855",
+      "size": 41599
     },
     {
       "path": "csv/strongs/with-parsing/2CO.csv",
@@ -482,8 +482,8 @@
     },
     {
       "path": "csv/strongs/with-parsing/ACT.csv",
-      "sha256": "5b81c55265ce5f1f8815d5da5579ac6871000ff09ee8e759bf8ffef480af3469",
-      "size": 466962
+      "sha256": "7e527ae1d9ba5a1cfc98d5b4a1048e436f7c8b03c9fcad9a1787c33f6e4c9215",
+      "size": 466973
     },
     {
       "path": "csv/strongs/with-parsing/COL.csv",
@@ -492,8 +492,8 @@
     },
     {
       "path": "csv/strongs/with-parsing/EPH.csv",
-      "sha256": "c7b4622fd71488f6c9588dd843697372a918b79622bacbfdb1cf81e0ea52de12",
-      "size": 59742
+      "sha256": "b0b240c3ac50a3a11dbbc45c6d14fa50cb3dabda16579a63c5885da85fcba2b1",
+      "size": 59745
     },
     {
       "path": "csv/strongs/with-parsing/GAL.csv",
@@ -502,8 +502,8 @@
     },
     {
       "path": "csv/strongs/with-parsing/HEB.csv",
-      "sha256": "21008f4d1e989121b95b5dd40488b8f9980df3c56f8c996967e3e25ec0f89694",
-      "size": 125734
+      "sha256": "af2fdec78ba822b87a1cb7cbbf93ef14c3452f4f10bc292d8c7c12b90573b9a3",
+      "size": 125743
     },
     {
       "path": "csv/strongs/with-parsing/JAM.csv",
@@ -512,8 +512,8 @@
     },
     {
       "path": "csv/strongs/with-parsing/JOH.csv",
-      "sha256": "a4f9a71459a7cea6a951e39c7a835d8fec0141c65a62c1d2834aec6d7b7c7d14",
-      "size": 378915
+      "sha256": "e9e021ea6e540f4bebbcae32abf8b703379ed6e2c9bf92a35c29da29e5e55fd1",
+      "size": 378918
     },
     {
       "path": "csv/strongs/with-parsing/JUD.csv",
@@ -522,18 +522,18 @@
     },
     {
       "path": "csv/strongs/with-parsing/LUK.csv",
-      "sha256": "a969684d38516100570708ba961fe9956a4b8268e2d055cea2485b08614c330c",
-      "size": 488423
+      "sha256": "d24facf927c56d361e9b38ac0c49441d17b15bc5c3d410256eec88d449401186",
+      "size": 488435
     },
     {
       "path": "csv/strongs/with-parsing/MAR.csv",
-      "sha256": "a2914238f08c1711d42c81a854592e16b77b8d97e5aa6d4ca4f331506de96ae0",
-      "size": 286695
+      "sha256": "fdaed00e0b0528cc91a04d0b55bae376aa0a84f9f7c61407923b0a78cba7b1a0",
+      "size": 286701
     },
     {
       "path": "csv/strongs/with-parsing/MAT.csv",
-      "sha256": "f66a9820d96b8da85f3cb3382ce298ef0ac0c0d5ac47b35ffcf3b0231173df50",
-      "size": 459141
+      "sha256": "db253b503fa3204a115363eb7b25dbe942870521e19098295e528f367bbd4ec5",
+      "size": 459147
     },
     {
       "path": "csv/strongs/with-parsing/PHM.csv",
@@ -547,8 +547,8 @@
     },
     {
       "path": "csv/strongs/with-parsing/REV.csv",
-      "sha256": "743e799d82ba8ac724808bf16476aa858786f7c92ca8576e3e2e54f2b508fcfc",
-      "size": 235015
+      "sha256": "d2cc45fdc0de9fe555ffa830c0d9e2290c35670a44a38d6f310d6acc4ccfd7e9",
+      "size": 235021
     },
     {
       "path": "csv/strongs/with-parsing/ROM.csv",

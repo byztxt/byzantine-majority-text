@@ -71,10 +71,10 @@
 - [x] The historical `rp2005-2019` conversion is documented and verified. All
       recovered accented/unaccented CSV and TEI artifacts match `v2.0.3`; the
       generated Strong's/parsing views use the correct UB5 mapping (`q`=θ,
-      `y`=ψ), drop TVM numbers, keep the word once for multi-parse entries, and
-      strip apparatus markup. They differ from the historical unaccented text in
-      only 4 verses (`μητι` vs `μη τι`), matching the known segmentation
-      difference.
+      `y`=ψ), drop TVM numbers, skip the historical `0` spurious-Strong's
+      placeholder, keep the word once for multi-parse entries, and strip
+      apparatus markup. They differ from the historical unaccented text in only
+      4 verses (`μητι` vs `μη τι`), matching the known segmentation difference.
 - [x] A golden `MAT 1:1` test exists for every edition.
 - [x] A clean rebuild produces identical output hashes.
 - [x] Conversion failures are loud and name the book/verse: unmatched `.CCT`
@@ -144,7 +144,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests/curate
 
 Results:
 
-- 22 curate tests pass (one accented-conversion test runs under the pinned
+- 24 curate tests pass (one accented-conversion test runs under the pinned
   Python 3.10 environment), plus 40 contract and 25 reconciliation tests.
 - All 57 recovered `rp2005-2019` source files match `git show v2.0.3:...`.
 - Official `.CCT` source counts: `rp2005` 29, `rp2018` 30; both match
@@ -161,8 +161,9 @@ Results:
 
 ### Resolved review findings
 
-- Swapped θ/ψ and malformed historical Strong's tokens: fixed; no stray
-  numbers/braces, no apparatus markup, multi-parse word appears once.
+- Swapped θ/ψ, spurious `0` Strong's placeholders, and malformed historical
+  Strong's tokens: fixed; no stray numbers/braces, no apparatus markup,
+  multi-parse word appears once.
 - Official accented iota-subscript corruption: fixed via
   `reorder_iota=False` for production conversion.
 - Manifest tag/commit: added.

@@ -984,6 +984,7 @@
   "pdf": "",
   "pdf_url": "",
   "release_range": "v3.0.0-v3.3.4",
+  "source_commit": "6c465909f286a46c229cf52a51c841819bd8389d",
   "source_files": [
     {
       "path": "source/CCAT/01_MAT.TXT",

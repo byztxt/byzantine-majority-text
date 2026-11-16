@@ -67,6 +67,29 @@ def _git_commit(tag: str) -> str:
         text=True,
         check=False,
     )
+    if result.returncode != 0:
+        raise ValueError(f"cannot resolve git tag {tag!r}")
+    return result.stdout.strip()
+
+
+def _last_commit(path: str) -> str:
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(editions.ROOT),
+            "log",
+            "-1",
+            "--format=%H",
+            "--",
+            path,
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise ValueError(f"cannot resolve last commit for {path!r}")
     return result.stdout.strip()
 
 
@@ -183,9 +206,13 @@ def _parse_ub5_text(text: str, label: str) -> tuple:
             ):
                 parsing = tokens[lookahead]
                 if numbers:
-                    # The parsed files carry Strong's + TVM numbers. Keep the
-                    # Strong's number and the parsing; drop the TVM number.
-                    pairs.append((numbers[0], parsing))
+                    # The parsed files carry Strong's + TVM numbers, and use
+                    # "0" as a spurious-Strong's marker. Keep the real Strong's
+                    # number and the parsing; drop the TVM number.
+                    strongs = next(
+                        (number for number in numbers if number != "0"), "0"
+                    )
+                    pairs.append((strongs, parsing))
                 index = lookahead + 1
                 if index < len(tokens) and tokens[index].isdigit():
                     continue
@@ -542,6 +569,8 @@ def write_manifest(edition: dict) -> dict:
     if edition.get("tag"):
         manifest["tag"] = edition["tag"]
         manifest["commit"] = _git_commit(edition["tag"])
+    if edition["source_kind"] == "current":
+        manifest["source_commit"] = _last_commit("source")
     if edition["pdf"]:
         pdf_path = editions.ROOT / edition["pdf"]
         manifest["pdf_sha256"] = _sha256(pdf_path)
