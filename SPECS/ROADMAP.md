@@ -70,7 +70,9 @@ semantics may be ambiguous; git history may not establish provenance.
 ## Cycle 2 - Official archive reconciliation
 
 **Spec:** `SPECS/2026-11-16-official-archive-reconciliation/`.
-**Status:** Spec ready; implementation not started.
+**Status:** Implementation complete on
+`feature/2026-11-16-official-archive-reconciliation`; maintainer decisions
+R1-R8 pending.
 
 **Goal:** add the official archives and determine, quantitatively, to what extent
 the current corpus matches them.

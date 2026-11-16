@@ -1,0 +1,37 @@
+edition = "rp2005"
+
+[[archives]]
+name = "editions-rp2-preformatted.zip"
+format = "preformatted"
+requested_url = "https://www.dropbox.com/s/ago0uhvmjndbsy5/editions-rp2-preformatted.zip?dl=0"
+download_url = "https://www.dropbox.com/s/ago0uhvmjndbsy5/editions-rp2-preformatted.zip?dl=1"
+final_url = "https://ucfcd70e3c9891be6d521a6189e9.dl.dropboxusercontent.com/cd/0/get/DMABLObpMT8-eL9VDfzYkEmwj1u7cJpx6uAxkuzmal4NaBYBSJqot3VaMhVbzcR4csH4Yj99qLNgBgRE54B67MmpumGmfn3vm6qInMCYi3tyEq45ucLft4e4-6ADy8p-Iss/file?dl=1"
+http_status = 200
+downloaded = "2026-11-16T18:37:00Z"
+size = 336188
+sha256 = "e8719d9eafa4239fb5131e80cc1b5584915ad2efd37aac2783fcc484e438f3a3"
+extracted = "data/raw/rp2005/editions-rp2-preformatted"
+
+[[archives]]
+name = "editions-rp2-ascii.zip"
+format = "ascii-one-line"
+requested_url = "https://www.dropbox.com/s/oil2m3la4vsnbpb/editions-rp2-ascii.zip?dl=0"
+download_url = "https://www.dropbox.com/s/oil2m3la4vsnbpb/editions-rp2-ascii.zip?dl=1"
+final_url = "https://uc7d900b18c25ff1dd80c5435b79.dl.dropboxusercontent.com/cd/0/get/DMC4wZxQCbwvdORrPw4TCC6Cu5Lme1f0w8mL19SlR1OufZ7LMAnQrNx8KONuEBKECfDuzEOdoTlO-05L863EI1RV5VWyIUNHAC9_U5PIqWK9OpP3ip77x3-0A5bmKjuIYP0/file?dl=1"
+http_status = 200
+downloaded = "2026-11-16T18:37:02Z"
+size = 324893
+sha256 = "c85ccdcbccee55fbb0ca7744352330806f505514b28a6ae02302843f65a86a2a"
+extracted = "data/raw/rp2005/editions-rp2-ascii"
+
+[[archives]]
+name = "editions-rp2-ccat.zip"
+format = "ccat"
+requested_url = "https://www.dropbox.com/s/f3di0cgdflqjwq4/editions-rp2-ccat.zip?dl=0"
+download_url = "https://www.dropbox.com/s/f3di0cgdflqjwq4/editions-rp2-ccat.zip?dl=1"
+final_url = "https://uc122800e89911be5a516402796a.dl.dropboxusercontent.com/cd/0/get/DMA6XWNzPX6UnyJTqGpInwmfEK3ch_yqWdDb_pBx7E8h0hlM_9xGiWfl0_0T5AHc4V0jAHbX72OTCjID_MB_LewmETlgNiGwJyQv9P8wTi15HhY9ezNkHKsAHgBYzru-gGw/file?dl=1"
+http_status = 200
+downloaded = "2026-11-16T18:37:03Z"
+size = 471157
+sha256 = "d172e27a6adf77459cb08c2dc67a57b69239bb27605791c3d1cfaadcda97e2e2"
+extracted = "data/raw/rp2005/editions-rp2-ccat"

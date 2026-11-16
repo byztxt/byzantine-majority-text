@@ -63,3 +63,14 @@ This map is derived from git history only. It does not prove which official arch
 - Whether the current text is RP2018, RP2018 plus July 2023 fixes, or a mix.
 
 These are open questions for the maintainer and the external reconciliation cycle.
+
+<!-- cycle2:begin -->
+## External archive evidence (Cycle 2)
+
+| Edition | Source verses matching official CCAT |
+| --- | ---: |
+| `rp2005` | 7769/7972 (97.45%) |
+| `rp2018` | 7811/7972 (97.98%) |
+
+Closest official edition: `rp2018`. See `docs/PROVENANCE.md`.
+<!-- cycle2:end -->

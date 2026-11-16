@@ -162,4 +162,14 @@ def render(root=paths.ROOT) -> str:
             "",
         ]
     )
+    if (root / "docs" / "PROVENANCE.md").exists():
+        lines.extend(
+            [
+                "## External archive evidence",
+                "",
+                "See `docs/PROVENANCE.md` for the Cycle 2 archive checksums and "
+                "match verdicts.",
+                "",
+            ]
+        )
     return "\n".join(lines)

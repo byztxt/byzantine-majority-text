@@ -3,3 +3,6 @@
 *.pyc
 __pycache__
 .Rproj.user
+
+# Fetched official zip archives (checksums recorded in data/provenance/)
+data/raw/_archives/
