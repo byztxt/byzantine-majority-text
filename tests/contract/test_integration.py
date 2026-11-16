@@ -32,27 +32,53 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(len(self.results["csv-unicode/strongs/no-parsing"]), 27)
         self.assertEqual(len(self.results["tei-xml-unicode/no-accents"]), 27)
 
-    def test_all_findings_are_known_exceptions(self):
+    def _record(self, dataset, book, chapter, verse):
+        for result in self.results[dataset]:
+            for record in result.records:
+                if (
+                    record["book"] == book
+                    and record["chapter"] == chapter
+                    and record["verse"] == verse
+                ):
+                    return record
+        return None
+
+    def test_no_invariant_findings(self):
         findings = list(invariants.all_violations(self.results))
-        self.assertEqual(len(findings), 8)
-        self.assertTrue(all(finding.known_exception for finding in findings))
+        self.assertEqual(findings, [])
 
     def test_derivation_has_no_missing_files(self):
         rows = derivation.check()
         self.assertTrue(rows)
         self.assertFalse([row for row in rows if row["status"] == "missing"])
 
-    def test_only_blank_verses_differ_between_source_and_csv(self):
+    def test_no_coverage_differences(self):
         rows = coverage.diff_rows(self.results)
-        nonzero = [
-            row for row in rows if row["only_left"] or row["only_right"]
-        ]
-        self.assertEqual(len(nonzero), 8)
-        self.assertTrue(all(row["only_right"] == 0 for row in nonzero))
-        self.assertEqual(
-            {row["examples_only_left"] for row in nonzero},
-            {"8:37 15:34 24:7", "17:36"},
+        self.assertFalse(
+            [row for row in rows if row["only_left"] or row["only_right"]]
         )
+
+    def test_intentional_blanks_are_present_as_empty_records(self):
+        for book, chapter, verse in (
+            ("LUK", 17, 36),
+            ("ACT", 8, 37),
+            ("ACT", 15, 34),
+            ("ACT", 24, 7),
+        ):
+            for dataset in (
+                "source/CCAT",
+                "source/Strongs",
+                "csv-unicode/strongs/no-parsing",
+                "tei-xml-unicode/no-accents",
+            ):
+                self.assertIsNotNone(
+                    self._record(dataset, book, chapter, verse),
+                    f"{dataset} is missing {book} {chapter}:{verse}",
+                )
+            csv_record = self._record(
+                "csv-unicode/strongs/no-parsing", book, chapter, verse
+            )
+            self.assertEqual(csv_record["text"], "")
 
     def test_tei_matches_csv_no_parsing_exactly(self):
         rows = coverage.diff_rows(self.results)

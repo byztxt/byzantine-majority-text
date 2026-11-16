@@ -35,6 +35,11 @@ class Bp5Tests(unittest.TestCase):
         result = run("nope\n")
         self.assertEqual(result.violations[0].category, "bad-prefix")
 
+    def test_intentional_blank_is_allowed(self):
+        result = run("17.36 \n", name="03_LUK.BP5")
+        self.assertEqual(result.violations, [])
+        self.assertEqual(len(result.records), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

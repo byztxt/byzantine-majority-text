@@ -86,7 +86,9 @@ def validate(path, dataset="source/CCAT") -> DatasetResult:
             continue
         chapter, verse, rest = match.group(1), match.group(2), match.group(3) or ""
         body = rest[2:] if rest.startswith("? ") else rest
-        if not body.strip():
+        if not body.strip() and not contracts.is_intentional_blank(
+            abbr, chapter, verse
+        ):
             violations.append(
                 Violation(
                     dataset,

@@ -109,6 +109,21 @@ def validate(path, dataset="tei-xml-unicode/no-accents") -> DatasetResult:
                 )
                 words = verse.findall(_tag("w"))
                 total_words += len(words)
+                if not words:
+                    chapter_number = int(match.group(2))
+                    verse_number = int(match.group(3))
+                    if not contracts.is_intentional_blank(
+                        abbr, chapter_number, verse_number
+                    ):
+                        violations.append(
+                            Violation(
+                                dataset,
+                                str(path),
+                                0,
+                                "empty-verse",
+                                f"empty <ab> that is not an intentional blank: {anchor}",
+                            )
+                        )
                 for word in words:
                     if not (word.text or "").strip():
                         violations.append(

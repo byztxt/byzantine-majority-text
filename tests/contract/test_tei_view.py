@@ -58,6 +58,33 @@ class TeiTests(unittest.TestCase):
         result = run(TEI.replace("</TEI>", ""))
         self.assertEqual(result.violations[0].category, "not-well-formed")
 
+    def test_intentional_blank_ab_is_allowed(self):
+        blank = """<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <text><body>
+    <div type="book" n="B03">
+      <div type="chapter" n="B03K17"><ab n="B03K17V36"/></div>
+    </div>
+  </body></text>
+</TEI>
+"""
+        result = run(blank, name="LUK.xml")
+        self.assertEqual(result.violations, [])
+        self.assertEqual(len(result.records), 1)
+
+    def test_unexpected_empty_ab_is_flagged(self):
+        blank = """<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <text><body>
+    <div type="book" n="B03">
+      <div type="chapter" n="B03K17"><ab n="B03K17V1"/></div>
+    </div>
+  </body></text>
+</TEI>
+"""
+        result = run(blank, name="LUK.xml")
+        self.assertEqual(result.violations[0].category, "empty-verse")
+
 
 if __name__ == "__main__":
     unittest.main()

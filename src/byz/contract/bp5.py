@@ -44,7 +44,7 @@ def validate(path, dataset="source/Strongs") -> DatasetResult:
             continue
         chapter, verse, rest = match.group(1), match.group(2), match.group(3) or ""
         rest = rest.strip()
-        if not rest:
+        if not rest and not contracts.is_intentional_blank(abbr, chapter, verse):
             violations.append(
                 Violation(
                     dataset,

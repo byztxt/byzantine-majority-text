@@ -34,6 +34,11 @@ class CsvTests(unittest.TestCase):
         result = run("chapter,verse,text\n1,1,bi\\\\blos\n")
         self.assertEqual(result.violations[0].category, "beta-code-leftover")
 
+    def test_intentional_blank_is_allowed(self):
+        result = run("chapter,verse,text\n17,36,\n", name="LUK.csv")
+        self.assertEqual(result.violations, [])
+        self.assertEqual(len(result.records), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

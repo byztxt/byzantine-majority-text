@@ -3,7 +3,8 @@
   "invariants": [
     "every non-blank line starts with chapter.verse",
     "every word is followed by a positive Strong's number and parsing code",
-    "multi-parsing alternatives are allowed after the first pair"
+    "multi-parsing alternatives are allowed after the first pair",
+    "blank records are allowed only for the intentional blank verses"
   ],
   "parsing": "^\\{[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\}$",
   "purpose": "Official unaccented text with Strong's numbers and parsing.",

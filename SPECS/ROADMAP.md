@@ -46,9 +46,7 @@ edition/revision the repo currently claims. No external archives are fetched.
 - Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
   July 2023 update.
 - A maintainer decision log for internal ambiguities, now adopted as D1-D8.
-- CI workflow (`.github/workflows/baseline-contract.yml`) runs the contract
-  validators/tests on pushes and pull requests (D6). It must be committed with a
-  `workflow`-scoped token.
+- Local test command documented; no GitHub CI (D6).
 
 **Acceptance**
 
@@ -117,11 +115,9 @@ without changing the current output.
 - Baseline: regenerate the current RP2018 CSV and TEI outputs and prove they are
   byte-identical to the committed artifacts (or document every intended
   difference). Treat the source files as authoritative and flag divergence (D5).
-- Preserve the intentionally blank verses (LUK 17:36, ACT 8:37, ACT 15:34,
-  ACT 24:7) as empty records in the CSV and TEI instead of silently dropping
-  them, and update the contract and validators accordingly (D8). In TEI, use an
-  empty `<ab n="..."/>` (or a documented marker), never an empty `<w>`.
-- Enable the CI artifact-equality check once the rebuild is proven (D6).
+- Verify that the D8 empty-record behavior (intentional blank verses kept as
+  empty CSV rows and empty `<ab/>` TEI elements) survives the pipeline rewrite.
+- Add the local artifact-equality check once the rebuild is proven (D6).
 
 **Acceptance**
 

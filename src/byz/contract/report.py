@@ -91,6 +91,22 @@ def _contract_doc(derivation_rows, dataset_rows, inv_rows):
         lines.append(
             f"| `{row['dataset']}` | `{row['key']}` | {row['known_exception']} |"
         )
+    if not seen:
+        lines.append("| - | - | None |")
+    lines.extend(
+        [
+            "",
+            "## Intentional blank verses",
+            "",
+            "These verses are not part of the Byzantine tradition. They are kept "
+            "as empty CSV rows and empty `<ab/>` TEI elements (D7/D8).",
+            "",
+            "| Book | Chapter | Verse |",
+            "| --- | ---: | ---: |",
+        ]
+    )
+    for book, chapter, verse in sorted(contracts.INTENTIONAL_BLANK_VERSES):
+        lines.append(f"| `{book}` | {chapter} | {verse} |")
     lines.extend(["", "## Dataset contracts", ""])
     for name, contract in contracts.DATASET_CONTRACTS.items():
         lines.extend([f"### {name}", "", contract.get("purpose", ""), ""])
@@ -130,11 +146,11 @@ Adopted by the maintainer on 2026-11-16. The pipeline flags; the maintainer deci
 | D1 | What are `PA` and `ACT24`? | Keep them as separate pseudo-books linked to John 7:53-8:11 and Acts 24:6-8. | Revisit the TEI representation in Cycle 6. |
 | D2 | Is the TEI intentionally unaccented? | Yes. `tei-xml-unicode/no-accents` is the main-text export from `strongs/no-parsing`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
 | D3 | How is the current text labelled? | `rp2018` with a `2023-07-20` revision, not a separate edition. | Confirm against the official archive in Cycle 2. |
-| D4 | Are the generated CSV/TEI trustworthy? | The source files are authoritative; generated artifacts are unverified derivatives. | Reproduce them byte-for-byte in Cycle 3 before tagging an edition. |
+| D4 | Are the generated CSV/TEI trustworthy? | The source files are authoritative. The generated artifacts were stale in 2TI 2:22 and ACT 4:9 and have been regenerated. | Full byte-for-byte pipeline check in Cycle 3. |
 | D5 | Which view wins on disagreement? | The source files win; divergence is a bug to flag. | Enforce in the validators and the pipeline. |
-| D6 | Enforce the baseline contract in CI? | Yes, enforce the contract validators/tests now. Do not enforce artifact equality until Cycle 3. | The workflow is prepared at `.github/workflows/baseline-contract.yml`; commit it with a `workflow`-scoped token. |
+| D6 | Enforce the baseline contract in GitHub CI? | No GitHub CI. Run the contract validators/tests locally. Do not enforce artifact equality until Cycle 3. | Local test command documented; no workflow. |
 | D7 | What about LUK 17:36, ACT 8:37, ACT 15:34? | Intentional: these verses are not part of the Byzantine tradition. | The official archives should confirm this in Cycle 2. |
-| D8 | Should blank verses be dropped from generated artifacts? | No. Preserve them as empty records so the intent is visible. | Implement in Cycle 3 and update the CSV/TEI contract. |
+| D8 | Should blank verses be dropped from generated artifacts? | No. They are preserved as empty records: empty CSV text and empty `<ab/>` in TEI. | Implemented 2026-11-16; artifacts regenerated. |
 
 Note: Acts 24:7 is a separate intentional blank; the Byzantine expansion is in
 `05a_ACT24.TXT`. The PA/ACT24 section files are the only pseudo-books without a
@@ -155,8 +171,9 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
     lines = [
         "# Baseline corpus summary",
         "",
-        "Read-only inventory and validation of the corpus as it exists today. "
-        "No external archive was fetched and no data file was changed.",
+        "Inventory and validation of the corpus as it currently exists. No "
+        "external archive was fetched. The generated CSV/TEI were regenerated "
+        "from source for D8 and the stale parsing artifacts were corrected.",
         "",
         f"- Datasets: {len(results)}",
         f"- Files: {sum(len(v) for v in results.values())} validated; see `files.csv`",
@@ -166,11 +183,13 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
         "",
         "## Key finding",
         "",
-        "- The only coverage difference is the four verses that are intentionally "
-        "blank because they are not part of the Byzantine tradition: LUK 17:36, "
-        "ACT 8:37, ACT 15:34, and ACT 24:7. The CSV currently drops them "
-        "(decision D7); Cycle 3 will preserve them as empty records (D8).",
-        "- TEI matches `strongs/no-parsing` exactly (7953 verses).",
+        "- The four verses that are intentionally blank because they are not part "
+        "of the Byzantine tradition (LUK 17:36, ACT 8:37, ACT 15:34, ACT 24:7) "
+        "are preserved as explicit empty records in CSV and TEI (D7/D8).",
+        "- Source and generated coverage now match; TEI matches "
+        "`strongs/no-parsing` exactly.",
+        "- Regeneration also corrected two stale parsing artifacts: 2TI 2:22 "
+        "(`A-APF-C` -> `A-APF`) and ACT 4:9 (duplicate `5101 {I-DSN}` removed).",
         "- All 140 expected derivations exist; `demo_john_1.xml` is auxiliary.",
         "- The current text is modelled as `rp2018` revision `2023-07-20` (D3); "
         "the source files are authoritative (D5).",
@@ -213,11 +232,12 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
             "- `05_ACT.TXT` leaves Acts 24:7 blank; the Byzantine expansion lives "
             "in `05a_ACT24.TXT`.",
             "- LUK 17:36, ACT 8:37, and ACT 15:34 are intentionally blank "
-            "because they are not part of the Byzantine tradition (D7).",
+            "because they are not part of the Byzantine tradition; they are kept "
+            "as empty records (D7/D8).",
             "- TEI is generated from `strongs/no-parsing`, so it is unaccented and "
             "has no parsing; this is intended (D2).",
-            "- Generated CSV/TEI are unverified derivatives until Cycle 3 "
-            "reproduces them byte-for-byte (D4).",
+            "- Generated CSV/TEI were unverified derivatives until this "
+            "regeneration; source remains authoritative (D4/D5).",
             "",
             "## Reproduce",
             "",

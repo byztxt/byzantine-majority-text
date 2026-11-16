@@ -2,6 +2,22 @@
 
 VARIANT_CODES = list("NBCMSE")
 
+# Verses that are intentionally blank because they are not part of the
+# Byzantine tradition (maintainer decision D7). Generated CSV/TEI keep them as
+# explicit empty records (D8).
+INTENTIONAL_BLANK_VERSES = frozenset(
+    {
+        ("LUK", 17, 36),
+        ("ACT", 8, 37),
+        ("ACT", 15, 34),
+        ("ACT", 24, 7),
+    }
+)
+
+
+def is_intentional_blank(book, chapter, verse) -> bool:
+    return (book, int(chapter), int(verse)) in INTENTIONAL_BLANK_VERSES
+
 CCAT_FILENAME = r"^(\d{2}a?)_([A-Z0-9]+)\.TXT$"
 CCAT_LINE = r"^(\d{2}):(\d{2})(?:\s(.*))?$"
 CCAT_VARIANT_PREFIX = r"^[NBCMSE]\s"
@@ -29,6 +45,7 @@ DATASET_CONTRACTS = {
             "every non-blank line starts with chapter:verse",
             "variant braces are balanced and not nested",
             "variant content starts with a known code and contains '>'",
+            "blank records are allowed only for the intentional blank verses",
         ],
     },
     "source/Strongs": {
@@ -42,6 +59,7 @@ DATASET_CONTRACTS = {
             "every non-blank line starts with chapter.verse",
             "every word is followed by a positive Strong's number and parsing code",
             "multi-parsing alternatives are allowed after the first pair",
+            "blank records are allowed only for the intentional blank verses",
         ],
     },
     "csv-unicode/ccat/no-variants": {
@@ -50,7 +68,7 @@ DATASET_CONTRACTS = {
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
-            "text is non-empty",
+            "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
             "no Beta-code backslashes",
         ],
@@ -61,7 +79,7 @@ DATASET_CONTRACTS = {
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
-            "text is non-empty",
+            "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
             "no Beta-code backslashes",
         ],
@@ -72,7 +90,7 @@ DATASET_CONTRACTS = {
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
-            "text is non-empty",
+            "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
         ],
     },
@@ -82,7 +100,7 @@ DATASET_CONTRACTS = {
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
-            "text is non-empty",
+            "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
         ],
     },
@@ -95,6 +113,7 @@ DATASET_CONTRACTS = {
             "each file has book divisions with known Bxx ids",
             "verse anchors are unique and match BxxKxVx",
             "no empty <w> elements",
+            "intentional blank verses are empty <ab> elements",
         ],
     },
     "tei-xml-unicode/BYZ": {

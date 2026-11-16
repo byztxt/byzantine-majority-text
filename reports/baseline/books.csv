@@ -10,7 +10,7 @@ csv-unicode/ccat/no-variants,2PE,csv-unicode/ccat/no-variants/2PE.csv,3,61,1,3,1
 csv-unicode/ccat/no-variants,2TH,csv-unicode/ccat/no-variants/2TH.csv,3,47,1,3,1,18,0
 csv-unicode/ccat/no-variants,2TI,csv-unicode/ccat/no-variants/2TI.csv,4,83,1,4,1,26,0
 csv-unicode/ccat/no-variants,3JO,csv-unicode/ccat/no-variants/3JO.csv,1,14,1,1,1,14,0
-csv-unicode/ccat/no-variants,ACT,csv-unicode/ccat/no-variants/ACT.csv,28,1004,1,28,1,60,0
+csv-unicode/ccat/no-variants,ACT,csv-unicode/ccat/no-variants/ACT.csv,28,1007,1,28,1,60,3
 csv-unicode/ccat/no-variants,ACT24,csv-unicode/ccat/no-variants/ACT24.csv,1,3,24,24,6,8,0
 csv-unicode/ccat/no-variants,COL,csv-unicode/ccat/no-variants/COL.csv,4,95,1,4,1,29,0
 csv-unicode/ccat/no-variants,EPH,csv-unicode/ccat/no-variants/EPH.csv,6,155,1,6,1,33,0
@@ -19,7 +19,7 @@ csv-unicode/ccat/no-variants,HEB,csv-unicode/ccat/no-variants/HEB.csv,13,303,1,1
 csv-unicode/ccat/no-variants,JAM,csv-unicode/ccat/no-variants/JAM.csv,5,108,1,5,1,27,0
 csv-unicode/ccat/no-variants,JOH,csv-unicode/ccat/no-variants/JOH.csv,21,879,1,21,1,71,0
 csv-unicode/ccat/no-variants,JUD,csv-unicode/ccat/no-variants/JUD.csv,1,25,1,1,1,25,0
-csv-unicode/ccat/no-variants,LUK,csv-unicode/ccat/no-variants/LUK.csv,24,1150,1,24,1,80,0
+csv-unicode/ccat/no-variants,LUK,csv-unicode/ccat/no-variants/LUK.csv,24,1151,1,24,1,80,1
 csv-unicode/ccat/no-variants,MAR,csv-unicode/ccat/no-variants/MAR.csv,16,678,1,16,1,72,0
 csv-unicode/ccat/no-variants,MAT,csv-unicode/ccat/no-variants/MAT.csv,28,1071,1,28,1,75,0
 csv-unicode/ccat/no-variants,PA,csv-unicode/ccat/no-variants/PA.csv,2,12,7,8,1,53,0
@@ -39,7 +39,7 @@ csv-unicode/ccat/with-variants,2PE,csv-unicode/ccat/with-variants/2PE.csv,3,61,1
 csv-unicode/ccat/with-variants,2TH,csv-unicode/ccat/with-variants/2TH.csv,3,47,1,3,1,18,0
 csv-unicode/ccat/with-variants,2TI,csv-unicode/ccat/with-variants/2TI.csv,4,83,1,4,1,26,0
 csv-unicode/ccat/with-variants,3JO,csv-unicode/ccat/with-variants/3JO.csv,1,14,1,1,1,14,0
-csv-unicode/ccat/with-variants,ACT,csv-unicode/ccat/with-variants/ACT.csv,28,1004,1,28,1,60,0
+csv-unicode/ccat/with-variants,ACT,csv-unicode/ccat/with-variants/ACT.csv,28,1007,1,28,1,60,3
 csv-unicode/ccat/with-variants,ACT24,csv-unicode/ccat/with-variants/ACT24.csv,1,3,24,24,6,8,0
 csv-unicode/ccat/with-variants,COL,csv-unicode/ccat/with-variants/COL.csv,4,95,1,4,1,29,0
 csv-unicode/ccat/with-variants,EPH,csv-unicode/ccat/with-variants/EPH.csv,6,155,1,6,1,33,0
@@ -48,7 +48,7 @@ csv-unicode/ccat/with-variants,HEB,csv-unicode/ccat/with-variants/HEB.csv,13,303
 csv-unicode/ccat/with-variants,JAM,csv-unicode/ccat/with-variants/JAM.csv,5,108,1,5,1,27,0
 csv-unicode/ccat/with-variants,JOH,csv-unicode/ccat/with-variants/JOH.csv,21,879,1,21,1,71,0
 csv-unicode/ccat/with-variants,JUD,csv-unicode/ccat/with-variants/JUD.csv,1,25,1,1,1,25,0
-csv-unicode/ccat/with-variants,LUK,csv-unicode/ccat/with-variants/LUK.csv,24,1150,1,24,1,80,0
+csv-unicode/ccat/with-variants,LUK,csv-unicode/ccat/with-variants/LUK.csv,24,1151,1,24,1,80,1
 csv-unicode/ccat/with-variants,MAR,csv-unicode/ccat/with-variants/MAR.csv,16,678,1,16,1,72,0
 csv-unicode/ccat/with-variants,MAT,csv-unicode/ccat/with-variants/MAT.csv,28,1071,1,28,1,75,0
 csv-unicode/ccat/with-variants,PA,csv-unicode/ccat/with-variants/PA.csv,2,12,7,8,1,53,0
@@ -68,7 +68,7 @@ csv-unicode/strongs/no-parsing,2PE,csv-unicode/strongs/no-parsing/2PE.csv,3,61,1
 csv-unicode/strongs/no-parsing,2TH,csv-unicode/strongs/no-parsing/2TH.csv,3,47,1,3,1,18,0
 csv-unicode/strongs/no-parsing,2TI,csv-unicode/strongs/no-parsing/2TI.csv,4,83,1,4,1,26,0
 csv-unicode/strongs/no-parsing,3JO,csv-unicode/strongs/no-parsing/3JO.csv,1,14,1,1,1,14,0
-csv-unicode/strongs/no-parsing,ACT,csv-unicode/strongs/no-parsing/ACT.csv,28,1004,1,28,1,60,0
+csv-unicode/strongs/no-parsing,ACT,csv-unicode/strongs/no-parsing/ACT.csv,28,1007,1,28,1,60,3
 csv-unicode/strongs/no-parsing,COL,csv-unicode/strongs/no-parsing/COL.csv,4,95,1,4,1,29,0
 csv-unicode/strongs/no-parsing,EPH,csv-unicode/strongs/no-parsing/EPH.csv,6,155,1,6,1,33,0
 csv-unicode/strongs/no-parsing,GAL,csv-unicode/strongs/no-parsing/GAL.csv,6,149,1,6,1,31,0
@@ -76,7 +76,7 @@ csv-unicode/strongs/no-parsing,HEB,csv-unicode/strongs/no-parsing/HEB.csv,13,303
 csv-unicode/strongs/no-parsing,JAM,csv-unicode/strongs/no-parsing/JAM.csv,5,108,1,5,1,27,0
 csv-unicode/strongs/no-parsing,JOH,csv-unicode/strongs/no-parsing/JOH.csv,21,879,1,21,1,71,0
 csv-unicode/strongs/no-parsing,JUD,csv-unicode/strongs/no-parsing/JUD.csv,1,25,1,1,1,25,0
-csv-unicode/strongs/no-parsing,LUK,csv-unicode/strongs/no-parsing/LUK.csv,24,1150,1,24,1,80,0
+csv-unicode/strongs/no-parsing,LUK,csv-unicode/strongs/no-parsing/LUK.csv,24,1151,1,24,1,80,1
 csv-unicode/strongs/no-parsing,MAR,csv-unicode/strongs/no-parsing/MAR.csv,16,678,1,16,1,72,0
 csv-unicode/strongs/no-parsing,MAT,csv-unicode/strongs/no-parsing/MAT.csv,28,1071,1,28,1,75,0
 csv-unicode/strongs/no-parsing,PHM,csv-unicode/strongs/no-parsing/PHM.csv,1,25,1,1,1,25,0
@@ -95,7 +95,7 @@ csv-unicode/strongs/with-parsing,2PE,csv-unicode/strongs/with-parsing/2PE.csv,3,
 csv-unicode/strongs/with-parsing,2TH,csv-unicode/strongs/with-parsing/2TH.csv,3,47,1,3,1,18,0
 csv-unicode/strongs/with-parsing,2TI,csv-unicode/strongs/with-parsing/2TI.csv,4,83,1,4,1,26,0
 csv-unicode/strongs/with-parsing,3JO,csv-unicode/strongs/with-parsing/3JO.csv,1,14,1,1,1,14,0
-csv-unicode/strongs/with-parsing,ACT,csv-unicode/strongs/with-parsing/ACT.csv,28,1004,1,28,1,60,0
+csv-unicode/strongs/with-parsing,ACT,csv-unicode/strongs/with-parsing/ACT.csv,28,1007,1,28,1,60,3
 csv-unicode/strongs/with-parsing,COL,csv-unicode/strongs/with-parsing/COL.csv,4,95,1,4,1,29,0
 csv-unicode/strongs/with-parsing,EPH,csv-unicode/strongs/with-parsing/EPH.csv,6,155,1,6,1,33,0
 csv-unicode/strongs/with-parsing,GAL,csv-unicode/strongs/with-parsing/GAL.csv,6,149,1,6,1,31,0
@@ -103,7 +103,7 @@ csv-unicode/strongs/with-parsing,HEB,csv-unicode/strongs/with-parsing/HEB.csv,13
 csv-unicode/strongs/with-parsing,JAM,csv-unicode/strongs/with-parsing/JAM.csv,5,108,1,5,1,27,0
 csv-unicode/strongs/with-parsing,JOH,csv-unicode/strongs/with-parsing/JOH.csv,21,879,1,21,1,71,0
 csv-unicode/strongs/with-parsing,JUD,csv-unicode/strongs/with-parsing/JUD.csv,1,25,1,1,1,25,0
-csv-unicode/strongs/with-parsing,LUK,csv-unicode/strongs/with-parsing/LUK.csv,24,1150,1,24,1,80,0
+csv-unicode/strongs/with-parsing,LUK,csv-unicode/strongs/with-parsing/LUK.csv,24,1151,1,24,1,80,1
 csv-unicode/strongs/with-parsing,MAR,csv-unicode/strongs/with-parsing/MAR.csv,16,678,1,16,1,72,0
 csv-unicode/strongs/with-parsing,MAT,csv-unicode/strongs/with-parsing/MAT.csv,28,1071,1,28,1,75,0
 csv-unicode/strongs/with-parsing,PHM,csv-unicode/strongs/with-parsing/PHM.csv,1,25,1,1,1,25,0
@@ -178,7 +178,7 @@ tei-xml-unicode/BYZ,2PE,tei-xml-unicode/no-accents/BYZ/byz.xml,3,61,1,3,1,22,61
 tei-xml-unicode/BYZ,2TH,tei-xml-unicode/no-accents/BYZ/byz.xml,3,47,1,3,1,18,47
 tei-xml-unicode/BYZ,2TI,tei-xml-unicode/no-accents/BYZ/byz.xml,4,83,1,4,1,26,83
 tei-xml-unicode/BYZ,3JO,tei-xml-unicode/no-accents/BYZ/byz.xml,1,14,1,1,1,14,14
-tei-xml-unicode/BYZ,ACT,tei-xml-unicode/no-accents/BYZ/byz.xml,28,1004,1,28,1,60,1004
+tei-xml-unicode/BYZ,ACT,tei-xml-unicode/no-accents/BYZ/byz.xml,28,1007,1,28,1,60,1007
 tei-xml-unicode/BYZ,COL,tei-xml-unicode/no-accents/BYZ/byz.xml,4,95,1,4,1,29,95
 tei-xml-unicode/BYZ,EPH,tei-xml-unicode/no-accents/BYZ/byz.xml,6,155,1,6,1,33,155
 tei-xml-unicode/BYZ,GAL,tei-xml-unicode/no-accents/BYZ/byz.xml,6,149,1,6,1,31,149
@@ -186,7 +186,7 @@ tei-xml-unicode/BYZ,HEB,tei-xml-unicode/no-accents/BYZ/byz.xml,13,303,1,13,1,40,
 tei-xml-unicode/BYZ,JAM,tei-xml-unicode/no-accents/BYZ/byz.xml,5,108,1,5,1,27,108
 tei-xml-unicode/BYZ,JOH,tei-xml-unicode/no-accents/BYZ/byz.xml,21,879,1,21,1,71,879
 tei-xml-unicode/BYZ,JUD,tei-xml-unicode/no-accents/BYZ/byz.xml,1,25,1,1,1,25,25
-tei-xml-unicode/BYZ,LUK,tei-xml-unicode/no-accents/BYZ/byz.xml,24,1150,1,24,1,80,1150
+tei-xml-unicode/BYZ,LUK,tei-xml-unicode/no-accents/BYZ/byz.xml,24,1151,1,24,1,80,1151
 tei-xml-unicode/BYZ,MAR,tei-xml-unicode/no-accents/BYZ/byz.xml,16,678,1,16,1,72,678
 tei-xml-unicode/BYZ,MAT,tei-xml-unicode/no-accents/BYZ/byz.xml,28,1071,1,28,1,75,1071
 tei-xml-unicode/BYZ,PHM,tei-xml-unicode/no-accents/BYZ/byz.xml,1,25,1,1,1,25,25
@@ -205,7 +205,7 @@ tei-xml-unicode/no-accents,2PE,tei-xml-unicode/no-accents/2PE.xml,3,61,1,3,1,22,
 tei-xml-unicode/no-accents,2TH,tei-xml-unicode/no-accents/2TH.xml,3,47,1,3,1,18,47
 tei-xml-unicode/no-accents,2TI,tei-xml-unicode/no-accents/2TI.xml,4,83,1,4,1,26,83
 tei-xml-unicode/no-accents,3JO,tei-xml-unicode/no-accents/3JO.xml,1,14,1,1,1,14,14
-tei-xml-unicode/no-accents,ACT,tei-xml-unicode/no-accents/ACT.xml,28,1004,1,28,1,60,1004
+tei-xml-unicode/no-accents,ACT,tei-xml-unicode/no-accents/ACT.xml,28,1007,1,28,1,60,1007
 tei-xml-unicode/no-accents,COL,tei-xml-unicode/no-accents/COL.xml,4,95,1,4,1,29,95
 tei-xml-unicode/no-accents,EPH,tei-xml-unicode/no-accents/EPH.xml,6,155,1,6,1,33,155
 tei-xml-unicode/no-accents,GAL,tei-xml-unicode/no-accents/GAL.xml,6,149,1,6,1,31,149
@@ -213,7 +213,7 @@ tei-xml-unicode/no-accents,HEB,tei-xml-unicode/no-accents/HEB.xml,13,303,1,13,1,
 tei-xml-unicode/no-accents,JAM,tei-xml-unicode/no-accents/JAM.xml,5,108,1,5,1,27,108
 tei-xml-unicode/no-accents,JOH,tei-xml-unicode/no-accents/JOH.xml,21,879,1,21,1,71,879
 tei-xml-unicode/no-accents,JUD,tei-xml-unicode/no-accents/JUD.xml,1,25,1,1,1,25,25
-tei-xml-unicode/no-accents,LUK,tei-xml-unicode/no-accents/LUK.xml,24,1150,1,24,1,80,1150
+tei-xml-unicode/no-accents,LUK,tei-xml-unicode/no-accents/LUK.xml,24,1151,1,24,1,80,1151
 tei-xml-unicode/no-accents,MAR,tei-xml-unicode/no-accents/MAR.xml,16,678,1,16,1,72,678
 tei-xml-unicode/no-accents,MAT,tei-xml-unicode/no-accents/MAT.xml,28,1071,1,28,1,75,1071
 tei-xml-unicode/no-accents,PHM,tei-xml-unicode/no-accents/PHM.xml,1,25,1,1,1,25,25

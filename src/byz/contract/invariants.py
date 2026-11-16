@@ -4,26 +4,7 @@ from dataclasses import replace
 
 from . import bp5, ccat, csv_view, paths, tei_view
 
-_BLANK_REASON = (
-    "Intentionally blank: this verse is not part of the Byzantine tradition "
-    "(maintainer decision D7). The generated CSV/TEI currently drop blank "
-    "verses; preserving them as empty records is a Cycle 3 task (D8)."
-)
-_ACT24_REASON = (
-    "Acts 24:7 is intentionally blank because it is not part of the Byzantine "
-    "tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7)."
-)
-
-KNOWN_EXCEPTIONS = {
-    ("source/CCAT", "blank-record", "LUK 17:36"): _BLANK_REASON,
-    ("source/CCAT", "blank-record", "ACT 8:37"): _BLANK_REASON,
-    ("source/CCAT", "blank-record", "ACT 15:34"): _BLANK_REASON,
-    ("source/CCAT", "blank-record", "ACT 24:7"): _ACT24_REASON,
-    ("source/Strongs", "blank-record", "LUK 17:36"): _BLANK_REASON,
-    ("source/Strongs", "blank-record", "ACT 8:37"): _BLANK_REASON,
-    ("source/Strongs", "blank-record", "ACT 15:34"): _BLANK_REASON,
-    ("source/Strongs", "blank-record", "ACT 24:7"): _ACT24_REASON,
-}
+KNOWN_EXCEPTIONS = {}
 
 
 def _csv_results(root):

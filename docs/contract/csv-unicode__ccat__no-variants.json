@@ -7,7 +7,7 @@
   "invariants": [
     "header is chapter,verse,text",
     "chapter and verse are integers",
-    "text is non-empty",
+    "text is non-empty except for the intentional blank verses",
     "no duplicate (chapter, verse) keys",
     "no Beta-code backslashes"
   ],

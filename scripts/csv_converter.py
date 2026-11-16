@@ -138,12 +138,16 @@ def convert_book(path, input_format, drop_variants, drop_parsing, book):
             unicode_line = buc.convert_beta_to_unicode_strongs(clean_line, drop_parsing)
         result.append([chap, verse, unicode_line])
 
-    # Converting to DataFrame and fixing the table format
+    # Converting to DataFrame and fixing the table format.
+    # Keep rows that reference a verse even when the verse text is intentionally
+    # empty (verses not part of the Byzantine tradition); only drop the blank
+    # separator/terminator lines from the source file.
     result = pd.DataFrame(result)
-    result = result.replace("", pd.NA).dropna()
+    result = result[result[0].astype(str).str.strip() != ""]
     result.columns = ["chapter", "verse", "text"]
     result["chapter"] = result["chapter"].astype(int)
     result["verse"] = result["verse"].astype(int)
+    result["text"] = result["text"].fillna("")
 
     # Saving to disk
     if input_format == "CCAT":

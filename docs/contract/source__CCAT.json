@@ -3,7 +3,8 @@
   "invariants": [
     "every non-blank line starts with chapter:verse",
     "variant braces are balanced and not nested",
-    "variant content starts with a known code and contains '>'"
+    "variant content starts with a known code and contains '>'",
+    "blank records are allowed only for the intentional blank verses"
   ],
   "purpose": "Official accented Byzantine text in Beta code, with variants.",
   "record": {

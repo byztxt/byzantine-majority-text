@@ -4,7 +4,8 @@
     "XML is well-formed",
     "each file has book divisions with known Bxx ids",
     "verse anchors are unique and match BxxKxVx",
-    "no empty <w> elements"
+    "no empty <w> elements",
+    "intentional blank verses are empty <ab> elements"
   ],
   "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
   "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w"

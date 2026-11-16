@@ -65,7 +65,9 @@ def validate(path, dataset) -> DatasetResult:
                 )
             )
             continue
-        if not body.strip():
+        if not body.strip() and not contracts.is_intentional_blank(
+            book, chapter_int, verse_int
+        ):
             violations.append(
                 Violation(
                     dataset,

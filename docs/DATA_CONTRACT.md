@@ -8,14 +8,14 @@ No external archive is involved in this contract; that is the next cycle.
 
 | Dataset | Files | Books | Records |
 | --- | ---: | ---: | ---: |
-| `csv-unicode/ccat/no-variants` | 29 | 29 | 7968 |
-| `csv-unicode/ccat/with-variants` | 29 | 29 | 7968 |
-| `csv-unicode/strongs/no-parsing` | 27 | 27 | 7953 |
-| `csv-unicode/strongs/with-parsing` | 27 | 27 | 7953 |
+| `csv-unicode/ccat/no-variants` | 29 | 29 | 7972 |
+| `csv-unicode/ccat/with-variants` | 29 | 29 | 7972 |
+| `csv-unicode/strongs/no-parsing` | 27 | 27 | 7957 |
+| `csv-unicode/strongs/with-parsing` | 27 | 27 | 7957 |
 | `source/CCAT` | 29 | 29 | 7972 |
 | `source/Strongs` | 27 | 27 | 7957 |
-| `tei-xml-unicode/BYZ` | 1 | 27 | 7953 |
-| `tei-xml-unicode/no-accents` | 27 | 27 | 7953 |
+| `tei-xml-unicode/BYZ` | 1 | 27 | 7957 |
+| `tei-xml-unicode/no-accents` | 27 | 27 | 7957 |
 
 ## Derivation map
 
@@ -34,14 +34,18 @@ No external archive is involved in this contract; that is the next cycle.
 
 | Dataset | Key | Reason |
 | --- | --- | --- |
-| `source/CCAT` | `LUK 17:36` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/CCAT` | `ACT 8:37` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/CCAT` | `ACT 15:34` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/CCAT` | `ACT 24:7` | Acts 24:7 is intentionally blank because it is not part of the Byzantine tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7). |
-| `source/Strongs` | `LUK 17:36` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/Strongs` | `ACT 8:37` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/Strongs` | `ACT 15:34` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
-| `source/Strongs` | `ACT 24:7` | Acts 24:7 is intentionally blank because it is not part of the Byzantine tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7). |
+| - | - | None |
+
+## Intentional blank verses
+
+These verses are not part of the Byzantine tradition. They are kept as empty CSV rows and empty `<ab/>` TEI elements (D7/D8).
+
+| Book | Chapter | Verse |
+| --- | ---: | ---: |
+| `ACT` | 8 | 37 |
+| `ACT` | 15 | 34 |
+| `ACT` | 24 | 7 |
+| `LUK` | 17 | 36 |
 
 ## Dataset contracts
 
@@ -63,6 +67,7 @@ Invariants:
 - every non-blank line starts with chapter:verse
 - variant braces are balanced and not nested
 - variant content starts with a known code and contains '>'
+- blank records are allowed only for the intentional blank verses
 
 ### source/Strongs
 
@@ -82,6 +87,7 @@ Invariants:
 - every non-blank line starts with chapter.verse
 - every word is followed by a positive Strong's number and parsing code
 - multi-parsing alternatives are allowed after the first pair
+- blank records are allowed only for the intentional blank verses
 
 ### csv-unicode/ccat/no-variants
 
@@ -93,7 +99,7 @@ Invariants:
 
 - header is chapter,verse,text
 - chapter and verse are integers
-- text is non-empty
+- text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 - no Beta-code backslashes
 
@@ -107,7 +113,7 @@ Invariants:
 
 - header is chapter,verse,text
 - chapter and verse are integers
-- text is non-empty
+- text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 - no Beta-code backslashes
 
@@ -121,7 +127,7 @@ Invariants:
 
 - header is chapter,verse,text
 - chapter and verse are integers
-- text is non-empty
+- text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 
 ### csv-unicode/strongs/with-parsing
@@ -134,7 +140,7 @@ Invariants:
 
 - header is chapter,verse,text
 - chapter and verse are integers
-- text is non-empty
+- text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 
 ### tei-xml-unicode/no-accents
@@ -150,6 +156,7 @@ Invariants:
 - each file has book divisions with known Bxx ids
 - verse anchors are unique and match BxxKxVx
 - no empty <w> elements
+- intentional blank verses are empty <ab> elements
 
 ### tei-xml-unicode/BYZ
 

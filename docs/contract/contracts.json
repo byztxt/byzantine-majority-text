@@ -8,7 +8,7 @@
     "invariants": [
       "header is chapter,verse,text",
       "chapter and verse are integers",
-      "text is non-empty",
+      "text is non-empty except for the intentional blank verses",
       "no duplicate (chapter, verse) keys",
       "no Beta-code backslashes"
     ],
@@ -23,7 +23,7 @@
     "invariants": [
       "header is chapter,verse,text",
       "chapter and verse are integers",
-      "text is non-empty",
+      "text is non-empty except for the intentional blank verses",
       "no duplicate (chapter, verse) keys",
       "no Beta-code backslashes"
     ],
@@ -38,7 +38,7 @@
     "invariants": [
       "header is chapter,verse,text",
       "chapter and verse are integers",
-      "text is non-empty",
+      "text is non-empty except for the intentional blank verses",
       "no duplicate (chapter, verse) keys"
     ],
     "purpose": "Unicode CSV of the Strong's text with parsing dropped."
@@ -52,7 +52,7 @@
     "invariants": [
       "header is chapter,verse,text",
       "chapter and verse are integers",
-      "text is non-empty",
+      "text is non-empty except for the intentional blank verses",
       "no duplicate (chapter, verse) keys"
     ],
     "purpose": "Unicode CSV of the Strong's text with parsing retained."
@@ -62,7 +62,8 @@
     "invariants": [
       "every non-blank line starts with chapter:verse",
       "variant braces are balanced and not nested",
-      "variant content starts with a known code and contains '>'"
+      "variant content starts with a known code and contains '>'",
+      "blank records are allowed only for the intentional blank verses"
     ],
     "purpose": "Official accented Byzantine text in Beta code, with variants.",
     "record": {
@@ -87,7 +88,8 @@
     "invariants": [
       "every non-blank line starts with chapter.verse",
       "every word is followed by a positive Strong's number and parsing code",
-      "multi-parsing alternatives are allowed after the first pair"
+      "multi-parsing alternatives are allowed after the first pair",
+      "blank records are allowed only for the intentional blank verses"
     ],
     "parsing": "^\\{[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\}$",
     "purpose": "Official unaccented text with Strong's numbers and parsing.",
@@ -114,7 +116,8 @@
       "XML is well-formed",
       "each file has book divisions with known Bxx ids",
       "verse anchors are unique and match BxxKxVx",
-      "no empty <w> elements"
+      "no empty <w> elements",
+      "intentional blank verses are empty <ab> elements"
     ],
     "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
     "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w"

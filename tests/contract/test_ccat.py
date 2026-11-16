@@ -40,6 +40,11 @@ class CcatTests(unittest.TestCase):
         self.assertEqual(result.violations[0].category, "blank-record")
         self.assertEqual(result.violations[0].key, "MAT 17:36")
 
+    def test_intentional_blank_is_allowed(self):
+        result = run("17:36 \n", name="03_LUK.TXT")
+        self.assertEqual(result.violations, [])
+        self.assertEqual(len(result.records), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
