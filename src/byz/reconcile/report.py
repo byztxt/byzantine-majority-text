@@ -4,7 +4,7 @@ import csv
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from . import archive, sources
+from . import archive, historical, sources
 
 CYCLE2_BEGIN = "<!-- cycle2:begin -->"
 CYCLE2_END = "<!-- cycle2:end -->"
@@ -119,7 +119,7 @@ def _archive_records():
     return rows
 
 
-def _provenance_doc(results, source_stats, derived_stats):
+def _provenance_doc(results, source_stats, derived_stats, history_rows):
     lines = [
         "# Provenance",
         "",
@@ -165,6 +165,7 @@ def _provenance_doc(results, source_stats, derived_stats):
             f"| `{edition}` | `{reference}` | `{dataset}` | "
             f"{stat['match']}/{stat['verses']} ({_percent(stat['match'], stat['verses'])}) |"
         )
+    lines.extend(_lineage_lines(history_rows))
     strongs = results["strongs"]
     lines.extend(
         [
@@ -198,7 +199,56 @@ def _provenance_doc(results, source_stats, derived_stats):
     return "\n".join(lines)
 
 
-def _summary(results, source_stats, derived_stats, categories):
+def _lineage_lines(history_rows):
+    lookup = {
+        (row["state"], row["compared_to"]): row for row in history_rows
+    }
+    lines = [
+        "",
+        "## Historical lineage",
+        "",
+        "| State | Compared to | Files fully matching | Verses matching |",
+        "| --- | --- | ---: | ---: |",
+    ]
+    for row in history_rows:
+        lines.append(
+            f"| `{row['state']}` | `{row['compared_to']}` | "
+            f"{row['full_files']}/{row['files']} | "
+            f"{row['match']}/{row['verses']} ({row['percent']}) |"
+        )
+    v203_05 = lookup.get(("v2.0.3 textonly-beta-code", "rp2005"), {})
+    v203_18 = lookup.get(("v2.0.3 textonly-beta-code", "rp2018"), {})
+    cur_05 = lookup.get(("current source/CCAT", "rp2005"), {})
+    cur_18 = lookup.get(("current source/CCAT", "rp2018"), {})
+    lines.extend(
+        [
+            "",
+            "- The current `source/CCAT` was first added in commit `97371d7` "
+            "(2023-05-30) and merged in `v3.0.0` (2023-05-31, PR #25 "
+            "'update_to_2023'). It is the 2018 edition with 2023 adjustments.",
+            "- The 2005-lineage text lives in `textonly-beta-code` at `v2.0.3` "
+            "and earlier; it was last updated in 2019.",
+            f"- `v2.0.3` matches official 2018 in {v203_18.get('match', '?')}/"
+            f"{v203_18.get('verses', '?')} verses ({v203_18.get('percent', '?')}) "
+            f"but official 2005 in {v203_05.get('match', '?')}/"
+            f"{v203_05.get('verses', '?')} ({v203_05.get('percent', '?')}). It is "
+            "therefore a 2019 revision of the 2005 edition, not the official 2005 "
+            "archive itself.",
+            f"- The current source matches official 2018 in "
+            f"{cur_18.get('match', '?')}/{cur_18.get('verses', '?')} "
+            f"({cur_18.get('percent', '?')}) and official 2005 in "
+            f"{cur_05.get('match', '?')}/{cur_05.get('verses', '?')} "
+            f"({cur_05.get('percent', '?')}).",
+            "- So the current tree does **not** contain the 2005 text. Comparing "
+            "it with the official 2005 archive is a cross-check, not an "
+            "identification.",
+            "",
+        ]
+    )
+    return lines
+
+
+def _summary(results, source_stats, derived_stats, categories, history_rows):
     best = max(
         source_stats,
         key=lambda edition: (
@@ -250,6 +300,11 @@ def _summary(results, source_stats, derived_stats, categories):
             "ordering differences. Everything is itemised in `verses.csv` and the "
             "decision log.",
             "",
+        ]
+    )
+    lines.extend(_lineage_lines(history_rows))
+    lines.extend(
+        [
             "## Derived tier",
             "",
             "| Edition | Reference | Dataset | Verses matching |",
@@ -329,10 +384,11 @@ The pipeline flags; the maintainer decides. No source file was changed.
 | R6 | Formatting-only differences (`*[` vs `[*`, dash/ellipsis spacing). | Treated as normalization-only. | (a) Accept as equivalent. (b) Preserve exactly. | pending |
 | R7 | Should official 2018 files replace current `source/`? | Current includes post-2018 changes (e.g. apparatus codes). | (a) Keep current. (b) Adopt official. (c) merge per decision R1/R2. | pending |
 | R8 | Commit original zips? | They live under gitignored `data/raw/_archives/`; checksums recorded. | (a) Keep out of git. (b) Commit them. | pending |
+| R9 | Which historical state is the 2005 edition? | `v2.0.3 textonly-beta-code` is a 2019 revision of the 2005 edition; it matches official 2018 (99.96%) more closely than official 2005 (99.32%). The current source is the 2023 2018 text, first added in `97371d7` and merged in `v3.0.0`. | (a) Use the official 2005 archive as the 2005 edition. (b) Use `v2.0.3` (the repo's 2019 revision). (c) Keep both, clearly labelled. | pending |
 """
 
 
-def _update_history(stats, best):
+def _update_history(stats, best, history_rows):
     path = sources.DOCS_DIR / "HISTORY.md"
     if not path.exists():
         return
@@ -356,7 +412,22 @@ def _update_history(stats, best):
     block.extend(
         [
             "",
-            f"Closest official edition: `{best}`. See `docs/PROVENANCE.md`.",
+            "| State | Compared to | Verses matching |",
+            "| --- | --- | ---: |",
+        ]
+    )
+    for row in history_rows:
+        block.append(
+            f"| `{row['state']}` | `{row['compared_to']}` | "
+            f"{row['match']}/{row['verses']} ({row['percent']}) |"
+        )
+    block.extend(
+        [
+            "",
+            f"Closest official edition for the current source: `{best}`.",
+            "The current `source/CCAT` was first added in `97371d7` (2023-05-30, "
+            "merged in `v3.0.0`). The 2005-lineage text is in `textonly-beta-code` "
+            "at `v2.0.3` and earlier, last updated 2019. See `docs/PROVENANCE.md`.",
             CYCLE2_END,
             "",
         ]
@@ -368,6 +439,7 @@ def _update_history(stats, best):
 def write_all(results):
     archives = _archives()
     category_rows = _categories(results["verses"])
+    history_rows = historical.evidence()
     source_stats = _source_stats(results["files"])
     derived_stats = _derived_stats(results["files"])
     best = max(
@@ -403,16 +475,17 @@ def write_all(results):
     write_csv(reports / "files.csv", files)
     write_csv(reports / "verses.csv", verses)
     write_csv(reports / "categories.csv", category_rows)
+    write_csv(reports / "history.csv", history_rows)
     (reports / "summary.md").write_text(
-        _summary(results, source_stats, derived_stats, category_rows),
+        _summary(results, source_stats, derived_stats, category_rows, history_rows),
         encoding="utf-8",
     )
     (reports / "decision-log.md").write_text(_decision_log(results), encoding="utf-8")
     (sources.DOCS_DIR / "PROVENANCE.md").write_text(
-        _provenance_doc(results, source_stats, derived_stats),
+        _provenance_doc(results, source_stats, derived_stats, history_rows),
         encoding="utf-8",
     )
-    _update_history(source_stats, best)
+    _update_history(source_stats, best, history_rows)
 
     return {
         "source_stats": source_stats,

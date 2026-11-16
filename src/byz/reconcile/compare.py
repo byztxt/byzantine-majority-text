@@ -119,6 +119,10 @@ def _ascii_members(edition: str, ascii_format: str) -> dict:
     }
 
 
+def ccat_members(edition: str) -> dict:
+    return _ccat_members(edition)
+
+
 def source_rows() -> tuple[list, list, list]:
     file_rows = []
     verse_rows = []

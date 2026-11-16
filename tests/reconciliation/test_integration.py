@@ -1,6 +1,6 @@
 import unittest
 
-from byz.reconcile import compare
+from byz.reconcile import compare, historical
 
 
 class IntegrationTests(unittest.TestCase):
@@ -36,6 +36,19 @@ class IntegrationTests(unittest.TestCase):
         self.assertIn("provenance-unknown", classes)
         self.assertIn("incomparable-pending-pipeline", classes)
         self.assertIn("auxiliary", classes)
+
+    def test_history_lineage(self):
+        rows = {
+            (row["state"], row["compared_to"]): row
+            for row in historical.evidence()
+        }
+        v203_05 = rows[("v2.0.3 textonly-beta-code", "rp2005")]
+        v203_18 = rows[("v2.0.3 textonly-beta-code", "rp2018")]
+        cur_05 = rows[("current source/CCAT", "rp2005")]
+        cur_18 = rows[("current source/CCAT", "rp2018")]
+        self.assertGreater(v203_18["match"], v203_05["match"])
+        self.assertGreater(cur_18["match"], cur_05["match"])
+        self.assertGreater(v203_18["match"], cur_18["match"])
 
 
 if __name__ == "__main__":

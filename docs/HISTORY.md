@@ -72,5 +72,15 @@ These are open questions for the maintainer and the external reconciliation cycl
 | `rp2005` | 7769/7972 (97.45%) |
 | `rp2018` | 7811/7972 (97.98%) |
 
-Closest official edition: `rp2018`. See `docs/PROVENANCE.md`.
+| State | Compared to | Verses matching |
+| --- | --- | ---: |
+| `v2.0.3 textonly-beta-code` | `rp2005` | 7918/7972 (99.32%) |
+| `v2.0.3 textonly-beta-code` | `rp2018` | 7969/7972 (99.96%) |
+| `v3.0.0 source/CCAT` | `rp2005` | 7754/7957 (97.45%) |
+| `v3.0.0 source/CCAT` | `rp2018` | 7796/7957 (97.98%) |
+| `current source/CCAT` | `rp2005` | 7769/7972 (97.45%) |
+| `current source/CCAT` | `rp2018` | 7811/7972 (97.98%) |
+
+Closest official edition for the current source: `rp2018`.
+The current `source/CCAT` was first added in `97371d7` (2023-05-30, merged in `v3.0.0`). The 2005-lineage text is in `textonly-beta-code` at `v2.0.3` and earlier, last updated 2019. See `docs/PROVENANCE.md`.
 <!-- cycle2:end -->

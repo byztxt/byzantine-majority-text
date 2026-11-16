@@ -22,6 +22,24 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation -v
 
 Current `source/CCAT` is closest to `rp2018`. For `rp2018`, 3 verses differ in main-text letters, 1 in punctuation, 134 are apparatus/variant differences, and 23 are diacritic-ordering differences. Everything is itemised in `verses.csv` and the decision log.
 
+
+## Historical lineage
+
+| State | Compared to | Files fully matching | Verses matching |
+| --- | --- | ---: | ---: |
+| `v2.0.3 textonly-beta-code` | `rp2005` | 13/29 | 7918/7972 (99.32%) |
+| `v2.0.3 textonly-beta-code` | `rp2018` | 26/29 | 7969/7972 (99.96%) |
+| `v3.0.0 source/CCAT` | `rp2005` | 5/27 | 7754/7957 (97.45%) |
+| `v3.0.0 source/CCAT` | `rp2018` | 9/27 | 7796/7957 (97.98%) |
+| `current source/CCAT` | `rp2005` | 7/29 | 7769/7972 (97.45%) |
+| `current source/CCAT` | `rp2018` | 11/29 | 7811/7972 (97.98%) |
+
+- The current `source/CCAT` was first added in commit `97371d7` (2023-05-30) and merged in `v3.0.0` (2023-05-31, PR #25 'update_to_2023'). It is the 2018 edition with 2023 adjustments.
+- The 2005-lineage text lives in `textonly-beta-code` at `v2.0.3` and earlier; it was last updated in 2019.
+- `v2.0.3` matches official 2018 in 7969/7972 verses (99.96%) but official 2005 in 7918/7972 (99.32%). It is therefore a 2019 revision of the 2005 edition, not the official 2005 archive itself.
+- The current source matches official 2018 in 7811/7972 (97.98%) and official 2005 in 7769/7972 (97.45%).
+- So the current tree does **not** contain the 2005 text. Comparing it with the official 2005 archive is a cross-check, not an identification.
+
 ## Derived tier
 
 | Edition | Reference | Dataset | Verses matching |
