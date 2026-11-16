@@ -56,7 +56,19 @@ def collect(root=paths.ROOT):
             }
         )
     return {
-        "head": _git(root, ["log", "-1", "--format=%h|%cs|%s"]),
+        "head": _git(
+            root,
+            [
+                "log",
+                "-1",
+                "--format=%h|%cs|%s",
+                "--",
+                "source",
+                "csv-unicode",
+                "tei-xml-unicode",
+                "essay",
+            ],
+        ),
         "tags": _git(root, ["tag", "--list"]).splitlines(),
         "datasets": rows,
         "july_2023": _git(
@@ -85,9 +97,9 @@ def render(root=paths.ROOT) -> str:
         "official archive any file came from; that is the job of the external "
         "reconciliation cycle.",
         "",
-        "## Current HEAD",
+        "## Last corpus commit",
         "",
-        f"`{data['head']}`",
+        f"{_fmt(data['head'])}",
         "",
         "## Tags",
         "",

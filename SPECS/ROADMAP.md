@@ -46,7 +46,9 @@ edition/revision the repo currently claims. No external archives are fetched.
 - Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
   July 2023 update.
 - A maintainer decision log for internal ambiguities, now adopted as D1-D8.
-- CI runs the contract validators/tests on pushes and pull requests (D6).
+- CI workflow (`.github/workflows/baseline-contract.yml`) runs the contract
+  validators/tests on pushes and pull requests (D6). It must be committed with a
+  `workflow`-scoped token.
 
 **Acceptance**
 

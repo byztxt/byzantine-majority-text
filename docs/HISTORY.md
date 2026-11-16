@@ -2,9 +2,9 @@
 
 This map is derived from git history only. It does not prove which official archive any file came from; that is the job of the external reconciliation cycle.
 
-## Current HEAD
+## Last corpus commit
 
-`ab45222|2026-11-16|Add existing corpus baseline contract and reports`
+`b7485a3` (2026-11-11) Fix morphology tags per Dr. Robinson (issue #43, partial)
 
 ## Tags
 
