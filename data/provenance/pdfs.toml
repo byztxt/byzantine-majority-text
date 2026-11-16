@@ -1,0 +1,23 @@
+# Official published PDFs: the ultimate source of truth.
+
+[[pdfs]]
+edition = "rp2005"
+name = "editions-rp2.pdf"
+title = "The New Testament in the Original Greek: Byzantine Textform (2005)"
+publisher = "Chilton Book Publishing, Southborough, Massachusetts"
+url = "https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf"
+path = "data/raw/rp2005/official-pdf/editions-rp2.pdf"
+size = 6156568
+pages = 619
+sha256 = "ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce"
+
+[[pdfs]]
+edition = "rp2018"
+name = "robinson-pierpont-2018-gnt-edition.pdf"
+title = "The New Testament in the Original Greek: Byzantine Textform (2018)"
+publisher = "VTR, Nuremberg"
+url = "https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf"
+path = "data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf"
+size = 2161630
+pages = 642
+sha256 = "00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c"

@@ -22,9 +22,25 @@ the current state of `master`. Editions may have a `revision` (date) and a
 `source_url`; both are recorded in provenance. Git tags freeze each edition
 (`rp2005`, `rp2018`, `rp2026`).
 
-## 2. Official source archives (for the record)
+## 2. Official sources: PDFs and archives
 
-The official files are published by the Byzantine Text website. Known archives:
+The official files are published by the Byzantine Text website. The **published
+PDFs are the ultimate source of truth**; the ZIP archives are machine-readable
+companions.
+
+### Official published PDFs
+
+- 2005: `editions-rp2.pdf` (Chilton Book Publishing, Southborough,
+  Massachusetts) -
+  <https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf>
+- 2018: `robinson-pierpont-2018-gnt-edition.pdf` (VTR, Nuremberg) -
+  <https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf>
+
+The PDFs are stored at `data/raw/<edition>/official-pdf/` and recorded in
+`data/provenance/pdfs.toml`. If an archive or a repository file disagrees with a
+PDF, flag the conflict and escalate to the maintainer; never silently choose.
+
+### Machine-readable archives
 
 **2005**
 
