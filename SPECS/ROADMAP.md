@@ -15,41 +15,85 @@ later RP2026), with readable deltas and reproducible CSV/TEI-XML exports.
 - [x] Constitution: `SPECS/MISSION.md`, `SPECS/TECH.md`, `SPECS/ROADMAP.md`.
 - [x] Record the key decisions: artifacts live in git (`TECH.md` §8), the
   maintainer decides source conflicts (§4), path compatibility is best-effort
-  (§5), and RP2026 is deferred to Cycle 7.
+  (§5), and RP2026 is deferred to Cycle 8.
 
 ---
 
-## Cycle 1 - Provenance & reconciliation
+## Cycle 1 - Existing corpus contract & matrix
 
-**Goal:** establish exactly what each existing file is, where it came from, and
-how it relates to the official archives.
+**Spec:** `SPECS/2026-11-16-existing-corpus-contract/`.
+
+**Goal:** get clarity on what is already in the repository before bringing in any
+external data. Establish a precise, testable contract and matrix for the current
+`source/`, `csv-unicode/`, `tei-xml-unicode/`, and `essay/` contents: formats,
+invariants, coverage, derivation relationships, internal inconsistencies, and the
+edition/revision the repo currently claims. No external archives are fetched.
 
 **Deliverables**
 
-- Download and checksum all official archives listed in `TECH.md` (2005:
-  preformatted, ascii, ccat; 2018: ascii, ascii-one-line-per-verse, ccat).
-- Store extracted, immutable inputs under `data/raw/<edition>/` and write
-  `data/provenance/<edition>.toml` (URLs, SHA-256, dates, notes).
-- Determine the provenance of the existing `source/Strongs/*.BP5` separately.
-- A reconciliation report comparing official inputs with the current
-  `source/CCAT`, `source/Strongs`, `csv-unicode`, and `tei-xml-unicode`, with
-  per-file/per-book/per-verse differences and categories.
-- A git-history map (`docs/HISTORY.md`): which commits/tags correspond to which
-  edition/revision, with evidence.
+- Complete inventory of every dataset file (hash, encoding, line endings, last
+  commit).
+- Machine-readable contract for each dataset/view (CCAT, BP5, four CSV views,
+  TEI, `byz.xml`, essay) plus `docs/DATA_CONTRACT.md`.
+- Coverage matrix covering every book and section, including `04a_PA` and
+  `05a_ACT24`, with chapter/verse counts, gaps, blanks, and duplicates.
+- Internal consistency report: every invariant violation with `file:line` and a
+  known-exception/decision entry.
+- Derivation map (input → output) evidenced by the scripts, with exact
+  regeneration checks deferred to the pipeline cycle.
+- Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
+  July 2023 update.
+- A maintainer decision log for internal ambiguities.
 
 **Acceptance**
 
-- The maintainer has reviewed the reconciliation report and recorded, per edition,
-  which state is canonical (the pipeline flags; the maintainer decides).
-- Every input file has a provenance record and a checksum.
-- No file was overwritten silently.
+- Every dataset is documented and machine-validated.
+- Every book/section is accounted for; every violation is visible, not silenced.
+- Reports are deterministic; no data file changed; no external fetch.
+- The maintainer can understand the corpus from `reports/baseline/summary.md`
+  alone.
 
-**Risks:** the Dropbox archives may not match the repo at all; the Strong's/BP5
-files may have no listed archive; 2005/2018 may differ by more than expected.
+**Risks:** source and generated outputs may have silently drifted; `PA`/`ACT24`
+semantics may be ambiguous; git history may not establish provenance.
 
 ---
 
-## Cycle 2 - Pipeline skeleton & test harness
+## Cycle 2 - Official archive reconciliation
+
+**Goal:** add the official archives and determine, quantitatively, to what extent
+the current corpus matches them.
+
+**Inputs:** the official archives recorded in `TECH.md` §2 (2005: preformatted,
+ascii, ccat; 2018: ascii, ascii-one-line-per-verse, ccat).
+
+**Deliverables**
+
+- Fetch and checksum every archive; store immutable inputs under
+  `data/raw/<edition>/`; write `data/provenance/<edition>.toml`.
+- Determine the provenance of `source/Strongs/*.BP5` (none of the listed archives
+  is obviously a parsed/Strong's archive).
+- A match matrix per edition and format: exact / normalized-only / textual /
+  structural / missing / extra, at file, verse, and word level.
+- Categorized differences and a plain-language verdict for each edition.
+- Updated `docs/PROVENANCE.md` and `docs/HISTORY.md` with external evidence.
+- A maintainer decision log for every conflict (the pipeline flags; the
+  maintainer decides).
+
+**Acceptance**
+
+- Every archive is hashed and recorded; no file is overwritten silently.
+- The match extent for the current `source/CCAT`, `source/Strongs`,
+  `csv-unicode`, and `tei-xml-unicode` is stated with evidence.
+- The maintainer has recorded which state is canonical per edition.
+- No source data changed without an explicit decision.
+
+**Risks:** the archives may not match the repo; the 2018 archive may or may not
+be the July 2023 revision; Strong's provenance may be unknown; Dropbox links may
+expire.
+
+---
+
+## Cycle 3 - Pipeline skeleton & test harness
 
 **Goal:** turn the existing converters into a reproducible, tested package
 without changing the current output.
@@ -74,7 +118,7 @@ without changing the current output.
 
 ---
 
-## Cycle 3 - Edition slots, snapshots & layout migration
+## Cycle 4 - Edition slots, snapshots & layout migration
 
 **Goal:** make editions symmetric and navigable, and move to the target layout.
 
@@ -95,7 +139,7 @@ without changing the current output.
 
 ---
 
-## Cycle 4 - Delta engine
+## Cycle 5 - Delta engine
 
 **Goal:** make edition differences readable and trustworthy.
 
@@ -116,7 +160,7 @@ without changing the current output.
 
 ---
 
-## Cycle 5 - TEI-XML apparatus
+## Cycle 6 - TEI-XML apparatus
 
 **Goal:** produce a standards-compliant apparatus export.
 
@@ -136,7 +180,7 @@ without changing the current output.
 
 ---
 
-## Cycle 6 - Release automation & committed artifacts
+## Cycle 7 - Release automation & committed artifacts
 
 **Goal:** make every edition easy to download and verify.
 
@@ -156,7 +200,7 @@ without changing the current output.
 
 ---
 
-## Cycle 7 - RP2026 (future)
+## Cycle 8 - RP2026 (future)
 
 **Goal:** add the 2026 edition through the same pipeline, without special cases.
 
