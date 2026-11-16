@@ -50,7 +50,16 @@ if not os.path.exists(path_no_accents_xml + "/BYZ"):
 def convert_verse(verse_text, book_id, chapter_id, verse_number):
     """
     Converts a verse to the TEX-XML format.
+
+    A verse that is intentionally blank (not part of the Byzantine tradition)
+    is emitted as an empty <ab> rather than an empty <w>.
     """
+    verse_text = "" if verse_text is None else str(verse_text)
+    if not verse_text.strip():
+        return (
+            '\t\t\t\t\t<ab n="' + book_id + chapter_id + "V" + str(verse_number) + '"/>'
+        )
+
     verse_prefix = (
         '\t\t\t\t\t<ab n="' + book_id + chapter_id + "V" + str(verse_number) + '">\n'
     )
@@ -95,7 +104,7 @@ def convert_book(path, book_abbr, book_id):
     """
     Converts a given book to the TEI-XML format.
     """
-    book_df = pd.read_csv(path)
+    book_df = pd.read_csv(path, keep_default_na=False)
     book_prefix = '\t\t\t<div type="book" n="' + book_id + '">\n'
     book_suffix = "\n\t\t\t</div>"
 

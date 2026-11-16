@@ -1,0 +1,14 @@
+{
+  "header": [
+    "chapter",
+    "verse",
+    "text"
+  ],
+  "invariants": [
+    "header is chapter,verse,text",
+    "chapter and verse are integers",
+    "text is non-empty except for the intentional blank verses",
+    "no duplicate (chapter, verse) keys"
+  ],
+  "purpose": "Unicode CSV of the Strong's text with parsing dropped."
+}
