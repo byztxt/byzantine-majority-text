@@ -1,0 +1,8 @@
+{
+  "anchor": "^B(\\d{2})K(\\d+)V(\\d+)$",
+  "invariants": [
+    "covers the same books as the per-book files"
+  ],
+  "purpose": "Combined TEI-XML of all 27 books.",
+  "structure": "same as per-book TEI, with 27 book divisions"
+}

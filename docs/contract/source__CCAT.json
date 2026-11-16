@@ -1,0 +1,25 @@
+{
+  "filename": "^(\\d{2}a?)_([A-Z0-9]+)\\.TXT$",
+  "invariants": [
+    "every non-blank line starts with chapter:verse",
+    "variant braces are balanced and not nested",
+    "variant content starts with a known code and contains '>'"
+  ],
+  "purpose": "Official accented Byzantine text in Beta code, with variants.",
+  "record": {
+    "line": "^(\\d{2}):(\\d{2})(?:\\s(.*))?$",
+    "prefix": "chapter:verse"
+  },
+  "variant": {
+    "codes": [
+      "N",
+      "B",
+      "C",
+      "M",
+      "S",
+      "E"
+    ],
+    "prefix": "^[NBCMSE]\\s",
+    "syntax": "{CODE OLD > NEW}"
+  }
+}

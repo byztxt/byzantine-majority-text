@@ -1,0 +1,18 @@
+{
+  "filename": "^(\\d{2})_([A-Z0-9]+)\\.BP5$",
+  "invariants": [
+    "every non-blank line starts with chapter.verse",
+    "every word is followed by a positive Strong's number and parsing code",
+    "multi-parsing alternatives are allowed after the first pair"
+  ],
+  "parsing": "^\\{[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\}$",
+  "purpose": "Official unaccented text with Strong's numbers and parsing.",
+  "record": {
+    "line": "^(\\d{2})\\.(\\d{2})(?:\\s(.*))?$",
+    "prefix": "chapter.verse"
+  },
+  "strongs": "^\\d+$",
+  "word": {
+    "syntax": "word strongs {parsing} [strongs {parsing}]"
+  }
+}
