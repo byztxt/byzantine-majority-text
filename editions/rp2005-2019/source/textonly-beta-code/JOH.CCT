@@ -1,0 +1,881 @@
+#$Id: joh.byz,v 1.37 2005/09/20 11:50:03 kchilton Exp kchilton $
+#FORMAT: 1.0
+     01:01 )En a)rxh^| h)^n o( lo/gos, kai\ o( lo/gos h)^n pro\s to\n qeo/n, kai\ qeo\s h)^n o( lo/gos.
+     01:02 Ou(^tos h)^n e)n a)rxh^| pro\s to\n qeo/n.
+     01:03 Pa/nta di' au)tou^ e)ge/neto, kai\ xwri\s au)tou^ e)ge/neto ou)de\ e(\n o(\ ge/gonen.
+     01:04 )En au)tw^| zwh\ h)^n, kai\ h( zwh\ h)^n to\ fw^s tw^n a)nqrw/pwn,
+     01:05 kai\ to\ fw^s e)n th^| skoti/a| fai/nei, kai\ h( skoti/a au)to\ ou) kate/laben.
+     01:06 )Ege/neto a)/nqrwpos a)pestalme/nos para\ qeou^, o)/noma au)tw^| )Iwa/nnhs.
+     01:07 Ou(^tos h)^lqen ei)s marturi/an, i(/na marturh/sh| peri\ tou^ fwto/s, i(/na pa/ntes pisteu/swsin di' au)tou^.
+     01:08 Ou)k h)^n e)kei^nos to\ fw^s, a)ll' i(/na marturh/sh| peri\ tou^ fwto/s.
+     01:09 )^Hn to\ fw^s to\ a)lhqino/n, o(\ fwti/zei pa/nta a)/nqrwpon e)rxo/menon ei)s to\n ko/smon.
+     01:10 )En tw^| ko/smw| h)^n, kai\ o( ko/smos di' au)tou^ e)ge/neto, kai\ o( ko/smos au)to\n ou)k e)/gnw.
+     01:11 Ei)s ta\ i)/dia h)^lqen, kai\ oi( i)/dioi au)to\n ou) pare/labon.
+     01:12 (/Osoi de\ e)/labon au)to/n, e)/dwken au)toi^s e)cousi/an te/kna qeou^ gene/sqai, toi^s pisteu/ousin ei)s to\ o)/noma au)tou^:
+     01:13 oi(\ ou)k e)c ai(ma/twn, ou)de\ e)k qelh/matos sarko/s, ou)de\ e)k qelh/matos a)ndro/s, a)ll' e)k qeou^ e)gennh/qhsan.
+     01:14 Kai\ o( lo/gos sa\rc e)ge/neto, kai\ e)skh/nwsen e)n h(mi^n - kai\ e)qeasa/meqa th\n do/can au)tou^, do/can w(s monogenou^s para\ patro/s - plh/rhs xa/ritos kai\ a)lhqei/as.
+     01:15 )Iwa/nnhs marturei^ peri\ au)tou^, kai\ ke/kragen le/gwn, Ou(^tos h)^n o(\n ei)^pon, (O o)pi/sw mou e)rxo/menos e)/mprosqe/n mou ge/gonen: o(/ti prw^to/s mou h)^n.
+     01:16 Kai\ {N Kai\ e)k > (/Oti e)k } e)k tou^ plhrw/matos au)tou^ h(mei^s pa/ntes e)la/bomen, kai\ xa/rin a)nti\ xa/ritos.
+     01:17 (/Oti o( no/mos dia\ Mwse/ws {N Mwse/ws > Mwu+se/ws } e)do/qh, h( xa/ris kai\ h( a)lh/qeia dia\ )Ihsou^ xristou^ e)ge/neto.
+     01:18 Qeo\n ou)dei\s e(w/raken pw/pote: o( {N o( monogenh\s ui(o/s > monogenh\s qeo/s } monogenh\s ui(o/s, o( w)\n ei)s to\n ko/lpon tou^ patro/s, e)kei^nos e)chgh/sato.
+     01:19 {P} Kai\ au(/th e)sti\n h( marturi/a tou^ )Iwa/nnou, o(/te a)pe/steilan oi( {N oi( > [pro\s au)to\n] oi( } )Ioudai^oi e)c (Ierosolu/mwn i(erei^s kai\ Leui+/tas i(/na e)rwth/swsin au)to/n, Su\ ti/s ei)^;
+     01:20 Kai\ w(molo/ghsen, kai\ ou)k h)rnh/sato: kai\ w(molo/ghsen o(/ti Ou)k {N Ou)k ei)mi\ e)gw\ > )Egw\ ou)k ei)mi\ } ei)mi\ e)gw\ o( xristo/s.
+     01:21 Kai\ h)rw/thsan au)to/n, Ti/ ou)^n; )Hli/as {N )Hli/as ei)^ su/ > Su\ )Hli/as ei)^ } ei)^ su/; Kai\ le/gei, Ou)k ei)mi/. (O profh/ths ei)^ su/; Kai\ a)pekri/qh, Ou)/.
+     01:22 Ei)^pon {N Ei)^pon > Ei)^pan } ou)^n au)tw^|, Ti/s ei)^; (/Ina a)po/krisin dw^men toi^s pe/myasin h(ma^s. Ti/ le/geis peri\ seautou^;
+     01:23 )/Efh, )Egw\ fwnh\ bow^ntos e)n th^| e)rh/mw|, Eu)qu/nate th\n o(do\n kuri/ou, kaqw\s ei)^pen )Hsai+/as o( profh/ths.
+     01:24 Kai\ oi( {N oi( > - } a)pestalme/noi h)^san e)k tw^n Farisai/wn.
+     01:25 Kai\ h)rw/thsan au)to/n, kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Ti/ ou)^n bapti/zeis, ei) su\ ou)k ei)^ o( xristo/s, ou)/te {N ou)/te )Hli/as ou)/te > ou)de\ )Hli/as ou)de\ } )Hli/as, ou)/te o( profh/ths;
+     01:26 )Apekri/qh au)toi^s o( )Iwa/nnhs le/gwn, )Egw\ bapti/zw e)n u(/dati: me/sos de\ {N de\ > - } u(mw^n e(/sthken o(\n u(mei^s ou)k oi)/date.
+     01:27 Au)to/s {N Au)to/s e)stin > - } e)stin o( o)pi/sw mou e)rxo/menos, o(\s {N o(\s e)/mprosqe/n mou ge/gonen > - } e)/mprosqe/n mou ge/gonen: ou(^ e)gw\ {N e)gw\ ou)k ei)mi\ > ou)k ei)mi\ [e)gw\] } ou)k ei)mi\ a)/cios i(/na lu/sw au)tou^ to\n i(ma/nta tou^ u(podh/matos.
+     01:28 Tau^ta e)n Bhqani/a| e)ge/neto pe/ran tou^ )Iorda/nou, o(/pou h)^n )Iwa/nnhs {N )Iwa/nnhs > o( )Iwa/nnhs } bapti/zwn.
+     01:29 {P} Th^| e)pau/rion ble/pei {B ble/pei > ble/pei o( )Iwa/nnhs } to\n )Ihsou^n e)rxo/menon pro\s au)to/n, kai\ le/gei, )/Ide o( a)mno\s tou^ qeou^, o( ai)/rwn th\n a(marti/an tou^ ko/smou.
+     01:30 Ou(^to/s e)stin peri\ {N peri\ > u(pe\r } ou(^ e)gw\ ei)^pon, )Opi/sw mou e)/rxetai a)nh\r o(\s e)/mprosqe/n mou ge/gonen, o(/ti prw^to/s mou h)^n.
+     01:31 Ka)gw\ ou)k h)/|dein au)to/n: a)ll' i(/na fanerwqh^| tw^| )Israh/l, dia\ tou^to h)^lqon e)gw\ e)n tw^| {N tw^| u(/dati > u(/dati } u(/dati bapti/zwn.
+     01:32 Kai\ e)martu/rhsen )Iwa/nnhs le/gwn o(/ti Teqe/amai to\ pneu^ma katabai^non w(sei\ {B w(sei\ > w(s } {N w(sei\ > w(s } peristera\n e)c ou)ranou^, kai\ e)/meinen e)p' au)to/n.
+     01:33 Ka)gw\ ou)k h)/|dein au)to/n: a)ll' o( pe/myas me bapti/zein e)n u(/dati, e)kei^no/s moi ei)^pen, )Ef' o(\n a)\n i)/dh|s to\ pneu^ma katabai^non kai\ me/non e)p' au)to/n, ou(^to/s e)stin o( bapti/zwn e)n pneu/mati a(gi/w|.
+     01:34 Ka)gw\ e(w/raka, kai\ memartu/rhka o(/ti ou(^to/s e)stin o( ui(o\s tou^ qeou^.
+     01:35 {P} Th^| e)pau/rion pa/lin ei(sth/kei o( )Iwa/nnhs, kai\ e)k tw^n maqhtw^n au)tou^ du/o:
+     01:36 kai\ e)mble/yas tw^| )Ihsou^ peripatou^nti, le/gei, )/Ide o( a)mno\s tou^ qeou^.
+     01:37 Kai\ h)/kousan au)tou^ {N au)tou^ oi( du/o maqhtai\ > oi( du/o maqhtai\ au)tou^ } oi( du/o maqhtai\ lalou^ntos, kai\ h)kolou/qhsan tw^| )Ihsou^.
+     01:38 Strafei\s de\ o( )Ihsou^s kai\ qeasa/menos au)tou\s a)kolouqou^ntas, le/gei au)toi^s, Ti/ zhtei^te; Oi( de\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, (Rabbi/ - o(\ le/getai e(rmhneuo/menon, {N e(rmhneuo/menon > meqermhneuo/menon } Dida/skale - pou^ me/neis;
+     01:39 Le/gei au)toi^s, )/Erxesqe kai\ i)/dete. {N i)/dete > o)/yesqe } )^Hlqon {N )^Hlqon kai\ ei)^don > )^Hlqan ou)^n kai\ ei)^dan } kai\ ei)^don pou^ me/nei: kai\ par' au)tw^| e)/meinan th\n h(me/ran e)kei/nhn: w(/ra h)^n w(s deka/th.
+     01:40 )^Hn )Andre/as o( a)delfo\s Si/mwnos Pe/trou ei(^s e)k tw^n du/o tw^n a)kousa/ntwn para\ )Iwa/nnou kai\ a)kolouqhsa/ntwn au)tw^|.
+     01:41 Eu(ri/skei ou(^tos prw^tos {N prw^tos > prw^ton } to\n a)delfo\n to\n i)/dion Si/mwna, kai\ le/gei au)tw^|, Eu(rh/kamen to\n Mesi/an - {N Mesi/an > Messi/an } o(/ e)stin meqermhneuo/menon, xristo/s.
+     01:42 Kai\ {N Kai\ > - } h)/gagen au)to\n pro\s to\n )Ihsou^n.  )Emble/yas {B )Emble/yas > )Emble/yas de\ } au)tw^| o( )Ihsou^s ei)^pen, Su\ ei)^ Si/mwn o( ui(o\s )Iwna^: {N )Iwna^ > )Iwa/nnou } su\ klhqh/sh| Khfa^s - o(\ e(rmhneu/etai Pe/tros.
+     01:43 {P} Th^| e)pau/rion h)qe/lhsen e)celqei^n ei)s th\n Galilai/an, kai\ eu(ri/skei Fi/lippon, kai\ le/gei au)tw^| o( )Ihsou^s, {B o( )Ihsou^s > - } )Akolou/qei moi.
+     01:44 )^Hn de\ o( Fi/lippos a)po\ Bhqsai+da/, e)k th^s po/lews )Andre/ou kai\ Pe/trou.
+     01:45 Eu(ri/skei Fi/lippos to\n Naqanah/l, kai\ le/gei au)tw^|, (\On e)/grayen Mwsh^s {N Mwsh^s > Mwu+sh^s } e)n tw^| no/mw| kai\ oi( profh^tai eu(rh/kamen, )Ihsou^n to\n {N to\n ui(o\n > ui(o\n } ui(o\n tou^ )Iwsh\f to\n a)po\ Nazare/t.
+     01:46 Kai\ ei)^pen au)tw^| Naqanah/l, )Ek Nazare\t du/natai/ ti a)gaqo\n ei)^nai; Le/gei au)tw^| Fi/lippos, {N Fi/lippos > [o(] Fi/lippos } )/Erxou kai\ i)/de.
+     01:47 Ei)^den o( )Ihsou^s to\n Naqanah\l e)rxo/menon pro\s au)to/n, kai\ le/gei peri\ au)tou^, )/Ide a)lhqw^s )Israhli/ths, e)n w(^| do/los ou)k e)/stin.
+     01:48 Le/gei au)tw^| Naqanah/l, Po/qen me ginw/skeis; )Apekri/qh )Ihsou^s kai\ ei)^pen au)tw^|, Pro\ tou^ se Fi/lippon fwnh^sai, o)/nta u(po\ th\n sukh^n, ei)^do/n se.
+     01:49 )Apekri/qh Naqanah\l {N Naqanah\l kai\ le/gei au)tw^| > au)tw^| Naqanah/l } kai\ le/gei au)tw^|, (Rabbi/, su\ ei)^ o( ui(o\s tou^ qeou^, su\ ei)^ {N ei)^ o( basileu\s > basileu\s ei)^ } o( basileu\s tou^ )Israh/l.
+     01:50 )Apekri/qh )Ihsou^s kai\ ei)^pen au)tw^|, (/Oti ei)^po/n soi, Ei)^do/n {N Ei)^do/n > o(/ti ei)^do/n } se u(poka/tw th^s sukh^s, pisteu/eis; Mei/zw tou/twn o)/yei. {N o)/yei > o)/yh| }
+     01:51 Kai\ le/gei au)tw^|, )Amh\n a)mh\n le/gw u(mi^n, a)p' {N a)p' a)/rti > - } a)/rti o)/yesqe to\n ou)rano\n a)new|go/ta, kai\ tou\s a)gge/lous tou^ qeou^ a)nabai/nontas kai\ katabai/nontas e)pi\ to\n ui(o\n tou^ a)nqrw/pou.
+     02:01 Kai\ th^| h(me/ra| th^| tri/th| ga/mos e)ge/neto e)n Kana^| th^s Galilai/as, kai\ h)^n h( mh/thr tou^ )Ihsou^ e)kei^:
+     02:02 e)klh/qh de\ kai\ o( )Ihsou^s kai\ oi( maqhtai\ au)tou^ ei)s to\n ga/mon.
+     02:03 Kai\ u(sterh/santos oi)/nou, le/gei h( mh/thr tou^ )Ihsou^ pro\s au)to/n, Oi)^non ou)k e)/xousin.
+     02:04 Le/gei {N Le/gei > [Kai\] le/gei } au)th^| o( )Ihsou^s, Ti/ e)moi\ kai\ soi/, gu/nai; Ou)/pw h(/kei h( w(/ra mou.
+     02:05 Le/gei h( mh/thr au)tou^ toi^s diako/nois, (/O ti a)\n le/gh| u(mi^n, poih/sate.
+     02:06 )^Hsan de\ e)kei^ u(dri/ai {N u(dri/ai li/qinai e(\c kei/menai kata\ > li/qinai u(dri/ai e(\c kata\ } li/qinai e(\c kei/menai kata\ to\n kaqarismo\n tw^n )Ioudai/wn, xwrou^sai {N xwrou^sai > kei/menai xwrou^sai } a)na\ metrhta\s du/o h)\ trei^s.
+     02:07 Le/gei au)toi^s o( )Ihsou^s, Gemi/sate ta\s u(dri/as u(/datos. Kai\ e)ge/misan au)ta\s e(/ws a)/nw.
+     02:08 Kai\ le/gei au)toi^s, )Antlh/sate nu^n, kai\ fe/rete tw^| a)rxitrikli/nw|. Kai\ {N Kai\ h)/negkan > Oi( de\ h)/negkan } h)/negkan.
+     02:09 (Ws de\ e)geu/sato o( a)rxitri/klinos to\ u(/dwr oi)^non gegenhme/non, kai\ ou)k h)/|dei po/qen e)sti/n - oi( de\ dia/konoi h)/|deisan oi( h)ntlhko/tes to\ u(/dwr - fwnei^ to\n numfi/on o( a)rxitri/klinos,
+     02:10 kai\ le/gei au)tw^|, Pa^s a)/nqrwpos prw^ton to\n kalo\n oi)^non ti/qhsin, kai\ o(/tan mequsqw^sin, to/te {N to/te > - } to\n e)la/ssw: su\ teth/rhkas to\n kalo\n oi)^non e(/ws a)/rti.
+     02:11 Tau/thn e)poi/hsen th\n {N th\n a)rxh\n > a)rxh\n } a)rxh\n tw^n shmei/wn o( )Ihsou^s e)n Kana^| th^s Galilai/as, kai\ e)fane/rwsen th\n do/can au)tou^: kai\ e)pi/steusan ei)s au)to\n oi( maqhtai\ au)tou^.
+     02:12 {P} Meta\ tou^to kate/bh ei)s Kapernaou/m, {N Kapernaou/m > Kafarnaou/m } au)to\s kai\ h( mh/thr au)tou^, kai\ oi( a)delfoi\ au)tou^, {N a)delfoi\ au)tou^ > a)delfoi\ [au)tou^] } kai\ oi( maqhtai\ au)tou^: kai\ e)kei^ e)/meinan ou) polla\s h(me/ras.
+     02:13 {P} Kai\ e)ggu\s h)^n to\ Pa/sxa tw^n )Ioudai/wn, kai\ a)ne/bh ei)s (Ieroso/luma o( )Ihsou^s.
+     02:14 Kai\ eu(^ren e)n tw^| i(erw^| tou\s pwlou^ntas bo/as kai\ pro/bata kai\ peristera/s, kai\ tou\s kermatista\s kaqhme/nous.
+     02:15 Kai\ poih/sas frage/llion e)k sxoini/wn pa/ntas e)ce/balen e)k tou^ i(erou^, ta/ te pro/bata kai\ tou\s bo/as: kai\ tw^n kollubistw^n e)ce/xeen to\ ke/rma, kai\ ta\s trape/zas a)ne/streyen: {N a)ne/streyen > a)ne/treyen }
+     02:16 kai\ toi^s ta\s peristera\s pwlou^sin ei)^pen, )/Arate tau^ta e)nteu^qen: mh\ poiei^te to\n oi)^kon tou^ patro/s mou oi)^kon e)mpori/ou.
+     02:17 )Emnh/sqhsan de\ {N de\ > - } oi( maqhtai\ au)tou^ o(/ti gegramme/non e)sti/n, (O zh^los tou^ oi)/kou sou katafa/getai/ me.
+     02:18 )Apekri/qhsan ou)^n oi( )Ioudai^oi kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Ti/ shmei^on deiknu/eis h(mi^n, o(/ti tau^ta poiei^s;
+     02:19 )Apekri/qh )Ihsou^s kai\ ei)^pen au)toi^s, Lu/sate to\n nao\n tou^ton, kai\ e)n trisi\n h(me/rais e)gerw^ au)to/n.
+     02:20 Ei)^pon {N Ei)^pon > Ei)^pan } ou)^n oi( )Ioudai^oi, Tessara/konta {N Tessara/konta > Tessera/konta } kai\ e(\c e)/tesin w)|kodomh/qh {N w)|kodomh/qh > oi)kodomh/qh } o( nao\s ou(^tos, kai\ su\ e)n trisi\n h(me/rais e)gerei^s au)to/n;
+     02:21 )Ekei^nos de\ e)/legen peri\ tou^ naou^ tou^ sw/matos au)tou^.
+     02:22 (/Ote ou)^n h)ge/rqh e)k nekrw^n, e)mnh/sqhsan oi( maqhtai\ au)tou^ o(/ti tou^to e)/legen: kai\ e)pi/steusan th^| grafh^|, kai\ tw^| lo/gw| w(^| {N w(^| > o(\n } ei)^pen o( )Ihsou^s.
+     02:23 {P} (Ws de\ h)^n e)n toi^s (Ierosolu/mois e)n tw^| Pa/sxa, e)n th^| e(orth^|, polloi\ e)pi/steusan ei)s to\ o)/noma au)tou^, qewrou^ntes au)tou^ ta\ shmei^a a(\ e)poi/ei.
+     02:24 Au)to\s de\ o( {N o( > - } )Ihsou^s ou)k e)pi/steuen e(auto\n {N e(auto\n > au)to\n } au)toi^s, dia\ to\ au)to\n ginw/skein pa/ntas,
+     02:25 kai\ o(/ti ou) xrei/an ei)^xen i(/na tis marturh/sh| peri\ tou^ a)nqrw/pou: au)to\s ga\r e)gi/nwsken ti/ h)^n e)n tw^| a)nqrw/pw|.
+     03:01 )^Hn de\ a)/nqrwpos e)k tw^n Farisai/wn, Niko/dhmos o)/noma au)tw^|, a)/rxwn tw^n )Ioudai/wn:
+     03:02 ou(^tos h)^lqen pro\s au)to\n {B au)to\n > to\n )Ihsou^n } nukto/s, kai\ ei)^pen au)tw^|, (Rabbi/, oi)/damen o(/ti a)po\ qeou^ e)lh/luqas dida/skalos: ou)dei\s ga\r tau^ta {N tau^ta ta\ shmei^a du/natai > du/natai tau^ta ta\ shmei^a } ta\ shmei^a du/natai poiei^n a(\ su\ poiei^s, e)a\n mh\ h)^| o( qeo\s met' au)tou^.
+     03:03 )Apekri/qh o( {N o( > - } )Ihsou^s kai\ ei)^pen au)tw^|, )Amh\n a)mh\n le/gw soi, e)a\n mh/ tis gennhqh^| a)/nwqen, ou) du/natai i)dei^n th\n basilei/an tou^ qeou^.
+     03:04 Le/gei pro\s au)to\n o( {N o( > [o(] } Niko/dhmos, Pw^s du/natai a)/nqrwpos gennhqh^nai ge/rwn w)/n; Mh\ du/natai ei)s th\n koili/an th^s mhtro\s au)tou^ deu/teron ei)selqei^n kai\ gennhqh^nai;
+     03:05 )Apekri/qh )Ihsou^s, )Amh\n a)mh\n le/gw soi, e)a\n mh/ tis gennhqh^| e)c u(/datos kai\ pneu/matos, ou) du/natai ei)selqei^n ei)s th\n basilei/an tou^ qeou^.
+     03:06 To\ gegennhme/non e)k th^s sarko\s sa/rc e)stin: kai\ to\ gegennhme/non e)k tou^ pneu/matos pneu^ma/ e)stin.
+     03:07 Mh\ qauma/sh|s o(/ti ei)^po/n soi, Dei^ u(ma^s gennhqh^nai a)/nwqen.
+     03:08 To\ pneu^ma o(/pou qe/lei pnei^, kai\ th\n fwnh\n au)tou^ a)kou/eis, a)ll' ou)k oi)^das po/qen e)/rxetai kai\ pou^ u(pa/gei: ou(/tws e)sti\n pa^s o( gegennhme/nos e)k tou^ pneu/matos.
+     03:09 )Apekri/qh Niko/dhmos kai\ ei)^pen au)tw^|, Pw^s du/natai tau^ta gene/sqai;
+     03:10 )Apekri/qh )Ihsou^s kai\ ei)^pen au)tw^|, Su\ ei)^ o( dida/skalos tou^ )Israh/l, kai\ tau^ta ou) ginw/skeis;
+     03:11 )Amh\n a)mh\n le/gw soi o(/ti o(\ oi)/damen lalou^men, kai\ o(\ e(wra/kamen marturou^men: kai\ th\n marturi/an h(mw^n ou) lamba/nete.
+     03:12 Ei) ta\ e)pi/geia ei)^pon u(mi^n kai\ ou) pisteu/ete, pw^s, e)a\n ei)/pw u(mi^n ta\ e)poura/nia, pisteu/sete;
+     03:13 Kai\ ou)dei\s a)nabe/bhken ei)s to\n ou)rano/n, ei) mh\ o( e)k tou^ ou)ranou^ kataba/s, o( ui(o\s tou^ a)nqrw/pou o( {N o( w)\n e)n tw^| ou)ranw^| > - } w)\n e)n tw^| ou)ranw^|.
+     03:14 Kai\ kaqw\s Mwsh^s {N Mwsh^s > Mwu+sh^s } u(/ywsen to\n o)/fin e)n th^| e)rh/mw|, ou(/tws u(ywqh^nai dei^ to\n ui(o\n tou^ a)nqrw/pou:
+     03:15 i(/na pa^s o( pisteu/wn ei)s {N ei)s au)to\n > e)n au)tw^| } au)to\n mh\ {N mh\ a)po/lhtai a)ll' > - } a)po/lhtai, a)ll' e)/xh| zwh\n ai)w/nion.
+     03:16 {P} Ou(/tws ga\r h)ga/phsen o( qeo\s to\n ko/smon, w(/ste to\n ui(o\n au)tou^ {N au)tou^ > - } to\n monogenh^ e)/dwken, i(/na pa^s o( pisteu/wn ei)s au)to\n mh\ a)po/lhtai, a)ll' e)/xh| zwh\n ai)w/nion.
+     03:17 Ou) ga\r a)pe/steilen o( qeo\s to\n ui(o\n au)tou^ {N au)tou^ ei)s > ei)s } ei)s to\n ko/smon i(/na kri/nh| to\n ko/smon, a)ll' i(/na swqh^| o( ko/smos di' au)tou^.
+     03:18 (O pisteu/wn ei)s au)to\n ou) kri/netai: o( de\ mh\ pisteu/wn h)/dh ke/kritai, o(/ti mh\ pepi/steuken ei)s to\ o)/noma tou^ monogenou^s ui(ou^ tou^ qeou^.
+     03:19 Au(/th de/ e)stin h( kri/sis, o(/ti to\ fw^s e)lh/luqen ei)s to\n ko/smon, kai\ h)ga/phsan oi( a)/nqrwpoi ma^llon to\ sko/tos h)\ to\ fw^s: h)^n ga\r ponhra\ {N ponhra\ au)tw^n > au)tw^n ponhra\ } au)tw^n ta\ e)/rga.
+     03:20 Pa^s ga\r o( fau^la pra/sswn misei^ to\ fw^s, kai\ ou)k e)/rxetai pro\s to\ fw^s, i(/na mh\ e)legxqh^| ta\ e)/rga au)tou^.
+     03:21 (O de\ poiw^n th\n a)lh/qeian e)/rxetai pro\s to\ fw^s, i(/na fanerwqh^| au)tou^ ta\ e)/rga, o(/ti e)n qew^| e)stin ei)rgasme/na.
+     03:22 {P} Meta\ tau^ta h)^lqen o( )Ihsou^s kai\ oi( maqhtai\ au)tou^ ei)s th\n )Ioudai/an gh^n: kai\ e)kei^ die/triben met' au)tw^n kai\ e)ba/ptizen.
+     03:23 )^Hn de\ kai\ )Iwa/nnhs {N )Iwa/nnhs > o( )Iwa/nnhs } bapti/zwn e)n Ai)nw\n e)ggu\s tou^ Salh/m, {B Salh/m > Salei/m } {N Salh/m > Salei/m } o(/ti u(/data polla\ h)^n e)kei^: kai\ paregi/nonto kai\ e)bapti/zonto.
+     03:24 Ou)/pw ga\r h)^n beblhme/nos ei)s th\n fulakh\n o( )Iwa/nnhs.
+     03:25 )Ege/neto ou)^n zh/thsis e)k tw^n maqhtw^n )Iwa/nnou meta\ )Ioudai/ou peri\ kaqarismou^.
+     03:26 Kai\ h)^lqon pro\s to\n )Iwa/nnhn kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, (Rabbi/, o(\s h)^n meta\ sou^ pe/ran tou^ )Iorda/nou, w(^| su\ memartu/rhkas, i)/de ou(^tos bapti/zei, kai\ pa/ntes e)/rxontai pro\s au)to/n.
+     03:27 )Apekri/qh )Iwa/nnhs kai\ ei)^pen, Ou) du/natai a)/nqrwpos lamba/nein ou)de/n, {N ou)de/n > ou)de\ e(/n } e)a\n mh\ h)^| dedome/non au)tw^| e)k tou^ ou)ranou^.
+     03:28 Au)toi\ u(mei^s marturei^te {N marturei^te > moi marturei^te } o(/ti ei)^pon, Ou)k {N Ou)k > [o(/ti] Ou)k } ei)mi\ e)gw\ o( xristo/s, a)ll' o(/ti )Apestalme/nos ei)mi\ e)/mprosqen e)kei/nou.
+     03:29 (O e)/xwn th\n nu/mfhn, numfi/os e)sti/n: o( de\ fi/los tou^ numfi/ou, o( e(sthkw\s kai\ a)kou/wn au)tou^, xara^| xai/rei dia\ th\n fwnh\n tou^ numfi/ou: au(/th ou)^n h( xara\ h( e)mh\ peplh/rwtai.
+     03:30 )Ekei^non dei^ au)ca/nein, e)me\ de\ e)lattou^sqai.
+     03:31 {P} (O a)/nwqen e)rxo/menos e)pa/nw pa/ntwn e)sti/n. (O w)\n e)k th^s gh^s, e)k th^s gh^s e)stin, kai\ e)k th^s gh^s lalei^: o( e)k tou^ ou)ranou^ e)rxo/menos e)pa/nw {N ou)ranou^ e)rxo/menos e)pa/nw pa/ntwn e)sti/n > ou)ranou^ e)rxo/menos [e)pa/nw pa/ntwn e)sti/n] } pa/ntwn e)sti/n.
+     03:32 Kai\ {N Kai\ o(\ > (\O } o(\ e(w/raken kai\ h)/kousen, tou^to marturei^: kai\ th\n marturi/an au)tou^ ou)dei\s lamba/nei.
+     03:33 (O labw\n au)tou^ th\n marturi/an e)sfra/gisen o(/ti o( qeo\s a)lhqh/s e)stin.
+     03:34 (\On ga\r a)pe/steilen o( qeo/s, ta\ r(h/mata tou^ qeou^ lalei^: ou) ga\r e)k me/trou di/dwsin o( {N o( qeo\s to\ > to\ } qeo\s to\ pneu^ma.
+     03:35 (O path\r a)gapa^| to\n ui(o/n, kai\ pa/nta de/dwken e)n th^| xeiri\ au)tou^.
+     03:36 (O pisteu/wn ei)s to\n ui(o\n e)/xei zwh\n ai)w/nion: o( de\ a)peiqw^n tw^| ui(w^|, ou)k o)/yetai {B zwh/n > th\n zwh/n } zwh/n, a)ll' h( o)rgh\ tou^ qeou^ me/nei e)p' au)to/n.
+     04:01 (Ws ou)^n e)/gnw o( ku/rios {N ku/rios > )Ihsou^s } o(/ti h)/kousan oi( Farisai^oi o(/ti )Ihsou^s plei/onas maqhta\s poiei^ kai\ bapti/zei h)\ )Iwa/nnhs -
+     04:02 kai/toige )Ihsou^s au)to\s ou)k e)ba/ptizen, a)ll' oi( maqhtai\ au)tou^ -
+     04:03 a)fh^ken th\n )Ioudai/an, kai\ a)ph^lqen ei)s {N ei)s > pa/lin ei)s } th\n Galilai/an.
+     04:04 )/Edei de\ au)to\n die/rxesqai dia\ th^s Samarei/as.
+     04:05 )/Erxetai ou)^n ei)s po/lin th^s Samarei/as legome/nhn Suxa/r, plhsi/on tou^ xwri/ou o(\ e)/dwken )Iakw\b )Iwsh\f {N )Iwsh\f > [tw^|] )Iwsh\f } tw^| ui(w^| au)tou^:
+     04:06 h)^n de\ e)kei^ phgh\ tou^ )Iakw/b. (O ou)^n )Ihsou^s kekopiakw\s e)k th^s o(doipori/as e)kaqe/zeto ou(/tws e)pi\ th^| phgh^|. (/Wra h)^n w(sei\ {N w(sei\ > w(s } e(/kth.
+     04:07 )/Erxetai gunh\ e)k th^s Samarei/as a)ntlh^sai u(/dwr: le/gei au)th^| o( )Ihsou^s, Do/s moi piei^n. {N piei^n > pei^n }
+     04:08 Oi( ga\r maqhtai\ au)tou^ a)pelhlu/qeisan ei)s th\n po/lin, i(/na trofa\s a)gora/swsin.
+     04:09 Le/gei ou)^n au)tw^| h( gunh\ h( Samarei^tis, {N Samarei^tis > Samari^tis } Pw^s su\ )Ioudai^os w)\n par' e)mou^ piei^n {N piei^n > pei^n } ai)tei^s, ou)/shs {N ou)/shs gunaiko\s Samarei/tidos > gunaiko\s Samari/tidos ou)/shs } gunaiko\s Samarei/tidos; - Ou) ga\r sugxrw^ntai )Ioudai^oi Samarei/tais. {N Samarei/tais > Samari/tais }
+     04:10 )Apekri/qh )Ihsou^s kai\ ei)^pen au)th^|, Ei) h)/|deis th\n dwrea\n tou^ qeou^, kai\ ti/s e)stin o( le/gwn soi, Do/s moi piei^n, {N piei^n > pei^n } su\ a)\n h)/|thsas au)to/n, kai\ e)/dwken a)/n soi u(/dwr zw^n.
+     04:11 Le/gei au)tw^| h( {N h( gunh/ > [h( gunh/] } gunh/, Ku/rie, ou)/te a)/ntlhma e)/xeis, kai\ to\ fre/ar e)sti\n baqu/: po/qen ou)^n e)/xeis to\ u(/dwr to\ zw^n;
+     04:12 Mh\ su\ mei/zwn ei)^ tou^ patro\s h(mw^n )Iakw/b, o(\s e)/dwken h(mi^n to\ fre/ar, kai\ au)to\s e)c au)tou^ e)/pien, kai\ oi( ui(oi\ au)tou^, kai\ ta\ qre/mmata au)tou^;
+     04:13 )Apekri/qh )Ihsou^s kai\ ei)^pen au)th^|, Pa^s o( pi/nwn e)k tou^ u(/datos tou/tou, diyh/sei pa/lin:
+     04:14 o(\s d' a)\n pi/h| e)k tou^ u(/datos ou(^ e)gw\ dw/sw au)tw^|, ou) mh\ diyh/sh| {N diyh/sh| > diyh/sei } ei)s to\n ai)w^na: a)lla\ to\ u(/dwr o(\ dw/sw au)tw^| genh/setai e)n au)tw^| phgh\ u(/datos a(llome/nou ei)s zwh\n ai)w/nion.
+     04:15 Le/gei pro\s au)to\n h( gunh/, Ku/rie, do/s moi tou^to to\ u(/dwr, i(/na mh\ diyw^, mhde\ e)/rxomai {N e)/rxomai > die/rxwmai } e)nqa/de a)ntlei^n.
+     04:16 Le/gei au)th^| o( {N o( )Ihsou^s > - } )Ihsou^s, (/Upage, fw/nhson to\n a)/ndra sou^, kai\ e)lqe\ e)nqa/de.
+     04:17 )Apekri/qh h( gunh\ kai\ ei)^pen, Ou)k {N ei)^pen > ei)^pen au)tw^| } e)/xw a)/ndra. Le/gei au)th^| o( )Ihsou^s, Kalw^s ei)^pas o(/ti )/Andra ou)k e)/xw:
+     04:18 pe/nte ga\r a)/ndras e)/sxes, kai\ nu^n o(\n e)/xeis ou)k e)/stin sou a)nh/r: tou^to a)lhqe\s ei)/rhkas.
+     04:19 Le/gei au)tw^| h( gunh/, Ku/rie, qewrw^ o(/ti profh/ths ei)^ su/.
+     04:20 Oi( pate/res h(mw^n e)n tw^| o)/rei tou/tw| proseku/nhsan: kai\ u(mei^s le/gete o(/ti e)n (Ierosolu/mois e)sti\n o( to/pos o(/pou dei^ {N dei^ proskunei^n > proskunei^n dei^ } proskunei^n.
+     04:21 Le/gei au)th^| o( )Ihsou^s, Gu/nai, {N Gu/nai pi/steuso/n moi > Pi/steue/ moi gu/nai } pi/steuso/n moi o(/ti e)/rxetai w(/ra, o(/te ou)/te e)n tw^| o)/rei tou/tw| ou)/te e)n (Ierosolu/mois proskunh/sete tw^| patri/.
+     04:22 (Umei^s proskunei^te o(\ ou)k oi)/date: h(mei^s proskunou^men o(\ oi)/damen: o(/ti h( swthri/a e)k tw^n )Ioudai/wn e)sti/n.
+     04:23 )All' {N )All' > )Alla\ } e)/rxetai w(/ra kai\ nu^n e)stin, o(/te oi( a)lhqinoi\ proskunhtai\ proskunh/sousin tw^| patri\ e)n pneu/mati kai\ a)lhqei/a|: kai\ ga\r o( path\r toiou/tous zhtei^ tou\s proskunou^ntas au)to/n.
+     04:24 Pneu^ma o( qeo/s: kai\ tou\s proskunou^ntas au)to/n, e)n pneu/mati kai\ a)lhqei/a| dei^ proskunei^n.
+     04:25 Le/gei au)tw^| h( gunh/, Oi)^da o(/ti Mesi/as {N Mesi/as > Messi/as } e)/rxetai - o( lego/menos xristo/s: o(/tan e)/lqh| e)kei^nos, a)naggelei^ h(mi^n pa/nta. {N pa/nta > a(/panta }
+     04:26 Le/gei au)th^| o( )Ihsou^s, )Egw/ ei)mi, o( lalw^n soi.
+     04:27 {P} Kai\ e)pi\ tou/tw| h)^lqon {N h)^lqon > h)^lqan } oi( maqhtai\ au)tou^, kai\ e)qau/masan {N e)qau/masan > e)qau/mazon } o(/ti meta\ gunaiko\s e)la/lei: ou)dei\s me/ntoi ei)^pen, Ti/ zhtei^s; h)/, Ti/ lalei^s met' au)th^s;
+     04:28 )Afh^ken ou)^n th\n u(dri/an au)th^s h( gunh/, kai\ a)ph^lqen ei)s th\n po/lin, kai\ le/gei toi^s a)nqrw/pois,
+     04:29 Deu^te, i)/dete a)/nqrwpon, o(\s ei)^pe/n moi pa/nta o(/sa e)poi/hsa: mh/ti ou(^to/s e)stin o( xristo/s;
+     04:30 )Ech^lqon e)k th^s po/lews, kai\ h)/rxonto pro\s au)to/n.
+     04:31 )En de\ {N de\ > - } tw^| metacu\ h)rw/twn au)to\n oi( maqhtai/, le/gontes, (Rabbi/, fa/ge.
+     04:32 (O de\ ei)^pen au)toi^s, )Egw\ brw^sin e)/xw fagei^n h(\n u(mei^s ou)k oi)/date.
+     04:33 )/Elegon ou)^n oi( maqhtai\ pro\s a)llh/lous, Mh/ tis h)/negken au)tw^| fagei^n;
+     04:34 Le/gei au)toi^s o( )Ihsou^s, )Emo\n brw^ma/ e)stin, i(/na poiw^ {N poiw^ > poih/sw } to\ qe/lhma tou^ pe/myanto/s me, kai\ teleiw/sw au)tou^ to\ e)/rgon.
+     04:35 Ou)x u(mei^s le/gete o(/ti )/Eti tetra/mhno/s e)stin, kai\ o( qerismo\s e)/rxetai; )Idou/, le/gw u(mi^n, e)pa/rate tou\s o)fqalmou\s u(mw^n, kai\ qea/sasqe ta\s xw/ras, o(/ti leukai/ ei)sin pro\s qerismo\n h)/dh.
+     04:36 Kai\ {N Kai\ o( qeri/zwn misqo\n > (O qeri/zwn misqo\n } o( qeri/zwn misqo\n lamba/nei, kai\ suna/gei karpo\n ei)s zwh\n ai)w/nion: i(/na kai\ {N i(/na kai\ > i(/na } o( spei/rwn o(mou^ xai/rh| kai\ o( qeri/zwn.
+     04:37 )En ga\r tou/tw| o( lo/gos e)sti\n o( {N o( a)lhqino/s > a)lhqino/s } a)lhqino/s, o(/ti )/Allos e)sti\n o( spei/rwn, kai\ a)/llos o( qeri/zwn.
+     04:38 )Egw\ a)pe/steila u(ma^s qeri/zein o(\ ou)x u(mei^s kekopia/kate: a)/lloi kekopia/kasin, kai\ u(mei^s ei)s to\n ko/pon au)tw^n ei)selhlu/qate.
+     04:39 {P} )Ek de\ th^s po/lews e)kei/nhs polloi\ e)pi/steusan ei)s au)to\n tw^n Samareitw^n {N Samareitw^n > Samaritw^n } dia\ to\n lo/gon th^s gunaiko\s marturou/shs o(/ti Ei)^pe/n moi pa/nta o(/sa {N o(/sa > a(\ } e)poi/hsa.
+     04:40 (Ws ou)^n h)^lqon pro\s au)to\n oi( Samarei^tai, {N Samarei^tai > Samari^tai } h)rw/twn au)to\n mei^nai par' au)toi^s: kai\ e)/meinen e)kei^ du/o h(me/ras.
+     04:41 Kai\ pollw^| plei/ous e)pi/steusan dia\ to\n lo/gon au)tou^,
+     04:42 th^| te gunaiki\ e)/legon o(/ti Ou)ke/ti dia\ th\n sh\n lalia\n pisteu/omen: au)toi\ ga\r a)khko/amen, kai\ oi)/damen o(/ti ou(^to/s e)stin a)lhqw^s o( swth\r tou^ ko/smou, o( {N o( xristo/s > - } xristo/s.
+     04:43 {P} Meta\ de\ ta\s du/o h(me/ras e)ch^lqen e)kei^qen, kai\ {N kai\ a)ph^lqen > - } a)ph^lqen ei)s th\n Galilai/an.
+     04:44 Au)to\s ga\r o( {N o( > - } )Ihsou^s e)martu/rhsen o(/ti profh/ths e)n th^| i)di/a| patri/di timh\n ou)k e)/xei.
+     04:45 (/Ote ou)^n h)^lqen ei)s th\n Galilai/an, e)de/canto au)to\n oi( Galilai^oi, pa/nta e(wrako/tes a(\ {N a(\ > o(/sa } e)poi/hsen e)n (Ierosolu/mois e)n th^| e(orth^|: kai\ au)toi\ ga\r h)^lqon ei)s th\n e(orth/n.
+     04:46 {P} )^Hlqen ou)^n pa/lin o( {N o( )Ihsou^s > - } )Ihsou^s ei)s th\n Kana^ th^s Galilai/as, o(/pou e)poi/hsen to\ u(/dwr oi)^non. Kai\ h)^n tis basiliko/s, ou(^ o( ui(o\s h)sqe/nei e)n Kapernaou/m. {N Kapernaou/m > Kafarnaou/m }
+     04:47 Ou(^tos a)kou/sas o(/ti )Ihsou^s h(/kei e)k th^s )Ioudai/as ei)s th\n Galilai/an, a)ph^lqen pro\s au)to/n, kai\ h)rw/ta au)to\n {N au)to\n i(/na > i(/na } i(/na katabh^| kai\ i)a/shtai au)tou^ to\n ui(o/n: e)/mellen {B e)/mellen > h)/mellen } {N e)/mellen > h)/mellen } ga\r a)poqnh/|skein.
+     04:48 Ei)^pen ou)^n o( )Ihsou^s pro\s au)to/n, )Ea\n mh\ shmei^a kai\ te/rata i)/dhte, ou) mh\ pisteu/shte.
+     04:49 Le/gei pro\s au)to\n o( basiliko/s, Ku/rie, kata/bhqi pri\n a)poqanei^n to\ paidi/on mou.
+     04:50 Le/gei au)tw^| o( )Ihsou^s, Poreu/ou: o( ui(o/s sou zh^|. Kai\ {N Kai\ e)pi/steusen > )Epi/steusen } e)pi/steusen o( a)/nqrwpos tw^| lo/gw| w(^| {N w(^| > o(\n } ei)^pen au)tw^| o( )Ihsou^s, kai\ e)poreu/eto.
+     04:51 )/Hdh de\ au)tou^ katabai/nontos, oi( dou^loi au)tou^ a)ph/nthsan {N a)ph/nthsan au)tw^| kai\ a)ph/ggeilan > u(ph/nthsan au)tw^| } au)tw^|, kai\ a)ph/ggeilan le/gontes o(/ti (O pai^s sou {N sou > au)tou^ } zh^|.
+     04:52 )Epu/qeto ou)^n par' {N par' au)tw^n th\n w(/ran > th\n w(/ran par' au)tw^n } au)tw^n th\n w(/ran e)n h(^| komyo/teron e)/sxen. Kai\ {N Kai\ ei)^pon > Ei)^pan ou)^n } ei)^pon au)tw^| o(/ti Xqe\s {N Xqe\s > )Exqe\s } w(/ran e(bdo/mhn a)fh^ken au)to\n o( pureto/s.
+     04:53 )/Egnw ou)^n o( path\r o(/ti e)n {N e)n e)kei/nh| > [e)n] e)kei/nh| } e)kei/nh| th^| w(/ra|, e)n h(^| ei)^pen au)tw^| o( )Ihsou^s o(/ti {N o(/ti (O > (O } (O ui(o/s sou zh^|: kai\ e)pi/steusen au)to\s kai\ h( oi)ki/a au)tou^ o(/lh.
+     04:54 Tou^to pa/lin {N pa/lin > [de\] pa/lin } deu/teron shmei^on e)poi/hsen o( )Ihsou^s, e)lqw\n e)k th^s )Ioudai/as ei)s th\n Galilai/an.
+     05:01 Meta\ tau^ta h)^n h( {B h( > - } {N h( > - } e(orth\ tw^n )Ioudai/wn, kai\ a)ne/bh o( {N o( > - } )Ihsou^s ei)s (Ieroso/luma.
+     05:02 {P} )/Estin de\ e)n toi^s (Ierosolu/mois e)pi\ th^| probatikh^| kolumbh/qra, h( e)pilegome/nh (Ebrai+sti\ Bhqesda/, {N Bhqesda/ > Bhqzaqa/ } pe/nte stoa\s e)/xousa.
+     05:03 )En tau/tais kate/keito plh^qos polu\ {N polu\ > - } tw^n a)sqenou/ntwn, tuflw^n, xwlw^n, chrw^n, e)kdexome/nwn {N e)kdexome/nwn th\n tou^ u(/datos ki/nhsin > - } th\n tou^ u(/datos ki/nhsin.
+     05:04 )/Aggelos ga\r kata\ kairo\n kate/bainen e)n th^| kolumbh/qra|, kai\ e)ta/rassen to\ u(/dwr: o( ou)^n prw^tos e)mba\s meta\ th\n taraxh\n tou^ u(/datos, u(gih\s e)gi/neto, w(^| dh/pote katei/xeto nosh/mati. {N - }
+     05:05 )^Hn de/ tis a)/nqrwpos e)kei^ tria/konta {B o)ktw\ > kai\ o)ktw\ } o)ktw\ {N o)ktw\ > [kai\] o)ktw\ } e)/th e)/xwn e)n th^| a)sqenei/a|. {N a)sqenei/a| > a)sqenei/a| au)tou^ }
+     05:06 Tou^ton i)dw\n o( )Ihsou^s katakei/menon, kai\ gnou\s o(/ti polu\n h)/dh xro/non e)/xei, le/gei au)tw^|, Qe/leis u(gih\s gene/sqai;
+     05:07 )Apekri/qh au)tw^| o( a)sqenw^n, Ku/rie, a)/nqrwpon ou)k e)/xw i(/na, o(/tan taraxqh^| to\ u(/dwr, ba/lh| me ei)s th\n kolumbh/qran: e)n w(^| de\ e)/rxomai e)gw/, a)/llos pro\ e)mou^ katabai/nei.
+     05:08 Le/gei au)tw^| o( )Ihsou^s, )/Egeirai, {N )/Egeirai > )/Egeire } a)^ron to\n kra/bbato/n {N kra/bbato/n > kra/batto/n } sou, kai\ peripa/tei.
+     05:09 Kai\ eu)qe/ws e)ge/neto u(gih\s o( a)/nqrwpos, kai\ h)^ren to\n kra/bbaton {N kra/bbaton > kra/batton } au)tou^ kai\ periepa/tei. )^Hn de\ sa/bbaton e)n e)kei/nh| th^| h(me/ra|.
+     05:10 {P} )/Elegon ou)^n oi( )Ioudai^oi tw^| teqerapeume/nw|, Sa/bbato/n e)stin: ou)k {N ou)k > kai\ ou)k } e)/cesti/n soi a)^rai to\n kra/bbaton. {N kra/bbaton > kra/batto/n sou }
+     05:11 )Apekri/qh {N )Apekri/qh > (O de\ a)pekri/qh } au)toi^s, (O poih/sas me u(gih^, e)kei^no/s moi ei)^pen, )^Aron to\n kra/bbato/n {N kra/bbato/n > kra/batto/n } sou kai\ peripa/tei.
+     05:12 )Hrw/thsan ou)^n {N ou)^n > - } au)to/n, Ti/s e)stin o( a)/nqrwpos o( ei)pw/n soi, )^Aron to\n {N to\n kra/bbato/n sou > - } kra/bbato/n sou kai\ peripa/tei;
+     05:13 (O de\ i)aqei\s ou)k h)/|dei ti/s e)stin: o( ga\r )Ihsou^s e)ce/neusen, o)/xlou o)/ntos e)n tw^| to/pw|.
+     05:14 Meta\ tau^ta eu(ri/skei au)to\n o( )Ihsou^s e)n tw^| i(erw^|, kai\ ei)^pen au)tw^|, )/Ide u(gih\s ge/gonas: mhke/ti a(ma/rtane, i(/na mh\ xei^ro/n ti/ soi {B ti/ soi > soi/ ti } {N ti/ soi > soi/ ti } ge/nhtai.
+     05:15 )Aph^lqen o( a)/nqrwpos, kai\ a)nh/ggeilen toi^s )Ioudai/ois o(/ti )Ihsou^s e)stin o( poih/sas au)to\n u(gih^.
+     05:16 Kai\ dia\ tou^to e)di/wkon to\n {N to\n )Ihsou^n oi( )Ioudai^oi > oi( )Ioudai^oi to\n )Ihsou^n } )Ihsou^n oi( )Ioudai^oi, kai\ {N kai\ e)zh/toun au)to\n a)poktei^nai > - } e)zh/toun au)to\n a)poktei^nai, o(/ti tau^ta e)poi/ei e)n sabba/tw|.
+     05:17 (O de\ )Ihsou^s {N )Ihsou^s > [)Ihsou^s] } a)pekri/nato au)toi^s, (O path/r mou e(/ws a)/rti e)rga/zetai, ka)gw\ e)rga/zomai.
+     05:18 Dia\ tou^to ou)^n ma^llon e)zh/toun au)to\n oi( )Ioudai^oi a)poktei^nai, o(/ti ou) mo/non e)/luen to\ sa/bbaton, a)lla\ kai\ pate/ra i)/dion e)/legen to\n qeo/n, i)/son e(auto\n poiw^n tw^| qew^|.
+     05:19 {P} )Apekri/nato ou)^n o( )Ihsou^s kai\ ei)^pen {N ei)^pen > e)/legen } au)toi^s, )Amh\n a)mh\n le/gw u(mi^n, ou) du/natai o( ui(o\s poiei^n a)f' e(autou^ ou)de/n, e)a\n mh/ ti ble/ph| to\n pate/ra poiou^nta: a(\ ga\r a)\n e)kei^nos poih^|, tau^ta kai\ o( ui(o\s o(moi/ws poiei^.
+     05:20 (O ga\r path\r filei^ to\n ui(o/n, kai\ pa/nta dei/knusin au)tw^| a(\ au)to\s poiei^: kai\ mei/zona tou/twn dei/cei au)tw^| e)/rga, i(/na u(mei^s qauma/zhte.
+     05:21 (/Wsper ga\r o( path\r e)gei/rei tou\s nekrou\s kai\ zw|opoiei^, ou(/tws kai\ o( ui(o\s ou(\s qe/lei zw|opoiei^.
+     05:22 Ou)de\ ga\r o( path\r kri/nei ou)de/na, a)lla\ th\n kri/sin pa^san de/dwken tw^| ui(w^|:
+     05:23 i(/na pa/ntes timw^sin to\n ui(o/n, kaqw\s timw^sin to\n pate/ra. (O mh\ timw^n to\n ui(o/n, ou) tima^| to\n pate/ra to\n pe/myanta au)to/n.
+     05:24 )Amh\n a)mh\n le/gw u(mi^n o(/ti o( to\n lo/gon mou a)kou/wn, kai\ pisteu/wn tw^| pe/myanti/ me, e)/xei zwh\n ai)w/nion: kai\ ei)s kri/sin ou)k e)/rxetai, a)lla\ metabe/bhken e)k tou^ qana/tou ei)s th\n zwh/n.
+     05:25 )Amh\n a)mh\n le/gw u(mi^n o(/ti e)/rxetai w(/ra kai\ nu^n e)stin, o(/te oi( nekroi\ a)kou/sontai {N a)kou/sontai > a)kou/sousin } th^s fwnh^s tou^ ui(ou^ tou^ qeou^, kai\ oi( a)kou/santes zh/sontai. {N zh/sontai > zh/sousin }
+     05:26 (/Wsper ga\r o( path\r e)/xei zwh\n e)n e(autw^|, ou(/tws e)/dwken {N e)/dwken kai\ tw^| ui(w^| > kai\ tw^| ui(w^| e)/dwken } kai\ tw^| ui(w^| zwh\n e)/xein e)n e(autw^|:
+     05:27 kai\ e)cousi/an e)/dwken au)tw^| kai\ {N kai\ kri/sin > kri/sin } kri/sin poiei^n, o(/ti ui(o\s a)nqrw/pou e)sti/n.
+     05:28 Mh\ qauma/zete tou^to: o(/ti e)/rxetai w(/ra, e)n h(^| pa/ntes oi( e)n toi^s mnhmei/ois a)kou/sontai {N a)kou/sontai > a)kou/sousin } th^s fwnh^s au)tou^,
+     05:29 kai\ e)kporeu/sontai, oi( ta\ a)gaqa\ poih/santes, ei)s a)na/stasin zwh^s: oi( de\ ta\ fau^la pra/cantes, ei)s a)na/stasin kri/sews.
+     05:30 {P} Ou) du/namai e)gw\ poiei^n a)p' e)mautou^ ou)de/n: kaqw\s a)kou/w, kri/nw: kai\ h( kri/sis h( e)mh\ dikai/a e)sti/n: o(/ti ou) zhtw^ to\ qe/lhma to\ e)mo/n, a)lla\ to\ qe/lhma tou^ pe/myanto/s me patro/s. {N patro/s > - }
+     05:31 )Ea\n e)gw\ marturw^ peri\ e)mautou^, h( marturi/a mou ou)k e)/stin a)lhqh/s.
+     05:32 )/Allos e)sti\n o( marturw^n peri\ e)mou^, kai\ oi)^da o(/ti a)lhqh/s e)stin h( marturi/a h(\n marturei^ peri\ e)mou^.
+     05:33 (Umei^s a)pesta/lkate pro\s )Iwa/nnhn, kai\ memartu/rhken th^| a)lhqei/a|.
+     05:34 )Egw\ de\ ou) para\ a)nqrw/pou th\n marturi/an lamba/nw, a)lla\ tau^ta le/gw i(/na u(mei^s swqh^te.
+     05:35 )Ekei^nos h)^n o( lu/xnos o( kaio/menos kai\ fai/nwn, u(mei^s de\ h)qelh/sate a)galliaqh^nai pro\s w(/ran e)n tw^| fwti\ au)tou^.
+     05:36 )Egw\ de\ e)/xw th\n marturi/an mei/zw tou^ )Iwa/nnou: ta\ ga\r e)/rga a(\ e)/dwke/n {N e)/dwke/n > de/dwke/n } moi o( path\r i(/na teleiw/sw au)ta/, au)ta\ ta\ e)/rga a(\ e)gw\ {N e)gw\ poiw^ > poiw^ } poiw^, marturei^ peri\ e)mou^ o(/ti o( path/r me a)pe/stalken.
+     05:37 Kai\ o( pe/myas me path/r, au)to\s {N au)to\s > e)kei^nos } memartu/rhken peri\ e)mou^. Ou)/te fwnh\n au)tou^ a)khko/ate {N a)khko/ate pw/pote > pw/pote a)khko/ate } pw/pote, ou)/te ei)^dos au)tou^ e(wra/kate.
+     05:38 Kai\ to\n lo/gon au)tou^ ou)k e)/xete me/nonta {N me/nonta e)n u(mi^n > e)n u(mi^n me/nonta } e)n u(mi^n, o(/ti o(\n a)pe/steilen e)kei^nos, tou/tw| u(mei^s ou) pisteu/ete.
+     05:39 )Ereuna^te {N )Ereuna^te > )Erauna^te } ta\s grafa/s, o(/ti u(mei^s dokei^te e)n au)tai^s zwh\n ai)w/nion e)/xein, kai\ e)kei^nai/ ei)sin ai( marturou^sai peri\ e)mou^:
+     05:40 kai\ ou) qe/lete e)lqei^n pro/s me, i(/na zwh\n e)/xhte.
+     05:41 Do/can para\ a)nqrw/pwn ou) lamba/nw:
+     05:42 a)ll' {N a)ll' > a)lla\ } e)/gnwka u(ma^s, o(/ti th\n a)ga/phn tou^ qeou^ ou)k e)/xete e)n e(autoi^s.
+     05:43 )Egw\ e)lh/luqa e)n tw^| o)no/mati tou^ patro/s mou, kai\ ou) lamba/nete/ me: e)a\n a)/llos e)/lqh| e)n tw^| o)no/mati tw^| i)di/w|, e)kei^non lh/yesqe. {N lh/yesqe > lh/myesqe }
+     05:44 Pw^s du/nasqe u(mei^s pisteu^sai, do/can para\ a)llh/lwn lamba/nontes, kai\ th\n do/can th\n para\ tou^ mo/nou qeou^ ou) zhtei^te;
+     05:45 Mh\ dokei^te o(/ti e)gw\ kathgorh/sw u(mw^n pro\s to\n pate/ra: e)/stin o( kathgorw^n u(mw^n, Mwsh^s, {N Mwsh^s > Mwu+sh^s } ei)s o(\n u(mei^s h)lpi/kate.
+     05:46 Ei) ga\r e)pisteu/ete Mwsh^|, {B Mwsh^| > Mwsei^ } {N Mwsh^| > Mwu+sei^ } e)pisteu/ete a)\n e)moi/: peri\ ga\r e)mou^ e)kei^nos e)/grayen.
+     05:47 Ei) de\ toi^s e)kei/nou gra/mmasin ou) pisteu/ete, pw^s toi^s e)moi^s r(h/masin pisteu/sete;
+     06:01 Meta\ tau^ta a)ph^lqen o( )Ihsou^s pe/ran th^s qala/sshs th^s Galilai/as, th^s Tiberia/dos.
+     06:02 Kai\ {N Kai\ h)kolou/qei > )Hkolou/qei de\ } h)kolou/qei au)tw^| o)/xlos polu/s, o(/ti e(w/rwn {N e(w/rwn au)tou^ > e)qew/roun } au)tou^ ta\ shmei^a a(\ e)poi/ei e)pi\ tw^n a)sqenou/ntwn.
+     06:03 )Anh^lqen de\ ei)s to\ o)/ros o( {N o( > - } )Ihsou^s, kai\ e)kei^ e)ka/qhto meta\ tw^n maqhtw^n au)tou^.
+     06:04 )^Hn de\ e)ggu\s to\ Pa/sxa, h( e(orth\ tw^n )Ioudai/wn.
+     06:05 )Epa/ras ou)^n o( {N o( )Ihsou^s tou\s o)fqalmou/s > tou\s o)fqalmou\s o( )Ihsou^s } )Ihsou^s tou\s o)fqalmou/s, kai\ qeasa/menos o(/ti polu\s o)/xlos e)/rxetai pro\s au)to/n, le/gei pro\s to\n {N to\n > - } Fi/lippon, Po/qen a)gora/somen {N a)gora/somen > a)gora/swmen } a)/rtous, i(/na fa/gwsin ou(^toi;
+     06:06 Tou^to de\ e)/legen peira/zwn au)to/n: au)to\s ga\r h)/|dei ti/ e)/mellen poiei^n.
+     06:07 )Apekri/qh au)tw^| Fi/lippos, {N Fi/lippos > [o(] Fi/lippos } Diakosi/wn dhnari/wn a)/rtoi ou)k a)rkou^sin au)toi^s, i(/na e(/kastos au)tw^n {N au)tw^n braxu/ ti > braxu/ [ti] } braxu/ ti la/bh|.
+     06:08 Le/gei au)tw^| ei(^s e)k tw^n maqhtw^n au)tou^, )Andre/as o( a)delfo\s Si/mwnos Pe/trou,
+     06:09 )/Estin paida/rion e(\n {N e(\n w(^de o(\ > w(^de o(\s } w(^de, o(\ e)/xei pe/nte a)/rtous kriqi/nous kai\ du/o o)ya/ria: a)lla\ tau^ta ti/ e)stin ei)s tosou/tous;
+     06:10 Ei)^pen de\ {N de\ o( > o( } o( )Ihsou^s, Poih/sate tou\s a)nqrw/pous a)napesei^n. )^Hn de\ xo/rtos polu\s e)n tw^| to/pw|. )Ane/peson {B )Ane/peson > )Ane/pesan } {N )Ane/peson > )Ane/pesan } ou)^n oi( a)/ndres to\n a)riqmo\n w(sei\ {N w(sei\ > w(s } pentakisxi/lioi.
+     06:11 )/Elaben de\ {N de\ tou\s > ou)^n tou\s } tou\s a)/rtous o( )Ihsou^s, kai\ eu)xaristh/sas die/dwken toi^s maqhtai^s, {N toi^s maqhtai^s oi( de\ maqhtai\ > - } oi( de\ maqhtai\ toi^s a)nakeime/nois: o(moi/ws kai\ e)k tw^n o)yari/wn o(/son h)/qelon.
+     06:12 (Ws de\ e)neplh/sqhsan, le/gei toi^s maqhtai^s au)tou^, Sunaga/gete ta\ perisseu/santa kla/smata, i(/na mh/ ti a)po/lhtai.
+     06:13 Sunh/gagon ou)^n, kai\ e)ge/misan dw/deka kofi/nous klasma/twn e)k tw^n pe/nte a)/rtwn tw^n kriqi/nwn, a(\ e)peri/sseusen {N e)peri/sseusen > e)peri/sseusan } toi^s bebrwko/sin.
+     06:14 Oi( ou)^n a)/nqrwpoi i)do/ntes o(\ e)poi/hsen shmei^on o( {N o( )Ihsou^s > - } )Ihsou^s, e)/legon o(/ti Ou(^to/s e)stin a)lhqw^s o( profh/ths o( e)rxo/menos ei)s to\n ko/smon.
+     06:15 )Ihsou^s ou)^n gnou\s o(/ti me/llousin e)/rxesqai kai\ a(rpa/zein au)to/n, i(/na poih/swsin {N poih/swsin au)to\n > poih/swsin } au)to\n basile/a, a)nexw/rhsen {N a)nexw/rhsen > a)nexw/rhsen pa/lin } ei)s to\ o)/ros au)to\s mo/nos.
+     06:16 {P} (Ws de\ o)yi/a e)ge/neto, kate/bhsan oi( maqhtai\ au)tou^ e)pi\ th\n qa/lassan,
+     06:17 kai\ e)mba/ntes ei)s to\ {N to\ > - } ploi^on, h)/rxonto pe/ran th^s qala/sshs ei)s Kapernaou/m. {N Kapernaou/m > Kafarnaou/m } Kai\ skoti/a h)/dh e)gego/nei, kai\ ou)k {N ou)k > ou)/pw } e)lhlu/qei pro\s au)tou\s o( )Ihsou^s.
+     06:18 (/H te qa/lassa a)ne/mou mega/lou pne/ontos dihgei/reto. {N dihgei/reto > diegei/reto }
+     06:19 )Elhlako/tes ou)^n w(s stadi/ous ei)/kosi pe/nte h)\ tria/konta, qewrou^sin to\n )Ihsou^n peripatou^nta e)pi\ th^s qala/sshs, kai\ e)ggu\s tou^ ploi/ou gino/menon: kai\ e)fobh/qhsan.
+     06:20 (O de\ le/gei au)toi^s, )Egw/ ei)mi: mh\ fobei^sqe.
+     06:21 )/Hqelon ou)^n labei^n au)to\n ei)s to\ ploi^on: kai\ eu)qe/ws to\ {N to\ ploi^on e)ge/neto > e)ge/neto to\ ploi^on } ploi^on e)ge/neto e)pi\ th^s gh^s ei)s h(\n u(ph^gon.
+     06:22 {P} Th^| e)pau/rion o( o)/xlos o( e(sthkw\s pe/ran th^s qala/sshs, i)dw\n {N i)dw\n > ei)^don } o(/ti ploia/rion a)/llo ou)k h)^n e)kei^ ei) mh\ e(\n e)kei^no {N e)kei^no ei)s o(\ e)ne/bhsan oi( maqhtai\ au)tou^ > - } ei)s o(\ e)ne/bhsan oi( maqhtai\ au)tou^, kai\ o(/ti ou) suneish^lqen toi^s maqhtai^s au)tou^ o( )Ihsou^s ei)s to\ ploia/rion, {N ploia/rion a)lla\ > ploi^on a)lla\ } a)lla\ mo/noi oi( maqhtai\ au)tou^ a)ph^lqon -
+     06:23 a)/lla de\ {N de\ > - } h)^lqen ploia/ria {N ploia/ria > ploia/[ria] } e)k Tiberia/dos e)ggu\s tou^ to/pou o(/pou e)/fagon to\n a)/rton, eu)xaristh/santos tou^ kuri/ou -
+     06:24 o(/te ou)^n ei)^den o( o)/xlos o(/ti )Ihsou^s ou)k e)/stin e)kei^ ou)de\ oi( maqhtai\ au)tou^, e)ne/bhsan au)toi\ ei)s ta\ ploi^a, {N ploi^a > ploia/ria } kai\ h)^lqon ei)s Kapernaou/m, {N Kapernaou/m > Kafarnaou/m } zhtou^ntes to\n )Ihsou^n.
+     06:25 Kai\ eu(ro/ntes au)to\n pe/ran th^s qala/sshs, ei)^pon au)tw^|, (Rabbi/, po/te w(^de ge/gonas;
+     06:26 )Apekri/qh au)toi^s o( )Ihsou^s kai\ ei)^pen, )Amh\n a)mh\n le/gw u(mi^n, zhtei^te/ me, ou)x o(/ti ei)/dete shmei^a, a)ll' o(/ti e)fa/gete e)k tw^n a)/rtwn kai\ e)xorta/sqhte.
+     06:27 )Erga/zesqe mh\ th\n brw^sin th\n a)pollume/nhn, a)lla\ th\n brw^sin th\n me/nousan ei)s zwh\n ai)w/nion, h(\n o( ui(o\s tou^ a)nqrw/pou u(mi^n dw/sei: tou^ton ga\r o( path\r e)sfra/gisen, o( qeo/s.
+     06:28 Ei)^pon ou)^n pro\s au)to/n, Ti/ poiw^men, i(/na e)rgazw/meqa ta\ e)/rga tou^ qeou^;
+     06:29 )Apekri/qh )Ihsou^s {N )Ihsou^s > [o(] )Ihsou^s } kai\ ei)^pen au)toi^s, Tou^to/ e)stin to\ e)/rgon tou^ qeou^, i(/na pisteu/shte {N pisteu/shte > pisteu/hte } ei)s o(\n a)pe/steilen e)kei^nos.
+     06:30 Ei)^pon ou)^n au)tw^|, Ti/ ou)^n poiei^s su\ shmei^on, i(/na i)/dwmen kai\ pisteu/swme/n soi; Ti/ e)rga/zh|;
+     06:31 Oi( pate/res h(mw^n to\ ma/nna e)/fagon e)n th^| e)rh/mw|, kaqw/s e)stin gegramme/non, )/Arton e)k tou^ ou)ranou^ e)/dwken au)toi^s fagei^n.
+     06:32 Ei)^pen ou)^n au)toi^s o( )Ihsou^s, )Amh\n a)mh\n le/gw u(mi^n, ou) Mwsh^s {N Mwsh^s > Mwu+sh^s } de/dwken u(mi^n to\n a)/rton e)k tou^ ou)ranou^: a)ll' o( path/r mou di/dwsin u(mi^n to\n a)/rton e)k tou^ ou)ranou^ to\n a)lhqino/n.
+     06:33 (O ga\r a)/rtos tou^ qeou^ e)stin o( katabai/nwn e)k tou^ ou)ranou^ kai\ zwh\n didou\s tw^| ko/smw|.
+     06:34 Ei)^pon ou)^n pro\s au)to/n, Ku/rie, pa/ntote do\s h(mi^n to\n a)/rton tou^ton.
+     06:35 Ei)^pen de\ {N de\ > - } au)toi^s o( )Ihsou^s, )Egw/ ei)mi o( a)/rtos th^s zwh^s: o( e)rxo/menos pro/s me {N pro/s me > pro\s e)me\ } ou) mh\ peina/sh|: kai\ o( pisteu/wn ei)s e)me\ ou) mh\ diyh/sh| {N diyh/sh| > diyh/sei } pw/pote.
+     06:36 )All' ei)^pon u(mi^n o(/ti kai\ e(wra/kate/ me, {N me > [me] } kai\ ou) pisteu/ete.
+     06:37 Pa^n o(\ di/dwsi/n moi o( path\r pro\s e)me\ h(/cei: kai\ to\n e)rxo/menon pro/s me {N me > e)me\ } ou) mh\ e)kba/lw e)/cw.
+     06:38 (/Oti katabe/bhka e)k {N e)k > a)po\ } tou^ ou)ranou^, ou)x i(/na poiw^ to\ qe/lhma to\ e)mo/n, a)lla\ to\ qe/lhma tou^ pe/myanto/s me.
+     06:39 Tou^to de/ e)stin to\ qe/lhma tou^ pe/myanto/s me patro/s, {N patro/s > - } i(/na pa^n o(\ de/dwke/n moi, mh\ a)pole/sw e)c au)tou^, a)lla\ a)nasth/sw au)to\ {B au)to\ > au)to\n } th^| {B th^| > e)n th^| } {N th^| > [e)n] th^| } e)sxa/th| h(me/ra|.
+     06:40 Tou^to de/ {N de/ > ga/r } e)stin to\ qe/lhma tou^ pe/myanto/s {N pe/myanto/s me > patro/s mou } me, i(/na pa^s o( qewrw^n to\n ui(o\n kai\ pisteu/wn ei)s au)to/n, e)/xh| zwh\n ai)w/nion, kai\ a)nasth/sw au)to\n e)gw\ th^| {N th^| > [e)n] th^| } e)sxa/th| h(me/ra|.
+     06:41 {P} )Ego/gguzon ou)^n oi( )Ioudai^oi peri\ au)tou^, o(/ti ei)^pen, )Egw/ ei)mi o( a)/rtos o( kataba\s e)k tou^ ou)ranou^.
+     06:42 Kai\ e)/legon, Ou)x ou(^to/s e)stin )Ihsou^s o( ui(o\s )Iwsh/f, ou(^ h(mei^s oi)/damen to\n pate/ra kai\ th\n mhte/ra; Pw^s ou)^n {N ou)^n le/gei ou(^tos > nu^n le/gei } le/gei ou(^tos o(/ti )Ek tou^ ou)ranou^ katabe/bhka;
+     06:43 )Apekri/qh ou)^n {N ou)^n o( > - } o( )Ihsou^s kai\ ei)^pen au)toi^s, Mh\ goggu/zete met' a)llh/lwn.
+     06:44 Ou)dei\s du/natai e)lqei^n pro/s me, e)a\n mh\ o( path\r o( pe/myas me e(lku/sh| au)to/n, kai\ {N kai\ e)gw\ > ka)gw\ } e)gw\ a)nasth/sw au)to\n e)n th^| e)sxa/th| h(me/ra|.
+     06:45 )/Estin gegramme/non e)n toi^s profh/tais, Kai\ e)/sontai pa/ntes didaktoi\ qeou^. Pa^s ou)^n {N ou)^n o( a)kou/wn > o( a)kou/sas } o( a)kou/wn para\ tou^ patro\s kai\ maqw/n, e)/rxetai pro/s me. {N me > e)me/ }
+     06:46 Ou)x o(/ti to\n pate/ra tis {N tis e(w/raken > e(w/rake/n tis } e(w/raken, ei) mh\ o( w)\n para\ tou^ qeou^, ou(^tos e(w/raken to\n pate/ra.
+     06:47 )Amh\n a)mh\n le/gw u(mi^n, o( pisteu/wn ei)s {N ei)s e)me/ > - } e)me/, e)/xei zwh\n ai)w/nion.
+     06:48 )Egw/ ei)mi o( a)/rtos th^s zwh^s.
+     06:49 Oi( pate/res u(mw^n e)/fagon to\ {N to\ ma/nna e)n th^| e)rh/mw| > e)n th^| e)rh/mw| to\ ma/nna } ma/nna e)n th^| e)rh/mw|, kai\ a)pe/qanon.
+     06:50 Ou(^to/s e)stin o( a)/rtos o( e)k tou^ ou)ranou^ katabai/nwn, i(/na tis e)c au)tou^ fa/gh| kai\ mh\ a)poqa/nh|.
+     06:51 )Egw/ ei)mi o( a)/rtos o( zw^n, o( e)k tou^ ou)ranou^ kataba/s: e)a/n tis fa/gh| e)k tou/tou tou^ a)/rtou, zh/setai {N zh/setai > zh/sei } ei)s to\n ai)w^na. Kai\ o( a)/rtos de\ o(\n e)gw\ dw/sw, h( sa/rc mou e)sti/n, h(\n {N h(\n e)gw\ dw/sw > - } e)gw\ dw/sw u(pe\r th^s tou^ ko/smou zwh^s.
+     06:52 {P} )Ema/xonto ou)^n pro\s a)llh/lous oi( )Ioudai^oi le/gontes, Pw^s du/natai ou(^tos h(mi^n dou^nai th\n sa/rka fagei^n; {N sa/rka > sa/rka [au)tou^] }
+     06:53 Ei)^pen ou)^n au)toi^s o( )Ihsou^s, )Amh\n a)mh\n le/gw u(mi^n, e)a\n mh\ fa/ghte th\n sa/rka tou^ ui(ou^ tou^ a)nqrw/pou kai\ pi/hte au)tou^ to\ ai(^ma, ou)k e)/xete zwh\n e)n e(autoi^s.
+     06:54 (O trw/gwn mou th\n sa/rka kai\ pi/nwn mou to\ ai(^ma, e)/xei zwh\n ai)w/nion, kai\ {N kai\ e)gw\ > ka)gw\ } e)gw\ a)nasth/sw au)to\n {B th^| > e)n th^| } th^| e)sxa/th| h(me/ra|.
+     06:55 (H ga\r sa/rc mou a)lhqw^s {N a)lhqw^s e)stin brw^sis > a)lhqh/s e)stin brw^sis } e)stin brw^sis, kai\ to\ ai(^ma/ mou a)lhqw^s {N a)lhqw^s e)stin po/sis > a)lhqh/s e)stin po/sis } e)stin po/sis.
+     06:56 (O trw/gwn mou th\n sa/rka kai\ pi/nwn mou to\ ai(^ma, e)n e)moi\ me/nei, ka)gw\ e)n au)tw^|.
+     06:57 Kaqw\s a)pe/steile/n me o( zw^n path/r, ka)gw\ zw^ dia\ to\n pate/ra: kai\ o( trw/gwn me, ka)kei^nos zh/setai {N zh/setai > zh/sei } di' e)me/.
+     06:58 Ou(^to/s e)stin o( a)/rtos o( e)k {N e)k tou^ > e)c } tou^ ou)ranou^ kataba/s: ou) kaqw\s e)/fagon oi( pate/res u(mw^n {N u(mw^n to\ ma/nna > - } to\ ma/nna, kai\ a)pe/qanon: o( trw/gwn tou^ton to\n a)/rton, zh/setai {B zh/setai > zh/sei } {N zh/setai > zh/sei } ei)s to\n ai)w^na.
+     06:59 Tau^ta ei)^pen e)n sunagwgh^| dida/skwn e)n Kapernaou/m. {N Kapernaou/m > Kafarnaou/m }
+     06:60 {P} Polloi\ ou)^n a)kou/santes e)k tw^n maqhtw^n au)tou^ ei)^pon, {N ei)^pon > ei)^pan } Sklhro/s e)stin ou(^tos {N ou(^tos o( lo/gos > o( lo/gos ou(^tos } o( lo/gos: ti/s du/natai au)tou^ a)kou/ein;
+     06:61 Ei)dw\s de\ o( )Ihsou^s e)n e(autw^| o(/ti goggu/zousin peri\ tou/tou oi( maqhtai\ au)tou^, ei)^pen au)toi^s, Tou^to u(ma^s skandali/zei;
+     06:62 )Ea\n ou)^n qewrh^te to\n ui(o\n tou^ a)nqrw/pou a)nabai/nonta o(/pou h)^n to\ pro/teron;
+     06:63 To\ pneu^ma/ e)stin to\ zw|opoiou^n, h( sa\rc ou)k w)felei^ ou)de/n: ta\ r(h/mata a(\ e)gw\ lalw^ {N lalw^ > lela/lhka } u(mi^n, pneu^ma/ e)stin kai\ zwh/ e)stin.
+     06:64 )All' ei)si\n e)c u(mw^n tines oi(\ ou) pisteu/ousin. )/|Hdei ga\r e)c a)rxh^s o( )Ihsou^s, ti/nes ei)si\n oi( mh\ pisteu/ontes, kai\ ti/s e)stin o( paradw/swn au)to/n.
+     06:65 Kai\ e)/legen, Dia\ tou^to ei)/rhka u(mi^n o(/ti ou)dei\s du/natai e)lqei^n pro/s me, e)a\n mh\ h)^| dedome/non au)tw^| e)k tou^ patro/s mou. {N mou > - }
+     06:66 {P} )Ek tou/tou polloi\ a)ph^lqon {N a)ph^lqon tw^n maqhtw^n au)tou^ > [e)k] tw^n maqhtw^n au)tou^ a)ph^lqon } tw^n maqhtw^n au)tou^ ei)s ta\ o)pi/sw, kai\ ou)ke/ti met' au)tou^ periepa/toun.
+     06:67 Ei)^pen ou)^n o( )Ihsou^s toi^s dw/deka, Mh\ kai\ u(mei^s qe/lete u(pa/gein;
+     06:68 )Apekri/qh ou)^n {N ou)^n > - } au)tw^| Si/mwn Pe/tros, Ku/rie, pro\s ti/na a)peleuso/meqa; (Rh/mata zwh^s ai)wni/ou e)/xeis.
+     06:69 Kai\ h(mei^s pepisteu/kamen kai\ e)gnw/kamen o(/ti su\ ei)^ o( xristo\s {N xristo\s o( ui(o\s tou^ qeou^ tou^ zw^ntos > a(/gios tou^ qeou^ } o( ui(o\s tou^ qeou^ tou^ zw^ntos.
+     06:70 )Apekri/qh au)toi^s o( )Ihsou^s, {B o( )Ihsou^s > - } Ou)k e)gw\ u(ma^s tou\s dw/deka e)celeca/mhn, kai\ e)c u(mw^n ei(^s dia/bolo/s e)stin;
+     06:71 )/Elegen de\ to\n )Iou/dan Si/mwnos )Iskariw/thn: {N )Iskariw/thn > )Iskariw/tou } ou(^tos ga\r e)/mellen au)to\n {N au)to\n paradido/nai > paradido/nai au)to/n } paradido/nai, ei(^s w)\n {N w)\n > - } e)k tw^n dw/deka.
+     07:01 Kai\ periepa/tei {N periepa/tei o( )Ihsou^s meta\ tau^ta > meta\ tau^ta periepa/tei o( )Ihsou^s } o( )Ihsou^s meta\ tau^ta e)n th^| Galilai/a|: ou) ga\r h)/qelen e)n th^| )Ioudai/a| peripatei^n, o(/ti e)zh/toun au)to\n oi( )Ioudai^oi a)poktei^nai.
+     07:02 )^Hn de\ e)ggu\s h( e(orth\ tw^n )Ioudai/wn h( Skhnophgi/a.
+     07:03 Ei)^pon ou)^n pro\s au)to\n oi( a)delfoi\ au)tou^, Meta/bhqi e)nteu^qen, kai\ u(/page ei)s th\n )Ioudai/an, i(/na kai\ oi( maqhtai/ sou qewrh/swsin {N qewrh/swsin ta\ e)/rga sou > qewrh/sousin sou^ ta\ e)/rga } ta\ e)/rga sou a(\ poiei^s.
+     07:04 Ou)dei\s ga\r e)n {N e)n kruptw^| ti > ti e)n kruptw^| } kruptw^| ti poiei^, kai\ zhtei^ au)to\s e)n parrhsi/a| ei)^nai. Ei) tau^ta poiei^s, fane/rwson seauto\n tw^| ko/smw|.
+     07:05 Ou)de\ ga\r oi( a)delfoi\ au)tou^ e)pi/steuon ei)s au)to/n.
+     07:06 Le/gei ou)^n au)toi^s o( )Ihsou^s, (O kairo\s o( e)mo\s ou)/pw pa/restin, o( de\ kairo\s o( u(me/teros pa/ntote/ e)stin e(/toimos.
+     07:07 Ou) du/natai o( ko/smos misei^n u(ma^s: e)me\ de\ misei^, o(/ti e)gw\ marturw^ peri\ au)tou^, o(/ti ta\ e)/rga au)tou^ ponhra/ e)stin.
+     07:08 (Umei^s a)na/bhte ei)s th\n e(orth\n tau/thn: {N tau/thn e)gw\ ou)/pw > e)gw\ ou)k } e)gw\ ou)/pw a)nabai/nw ei)s th\n e(orth\n tau/thn, o(/ti o( kairo\s {N kairo\s o( e)mo\s > e)mo\s kairo\s } o( e)mo\s ou)/pw peplh/rwtai.
+     07:09 Tau^ta de\ ei)pw\n au)toi^s, {N au)toi^s > au)to\s } e)/meinen e)n th^| Galilai/a|.
+     07:10 {P} (Ws de\ a)ne/bhsan oi( a)delfoi\ au)tou^, to/te {N to/te kai\ au)to\s a)ne/bh ei)s th\n e(orth/n > ei)s th\n e(orth/n to/te kai\ au)to\s a)ne/bh } kai\ au)to\s a)ne/bh ei)s th\n e(orth/n, ou) fanerw^s, a)ll' {N a)ll' w(s > a)lla\ [w(s] } w(s e)n kruptw^|.
+     07:11 Oi( ou)^n )Ioudai^oi e)zh/toun au)to\n e)n th^| e(orth^|, kai\ e)/legon, Pou^ e)stin e)kei^nos;
+     07:12 Kai\ goggusmo\s polu\s {N polu\s peri\ au)tou^ h)^n > peri\ au)tou^ h)^n polu\s } peri\ au)tou^ h)^n e)n toi^s o)/xlois: oi( me\n e)/legon o(/ti )Agaqo/s e)stin: a)/lloi e)/legon, {N a)/lloi > a)/lloi [de\] } Ou)/, a)lla\ plana^| to\n o)/xlon.
+     07:13 Ou)dei\s me/ntoi parrhsi/a| e)la/lei peri\ au)tou^ dia\ to\n fo/bon tw^n )Ioudai/wn.
+     07:14 {P} )/Hdh de\ th^s e(orth^s mesou/shs, a)ne/bh o( {N o( > - } )Ihsou^s ei)s to\ i(ero/n, kai\ e)di/dasken.
+     07:15 Kai\ {N Kai\ e)qau/mazon > )Eqau/mazon ou)^n } e)qau/mazon oi( )Ioudai^oi le/gontes, Pw^s ou(^tos gra/mmata oi)^den, mh\ memaqhkw/s;
+     07:16 )Apekri/qh ou)^n au)toi^s o( {N o( > [o(] } )Ihsou^s kai\ ei)^pen, (H e)mh\ didaxh\ ou)k e)/stin e)mh/, a)lla\ tou^ pe/myanto/s me.
+     07:17 )Ea/n tis qe/lh| to\ qe/lhma au)tou^ poiei^n, gnw/setai peri\ th^s didaxh^s, po/teron e)k tou^ qeou^ e)stin, h)\ e)gw\ a)p' e)mautou^ lalw^.
+     07:18 (O a)f' e(autou^ lalw^n, th\n do/can th\n i)di/an zhtei^: o( de\ zhtw^n th\n do/can tou^ pe/myantos au)to/n, ou(^tos a)lhqh/s e)stin, kai\ a)diki/a e)n au)tw^| ou)k e)/stin.
+     07:19 Ou) Mwsh^s {N Mwsh^s > Mwu+sh^s } de/dwken u(mi^n to\n no/mon, kai\ ou)dei\s e)c u(mw^n poiei^ to\n no/mon; Ti/ me zhtei^te a)poktei^nai;
+     07:20 )Apekri/qh o( o)/xlos kai\ {N kai\ ei)^pen > - } ei)^pen, Daimo/nion e)/xeis: ti/s se zhtei^ a)poktei^nai;
+     07:21 )Apekri/qh )Ihsou^s kai\ ei)^pen au)toi^s, (\En e)/rgon e)poi/hsa, kai\ pa/ntes qauma/zete.
+     07:22 Dia\ tou^to Mwsh^s {N Mwsh^s > Mwu+sh^s } de/dwken u(mi^n th\n peritomh/n - ou)x o(/ti e)k tou^ Mwse/ws {N Mwse/ws > Mwu+se/ws } e)sti/n, a)ll' e)k tw^n pate/rwn - kai\ e)n sabba/tw| perite/mnete a)/nqrwpon.
+     07:23 Ei) peritomh\n lamba/nei a)/nqrwpos e)n sabba/tw|, i(/na mh\ luqh^| o( no/mos Mwse/ws, {N Mwse/ws > Mwu+se/ws } e)moi\ xola^te o(/ti o(/lon a)/nqrwpon u(gih^ e)poi/hsa e)n sabba/tw|;
+     07:24 Mh\ kri/nete kat' o)/yin, a)lla\ th\n dikai/an kri/sin kri/nate. {N kri/nate > kri/nete }
+     07:25 {P} )/Elegon ou)^n tines e)k tw^n (Ierosolumitw^n, Ou)x ou(^to/s e)stin o(\n zhtou^sin a)poktei^nai;
+     07:26 Kai\ i)/de parrhsi/a| lalei^, kai\ ou)de\n au)tw^| le/gousin. Mh/pote a)lhqw^s e)/gnwsan oi( a)/rxontes o(/ti ou(^to/s e)stin a)lhqw^s {N a)lhqw^s o( > o( } o( xristo/s;
+     07:27 )Alla\ tou^ton oi)/damen po/qen e)sti/n: o( de\ xristo\s o(/tan e)/rxhtai, ou)dei\s ginw/skei po/qen e)sti/n.
+     07:28 )/Ekracen ou)^n e)n tw^| i(erw^| dida/skwn o( )Ihsou^s kai\ le/gwn, Ka)me\ oi)/date, kai\ oi)/date po/qen ei)mi/: kai\ a)p' e)mautou^ ou)k e)lh/luqa, a)ll' e)/stin a)lhqino\s o( pe/myas me, o(\n u(mei^s ou)k oi)/date.
+     07:29 )Egw\ oi)^da au)to/n, o(/ti par' au)tou^ ei)mi, ka)kei^no/s me a)pe/steilen.
+     07:30 )Ezh/toun ou)^n au)to\n pia/sai. Kai\ ou)dei\s e)pe/balen e)p' au)to\n th\n xei^ra, o(/ti ou)/pw e)lhlu/qei h( w(/ra au)tou^.
+     07:31 Polloi\ {N Polloi\ de\ e)k tou^ o)/xlou > )Ek tou^ o)/xlou de\ polloi\ } de\ e)k tou^ o)/xlou e)pi/steusan ei)s au)to/n, kai\ e)/legon o(/ti {N o(/ti > - } (O xristo\s o(/tan e)/lqh|, mh/ti {N mh/ti > mh\ } plei/ona shmei^a tou/twn {N tou/twn > - } poih/sei w(^n ou(^tos e)poi/hsen;
+     07:32 )/Hkousan oi( Farisai^oi tou^ o)/xlou goggu/zontos peri\ au)tou^ tau^ta: kai\ a)pe/steilan u(phre/tas {N u(phre/tas oi( Farisai^oi kai\ oi( a)rxierei^s > oi( a)rxierei^s kai\ oi( Farisai^oi u(phre/tas } oi( Farisai^oi kai\ oi( a)rxierei^s i(/na pia/swsin au)to/n.
+     07:33 Ei)^pen ou)^n o( )Ihsou^s, )/Eti mikro\n {N mikro\n xro/non > xro/non mikro\n } xro/non meq' u(mw^n ei)mi, kai\ u(pa/gw pro\s to\n pe/myanta/ me.
+     07:34 Zhth/sete/ me, kai\ ou)x eu(rh/sete: {N eu(rh/sete > eu(rh/sete/ [me] } kai\ o(/pou ei)mi\ e)gw/, u(mei^s ou) du/nasqe e)lqei^n.
+     07:35 Ei)^pon ou)^n oi( )Ioudai^oi pro\s e(autou/s, Pou^ ou(^tos me/llei poreu/esqai o(/ti h(mei^s ou)x eu(rh/somen au)to/n; Mh\ ei)s th\n diaspora\n tw^n (Ellh/nwn me/llei poreu/esqai, kai\ dida/skein tou\s (/Ellhnas;
+     07:36 Ti/s e)stin ou(^tos {N ou(^tos o( lo/gos > o( lo/gos ou(^tos } o( lo/gos o(\n ei)^pen, Zhth/sete/ me, kai\ ou)x eu(rh/sete: {N eu(rh/sete > eu(rh/sete/ [me] } kai\ o(/pou ei)mi\ e)gw/, u(mei^s ou) du/nasqe e)lqei^n;
+     07:37 {P} )En de\ th^| e)sxa/th| h(me/ra| th^| mega/lh| th^s e(orth^s ei(sth/kei o( )Ihsou^s kai\ e)/kracen, le/gwn, )Ea/n tis diya^|, e)rxe/sqw pro/s me kai\ pine/tw.
+     07:38 (O pisteu/wn ei)s e)me/, kaqw\s ei)^pen h( grafh/, potamoi\ e)k th^s koili/as au)tou^ r(eu/sousin u(/datos zw^ntos.
+     07:39 Tou^to de\ ei)^pen peri\ tou^ pneu/matos ou(^ {B ou(^ > o(\ } {N ou(^ > o(\ } e)/mellon lamba/nein oi( pisteu/ontes {N pisteu/ontes > pisteu/santes } ei)s au)to/n: ou)/pw ga\r h)^n pneu^ma a(/gion, {N a(/gion > - } o(/ti )Ihsou^s ou)de/pw e)doca/sqh.
+     07:40 Polloi\ {N Polloi\ ou)^n e)k tou^ o)/xlou > )Ek tou^ o)/xlou ou)^n } ou)^n e)k tou^ o)/xlou a)kou/santes to\n {N to\n lo/gon > tw^n lo/gwn tou/twn } lo/gon e)/legon, Ou(^to/s e)stin a)lhqw^s o( profh/ths.
+     07:41 )/Alloi e)/legon, Ou(^to/s e)stin o( xristo/s. {N xristo/s )/Alloi > xristo/s Oi( de\ } )/Alloi e)/legon, Mh\ ga\r e)k th^s Galilai/as o( xristo\s e)/rxetai;
+     07:42 Ou)xi\ {N Ou)xi\ > Ou)x } h( grafh\ ei)^pen o(/ti e)k tou^ spe/rmatos Daui/d, kai\ a)po\ Bhqlee/m, th^s kw/mhs o(/pou h)^n Daui/d, o( {N o( xristo\s e)/rxetai > e)/rxetai o( xristo/s } xristo\s e)/rxetai;
+     07:43 Sxi/sma ou)^n e)n {N e)n tw^| o)/xlw| e)ge/neto > e)ge/neto e)n tw^| o)/xlw| } tw^| o)/xlw| e)ge/neto di' au)to/n.
+     07:44 Tine\s de\ h)/qelon e)c au)tw^n pia/sai au)to/n, a)ll' ou)dei\s e)pe/balen e)p' au)to\n ta\s xei^ras.
+     07:45 {P} )^Hlqon ou)^n oi( u(phre/tai pro\s tou\s a)rxierei^s kai\ Farisai/ous: kai\ ei)^pon au)toi^s e)kei^noi, Dia\ ti/ ou)k h)ga/gete au)to/n;
+     07:46 )Apekri/qhsan oi( u(phre/tai, Ou)de/pote ou(/tws {N ou(/tws e)la/lhsen > e)la/lhsen ou(/tws } e)la/lhsen a)/nqrwpos, w(s {N w(s ou(^tos o( a)/nqrwpos > - } ou(^tos o( a)/nqrwpos.
+     07:47 )Apekri/qhsan ou)^n au)toi^s oi( Farisai^oi, Mh\ kai\ u(mei^s pepla/nhsqe;
+     07:48 Mh/ tis e)k tw^n a)rxo/ntwn e)pi/steusen ei)s au)to/n, h)\ e)k tw^n Farisai/wn;
+     07:49 )All' {N )All' > )Alla\ } o( o)/xlos ou(^tos o( mh\ ginw/skwn to\n no/mon e)pikata/ratoi/ {N e)pikata/ratoi/ > e)pa/ratoi/ } ei)sin.
+     07:50 Le/gei Niko/dhmos pro\s au)tou/s - o( e)lqw\n nukto\s {N nukto\s pro\s au)to/n > pro\s au)to\n [to\] pro/teron } pro\s au)to/n, ei(^s w)\n e)c au)tw^n -
+     07:51 Mh\ o( no/mos h(mw^n kri/nei to\n a)/nqrwpon, e)a\n mh\ a)kou/sh| par' {N par' au)tou^ pro/teron > prw^ton par' au)tou^ } au)tou^ pro/teron kai\ gnw^| ti/ poiei^;
+     07:52 )Apekri/qhsan kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Mh\ kai\ su\ e)k th^s Galilai/as ei)^; )Ereu/nhson {N )Ereu/nhson > )Erau/nhson } kai\ i)/de o(/ti profh/ths {N profh/ths e)k th^s Galilai/as > e)k th^s Galilai/as profh/ths } e)k th^s Galilai/as ou)k e)gh/gertai. {N e)gh/gertai > e)gei/retai }
+     07:53 Kai\ {N Kai\ > [[Kai\ } e)poreu/qh {N e)poreu/qh > e)poreu/qhsan } e(/kastos ei)s to\n oi)^kon au)tou^:
+     08:01 )Ihsou^s de\ e)poreu/qh ei)s to\ o)/ros tw^n )Elaiw^n.
+     08:02 {P} )/Orqrou de\ pa/lin parege/neto ei)s to\ i(ero/n, kai\ pa^s o( lao\s h)/rxeto: {N h)/rxeto > h)/rxeto pro\s au)to/n } kai\ kaqi/sas e)di/dasken au)tou/s.
+     08:03 )/Agousin de\ oi( grammatei^s kai\ oi( Farisai^oi pro\s {N pro\s au)to\n > - } au)to\n gunai^ka e)n {N e)n moixei/a| > e)pi\ moixei/a| } moixei/a| katalhfqei^san: {N katalhfqei^san > kateilhmme/nhn } kai\ sth/santes au)th\n e)n me/sw|,
+     08:04 le/gousin au)tw^|, peira/zontes, {N peira/zontes > - } Dida/skale, au(/th h( gunh\ katelh/fqh {N katelh/fqh > katei/lhptai }  e)p' au)tofo/rw| {B au)tofo/rw| > au)tofw/rw| } {N au)tofo/rw| > au)tofw/rw| } moixeuome/nh.
+     08:05 )En de\ tw^| no/mw| Mwsh^s {B Mwsh^s > Mwu+sh^s } {N Mwsh^s h(mi^n > h(mi^n Mwu+sh^s } h(mi^n e)netei/lato ta\s toiau/tas liqobolei^sqai: {N liqobolei^sqai > liqa/zein } su\ ou)^n ti/ le/geis;
+     08:06 Tou^to de\ e)/legon peira/zontes au)to/n, i(/na e)/xwsin kathgorei^n au)tou^. (O de\ )Ihsou^s ka/tw ku/yas, tw^| daktu/lw| e)/grafen {B e)/grafen > kate/grafen } {N e)/grafen > kate/grafen } ei)s th\n gh^n, mh\ {N mh\ prospoiou/menos > - } prospoiou/menos.
+     08:07 (Ws de\ e)pe/menon e)rwtw^ntes au)to/n, a)naku/yas {N a)naku/yas ei)^pen pro\s au)tou/s > a)ne/kuyen kai\ ei)^pen au)toi^s } ei)^pen pro\s au)tou/s, (O a)nama/rthtos u(mw^n, prw^ton {B prw^ton > prw^tos } {N prw^ton > prw^tos } e)p' au)th\n to\n {B to\n > - } {N to\n li/qon bale/tw > bale/tw li/qon } li/qon bale/tw. {B bale/tw > balle/tw }
+     08:08 Kai\ pa/lin ka/tw {N ka/tw ku/yas > kataku/yas } ku/yas e)/grafen ei)s th\n gh^n.
+     08:09 Oi( de/, a)kou/santes, kai\ {N kai\ u(po\ th^s suneidh/sews e)legxo/menoi > - } u(po\ th^s suneidh/sews e)legxo/menoi, e)ch/rxonto ei(^s kaq' ei(^s, a)rca/menoi a)po\ tw^n presbute/rwn: kai\ katelei/fqh mo/nos o( {N o( )Ihsou^s > - } )Ihsou^s, kai\ h( gunh\ e)n me/sw| ou)^sa.
+     08:10 )Anaku/yas de\ o( )Ihsou^s, kai\ {N kai\ mhde/na qeasa/menos plh\n th^s gunaiko/s > - } mhde/na qeasa/menos plh\n th^s gunaiko/s, ei)^pen au)th^|, {N au)th^| > au)th^| Gu/nai } Pou^ ei)sin e)kei^noi {N e)kei^noi oi( kath/goroi/ sou > - } oi( kath/goroi/ sou; Ou)dei/s se kate/krinen;
+     08:11 (H de\ ei)^pen, Ou)dei/s, ku/rie. Ei)^pen de\ o( )Ihsou^s, Ou)de\ e)gw/ se kri/nw: {N kri/nw > katakri/nw } poreu/ou kai\ {N kai\ > [kai\] a)po\ tou^ nu^n } mhke/ti a(ma/rtane. {N a(ma/rtane > a(ma/rtane]] }
+     08:12 {P} Pa/lin ou)^n au)toi^s o( {N o( )Ihsou^s e)la/lhsen > e)la/lhsen o( )Ihsou^s } )Ihsou^s e)la/lhsen le/gwn, )Egw/ ei)mi to\ fw^s tou^ ko/smou: o( a)kolouqw^n e)moi\ ou) mh\ peripath/sh| e)n th^| skoti/a|, a)ll' e(/cei to\ fw^s th^s zwh^s.
+     08:13 Ei)^pon ou)^n au)tw^| oi( Farisai^oi, Su\ peri\ seautou^ marturei^s: h( marturi/a sou ou)k e)/stin a)lhqh/s.
+     08:14 )Apekri/qh )Ihsou^s kai\ ei)^pen au)toi^s, Ka)\n e)gw\ marturw^ peri\ e)mautou^, a)lhqh/s e)stin h( marturi/a mou: o(/ti oi)^da po/qen h)^lqon, kai\ pou^ u(pa/gw: u(mei^s de\ ou)k oi)/date po/qen e)/rxomai, kai\ {N e)/rxomai kai\ > e)/rxomai h)\ } pou^ u(pa/gw.
+     08:15 (Umei^s kata\ th\n sa/rka kri/nete: e)gw\ ou) kri/nw ou)de/na.
+     08:16 Kai\ e)a\n kri/nw de\ e)gw/, h( kri/sis h( e)mh\ a)lhqh/s {N a)lhqh/s > a)lhqinh/ } e)stin: o(/ti mo/nos ou)k ei)mi/, a)ll' e)gw\ kai\ o( pe/myas me path/r.
+     08:17 Kai\ e)n tw^| no/mw| de\ tw^| u(mete/rw| ge/graptai o(/ti du/o a)nqrw/pwn h( marturi/a a)lhqh/s e)stin.
+     08:18 )Egw/ ei)mi o( marturw^n peri\ e)mautou^, kai\ marturei^ peri\ e)mou^ o( pe/myas me path/r.
+     08:19 )/Elegon ou)^n au)tw^|, Pou^ e)stin o( path/r sou; )Apekri/qh )Ihsou^s, Ou)/te e)me\ oi)/date, ou)/te to\n pate/ra mou: ei) e)me\ h)/|deite, kai\ to\n pate/ra mou h)/|deite {N h)/|deite a)/n > a)\n h)/|deite } a)/n.
+     08:20 Tau^ta ta\ r(h/mata e)la/lhsen o( {N o( )Ihsou^s > - } )Ihsou^s e)n tw^| gazofulaki/w|, dida/skwn e)n tw^| i(erw^|: kai\ ou)dei\s e)pi/asen au)to/n, o(/ti ou)/pw e)lhlu/qei h( w(/ra au)tou^.
+     08:21 {P} Ei)^pen ou)^n pa/lin au)toi^s o( {N o( )Ihsou^s > - } )Ihsou^s, )Egw\ u(pa/gw, kai\ zhth/sete/ me, kai\ e)n th^| a(marti/a| u(mw^n a)poqanei^sqe: o(/pou e)gw\ u(pa/gw, u(mei^s ou) du/nasqe e)lqei^n.
+     08:22 )/Elegon ou)^n oi( )Ioudai^oi, Mh/ti a)poktenei^ e(auto/n, o(/ti le/gei, (/Opou e)gw\ u(pa/gw, u(mei^s ou) du/nasqe e)lqei^n;
+     08:23 Kai\ ei)^pen {N ei)^pen > e)/legen } au)toi^s, (Umei^s e)k tw^n ka/tw e)ste/, e)gw\ e)k tw^n a)/nw ei)mi/: u(mei^s e)k tou^ {N tou^ ko/smou tou/tou e)ste/ > tou/tou tou^ ko/smou e)ste/ } ko/smou tou/tou e)ste/, e)gw\ ou)k ei)mi\ e)k tou^ ko/smou tou/tou.
+     08:24 Ei)^pon ou)^n u(mi^n o(/ti a)poqanei^sqe e)n tai^s a(marti/ais u(mw^n: e)a\n ga\r mh\ pisteu/shte o(/ti e)gw/ ei)mi, a)poqanei^sqe e)n tai^s a(marti/ais u(mw^n.
+     08:25 )/Elegon ou)^n au)tw^|, Su\ ti/s ei)^; Kai\ {N Kai\ ei)^pen > Ei)^pen } ei)^pen au)toi^s o( )Ihsou^s, Th\n a)rxh\n o(/ ti kai\ lalw^ u(mi^n.
+     08:26 Polla\ e)/xw peri\ u(mw^n lalei^n kai\ kri/nein: a)ll' o( pe/myas me a)lhqh/s e)stin, ka)gw\ a(\ h)/kousa par' au)tou^, tau^ta le/gw {N le/gw > lalw^ } ei)s to\n ko/smon.
+     08:27 Ou)k e)/gnwsan o(/ti to\n pate/ra au)toi^s e)/legen.
+     08:28 Ei)^pen ou)^n au)toi^s {N au)toi^s > [au)toi^s] } o( )Ihsou^s, (/Otan u(yw/shte to\n ui(o\n tou^ a)nqrw/pou, to/te gnw/sesqe o(/ti e)gw/ ei)mi, kai\ a)p' e)mautou^ poiw^ ou)de/n, a)lla\ kaqw\s e)di/dace/n me o( path/r mou, {N mou > - } tau^ta lalw^:
+     08:29 kai\ o( pe/myas me met' e)mou^ e)stin: ou)k a)fh^ke/n me mo/non o( {N o( path/r > - } path/r, o(/ti e)gw\ ta\ a)resta\ au)tw^| poiw^ pa/ntote.
+     08:30 Tau^ta au)tou^ lalou^ntos polloi\ e)pi/steusan ei)s au)to/n.
+     08:31 {P} )/Elegen ou)^n o( )Ihsou^s pro\s tou\s pepisteuko/tas au)tw^| )Ioudai/ous, )Ea\n u(mei^s mei/nhte e)n tw^| lo/gw| tw^| e)mw^|, a)lhqw^s maqhtai/ mou e)ste/:
+     08:32 kai\ gnw/sesqe th\n a)lh/qeian, kai\ h( a)lh/qeia e)leuqerw/sei u(ma^s.
+     08:33 )Apekri/qhsan au)tw^|, {N au)tw^| > pro\s au)to/n } Spe/rma )Abraa/m e)smen, kai\ ou)deni\ dedouleu/kamen pw/pote: pw^s su\ le/geis o(/ti )Eleu/qeroi genh/sesqe;
+     08:34 )Apekri/qh au)toi^s o( )Ihsou^s, )Amh\n a)mh\n le/gw u(mi^n o(/ti pa^s o( poiw^n th\n a(marti/an dou^lo/s e)stin th^s a(marti/as.
+     08:35 (O de\ dou^los ou) me/nei e)n th^| oi)ki/a| ei)s to\n ai)w^na: o( ui(o\s me/nei ei)s to\n ai)w^na.
+     08:36 )Ea\n ou)^n o( ui(o\s u(ma^s e)leuqerw/sh|, o)/ntws e)leu/qeroi e)/sesqe.
+     08:37 Oi)^da o(/ti spe/rma )Abraa/m e)ste: a)lla\ zhtei^te/ me a)poktei^nai, o(/ti o( lo/gos o( e)mo\s ou) xwrei^ e)n u(mi^n.
+     08:38 )Egw\ {N )Egw\ o(\ > (\A e)gw\ } o(\ e(w/raka para\ tw^| patri/ mou, {N mou > - } lalw^: kai\ u(mei^s ou)^n o(\ {N o(\ e(wra/kate para\ tw^| patri\ u(mw^n > a(\ h)kou/sate para\ tou^ patro/s } e(wra/kate para\ tw^| patri\ u(mw^n, poiei^te.
+     08:39 )Apekri/qhsan kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, (O path\r h(mw^n )Abraa/m e)stin. Le/gei au)toi^s o( )Ihsou^s, Ei) te/kna tou^ )Abraa\m h)^te, {N h)^te > e)ste } ta\ e)/rga tou^ )Abraa\m e)poiei^te. {B e)poiei^te > e)poiei^te a)/n }
+     08:40 Nu^n de\ zhtei^te/ me a)poktei^nai, a)/nqrwpon o(\s th\n a)lh/qeian u(mi^n lela/lhka, h(\n h)/kousa para\ tou^ qeou^: tou^to )Abraa\m ou)k e)poi/hsen.
+     08:41 (Umei^s poiei^te ta\ e)/rga tou^ patro\s u(mw^n. Ei)^pon {N Ei)^pon ou)^n > Ei)^pan [ou)^n] } ou)^n au)tw^|, (Hmei^s e)k pornei/as ou) gegennh/meqa: e(/na pate/ra e)/xomen, to\n qeo/n.
+     08:42 Ei)^pen ou)^n {N ou)^n > - } au)toi^s o( )Ihsou^s, Ei) o( qeo\s path\r u(mw^n h)^n, h)gapa^te a)\n e)me/: e)gw\ ga\r e)k tou^ qeou^ e)ch^lqon kai\ h(/kw: ou)de\ ga\r a)p' e)mautou^ e)lh/luqa, a)ll' e)kei^no/s me a)pe/steilen.
+     08:43 Dia\ ti/ th\n lalia\n th\n e)mh\n ou) ginw/skete; (/Oti ou) du/nasqe a)kou/ein to\n lo/gon to\n e)mo/n.
+     08:44 (Umei^s e)k tou^ patro\s tou^ diabo/lou e)ste/, kai\ ta\s e)piqumi/as tou^ patro\s u(mw^n qe/lete poiei^n. )Ekei^nos a)nqrwpokto/nos h)^n a)p' a)rxh^s, kai\ e)n th^| a)lhqei/a| ou)x {N ou)x e(/sthken > ou)k e)/sthken } e(/sthken, o(/ti ou)k e)/stin a)lh/qeia e)n au)tw^|. (/Otan lalh^| to\ yeu^dos, e)k tw^n i)di/wn lalei^: o(/ti yeu/sths e)sti\n kai\ o( path\r au)tou^.
+     08:45 )Egw\ de\ o(/ti th\n a)lh/qeian le/gw, ou) pisteu/ete/ moi.
+     08:46 Ti/s e)c u(mw^n e)le/gxei me peri\ a(marti/as; Ei) de\ {N de\ > - } a)lh/qeian le/gw, dia\ ti/ u(mei^s ou) pisteu/ete/ moi;
+     08:47 (O w)\n e)k tou^ qeou^ ta\ r(h/mata tou^ qeou^ a)kou/ei: dia\ tou^to u(mei^s ou)k a)kou/ete, o(/ti e)k tou^ qeou^ ou)k e)ste/.
+     08:48 )Apekri/qhsan ou)^n {N ou)^n > - } oi( )Ioudai^oi kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Ou) kalw^s le/gomen h(mei^s o(/ti Samarei/ths {N Samarei/ths > Samari/ths } ei)^ su/, kai\ daimo/nion e)/xeis;
+     08:49 )Apekri/qh )Ihsou^s, )Egw\ daimo/nion ou)k e)/xw, a)lla\ timw^ to\n pate/ra mou, kai\ u(mei^s a)tima/zete/ me.
+     08:50 )Egw\ de\ ou) zhtw^ th\n do/can mou: e)/stin o( zhtw^n kai\ kri/nwn.
+     08:51 )Amh\n a)mh\n le/gw u(mi^n, e)a/n tis to\n lo/gon {N lo/gon to\n e)mo\n > e)mo\n lo/gon } to\n e)mo\n thrh/sh|, qa/naton ou) mh\ qewrh/sh| ei)s to\n ai)w^na.
+     08:52 Ei)^pon ou)^n {N ou)^n > [ou)^n] } au)tw^| oi( )Ioudai^oi, Nu^n e)gnw/kamen o(/ti daimo/nion e)/xeis. )Abraa\m a)pe/qanen kai\ oi( profh^tai, kai\ su\ le/geis, )Ea/n tis to\n lo/gon mou thrh/sh|, ou) mh\ geu/shtai qana/tou ei)s to\n ai)w^na.
+     08:53 Mh\ su\ mei/zwn ei)^ tou^ patro\s h(mw^n )Abraa/m, o(/stis a)pe/qanen; Kai\ oi( profh^tai a)pe/qanon: ti/na seauto\n su\ {N su\ poiei^s > poiei^s } poiei^s;
+     08:54 )Apekri/qh )Ihsou^s, )Ea\n e)gw\ doca/zw {N doca/zw > doca/sw } e)mauto/n, h( do/ca mou ou)de/n e)stin: e)/stin o( path/r mou o( doca/zwn me, o(\n u(mei^s le/gete o(/ti Qeo\s h(mw^n e)stin,
+     08:55 kai\ ou)k e)gnw/kate au)to/n: e)gw\ de\ oi)^da au)to/n, kai\ {N kai\ e)a\n > ka)\n } e)a\n ei)/pw o(/ti ou)k oi)^da au)to/n, e)/somai o(/moios u(mw^n, {N u(mw^n > u(mi^n } yeu/sths: a)ll' {N a)ll' > a)lla\ } oi)^da au)to/n, kai\ to\n lo/gon au)tou^ thrw^.
+     08:56 )Abraa\m o( path\r u(mw^n h)gallia/sato i(/na i)/dh| th\n h(me/ran th\n e)mh/n, kai\ ei)^den kai\ e)xa/rh.
+     08:57 Ei)^pon ou)^n oi( )Ioudai^oi pro\s au)to/n, Penth/konta e)/th ou)/pw e)/xeis, kai\ )Abraa\m e(w/rakas;
+     08:58 Ei)^pen au)toi^s o( {N o( > - } )Ihsou^s, )Amh\n a)mh\n le/gw u(mi^n, pri\n )Abraa\m gene/sqai, e)gw/ ei)mi.
+     08:59 )^Hran ou)^n li/qous i(/na ba/lwsin e)p' au)to/n: )Ihsou^s de\ e)kru/bh, kai\ e)ch^lqen e)k tou^ i(erou^, dielqw\n {N dielqw\n dia\ me/sou au)tw^n kai\ parh^gen ou(/tws > - } dia\ me/sou au)tw^n: kai\ parh^gen ou(/tws.
+     09:01 Kai\ para/gwn ei)^den a)/nqrwpon tuflo\n e)k geneth^s.
+     09:02 Kai\ h)rw/thsan au)to\n oi( maqhtai\ au)tou^ le/gontes, (Rabbi/, ti/s h(/marten, ou(^tos h)\ oi( gonei^s au)tou^, i(/na tuflo\s gennhqh^|;
+     09:03 )Apekri/qh )Ihsou^s, Ou)/te ou(^tos h(/marten ou)/te oi( gonei^s au)tou^: a)ll' i(/na fanerwqh^| ta\ e)/rga tou^ qeou^ e)n au)tw^|.
+     09:04 )Eme\ {N )Eme\ > (Hma^s } dei^ e)rga/zesqai ta\ e)/rga tou^ pe/myanto/s me e(/ws h(me/ra e)sti/n: e)/rxetai nu/c, o(/te ou)dei\s du/natai e)rga/zesqai.
+     09:05 (/Otan e)n tw^| ko/smw| w)^, fw^s ei)mi tou^ ko/smou.
+     09:06 Tau^ta ei)pw/n, e)/ptusen xamai/, kai\ e)poi/hsen phlo\n e)k tou^ ptu/smatos, kai\ e)pe/xrisen to\n {N to\n > au)tou^ to\n } phlo\n e)pi\ tou\s o)fqalmou\s tou^ {N tou^ tuflou^ > - } tuflou^,
+     09:07 kai\ ei)^pen au)tw^|, (/Upage ni/yai ei)s th\n kolumbh/qran tou^ Silwa/m - o(\ e(rmhneu/etai, )Apestalme/nos. )Aph^lqen ou)^n kai\ e)ni/yato, kai\ h)^lqen ble/pwn.
+     09:08 Oi( ou)^n gei/tones kai\ oi( qewrou^ntes au)to\n to\ pro/teron o(/ti tuflo\s {N tuflo\s > prosai/ths } h)^n, e)/legon, Ou)x ou(^to/s e)stin o( kaqh/menos kai\ prosaitw^n;
+     09:09 )/Alloi e)/legon o(/ti Ou(^to/s e)stin: a)/lloi de\ {N de\ o(/ti > e)/legon Ou)xi/ a)lla\ } o(/ti (/Omoios au)tw^| e)stin. )Ekei^nos e)/legen o(/ti )Egw/ ei)mi.
+     09:10 )/Elegon ou)^n au)tw^|, Pw^s a)new/|xqhsa/n {B a)new/|xqhsa/n > h)new/|xqhsa/n } {N a)new/|xqhsa/n > [ou)^n] h)new/|xqhsa/n } sou oi( o)fqalmoi/;
+     09:11 )Apekri/qh e)kei^nos kai\ {N kai\ ei)^pen )/Anqrwpos > (O a)/nqrwpos o( } ei)^pen, )/Anqrwpos lego/menos )Ihsou^s phlo\n e)poi/hsen, kai\ e)pe/xrise/n mou tou\s o)fqalmou/s, kai\ ei)^pe/n moi, {N moi > moi o(/ti } (/Upage ei)s th\n {N th\n kolumbh/qran tou^ > to\n } kolumbh/qran tou^ Silwa/m, kai\ ni/yai. )Apelqw\n de\ {N de\ > ou)^n } kai\ niya/menos, a)ne/bleya.
+     09:12 Ei)^pon {N Ei)^pon ou)^n > Kai\ ei)^pan } ou)^n au)tw^|, Pou^ e)stin e)kei^nos; Le/gei, Ou)k oi)^da.
+     09:13 {P} )/Agousin au)to\n pro\s tou\s Farisai/ous, to/n pote tuflo/n.
+     09:14 )^Hn de\ sa/bbaton o(/te {N o(/te > e)n h(^| h(me/ra| } to\n phlo\n e)poi/hsen o( )Ihsou^s, kai\ a)ne/w|cen au)tou^ tou\s o)fqalmou/s.
+     09:15 Pa/lin ou)^n h)rw/twn au)to\n kai\ oi( Farisai^oi, pw^s a)ne/bleyen. (O de\ ei)^pen au)toi^s, Phlo\n e)pe/qhke/n mou e)pi\ tou\s o)fqalmou/s, kai\ e)niya/mhn, kai\ ble/pw.
+     09:16 )/Elegon ou)^n e)k tw^n Farisai/wn tine/s, Ou(^tos {N Ou(^tos o( a)/nqrwpos ou)k e)/stin para\ tou^ qeou^ > Ou)k e)/stin ou(^tos para\ qeou^ o( a)/nqrwpos } o( a)/nqrwpos ou)k e)/stin para\ tou^ qeou^, o(/ti to\ sa/bbaton ou) threi^. )/Alloi e)/legon, {N )/Alloi > )/Alloi [de\] } Pw^s du/natai a)/nqrwpos a(martwlo\s toiau^ta shmei^a poiei^n; Kai\ sxi/sma h)^n e)n au)toi^s.
+     09:17 Le/gousin tw^| {N tw^| > ou)^n tw^| } tuflw^| pa/lin, Su\ {N Su\ ti/ > Ti/ su\ } ti/ le/geis peri\ au)tou^, o(/ti h)/noice/n {N h)/noice/n > h)ne/w|ce/n } sou tou\s o)fqalmou/s; (O de\ ei)^pen o(/ti Profh/ths e)sti/n.
+     09:18 Ou)k e)pi/steusan ou)^n oi( )Ioudai^oi peri\ au)tou^, o(/ti tuflo\s {N tuflo\s h)^n > h)^n tuflo\s } h)^n kai\ a)ne/bleyen, e(/ws o(/tou e)fw/nhsan tou\s gonei^s au)tou^ tou^ a)nable/yantos,
+     09:19 kai\ h)rw/thsan au)tou\s le/gontes, Ou(^to/s e)stin o( ui(o\s u(mw^n, o(\n u(mei^s le/gete o(/ti tuflo\s e)gennh/qh; Pw^s ou)^n a)/rti {N a)/rti ble/pei > ble/pei a)/rti } ble/pei;
+     09:20 )Apekri/qhsan de\ {N de\ au)toi^s > ou)^n } au)toi^s oi( gonei^s au)tou^ kai\ ei)^pon, {N ei)^pon > ei)^pan } Oi)/damen o(/ti ou(^to/s e)stin o( ui(o\s h(mw^n, kai\ o(/ti tuflo\s e)gennh/qh:
+     09:21 pw^s de\ nu^n ble/pei, ou)k oi)/damen: h)\ ti/s h)/noicen au)tou^ tou\s o)fqalmou/s, h(mei^s ou)k oi)/damen: au)to\s {N au)to\s h(liki/an e)/xei au)to\n e)rwth/sate > au)to\n e)rwth/sate h(liki/an e)/xei } h(liki/an e)/xei: au)to\n e)rwth/sate, au)to\s peri\ e(autou^ lalh/sei.
+     09:22 Tau^ta ei)^pon {N ei)^pon > ei)^pan } oi( gonei^s au)tou^, o(/ti e)fobou^nto tou\s )Ioudai/ous: h)/dh ga\r sunete/qeinto oi( )Ioudai^oi, i(/na e)a/n tis au)to\n o(mologh/sh| xristo/n, a)posuna/gwgos ge/nhtai.
+     09:23 Dia\ tou^to oi( gonei^s au)tou^ ei)^pon {N ei)^pon > ei)^pan } o(/ti (Hliki/an e)/xei, au)to\n e)rwth/sate. {N e)rwth/sate > e)perwth/sate }
+     09:24 )Efw/nhsan ou)^n e)k {N e)k deute/rou to\n a)/nqrwpon > to\n a)/nqrwpon e)k deute/rou } deute/rou to\n a)/nqrwpon o(\s h)^n tuflo/s, kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Do\s do/can tw^| qew^|: h(mei^s oi)/damen o(/ti o( {N o( a)/nqrwpos ou(^tos > ou(^tos o( a)/nqrwpos } a)/nqrwpos ou(^tos a(martwlo/s e)stin.
+     09:25 )Apekri/qh ou)^n e)kei^nos kai\ {N kai\ ei)^pen > - } ei)^pen, Ei) a(martwlo/s e)stin, ou)k oi)^da: e(\n oi)^da, o(/ti tuflo\s w)/n, a)/rti ble/pw.
+     09:26 Ei)^pon de\ {N de\ au)tw^| pa/lin > ou)^n au)tw^| } au)tw^| pa/lin, Ti/ e)poi/hse/n soi; Pw^s h)/noice/n sou tou\s o)fqalmou/s;
+     09:27 )Apekri/qh au)toi^s, Ei)^pon u(mi^n h)/dh, kai\ ou)k h)kou/sate. Ti/ pa/lin qe/lete a)kou/ein; Mh\ kai\ u(mei^s qe/lete au)tou^ maqhtai\ gene/sqai;
+     09:28 )Eloido/rhsan {N )Eloido/rhsan > Kai\ e)loido/rhsan } au)to/n, kai\ ei)^pon, Su\ ei)^ {N ei)^ maqhth\s > maqhth\s ei)^ } maqhth\s e)kei/nou: h(mei^s de\ tou^ Mwse/ws {N Mwse/ws > Mwu+se/ws } e)sme\n maqhtai/.
+     09:29 (Hmei^s oi)/damen o(/ti Mwsh^| {N Mwsh^| > Mwu+sei^ } lela/lhken o( qeo/s: tou^ton de\ ou)k oi)/damen po/qen e)sti/n.
+     09:30 )Apekri/qh o( a)/nqrwpos kai\ ei)^pen au)toi^s, )En ga\r {N ga\r tou/tw| > tou/tw| ga\r to\ } tou/tw| qaumasto/n e)stin, o(/ti u(mei^s ou)k oi)/date po/qen e)sti/n, kai\ a)ne/w|ce/n {N a)ne/w|ce/n > h)/noice/n } mou tou\s o)fqalmou/s.
+     09:31 Oi)/damen de\ {N de\ > - } o(/ti a(martwlw^n o( qeo\s ou)k a)kou/ei: a)ll' e)a/n tis qeosebh\s h)^|, kai\ to\ qe/lhma au)tou^ poih^|, tou/tou a)kou/ei.
+     09:32 )Ek tou^ ai)w^nos ou)k h)kou/sqh o(/ti h)/noice/n {N h)/noice/n > h)ne/w|ce/n } tis o)fqalmou\s tuflou^ gegennhme/nou.
+     09:33 Ei) mh\ h)^n ou(^tos para\ qeou^, ou)k h)du/nato poiei^n ou)de/n.
+     09:34 )Apekri/qhsan kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, )En a(marti/ais su\ e)gennh/qhs o(/los, kai\ su\ dida/skeis h(ma^s; Kai\ e)ce/balon au)to\n e)/cw.
+     09:35 {P} )/Hkousen o( {N o( > - } )Ihsou^s o(/ti e)ce/balon au)to\n e)/cw: kai\ eu(rw\n au)to/n, ei)^pen au)tw^|, {N au)tw^| > - } Su\ pisteu/eis ei)s to\n ui(o\n tou^ qeou^; {N qeou^ > a)nqrw/pou }
+     09:36 )Apekri/qh e)kei^nos kai\ ei)^pen, Kai\ ti/s e)stin, ku/rie, i(/na pisteu/sw ei)s au)to/n;
+     09:37 Ei)^pen de\ {N de\ > - } au)tw^| o( )Ihsou^s, Kai\ e(w/rakas au)to/n, kai\ o( lalw^n meta\ sou^ e)kei^no/s e)stin.
+     09:38 (O de\ e)/fh, Pisteu/w, ku/rie: kai\ proseku/nhsen au)tw^|.
+     09:39 Kai\ ei)^pen o( )Ihsou^s, Ei)s kri/ma e)gw\ ei)s to\n ko/smon tou^ton h)^lqon, i(/na oi( mh\ ble/pontes ble/pwsin, kai\ oi( ble/pontes tufloi\ ge/nwntai.
+     09:40 Kai\ {N Kai\ h)/kousan > )/Hkousan } h)/kousan e)k tw^n Farisai/wn tau^ta oi( o)/ntes {N o)/ntes met' au)tou^ > met' au)tou^ o)/ntes } met' au)tou^, kai\ ei)^pon au)tw^|, Mh\ kai\ h(mei^s tufloi/ e)smen;
+     09:41 Ei)^pen au)toi^s o( )Ihsou^s, Ei) tufloi\ h)^te, ou)k a)\n ei)/xete a(marti/an: nu^n de\ le/gete o(/ti Ble/pomen: h( ou)^n {N ou)^n > - } a(marti/a u(mw^n me/nei.
+     10:01 )Amh\n a)mh\n le/gw u(mi^n, o( mh\ ei)serxo/menos dia\ th^s qu/ras ei)s th\n au)lh\n tw^n proba/twn, a)lla\ a)nabai/nwn a)llaxo/qen, e)kei^nos kle/pths e)sti\n kai\ lh|sth/s.
+     10:02 (O de\ ei)serxo/menos dia\ th^s qu/ras poimh/n e)stin tw^n proba/twn.
+     10:03 Tou/tw| o( qurwro\s a)noi/gei, kai\ ta\ pro/bata th^s fwnh^s au)tou^ a)kou/ei, kai\ ta\ i)/dia pro/bata kalei^ {N kalei^ > fwnei^ } kat' o)/noma, kai\ e)ca/gei au)ta/.
+     10:04 Kai\ {N Kai\ o(/tan > (/Otan } o(/tan ta\ i)/dia pro/bata {N pro/bata e)kba/lh| > pa/nta e)kba/lh| } e)kba/lh|, e)/mprosqen au)tw^n poreu/etai: kai\ ta\ pro/bata au)tw^| a)kolouqei^, o(/ti oi)/dasin th\n fwnh\n au)tou^.
+     10:05 )Allotri/w| de\ ou) mh\ a)kolouqh/swsin, {N a)kolouqh/swsin > a)kolouqh/sousin } a)lla\ feu/contai a)p' au)tou^: o(/ti ou)k oi)/dasin tw^n a)llotri/wn th\n fwnh/n.
+     10:06 Tau/thn th\n paroimi/an ei)^pen au)toi^s o( )Ihsou^s: e)kei^noi de\ ou)k e)/gnwsan ti/na h)^n a(\ e)la/lei au)toi^s.
+     10:07 {P} Ei)^pen ou)^n pa/lin au)toi^s {N au)toi^s > - } o( )Ihsou^s, )Amh\n a)mh\n le/gw u(mi^n o(/ti e)gw/ ei)mi h( qu/ra tw^n proba/twn.
+     10:08 Pa/ntes o(/soi h)^lqon {N h)^lqon > h)^lqon [pro\ e)mou^] } kle/ptai ei)si\n kai\ lh|stai/: a)ll' ou)k h)/kousan au)tw^n ta\ pro/bata.
+     10:09 )Egw/ ei)mi h( qu/ra: di' e)mou^ e)a/n tis ei)se/lqh|, swqh/setai, kai\ ei)seleu/setai kai\ e)celeu/setai, kai\ nomh\n eu(rh/sei.
+     10:10 (O kle/pths ou)k e)/rxetai ei) mh\ i(/na kle/yh| kai\ qu/sh| kai\ a)pole/sh|: e)gw\ h)^lqon i(/na zwh\n e)/xwsin, kai\ perisso\n e)/xwsin.
+     10:11 )Egw/ ei)mi o( poimh\n o( kalo/s: o( poimh\n o( kalo\s th\n yuxh\n au)tou^ ti/qhsin u(pe\r tw^n proba/twn.
+     10:12 (O misqwto\s de/, {N de/ > - } kai\ ou)k w)\n poimh/n, ou(^ ou)k ei)si\n {N ei)si\n > e)/stin } ta\ pro/bata i)/dia, qewrei^ to\n lu/kon e)rxo/menon, kai\ a)fi/hsin ta\ pro/bata, kai\ feu/gei: kai\ o( lu/kos a(rpa/zei au)ta/, kai\ skorpi/zei ta\ {N skorpi/zei ta\ pro/bata > skorpi/zei } pro/bata.
+     10:13 (O {N (O de\ misqwto\s feu/gei > - } de\ misqwto\s feu/gei, o(/ti misqwto/s e)stin, kai\ ou) me/lei au)tw^| peri\ tw^n proba/twn.
+     10:14 )Egw/ ei)mi o( poimh\n o( kalo/s, kai\ ginw/skw ta\ e)ma/, kai\ ginw/skomai {N ginw/skomai u(po\ tw^n e)mw^n > ginw/skousi/n me ta\ e)ma/ } u(po\ tw^n e)mw^n.
+     10:15 Kaqw\s ginw/skei me o( path/r, ka)gw\ ginw/skw to\n pate/ra: kai\ th\n yuxh/n mou ti/qhmi u(pe\r tw^n proba/twn.
+     10:16 Kai\ a)/lla pro/bata e)/xw, a(\ ou)k e)/stin e)k th^s au)lh^s tau/ths: ka)kei^na/ me {N me dei^ > dei^ me } dei^ a)gagei^n, kai\ th^s fwnh^s mou a)kou/sousin: kai\ genh/setai {N genh/setai > genh/sontai } mi/a poi/mnh, ei(^s poimh/n.
+     10:17 Dia\ tou^to o( {N o( path/r me > me o( path\r } path/r me a)gapa^|, o(/ti e)gw\ ti/qhmi th\n yuxh/n mou, i(/na pa/lin la/bw au)th/n.
+     10:18 Ou)dei\s ai)/rei au)th\n a)p' e)mou^, a)ll' e)gw\ ti/qhmi au)th\n a)p' e)mautou^. )Ecousi/an e)/xw qei^nai au)th/n, kai\ e)cousi/an e)/xw pa/lin labei^n au)th/n. Tau/thn th\n e)ntolh\n e)/labon para\ tou^ patro/s mou.
+     10:19 {P} Sxi/sma ou)^n {N ou)^n > - } pa/lin e)ge/neto e)n toi^s )Ioudai/ois dia\ tou\s lo/gous tou/tous.
+     10:20 )/Elegon de\ polloi\ e)c au)tw^n, Daimo/nion e)/xei kai\ mai/netai: ti/ au)tou^ a)kou/ete;
+     10:21 )/Alloi e)/legon, Tau^ta ta\ r(h/mata ou)k e)/stin daimonizome/nou: mh\ daimo/nion du/natai tuflw^n o)fqalmou\s a)noi/gein; {N a)noi/gein > a)noi^cai }
+     10:22 {P} )Ege/neto de\ {N de\ > to/te } ta\ )Egkai/nia e)n (Ierosolu/mois, {N (Ierosolu/mois kai\ > toi^s (Ierosolu/mois } kai\ xeimw\n h)^n:
+     10:23 kai\ periepa/tei o( )Ihsou^s e)n tw^| i(erw^| e)n th^| stoa^| Solomw^nos. {N Solomw^nos > tou^ Solomw^nos }
+     10:24 )Eku/klwsan ou)^n au)to\n oi( )Ioudai^oi, kai\ e)/legon au)tw^|, (/Ews po/te th\n yuxh\n h(mw^n ai)/reis; Ei) su\ ei)^ o( xristo/s, ei)pe\ h(mi^n parrhsi/a|.
+     10:25 )Apekri/qh au)toi^s o( )Ihsou^s, Ei)^pon u(mi^n, kai\ ou) pisteu/ete: ta\ e)/rga a(\ e)gw\ poiw^ e)n tw^| o)no/mati tou^ patro/s mou, tau^ta marturei^ peri\ e)mou^:
+     10:26 a)ll' {N a)ll' > a)lla\ } u(mei^s ou) pisteu/ete: ou) {N ou) ga/r > o(/ti ou)k } ga/r e)ste e)k tw^n proba/twn tw^n e)mw^n, kaqw\s {N kaqw\s ei)^pon u(mi^n > - } ei)^pon u(mi^n.
+     10:27 Ta\ pro/bata ta\ e)ma\ th^s fwnh^s mou a)kou/ei, {N a)kou/ei > a)kou/ousin } ka)gw\ ginw/skw au)ta/, kai\ a)kolouqou^si/n moi:
+     10:28 ka)gw\ zwh\n {N zwh\n ai)w/nion di/dwmi au)toi^s > di/dwmi au)toi^s zwh\n ai)w/nion } ai)w/nion di/dwmi au)toi^s: kai\ ou) mh\ a)po/lwntai ei)s to\n ai)w^na, kai\ ou)x a(rpa/sei tis au)ta\ e)k th^s xeiro/s mou.
+     10:29 (O path/r mou o(\s {N o(\s de/dwke/n moi mei/zwn pa/ntwn > o(\ de/dwke/n moi pa/ntwn mei^zo/n } de/dwke/n moi, mei/zwn pa/ntwn e)sti/n: kai\ ou)dei\s du/natai a(rpa/zein e)k th^s xeiro\s tou^ patro/s mou. {N patro/s mou > patro/s }
+     10:30 )Egw\ kai\ o( path\r e(/n e)smen.
+     10:31 )Eba/stasan ou)^n {N ou)^n > - } pa/lin li/qous oi( )Ioudai^oi i(/na liqa/swsin au)to/n.
+     10:32 )Apekri/qh au)toi^s o( )Ihsou^s, Polla\ kala\ {N kala\ e)/rga > e)/rga kala\ } e)/rga e)/deica u(mi^n e)k tou^ patro/s mou: {N mou > - } dia\ poi^on au)tw^n e)/rgon liqa/zete/ {N liqa/zete/ me > e)me\ liqa/zete } me;
+     10:33 )Apekri/qhsan au)tw^| oi( )Ioudai^oi le/gontes, {N le/gontes > - } Peri\ kalou^ e)/rgou ou) liqa/zome/n se, a)lla\ peri\ blasfhmi/as, kai\ o(/ti su\ a)/nqrwpos w)\n poiei^s seauto\n qeo/n.
+     10:34 )Apekri/qh au)toi^s o( {N o( > [o(] } )Ihsou^s, Ou)k e)/stin gegramme/non e)n tw^| no/mw| u(mw^n, )Egw\ {N )Egw\ > o(/ti )Egw\ } ei)^pa, Qeoi/ e)ste;
+     10:35 Ei) e)kei/nous ei)^pen qeou/s, pro\s ou(\s o( lo/gos tou^ qeou^ e)ge/neto - kai\ ou) du/natai luqh^nai h( grafh/ -
+     10:36 o(\n o( path\r h(gi/asen kai\ a)pe/steilen ei)s to\n ko/smon, u(mei^s le/gete o(/ti Blasfhmei^s, o(/ti ei)^pon, Ui(o\s tou^ qeou^ ei)mi;
+     10:37 Ei) ou) poiw^ ta\ e)/rga tou^ patro/s mou, mh\ pisteu/ete/ moi:
+     10:38 ei) de\ poiw^, ka)\n e)moi\ mh\ pisteu/hte, toi^s e)/rgois pisteu/sate: {N pisteu/sate > pisteu/ete } i(/na gnw^te kai\ pisteu/shte {N pisteu/shte > ginw/skhte } o(/ti e)n e)moi\ o( path/r, ka)gw\ e)n au)tw^|. {N au)tw^| > tw^| patri/ }
+     10:39 )Ezh/toun ou)^n {B ou)^n > - } {N ou)^n pa/lin au)to\n > [ou)^n] au)to\n pa/lin } pa/lin au)to\n pia/sai: kai\ e)ch^lqen e)k th^s xeiro\s au)tw^n.
+     10:40 {P} Kai\ a)ph^lqen pa/lin pe/ran tou^ )Iorda/nou ei)s to\n to/pon o(/pou h)^n )Iwa/nnhs to\ prw^ton bapti/zwn: kai\ e)/meinen e)kei^.
+     10:41 Kai\ polloi\ h)^lqon pro\s au)to/n, kai\ e)/legon o(/ti )Iwa/nnhs me\n shmei^on e)poi/hsen ou)de/n: pa/nta de\ o(/sa ei)^pen )Iwa/nnhs peri\ tou/tou, a)lhqh^ h)^n.
+     10:42 Kai\ e)pi/steusan {N e)pi/steusan polloi\ e)kei^ ei)s au)to/n > polloi\ e)pi/steusan ei)s au)to\n e)kei^ } polloi\ e)kei^ ei)s au)to/n.
+     11:01 )^Hn de/ tis a)sqenw^n La/zaros a)po\ Bhqani/as, e)k th^s kw/mhs Mari/as kai\ Ma/rqas th^s a)delfh^s au)th^s.
+     11:02 )^Hn de\ Mari/a {N Mari/a > Maria\m } h( a)lei/yasa to\n ku/rion mu/rw|, kai\ e)kma/casa tou\s po/das au)tou^ tai^s qrici\n au)th^s, h(^s o( a)delfo\s La/zaros h)sqe/nei.
+     11:03 )Ape/steilan ou)^n ai( a)delfai\ pro\s au)to\n le/gousai, Ku/rie, i)/de o(\n filei^s a)sqenei^.
+     11:04 )Akou/sas de\ o( )Ihsou^s ei)^pen, Au(/th h( a)sqe/neia ou)k e)/stin pro\s qa/naton, a)ll' u(pe\r th^s do/chs tou^ qeou^, i(/na docasqh^| o( ui(o\s tou^ qeou^ di' au)th^s.
+     11:05 )Hga/pa de\ o( )Ihsou^s th\n Ma/rqan kai\ th\n a)delfh\n au)th^s kai\ to\n La/zaron.
+     11:06 (Ws ou)^n h)/kousen o(/ti a)sqenei^, to/te me\n e)/meinen e)n w(^| h)^n to/pw| du/o h(me/ras.
+     11:07 )/Epeita meta\ tou^to le/gei toi^s maqhtai^s, )/Agwmen ei)s th\n )Ioudai/an pa/lin.
+     11:08 Le/gousin au)tw^| oi( maqhtai/, (Rabbi/, nu^n e)zh/toun se liqa/sai oi( )Ioudai^oi, kai\ pa/lin u(pa/geis e)kei^;
+     11:09 )Apekri/qh )Ihsou^s, Ou)xi\ dw/deka/ ei)sin {N ei)sin w(^rai > w(^rai/ ei)sin } w(^rai th^s h(me/ras; )Ea/n tis peripath^| e)n th^| h(me/ra|, ou) prosko/ptei, o(/ti to\ fw^s tou^ ko/smou tou/tou ble/pei.
+     11:10 )Ea\n de/ tis peripath^| e)n th^| nukti/, prosko/ptei, o(/ti to\ fw^s ou)k e)/stin e)n au)tw^|.
+     11:11 Tau^ta ei)^pen, kai\ meta\ tou^to le/gei au)toi^s, La/zaros o( fi/los h(mw^n kekoi/mhtai: a)lla\ poreu/omai i(/na e)cupni/sw au)to/n.
+     11:12 Ei)^pon {N Ei)^pon > Ei)^pan } ou)^n oi( maqhtai\ au)tou^, {N au)tou^ > au)tw^| } Ku/rie, ei) kekoi/mhtai, swqh/setai.
+     11:13 Ei)rh/kei de\ o( )Ihsou^s peri\ tou^ qana/tou au)tou^: e)kei^noi de\ e)/docan o(/ti peri\ th^s koimh/sews tou^ u(/pnou le/gei.
+     11:14 To/te ou)^n ei)^pen au)toi^s o( )Ihsou^s parrhsi/a|, La/zaros a)pe/qanen.
+     11:15 Kai\ xai/rw di' u(ma^s, i(/na pisteu/shte, o(/ti ou)k h)/mhn e)kei^: a)lla\ a)/gwmen pro\s au)to/n.
+     11:16 Ei)^pen ou)^n Qwma^s, o( lego/menos Di/dumos, toi^s summaqhtai^s, )/Agwmen kai\ h(mei^s, i(/na a)poqa/nwmen met' au)tou^.
+     11:17 {P} )Elqw\n ou)^n o( )Ihsou^s eu(^ren au)to\n te/ssaras h(me/ras {N h(me/ras h)/dh > h)/dh h(me/ras } h)/dh e)/xonta e)n tw^| mnhmei/w|.
+     11:18 )^Hn de\ h( Bhqani/a e)ggu\s tw^n (Ierosolu/mwn, w(s a)po\ stadi/wn dekape/nte:
+     11:19 kai\ {N kai\ polloi\ > polloi\ de\ } polloi\ e)k tw^n )Ioudai/wn e)lhlu/qeisan pro\s ta\s {N ta\s peri\ Ma/rqan kai\ Mari/an > th\n Ma/rqan kai\ Maria/m } peri\ Ma/rqan kai\ Mari/an, i(/na paramuqh/swntai au)ta\s peri\ tou^ a)delfou^ au)tw^n. {N au)tw^n > - }
+     11:20 (H ou)^n Ma/rqa, w(s h)/kousen o(/ti )Ihsou^s e)/rxetai, u(ph/nthsen au)tw^|: Mari/a {N Mari/a > Maria\m } de\ e)n tw^| oi)/kw| e)kaqe/zeto.
+     11:21 Ei)^pen ou)^n Ma/rqa {N Ma/rqa > h( Ma/rqa } pro\s to\n )Ihsou^n, Ku/rie, ei) h)^s w(^de, o( {N o( a)delfo/s mou ou)k a)\n e)teqnh/kei > ou)k a)\n a)pe/qanen o( a)delfo/s mou } a)delfo/s mou ou)k a)\n e)teqnh/kei.
+     11:22 )Alla\ {N )Alla\ > [)Alla\] } kai\ nu^n oi)^da o(/ti o(/sa a)\n ai)th/sh| to\n qeo/n, dw/sei soi o( qeo/s.
+     11:23 Le/gei au)th^| o( )Ihsou^s, )Anasth/setai o( a)delfo/s sou.
+     11:24 Le/gei au)tw^| Ma/rqa, {N Ma/rqa > h( Ma/rqa } Oi)^da o(/ti a)nasth/setai e)n th^| a)nasta/sei e)n th^| e)sxa/th| h(me/ra|.
+     11:25 Ei)^pen au)th^| o( )Ihsou^s, )Egw/ ei)mi h( a)na/stasis kai\ h( zwh/: o( pisteu/wn ei)s e)me/, ka)\n a)poqa/nh|, zh/setai:
+     11:26 kai\ pa^s o( zw^n kai\ pisteu/wn ei)s e)me/, ou) mh\ a)poqa/nh| ei)s to\n ai)w^na. Pisteu/eis tou^to;
+     11:27 Le/gei au)tw^|, Nai/, ku/rie: e)gw\ pepi/steuka, o(/ti su\ ei)^ o( xristo/s, o( ui(o\s tou^ qeou^, o( ei)s to\n ko/smon e)rxo/menos.
+     11:28 Kai\ tau^ta {N tau^ta > tou^to } ei)pou^sa a)ph^lqen, kai\ e)fw/nhsen Mari/an {N Mari/an > Maria\m } th\n a)delfh\n au)th^s la/qra|, ei)pou^sa, (O dida/skalos pa/restin kai\ fwnei^ se.
+     11:29 )Ekei/nh w(s {N w(s > de\ w(s } h)/kousen, e)gei/retai {N e)gei/retai > h)ge/rqh } taxu\ kai\ e)/rxetai {N e)/rxetai > h)/rxeto } pro\s au)to/n.
+     11:30 Ou)/pw de\ e)lhlu/qei o( )Ihsou^s ei)s th\n kw/mhn, a)ll' h)^n e)n {N e)n > e)/ti e)n } tw^| to/pw| o(/pou u(ph/nthsen au)tw^| h( Ma/rqa.
+     11:31 Oi( ou)^n )Ioudai^oi oi( o)/ntes met' au)th^s e)n th^| oi)ki/a| kai\ paramuqou/menoi au)th/n, i)do/ntes th\n Mari/an {N Mari/an > Maria\m } o(/ti taxe/ws a)ne/sth kai\ e)ch^lqen, h)kolou/qhsan au)th^|, le/gontes {N le/gontes > do/cantes } o(/ti (Upa/gei ei)s to\ mnhmei^on, i(/na klau/sh| e)kei^.
+     11:32 (H ou)^n Mari/a, {N Mari/a > Maria/m } w(s h)^lqen o(/pou h)^n o( {N o( )Ihsou^s > )Ihsou^s } )Ihsou^s, i)dou^sa au)to/n, e)/pesen au)tou^ ei)s {N ei)s > pro\s } tou\s po/das le/gousa au)tw^|, Ku/rie, ei) h)^s w(^de, ou)k a)\n a)pe/qane/n {N a)pe/qane/n mou > mou a)pe/qanen } mou o( a)delfo/s.
+     11:33 )Ihsou^s ou)^n w(s ei)^den au)th\n klai/ousan, kai\ tou\s sunelqo/ntas au)th^| )Ioudai/ous klai/ontas, e)nebrimh/sato tw^| pneu/mati, kai\ e)ta/racen e(auto/n,
+     11:34 kai\ ei)^pen, Pou^ teqei/kate au)to/n; Le/gousin au)tw^|, Ku/rie, e)/rxou kai\ i)/de.
+     11:35 )Eda/krusen o( )Ihsou^s.
+     11:36 )/Elegon ou)^n oi( )Ioudai^oi, )/Ide pw^s e)fi/lei au)to/n.
+     11:37 Tine\s de\ e)c au)tw^n ei)^pon, {N ei)^pon Ou)k h)du/nato > ei)^pan Ou)k e)du/nato } Ou)k h)du/nato ou(^tos, o( a)noi/cas tou\s o)fqalmou\s tou^ tuflou^, poih^sai i(/na kai\ ou(^tos mh\ a)poqa/nh|;
+     11:38 )Ihsou^s ou)^n pa/lin e)mbrimw/menos e)n e(autw^| e)/rxetai ei)s to\ mnhmei^on. )^Hn de\ sph/laion, kai\ li/qos e)pe/keito e)p' au)tw^|.
+     11:39 Le/gei o( )Ihsou^s, )/Arate to\n li/qon. Le/gei au)tw^| h( a)delfh\ tou^ teqnhko/tos {N teqnhko/tos > teteleuthko/tos } Ma/rqa, Ku/rie, h)/dh o)/zei: tetartai^os ga/r e)stin.
+     11:40 Le/gei au)th^| o( )Ihsou^s, Ou)k ei)^po/n soi o(/ti e)a\n pisteu/sh|s, o)/yei {N o)/yei > o)/yh| } th\n do/can tou^ qeou^;
+     11:41 )^Hran ou)^n to\n li/qon, ou(^ {N ou(^ h)^n o( teqnhkw\s kei/menos > - } h)^n o( teqnhkw\s kei/menos. (O de\ )Ihsou^s h)^ren tou\s o)fqalmou\s a)/nw, kai\ ei)^pen, Pa/ter, eu)xaristw^ soi o(/ti h)/kousa/s mou.
+     11:42 )Egw\ de\ h)/|dein o(/ti pa/ntote/ mou a)kou/eis: a)lla\ dia\ to\n o)/xlon to\n periestw^ta ei)^pon, i(/na pisteu/swsin o(/ti su/ me a)pe/steilas.
+     11:43 Kai\ tau^ta ei)pw/n, fwnh^| mega/lh| e)krau/gasen, La/zare, deu^ro e)/cw.
+     11:44 Kai\ {N Kai\ e)ch^lqen > )Ech^lqen } e)ch^lqen o( teqnhkw/s, dedeme/nos tou\s po/das kai\ ta\s xei^ras keiri/ais, kai\ h( o)/yis au)tou^ soudari/w| periede/deto. Le/gei au)toi^s o( )Ihsou^s, Lu/sate au)to/n, kai\ a)/fete u(pa/gein. {N u(pa/gein > au)to\n u(pa/gein }
+     11:45 {P} Polloi\ ou)^n e)k tw^n )Ioudai/wn, oi( e)lqo/ntes pro\s th\n Mari/an {N Mari/an > Maria\m } kai\ qeasa/menoi a(\ e)poi/hsen o( {N o( )Ihsou^s > - } )Ihsou^s, e)pi/steusan ei)s au)to/n.
+     11:46 Tine\s de\ e)c au)tw^n a)ph^lqon pro\s tou\s Farisai/ous, kai\ ei)^pon {N ei)^pon > ei)^pan } au)toi^s a(\ e)poi/hsen o( {N o( > - } )Ihsou^s.
+     11:47 {P} Sunh/gagon ou)^n oi( a)rxierei^s kai\ oi( Farisai^oi sune/drion, kai\ e)/legon, Ti/ poiou^men; (/Oti ou(^tos o( a)/nqrwpos polla\ shmei^a {N shmei^a poiei^ > poiei^ shmei^a } poiei^.
+     11:48 )Ea\n a)fw^men au)to\n ou(/tws, pa/ntes pisteu/sousin ei)s au)to/n: kai\ e)leu/sontai oi( (Rwmai^oi kai\ a)rou^sin h(mw^n kai\ to\n to/pon kai\ to\ e)/qnos.
+     11:49 Ei(^s de/ tis e)c au)tw^n Kai+a/fas, a)rxiereu\s w)\n tou^ e)niautou^ e)kei/nou, ei)^pen au)toi^s, (Umei^s ou)k oi)/date ou)de/n,
+     11:50 ou)de\ dialogi/zesqe {N dialogi/zesqe > logi/zesqe } o(/ti sumfe/rei h(mi^n {N h(mi^n > u(mi^n } i(/na ei(^s a)/nqrwpos a)poqa/nh| u(pe\r tou^ laou^, kai\ mh\ o(/lon to\ e)/qnos a)po/lhtai.
+     11:51 Tou^to de\ a)f' e(autou^ ou)k ei)^pen, a)lla\ a)rxiereu\s w)\n tou^ e)niautou^ e)kei/nou, proefh/teusen {N proefh/teusen > e)profh/teusen } o(/ti e)/mellen )Ihsou^s a)poqnh/|skein u(pe\r tou^ e)/qnous,
+     11:52 kai\ ou)x u(pe\r tou^ e)/qnous mo/non, a)ll' i(/na kai\ ta\ te/kna tou^ qeou^ ta\ dieskorpisme/na sunaga/gh| ei)s e(/n.
+     11:53 )Ap' e)kei/nhs ou)^n th^s h(me/ras sunebouleu/santo {N sunebouleu/santo > e)bouleu/santo } i(/na a)poktei/nwsin au)to/n.
+     11:54 {P} )Ihsou^s {N )Ihsou^s ou)^n > (O ou)^n )Ihsou^s } ou)^n ou)ke/ti parrhsi/a| periepa/tei e)n toi^s )Ioudai/ois, a)lla\ a)ph^lqen e)kei^qen ei)s th\n xw/ran e)ggu\s th^s e)rh/mou, ei)s )Efrai+\m legome/nhn po/lin, ka)kei^ die/triben {N die/triben > e)/meinen } meta\ tw^n maqhtw^n au)tou^. {N au)tou^ > - }
+     11:55 )^Hn de\ e)ggu\s to\ Pa/sxa tw^n )Ioudai/wn: kai\ a)ne/bhsan polloi\ ei)s (Ieroso/luma e)k th^s xw/ras pro\ tou^ Pa/sxa, i(/na a(gni/swsin e(autou/s.
+     11:56 )Ezh/toun ou)^n to\n )Ihsou^n, kai\ e)/legon met' a)llh/lwn e)n tw^| i(erw^| e(sthko/tes, Ti/ dokei^ u(mi^n; (/Oti ou) mh\ e)/lqh| ei)s th\n e(orth/n;
+     11:57 Dedw/keisan de\ kai\ {N kai\ oi( a)rxierei^s > oi( a)rxierei^s } oi( a)rxierei^s kai\ oi( Farisai^oi e)ntolh/n, {N e)ntolh/n > e)ntola/s } i(/na e)a/n tis gnw^| pou^ e)stin, mhnu/sh|, o(/pws pia/swsin au)to/n.
+     12:01 (O ou)^n )Ihsou^s pro\ e(\c h(merw^n tou^ Pa/sxa h)^lqen ei)s Bhqani/an, o(/pou h)^n La/zaros o( {N o( teqnhkw/s > - } teqnhkw/s, o(\n h)/geiren e)k nekrw^n. {N nekrw^n > nekrw^n )Ihsou^s }
+     12:02 )Epoi/hsan ou)^n au)tw^| dei^pnon e)kei^, kai\ h( Ma/rqa dihko/nei: o( de\ La/zaros ei(^s h)^n tw^n {N tw^n > e)k tw^n } a)nakeime/nwn su\n au)tw^|.
+     12:03 (H ou)^n Mari/a {N Mari/a > Maria\m } labou^sa li/tran mu/rou na/rdou pistikh^s poluti/mou, h)/leiyen tou\s po/das tou^ )Ihsou^, kai\ e)ce/macen tai^s qrici\n au)th^s tou\s po/das au)tou^: h( de\ oi)ki/a e)plhrw/qh e)k th^s o)smh^s tou^ mu/rou.
+     12:04 Le/gei ou)^n {N ou)^n ei(^s e)k tw^n maqhtw^n au)tou^ )Iou/das Si/mwnos )Iskariw/ths > de\ )Iou/das o( )Iskariw/ths ei(^s [e)k] tw^n maqhtw^n au)tou^ } ei(^s e)k tw^n maqhtw^n au)tou^, )Iou/das Si/mwnos )Iskariw/ths, o( me/llwn au)to\n paradido/nai,
+     12:05 Dia\ ti/ tou^to to\ mu/ron ou)k e)pra/qh triakosi/wn dhnari/wn, kai\ e)do/qh ptwxoi^s;
+     12:06 Ei)^pen de\ tou^to, ou)x o(/ti peri\ tw^n ptwxw^n e)/melen au)tw^|, a)ll' o(/ti kle/pths h)^n, kai\ to\ glwsso/komon ei)^xen, {N ei)^xen kai\ > e)/xwn } kai\ ta\ ballo/mena e)ba/stazen.
+     12:07 Ei)^pen ou)^n o( )Ihsou^s, )/Afes au)th/n: ei)s {N ei)s > i(/na ei)s } th\n h(me/ran tou^ e)ntafiasmou^ mou teth/rhken {N teth/rhken > thrh/sh| } au)to/.
+     12:08 Tou\s ptwxou\s ga\r pa/ntote e)/xete meq' e(autw^n, e)me\ de\ ou) pa/ntote e)/xete.
+     12:09 {P} )/Egnw ou)^n o)/xlos {N o)/xlos > [o(] o)/xlos } polu\s e)k tw^n )Ioudai/wn o(/ti e)kei^ e)stin: kai\ h)^lqon ou) dia\ to\n )Ihsou^n mo/non, a)ll' i(/na kai\ to\n La/zaron i)/dwsin, o(\n h)/geiren e)k nekrw^n.
+     12:10 )Ebouleu/santo de\ oi( a)rxierei^s i(/na kai\ to\n La/zaron a)poktei/nwsin:
+     12:11 o(/ti polloi\ di' au)to\n u(ph^gon tw^n )Ioudai/wn, kai\ e)pi/steuon ei)s to\n )Ihsou^n.
+     12:12 {P} Th^| e)pau/rion o)/xlos {N o)/xlos > o( o)/xlos } polu\s o( e)lqw\n ei)s th\n e(orth/n, a)kou/santes o(/ti e)/rxetai )Ihsou^s {N )Ihsou^s > o( )Ihsou^s } ei)s (Ieroso/luma,
+     12:13 e)/labon ta\ bai+/a tw^n foini/kwn, kai\ e)ch^lqon ei)s u(pa/nthsin au)tw^|, kai\ e)/krazon, {N e)/krazon > e)krau/gazon } (Wsanna/: eu)loghme/nos o( e)rxo/menos e)n o)no/mati kuri/ou, basileu\s {N basileu\s > [kai\] o( basileu\s } tou^ )Israh/l.
+     12:14 Eu(rw\n de\ o( )Ihsou^s o)na/rion, e)ka/qisen e)p' au)to/, kaqw/s e)stin gegramme/non,
+     12:15 Mh\ fobou^, qu/gater {N qu/gater > quga/thr } Siw/n: i)dou/, o( basileu/s sou e)/rxetai, kaqh/menos e)pi\ pw^lon o)/nou.
+     12:16 Tau^ta de\ {N de\ > - } ou)k e)/gnwsan oi( {N oi( maqhtai\ au)tou^ > au)tou^ oi( maqhtai\ } maqhtai\ au)tou^ to\ prw^ton: a)ll' o(/te e)doca/sqh {B )Ihsou^s > o( )Ihsou^s } )Ihsou^s, to/te e)mnh/sqhsan o(/ti tau^ta h)^n e)p' au)tw^| gegramme/na, kai\ tau^ta e)poi/hsan au)tw^|.
+     12:17 )Emartu/rei ou)^n o( o)/xlos o( w)\n met' au)tou^ o(/te to\n La/zaron e)fw/nhsen e)k tou^ mnhmei/ou, kai\ h)/geiren au)to\n e)k nekrw^n.
+     12:18 Dia\ tou^to kai\ {N kai\ > [kai\] } u(ph/nthsen au)tw^| o( o)/xlos, o(/ti h)/kousen {N h)/kousen > h)/kousan } tou^to au)to\n pepoihke/nai to\ shmei^on.
+     12:19 Oi( ou)^n Farisai^oi ei)^pon {N ei)^pon > ei)^pan } pro\s e(autou/s, Qewrei^te o(/ti ou)k w)felei^te ou)de/n: i)/de o( ko/smos o)pi/sw au)tou^ a)ph^lqen.
+     12:20 {P} )^Hsan de/ tines {N tines (/Ellhnes > (/Ellhne/s tines } (/Ellhnes e)k tw^n a)nabaino/ntwn i(/na proskunh/swsin e)n th^| e(orth^|:
+     12:21 ou(^toi ou)^n prosh^lqon Fili/ppw| tw^| a)po\ Bhqsai+da\ th^s Galilai/as, kai\ h)rw/twn au)to\n le/gontes, Ku/rie, qe/lomen to\n )Ihsou^n i)dei^n.
+     12:22 )/Erxetai Fi/lippos {N )/Erxetai > )/Erxetai o( } kai\ le/gei tw^| )Andre/a|: kai\ {N kai\ pa/lin > e)/rxetai } pa/lin )Andre/as kai\ Fi/lippos le/gousin {N le/gousin > kai\ le/gousin } tw^| )Ihsou^.
+     12:23 (O de\ )Ihsou^s a)pekri/nato {N a)pekri/nato > a)pokri/netai } au)toi^s le/gwn, )Elh/luqen h( w(/ra i(/na docasqh^| o( ui(o\s tou^ a)nqrw/pou.
+     12:24 )Amh\n a)mh\n le/gw u(mi^n, e)a\n mh\ o( ko/kkos tou^ si/tou pesw\n ei)s th\n gh^n a)poqa/nh|, au)to\s mo/nos me/nei: e)a\n de\ a)poqa/nh|, polu\n karpo\n fe/rei.
+     12:25 (O filw^n th\n yuxh\n au)tou^ a)pole/sei {N a)pole/sei > a)pollu/ei } au)th/n: kai\ o( misw^n th\n yuxh\n au)tou^ e)n tw^| ko/smw| tou/tw| ei)s zwh\n ai)w/nion fula/cei au)th/n.
+     12:26 )Ea\n e)moi\ diakonh^| {N diakonh^| tis > tis diakonh^| } tis, e)moi\ a)kolouqei/tw: kai\ o(/pou ei)mi\ e)gw/, e)kei^ kai\ o( dia/konos o( e)mo\s e)/stai: kai\ {N kai\ e)a/n > e)a/n } e)a/n tis e)moi\ diakonh^|, timh/sei au)to\n o( path/r.
+     12:27 Nu^n h( yuxh/ mou teta/raktai: kai\ ti/ ei)/pw; Pa/ter, sw^so/n me e)k th^s w(/ras tau/ths. )Alla\ dia\ tou^to h)^lqon ei)s th\n w(/ran tau/thn.
+     12:28 Pa/ter, do/caso/n sou to\ o)/noma. )^Hlqen ou)^n fwnh\ e)k tou^ ou)ranou^, Kai\ e)do/casa, kai\ pa/lin doca/sw.
+     12:29 (O ou)^n o)/xlos o( e(stw\s kai\ a)kou/sas e)/legen bronth\n gegone/nai: a)/lloi e)/legon, )/Aggelos au)tw^| lela/lhken.
+     12:30 )Apekri/qh {B )Ihsou^s > o( )Ihsou^s } )Ihsou^s kai\ ei)^pen, Ou) di' e)me\ au(/th {N au(/th h( fwnh\ > h( fwnh\ au(/th } h( fwnh\ ge/gonen, a)lla\ di' u(ma^s.
+     12:31 Nu^n kri/sis e)sti\n tou^ ko/smou tou/tou: nu^n o( a)/rxwn tou^ ko/smou tou/tou e)kblhqh/setai e)/cw.
+     12:32 Ka)gw\ e)a\n u(ywqw^ e)k th^s gh^s, pa/ntas e(lku/sw pro\s e)mauto/n.
+     12:33 Tou^to de\ e)/legen, shmai/nwn poi/w| qana/tw| e)/mellen {N e)/mellen > h)/mellen } a)poqnh/|skein.
+     12:34 )Apekri/qh au)tw^| {N au)tw^| > ou)^n au)tw^| } o( o)/xlos, (Hmei^s h)kou/samen e)k tou^ no/mou o(/ti o( xristo\s me/nei ei)s to\n ai)w^na: kai\ pw^s su\ {N su\ le/geis > le/geis su\ o(/ti } le/geis, Dei^ u(ywqh^nai to\n ui(o\n tou^ a)nqrw/pou; Ti/s e)stin ou(^tos o( ui(o\s tou^ a)nqrw/pou;
+     12:35 Ei)^pen ou)^n au)toi^s o( )Ihsou^s, )/Eti mikro\n xro/non to\ fw^s meq' {N meq' u(mw^n > e)n u(mi^n } u(mw^n e)stin. Peripatei^te e(/ws {N e(/ws > w(s } to\ fw^s e)/xete, i(/na mh\ skoti/a u(ma^s katala/bh|: kai\ o( peripatw^n e)n th^| skoti/a| ou)k oi)^den pou^ u(pa/gei.
+     12:36 (/Ews {N (/Ews > (Ws } to\ fw^s e)/xete, pisteu/ete ei)s to\ fw^s, i(/na ui(oi\ fwto\s ge/nhsqe. {P} Tau^ta e)la/lhsen o( {N o( > - } )Ihsou^s, kai\ a)pelqw\n e)kru/bh a)p' au)tw^n.
+     12:37 Tosau^ta de\ au)tou^ shmei^a pepoihko/tos e)/mprosqen au)tw^n, ou)k e)pi/steuon ei)s au)to/n:
+     12:38 i(/na o( lo/gos )Hsai+/ou tou^ profh/tou plhrwqh^|, o(\n ei)^pen, Ku/rie, ti/s e)pi/steusen th^| a)koh^| h(mw^n; Kai\ o( braxi/wn kuri/ou ti/ni a)pekalu/fqh;
+     12:39 Dia\ tou^to ou)k h)du/nanto pisteu/ein, o(/ti pa/lin ei)^pen )Hsai+/as,
+     12:40 Tetu/flwken au)tw^n tou\s o)fqalmou/s, kai\ pepw/rwken {N pepw/rwken > e)pw/rwsen } au)tw^n th\n kardi/an: i(/na mh\ i)/dwsin toi^s o)fqalmoi^s, kai\ noh/swsin th^| kardi/a|, kai\ e)pistrafw^sin, {N e)pistrafw^sin kai\ i)a/swmai > strafw^sin kai\ i)a/somai } kai\ i)a/swmai {B i)a/swmai > i)a/somai } au)tou/s.
+     12:41 Tau^ta ei)^pen )Hsai+/as, o(/te {N o(/te > o(/ti } ei)^den th\n do/can au)tou^, kai\ e)la/lhsen peri\ au)tou^.
+     12:42 (/Omws me/ntoi kai\ e)k tw^n a)rxo/ntwn polloi\ e)pi/steusan ei)s au)to/n: a)lla\ dia\ tou\s Farisai/ous ou)x w(molo/goun, i(/na mh\ a)posuna/gwgoi ge/nwntai.
+     12:43 )Hga/phsan ga\r th\n do/can tw^n a)nqrw/pwn ma^llon h)/per th\n do/can tou^ qeou^.
+     12:44 {P} )Ihsou^s de\ e)/kracen kai\ ei)^pen, (O pisteu/wn ei)s e)me/, ou) pisteu/ei ei)s e)me/, a)ll' {N a)ll' > a)lla\ } ei)s to\n pe/myanta/ me:
+     12:45 kai\ o( qewrw^n e)me/, qewrei^ to\n pe/myanta/ me.
+     12:46 )Egw\ fw^s ei)s to\n ko/smon e)lh/luqa, i(/na pa^s o( pisteu/wn ei)s e)me/, e)n th^| skoti/a| mh\ mei/nh|.
+     12:47 Kai\ e)a/n ti/s mou a)kou/sh| tw^n r(hma/twn kai\ mh\ pisteu/sh|, {N pisteu/sh| > fula/ch| } e)gw\ ou) kri/nw au)to/n: ou) ga\r h)^lqon i(/na kri/nw to\n ko/smon, a)ll' i(/na sw/sw to\n ko/smon.
+     12:48 (O a)qetw^n e)me\ kai\ mh\ lamba/nwn ta\ r(h/mata/ mou, e)/xei to\n kri/nonta au)to/n: o( lo/gos o(\n e)la/lhsa, e)kei^nos krinei^ au)to\n e)n th^| e)sxa/th| h(me/ra|.
+     12:49 (/Oti e)gw\ e)c e)mautou^ ou)k e)la/lhsa: a)ll' o( pe/myas me path/r, au)to/s moi e)ntolh\n e)/dwken, {N e)/dwken > de/dwken } ti/ ei)/pw kai\ ti/ lalh/sw.
+     12:50 Kai\ oi)^da o(/ti h( e)ntolh\ au)tou^ zwh\ ai)w/nio/s e)stin: a(\ ou)^n lalw^ {N lalw^ e)gw/ > e)gw\ lalw^ } e)gw/, kaqw\s ei)/rhke/n moi o( path/r, ou(/tws lalw^.
+     13:01 Pro\ de\ th^s e(orth^s tou^ Pa/sxa, ei)dw\s o( )Ihsou^s o(/ti e)lh/luqen {N e)lh/luqen > h)^lqen } au)tou^ h( w(/ra i(/na metabh^| e)k tou^ ko/smou tou/tou pro\s to\n pate/ra, a)gaph/sas tou\s i)di/ous tou\s e)n tw^| ko/smw|, ei)s te/los h)ga/phsen au)tou/s.
+     13:02 Kai\ dei/pnou genome/nou, {N genome/nou > ginome/nou } tou^ diabo/lou h)/dh beblhko/tos ei)s th\n kardi/an )Iou/da {N )Iou/da Si/mwnos )Iskariw/tou i(/na au)to\n paradw^| > i(/na paradoi^ au)to\n )Iou/das Si/mwnos )Iskariw/tou } Si/mwnos )Iskariw/tou i(/na au)to\n paradw^|,
+     13:03 ei)dw\s o( {N o( )Ihsou^s > - } )Ihsou^s o(/ti pa/nta de/dwken {N de/dwken > e)/dwken } au)tw^| o( path\r ei)s ta\s xei^ras, kai\ o(/ti a)po\ qeou^ e)ch^lqen kai\ pro\s to\n qeo\n u(pa/gei,
+     13:04 e)gei/retai e)k tou^ dei/pnou, kai\ ti/qhsin ta\ i(ma/tia, kai\ labw\n le/ntion die/zwsen e(auto/n.
+     13:05 Ei)^ta ba/llei u(/dwr ei)s to\n nipth^ra, kai\ h)/rcato ni/ptein tou\s po/das tw^n maqhtw^n, kai\ e)kma/ssein tw^| lenti/w| w(^| h)^n diezwsme/nos.
+     13:06 )/Erxetai ou)^n pro\s Si/mwna Pe/tron: kai\ {N kai\ le/gei au)tw^| e)kei^nos > le/gei au)tw^| } le/gei au)tw^| e)kei^nos, Ku/rie, su/ mou ni/pteis tou\s po/das;
+     13:07 )Apekri/qh )Ihsou^s kai\ ei)^pen au)tw^|, (\O e)gw\ poiw^, su\ ou)k oi)^das a)/rti, gnw/sh| de\ meta\ tau^ta.
+     13:08 Le/gei au)tw^| Pe/tros, Ou) mh\ ni/yh|s tou\s {N tou\s po/das mou > mou tou\s po/das } po/das mou ei)s to\n ai)w^na. )Apekri/qh au)tw^| {N au)tw^| o( )Ihsou^s > )Ihsou^s au)tw^| } o( )Ihsou^s, )Ea\n mh\ ni/yw se, ou)k e)/xeis me/ros met' e)mou^.
+     13:09 Le/gei au)tw^| Si/mwn Pe/tros, Ku/rie, mh\ tou\s po/das mou mo/non, a)lla\ kai\ ta\s xei^ras kai\ th\n kefalh/n.
+     13:10 Le/gei au)tw^| o( )Ihsou^s, (O leloume/nos ou) {N ou) xrei/an e)/xei h)\ > ou)k e)/xei xrei/an ei) mh\ } xrei/an e)/xei h)\ tou\s po/das ni/yasqai, a)ll' e)/stin kaqaro\s o(/los: kai\ u(mei^s kaqaroi/ e)ste, a)ll' ou)xi\ pa/ntes.
+     13:11 )/|Hdei ga\r to\n paradido/nta au)to/n: dia\ tou^to ei)^pen, Ou)xi\ {N Ou)xi\ > o(/ti Ou)xi\ } pa/ntes kaqaroi/ e)ste.
+     13:12 {P} (/Ote ou)^n e)/niyen tou\s po/das au)tw^n, kai\ {N kai\ e)/laben > [kai\] e)/laben } e)/laben ta\ i(ma/tia au)tou^, a)napesw\n {N a)napesw\n > kai\ a)ne/pesen } pa/lin, ei)^pen au)toi^s, Ginw/skete ti/ pepoi/hka u(mi^n;
+     13:13 (Umei^s fwnei^te/ me, (O dida/skalos, kai\ (O ku/rios: kai\ kalw^s le/gete, ei)mi\ ga/r.
+     13:14 Ei) ou)^n e)gw\ e)/niya u(mw^n tou\s po/das, o( ku/rios kai\ o( dida/skalos, kai\ u(mei^s o)fei/lete a)llh/lwn ni/ptein tou\s po/das.
+     13:15 (Upo/deigma ga\r e)/dwka u(mi^n, i(/na kaqw\s e)gw\ e)poi/hsa u(mi^n, kai\ u(mei^s poih^te.
+     13:16 )Amh\n a)mh\n le/gw u(mi^n, Ou)k e)/stin dou^los mei/zwn tou^ kuri/ou au)tou^, ou)de\ a)po/stolos mei/zwn tou^ pe/myantos au)to/n.
+     13:17 Ei) tau^ta oi)/date, maka/rioi/ e)ste e)a\n poih^te au)ta/.
+     13:18 Ou) peri\ pa/ntwn u(mw^n le/gw: e)gw\ oi)^da ou(\s {N ou(\s > ti/nas } e)celeca/mhn: a)ll' i(/na h( grafh\ plhrwqh^|, (O trw/gwn met' {N met' e)mou^ > mou } e)mou^ to\n a)/rton e)ph^ren e)p' e)me\ th\n pte/rnan au)tou^.
+     13:19 )Ap' a)/rti le/gw u(mi^n pro\ tou^ gene/sqai, i(/na, o(/tan {N o(/tan ge/nhtai pisteu/shte > pisteu/shte o(/tan ge/nhtai } ge/nhtai, pisteu/shte o(/ti e)gw/ ei)mi.
+     13:20 )Amh\n a)mh\n le/gw u(mi^n, (O lamba/nwn e)a/n {N e)a/n > a)/n } tina pe/myw, e)me\ lamba/nei: o( de\ e)me\ lamba/nwn, lamba/nei to\n pe/myanta/ me.
+     13:21 {P} Tau^ta ei)pw\n o( {N o( > [o(] } )Ihsou^s e)tara/xqh tw^| pneu/mati, kai\ e)martu/rhsen kai\ ei)^pen, )Amh\n a)mh\n le/gw u(mi^n o(/ti ei(^s e)c u(mw^n paradw/sei me.
+     13:22 )/Eblepon ou)^n {N ou)^n > - } ei)s a)llh/lous oi( maqhtai/, a)porou/menoi peri\ ti/nos le/gei.
+     13:23 )^Hn de\ {N de\ > - } a)nakei/menos ei(^s {N ei(^s > ei(^s e)k } tw^n maqhtw^n au)tou^ e)n tw^| ko/lpw| tou^ )Ihsou^, o(\n h)ga/pa o( )Ihsou^s:
+     13:24 neu/ei ou)^n tou/tw| Si/mwn Pe/tros puqe/sqai ti/s a)\n ei)/h peri\ ou(^ le/gei.
+     13:25 )Epipesw\n {N )Epipesw\n de\ > )Anapesw\n ou)^n } de\ e)kei^nos ou(/tws e)pi\ to\ sth^qos tou^ )Ihsou^, le/gei au)tw^|, Ku/rie, ti/s e)stin;
+     13:26 )Apokri/netai o( {N o( > [o(] } )Ihsou^s, )Ekei^no/s e)stin w(^| e)gw\ ba/yas {N ba/yas > ba/yw } to\ ywmi/on e)pidw/sw. {N e)pidw/sw > kai\ dw/sw au)tw^| } Kai\ {N Kai\ e)mba/yas > Ba/yas ou)^n } e)mba/yas to\ ywmi/on, di/dwsin {N di/dwsin > [lamba/nei kai\] di/dwsin } )Iou/da| Si/mwnos )Iskariw/th|. {N )Iskariw/th| > )Iskariw/tou }
+     13:27 Kai\ meta\ to\ ywmi/on, to/te ei)sh^lqen ei)s e)kei^non o( Satana^s. Le/gei ou)^n au)tw^| o( )Ihsou^s, (\O poiei^s, poi/hson ta/xion.
+     13:28 Tou^to de\ {N de\ > [de\] } ou)dei\s e)/gnw tw^n a)nakeime/nwn pro\s ti/ ei)^pen au)tw^|.
+     13:29 Tine\s ga\r e)do/koun, e)pei\ to\ glwsso/komon ei)^xen o( {N o( )Iou/das > )Iou/das } )Iou/das, o(/ti le/gei au)tw^| o( {N o( )Ihsou^s > [o(] )Ihsou^s } )Ihsou^s, )Ago/rason w(^n xrei/an e)/xomen ei)s th\n e(orth/n: h)\ toi^s ptwxoi^s i(/na ti dw^|.
+     13:30 Labw\n ou)^n to\ ywmi/on e)kei^nos, eu)qe/ws {N eu)qe/ws e)ch^lqen > e)ch^lqen eu)qu/s } e)ch^lqen: h)^n de\ nu/c.
+     13:31 {P} (/Ote {N (/Ote > (/Ote ou)^n } e)ch^lqen, le/gei {N le/gei o( > le/gei } o( )Ihsou^s, Nu^n e)doca/sqh o( ui(o\s tou^ a)nqrw/pou, kai\ o( qeo\s e)doca/sqh e)n au)tw^|.
+     13:32 Ei) {N Ei) o( qeo\s e)doca/sqh e)n au)tw^| > [Ei) o( qeo\s e)doca/sqh e)n au)tw^|] } o( qeo\s e)doca/sqh e)n au)tw^|, kai\ o( qeo\s doca/sei au)to\n e)n e(autw^|, {N e(autw^| > au)tw^| } kai\ eu)qu\s doca/sei au)to/n.
+     13:33 Tekni/a, e)/ti mikro\n meq' u(mw^n ei)mi. Zhth/sete/ me, kai\ kaqw\s ei)^pon toi^s )Ioudai/ois o(/ti (/Opou u(pa/gw {N u(pa/gw e)gw/ > e)gw\ u(pa/gw } e)gw/, u(mei^s ou) du/nasqe e)lqei^n, kai\ u(mi^n le/gw a)/rti.
+     13:34 )Entolh\n kainh\n di/dwmi u(mi^n, i(/na a)gapa^te a)llh/lous: kaqw\s h)ga/phsa u(ma^s, i(/na kai\ u(mei^s a)gapa^te a)llh/lous.
+     13:35 )En tou/tw| gnw/sontai pa/ntes o(/ti e)moi\ maqhtai/ e)ste, e)a\n a)ga/phn e)/xhte e)n a)llh/lois.
+     13:36 {P} Le/gei au)tw^| Si/mwn Pe/tros, Ku/rie, pou^ u(pa/geis; )Apekri/qh au)tw^| {N au)tw^| o( > [au)tw^|] } o( )Ihsou^s, (/Opou u(pa/gw, ou) du/nasai/ moi nu^n a)kolouqh^sai, u(/steron {N u(/steron de\ a)kolouqh/seis moi > a)kolouqh/seis de\ u(/steron } de\ a)kolouqh/seis moi.
+     13:37 Le/gei au)tw^| Pe/tros, {N Pe/tros > o( Pe/tros } Ku/rie, dia\ ti/ ou) du/namai/ soi a)kolouqh^sai a)/rti; Th\n yuxh/n mou u(pe\r sou^ qh/sw.
+     13:38 )Apekri/qh {N )Apekri/qh au)tw^| o( > )Apokri/netai } au)tw^| o( )Ihsou^s, Th\n yuxh/n sou u(pe\r e)mou^ qh/seis; )Amh\n a)mh\n le/gw soi, ou) mh\ a)le/ktwr fwnh/sh| e(/ws ou(^ a)parnh/sh| {N a)parnh/sh| > a)rnh/sh| } me tri/s.
+     14:01 Mh\ tarasse/sqw u(mw^n h( kardi/a: pisteu/ete ei)s to\n qeo/n, kai\ ei)s e)me\ pisteu/ete.
+     14:02 )En th^| oi)ki/a| tou^ patro/s mou monai\ pollai/ ei)sin: ei) de\ mh/, ei)^pon a)\n u(mi^n: Poreu/omai {N Poreu/omai > o(/ti poreu/omai } e(toima/sai to/pon u(mi^n.
+     14:03 Kai\ e)a\n poreuqw^, e(toima/sw {B e(toima/sw > kai\ e(toima/sw = e(toima/sai } {N e(toima/sw > kai\ e(toima/sw } u(mi^n {N u(mi^n to/pon > to/pon u(mi^n } to/pon: pa/lin e)/rxomai kai\ paralh/yomai {N paralh/yomai > paralh/myomai } u(ma^s pro\s e)mauto/n, i(/na o(/pou ei)mi\ e)gw/, kai\ u(mei^s h)^te.
+     14:04 Kai\ o(/pou e)gw\ {N e)gw\ > [e)gw\] } u(pa/gw oi)/date, kai\ {N kai\ th\n o(do\n oi)/date > th\n o(do/n } th\n o(do\n oi)/date.
+     14:05 Le/gei au)tw^| Qwma^s, Ku/rie, ou)k oi)/damen pou^ u(pa/geis: kai\ {N kai\ > - } pw^s duna/meqa th\n o(do\n ei)de/nai;
+     14:06 Le/gei au)tw^| o( {N o( > [o(] } )Ihsou^s, )Egw/ ei)mi h( o(do\s kai\ h( a)lh/qeia kai\ h( zwh/: ou)dei\s e)/rxetai pro\s to\n pate/ra, ei) mh\ di' e)mou^.
+     14:07 Ei) e)gnw/keite/ {N e)gnw/keite/ me > e)gnw/kate/ me } me, kai\ to\n pate/ra mou e)gnw/keite {N e)gnw/keite a)/n > gnw/sesqe } a)/n: kai\ a)p' a)/rti ginw/skete au)to/n, kai\ e(wra/kate au)to/n.
+     14:08 Le/gei au)tw^| Fi/lippos, Ku/rie, dei^con h(mi^n to\n pate/ra, kai\ a)rkei^ h(mi^n.
+     14:09 Le/gei au)tw^| o( )Ihsou^s, Tosou^ton {N Tosou^ton xro/non > Tosou/tw| xro/nw| } xro/non meq' u(mw^n ei)mi, kai\ ou)k e)/gnwka/s me, Fi/lippe; (O e(wrakw\s e)me/, e(w/raken to\n pate/ra: kai\ {N kai\ pw^s > pw^s } pw^s su\ le/geis, Dei^con h(mi^n to\n pate/ra;
+     14:10 Ou) pisteu/eis o(/ti e)gw\ e)n tw^| patri/, kai\ o( path\r e)n e)moi/ e)stin; Ta\ r(h/mata a(\ e)gw\ lalw^ {N lalw^ u(mi^n > le/gw u(mi^n } u(mi^n, a)p' e)mautou^ ou) lalw^: o( de\ path\r o( {N o( e)n > e)n } e)n e)moi\ me/nwn, au)to\s {N au)to\s > - } poiei^ ta\ e)/rga. {N e)/rga > e)/rga au)tou^ }
+     14:11 Pisteu/ete/ moi o(/ti e)gw\ e)n tw^| patri/, kai\ o( path\r e)n e)moi/: ei) de\ mh/, dia\ ta\ e)/rga au)ta\ pisteu/ete/ moi. {N au)ta\ pisteu/ete/ moi > au)ta\ pisteu/ete }
+     14:12 )Amh\n a)mh\n le/gw u(mi^n, o( pisteu/wn ei)s e)me/, ta\ e)/rga a(\ e)gw\ poiw^ ka)kei^nos poih/sei, kai\ mei/zona tou/twn poih/sei: o(/ti e)gw\ pro\s to\n pate/ra mou {N mou > - } poreu/omai.
+     14:13 Kai\ o(/ ti a)\n ai)th/shte e)n tw^| o)no/mati/ mou, tou^to poih/sw, i(/na docasqh^| o( path\r e)n tw^| ui(w^|.
+     14:14 )Ea/n ti ai)th/shte/ me {B me > - } e)n tw^| o)no/mati/ mou, e)gw\ poih/sw.
+     14:15 )Ea\n a)gapa^te/ me, ta\s e)ntola\s ta\s e)ma\s thrh/sate. {N thrh/sate > thrh/sete }
+     14:16 Kai\ {N Kai\ e)gw\ > Ka)gw\ } e)gw\ e)rwth/sw to\n pate/ra, kai\ a)/llon para/klhton dw/sei u(mi^n, i(/na me/nh| {N me/nh| > - } meq' u(mw^n ei)s to\n ai)w^na, {N ai)w^na > ai)w^na h)^| }
+     14:17 to\ pneu^ma th^s a)lhqei/as, o(\ o( ko/smos ou) du/natai labei^n, o(/ti ou) qewrei^ au)to/, ou)de\ ginw/skei {N ginw/skei au)to/ > ginw/skei } au)to/. (Umei^s de\ {N de\ > - } ginw/skete au)to/, o(/ti par' u(mi^n me/nei, kai\ e)n u(mi^n e)/stai.
+     14:18 Ou)k a)fh/sw u(ma^s o)rfanou/s: e)/rxomai pro\s u(ma^s.
+     14:19 )/Eti mikro\n kai\ o( ko/smos me ou)ke/ti qewrei^, u(mei^s de\ qewrei^te/ me: o(/ti e)gw\ zw^, kai\ u(mei^s zh/sesqe. {N zh/sesqe > zh/sete }
+     14:20 )En e)kei/nh| th^| h(me/ra| gnw/sesqe u(mei^s o(/ti e)gw\ e)n tw^| patri/ mou, kai\ u(mei^s e)n e)moi/, kai\ {N kai\ e)gw\ > ka)gw\ } e)gw\ e)n u(mi^n.
+     14:21 (O e)/xwn ta\s e)ntola/s mou kai\ thrw^n au)ta/s, e)kei^no/s e)stin o( a)gapw^n me: o( de\ a)gapw^n me, a)gaphqh/setai u(po\ tou^ patro/s mou: kai\ {N kai\ e)gw\ > ka)gw\ } e)gw\ a)gaph/sw au)to/n, kai\ e)mfani/sw au)tw^| e)mauto/n.
+     14:22 Le/gei au)tw^| )Iou/das, ou)x o( )Iskariw/ths, Ku/rie, kai\ {N kai\ ti/ > [kai\] ti/ } ti/ ge/gonen o(/ti h(mi^n me/lleis e)mfani/zein seauto/n, kai\ ou)xi\ tw^| ko/smw|;
+     14:23 )Apekri/qh )Ihsou^s kai\ ei)^pen au)tw^|, )Ea/n tis a)gapa^| me, to\n lo/gon mou thrh/sei, kai\ o( path/r mou a)gaph/sei au)to/n, kai\ pro\s au)to\n e)leuso/meqa, kai\ monh\n par' au)tw^| poih/somen. {N poih/somen > poihso/meqa }
+     14:24 (O mh\ a)gapw^n me, tou\s lo/gous mou ou) threi^: kai\ o( lo/gos o(\n a)kou/ete ou)k e)/stin e)mo/s, a)lla\ tou^ pe/myanto/s me patro/s.
+     14:25 {P} Tau^ta lela/lhka u(mi^n par' u(mi^n me/nwn.
+     14:26 (O de\ para/klhtos, to\ pneu^ma to\ a(/gion, o(\ pe/myei o( path\r e)n tw^| o)no/mati/ mou, e)kei^nos u(ma^s dida/cei pa/nta, kai\ u(pomnh/sei u(ma^s pa/nta a(\ ei)^pon u(mi^n. {N u(mi^n > u(mi^n [e)gw/] }
+     14:27 Ei)rh/nhn a)fi/hmi u(mi^n, ei)rh/nhn th\n e)mh\n di/dwmi u(mi^n: ou) kaqw\s o( ko/smos di/dwsin, e)gw\ di/dwmi u(mi^n. Mh\ tarasse/sqw u(mw^n h( kardi/a, mhde\ deilia/tw.
+     14:28 )Hkou/sate o(/ti e)gw\ ei)^pon u(mi^n, (Upa/gw kai\ e)/rxomai pro\s u(ma^s. Ei) h)gapa^te/ me, e)xa/rhte a)\n o(/ti ei)^pon, {N ei)^pon Poreu/omai > poreu/omai } Poreu/omai pro\s to\n pate/ra: o(/ti o( path/r mou {N mou mei/zwn > mei/zwn } mei/zwn mou/ e)stin.
+     14:29 Kai\ nu^n ei)/rhka u(mi^n pri\n gene/sqai: i(/na, o(/tan ge/nhtai, pisteu/shte.
+     14:30 Ou)ke/ti polla\ lalh/sw meq' u(mw^n: e)/rxetai ga\r o( tou^ ko/smou a)/rxwn, kai\ e)n e)moi\ ou)k e)/xei ou)de/n:
+     14:31 a)ll' i(/na gnw^| o( ko/smos o(/ti a)gapw^ to\n pate/ra, kai\ kaqw\s e)netei/lato/ moi o( path/r, ou(/tws poiw^. )Egei/resqe, a)/gwmen e)nteu^qen.
+     15:01 )Egw/ ei)mi h( a)/mpelos h( a)lhqinh/, kai\ o( path/r mou o( gewrgo/s e)stin.
+     15:02 Pa^n klh^ma e)n e)moi\ mh\ fe/ron karpo/n, ai)/rei au)to/: kai\ pa^n to\ karpo\n fe/ron, kaqai/rei au)to/, i(/na plei/ona {N plei/ona karpo\n > karpo\n plei/ona } karpo\n fe/rh|.
+     15:03 )/Hdh u(mei^s kaqaroi/ e)ste dia\ to\n lo/gon o(\n lela/lhka u(mi^n.
+     15:04 Mei/nate e)n e)moi/, ka)gw\ e)n u(mi^n. Kaqw\s to\ klh^ma ou) du/natai karpo\n fe/rein a)f' e(autou^, e)a\n mh\ mei/nh| {N mei/nh| > me/nh| } e)n th^| a)mpe/lw|, ou(/tws ou)de\ u(mei^s, e)a\n mh\ e)n e)moi\ mei/nhte. {N mei/nhte > me/nhte }
+     15:05 )Egw/ ei)mi h( a)/mpelos, u(mei^s ta\ klh/mata. (O me/nwn e)n e)moi/, ka)gw\ e)n au)tw^|, ou(^tos fe/rei karpo\n polu/n: o(/ti xwri\s e)mou^ ou) du/nasqe poiei^n ou)de/n.
+     15:06 )Ea\n mh/ tis mei/nh| {N mei/nh| > me/nh| } e)n e)moi/, e)blh/qh e)/cw w(s to\ klh^ma, kai\ e)chra/nqh, kai\ suna/gousin au)ta\ kai\ ei)s to\ pu^r ba/llousin, kai\ kai/etai.
+     15:07 )Ea\n mei/nhte e)n e)moi/, kai\ ta\ r(h/mata/ mou e)n u(mi^n mei/nh|, o(\ e)a\n qe/lhte ai)th/sesqe, {N ai)th/sesqe > ai)th/sasqe } kai\ genh/setai u(mi^n.
+     15:08 )En tou/tw| e)doca/sqh o( path/r mou, i(/na karpo\n polu\n fe/rhte: kai\ genh/sesqe {N genh/sesqe > ge/nhsqe } e)moi\ maqhtai/.
+     15:09 Kaqw\s h)ga/phse/n me o( path/r, ka)gw\ h)ga/phsa {N h)ga/phsa u(ma^s > u(ma^s h)ga/phsa } u(ma^s: mei/nate e)n th^| a)ga/ph| th^| e)mh^|.
+     15:10 )Ea\n ta\s e)ntola/s mou thrh/shte, menei^te e)n th^| a)ga/ph| mou: kaqw\s e)gw\ ta\s e)ntola\s tou^ patro/s mou teth/rhka, kai\ me/nw au)tou^ e)n th^| a)ga/ph|.
+     15:11 Tau^ta lela/lhka u(mi^n, i(/na h( xara\ h( e)mh\ e)n u(mi^n mei/nh|, {N mei/nh| > h)^| } kai\ h( xara\ u(mw^n plhrwqh^|.
+     15:12 Au(/th e)sti\n h( e)ntolh\ h( e)mh/, i(/na a)gapa^te a)llh/lous, kaqw\s h)ga/phsa u(ma^s.
+     15:13 Mei/zona tau/ths a)ga/phn ou)dei\s e)/xei, i(/na tis th\n yuxh\n au)tou^ qh^| u(pe\r tw^n fi/lwn au)tou^.
+     15:14 (Umei^s fi/loi mou e)ste/, e)a\n poih^te o(/sa {N o(/sa > a(\ } e)gw\ e)nte/llomai u(mi^n.
+     15:15 Ou)ke/ti u(ma^s {N u(ma^s le/gw > le/gw u(ma^s } le/gw dou/lous, o(/ti o( dou^los ou)k oi)^den ti/ poiei^ au)tou^ o( ku/rios: u(ma^s de\ ei)/rhka fi/lous, o(/ti pa/nta a(\ h)/kousa para\ tou^ patro/s mou e)gnw/risa u(mi^n.
+     15:16 Ou)x u(mei^s me e)cele/casqe, a)ll' e)gw\ e)celeca/mhn u(ma^s, kai\ e)/qhka u(ma^s, i(/na u(mei^s u(pa/ghte kai\ karpo\n fe/rhte, kai\ o( karpo\s u(mw^n me/nh|: i(/na o(/ ti a)\n ai)th/shte to\n pate/ra e)n tw^| o)no/mati/ mou, dw^| {B dw^| > dw/|h } u(mi^n.
+     15:17 Tau^ta e)nte/llomai u(mi^n, i(/na a)gapa^te a)llh/lous.
+     15:18 Ei) o( ko/smos u(ma^s misei^, ginw/skete o(/ti e)me\ prw^ton u(mw^n memi/shken.
+     15:19 Ei) e)k tou^ ko/smou h)^te, o( ko/smos a)\n to\ i)/dion e)fi/lei: o(/ti de\ e)k tou^ ko/smou ou)k e)ste/, a)ll' e)gw\ e)celeca/mhn u(ma^s e)k tou^ ko/smou, dia\ tou^to misei^ u(ma^s o( ko/smos.
+     15:20 Mnhmoneu/ete tou^ lo/gou ou(^ e)gw\ ei)^pon u(mi^n, Ou)k e)/stin dou^los mei/zwn tou^ kuri/ou au)tou^. Ei) e)me\ e)di/wcan, kai\ u(ma^s diw/cousin: ei) to\n lo/gon mou e)th/rhsan, kai\ to\n u(me/teron thrh/sousin.
+     15:21 )Alla\ tau^ta pa/nta poih/sousin u(mi^n {N u(mi^n > ei)s u(ma^s } dia\ to\ o)/noma/ mou, o(/ti ou)k oi)/dasin to\n pe/myanta/ me.
+     15:22 Ei) mh\ h)^lqon kai\ e)la/lhsa au)toi^s, a(marti/an ou)k ei)^xon: {N ei)^xon > ei)/xosan } nu^n de\ pro/fasin ou)k e)/xousin peri\ th^s a(marti/as au)tw^n.
+     15:23 (O e)me\ misw^n, kai\ to\n pate/ra mou misei^.
+     15:24 Ei) ta\ e)/rga mh\ e)poi/hsa e)n au)toi^s a(\ ou)dei\s a)/llos pepoi/hken, {N pepoi/hken > e)poi/hsen } a(marti/an ou)k ei)^xon: {N ei)^xon > ei)/xosan } nu^n de\ kai\ e(wra/kasin kai\ memish/kasin kai\ e)me\ kai\ to\n pate/ra mou.
+     15:25 )All' i(/na plhrwqh^| o( lo/gos o( gegramme/nos {N gegramme/nos e)n > e)n } e)n tw^| no/mw| au)tw^n o(/ti {N o(/ti > gegramme/nos o(/ti } )Emi/shsa/n me dwrea/n.
+     15:26 {P} (/Otan de\ {N de\ > - } e)/lqh| o( para/klhtos, o(\n e)gw\ pe/myw u(mi^n para\ tou^ patro/s, to\ pneu^ma th^s a)lhqei/as, o(\ para\ tou^ patro\s e)kporeu/etai, e)kei^nos marturh/sei peri\ e)mou^:
+     15:27 kai\ u(mei^s de\ marturei^te, o(/ti a)p' a)rxh^s met' e)mou^ e)ste.
+     16:01 Tau^ta lela/lhka u(mi^n, i(/na mh\ skandalisqh^te.
+     16:02 )Aposunagw/gous poih/sousin u(ma^s: a)ll' e)/rxetai w(/ra, i(/na pa^s o( a)poktei/nas u(ma^s do/ch| latrei/an prosfe/rein tw^| qew^|.
+     16:03 Kai\ tau^ta poih/sousin, o(/ti ou)k e)/gnwsan to\n pate/ra ou)de\ e)me/.
+     16:04 )Alla\ tau^ta lela/lhka u(mi^n, i(/na o(/tan e)/lqh| h( w(/ra, {N w(/ra > w(/ra au)tw^n } mnhmoneu/hte au)tw^n, o(/ti e)gw\ ei)^pon u(mi^n. Tau^ta de\ u(mi^n e)c a)rxh^s ou)k ei)^pon, o(/ti meq' u(mw^n h)/mhn.
+     16:05 Nu^n de\ u(pa/gw pro\s to\n pe/myanta/ me, kai\ ou)dei\s e)c u(mw^n e)rwta^| me, Pou^ u(pa/geis;
+     16:06 )All' o(/ti tau^ta lela/lhka u(mi^n, h( lu/ph peplh/rwken u(mw^n th\n kardi/an.
+     16:07 )All' e)gw\ th\n a)lh/qeian le/gw u(mi^n: sumfe/rei u(mi^n i(/na e)gw\ a)pe/lqw: e)a\n ga\r e)gw\ {N e)gw\ mh\ > mh\ } mh\ a)pe/lqw, o( para/klhtos ou)k e)leu/setai pro\s u(ma^s: e)a\n de\ poreuqw^, pe/myw au)to\n pro\s u(ma^s.
+     16:08 Kai\ e)lqw\n e)kei^nos e)le/gcei to\n ko/smon peri\ a(marti/as kai\ peri\ dikaiosu/nhs kai\ peri\ kri/sews:
+     16:09 peri\ a(marti/as me/n, o(/ti ou) pisteu/ousin ei)s e)me/:
+     16:10 peri\ dikaiosu/nhs de/, o(/ti pro\s to\n pate/ra mou {N mou > - } u(pa/gw, kai\ ou)ke/ti qewrei^te/ me:
+     16:11 peri\ de\ kri/sews, o(/ti o( a)/rxwn tou^ ko/smou tou/tou ke/kritai.
+     16:12 )/Eti polla\ e)/xw le/gein {N le/gein u(mi^n > u(mi^n le/gein } u(mi^n, a)ll' ou) du/nasqe basta/zein a)/rti.
+     16:13 (/Otan de\ e)/lqh| e)kei^nos, to\ pneu^ma th^s a)lhqei/as, o(dhgh/sei u(ma^s ei)s {N ei)s pa^san th\n a)lh/qeian > e)n th^| a)lhqei/a| pa/sh| } pa^san th\n a)lh/qeian: ou) ga\r lalh/sei a)f' e(autou^, a)ll' o(/sa a)\n {N a)\n a)kou/sh| > a)kou/sei } a)kou/sh| lalh/sei, kai\ ta\ e)rxo/mena a)naggelei^ u(mi^n.
+     16:14 )Ekei^nos e)me\ doca/sei, o(/ti e)k tou^ e)mou^ lh/yetai, {N lh/yetai > lh/myetai } kai\ a)naggelei^ u(mi^n.
+     16:15 Pa/nta o(/sa e)/xei o( path\r e)ma/ e)stin: dia\ tou^to ei)^pon, o(/ti e)k tou^ e)mou^ lamba/nei, kai\ a)naggelei^ u(mi^n.
+     16:16 Mikro\n kai\ ou) {N ou) > ou)ke/ti } qewrei^te/ me, kai\ pa/lin mikro\n kai\ o)/yesqe/ me, o(/ti {N o(/ti u(pa/gw pro\s to\n pate/ra > - } u(pa/gw pro\s to\n pate/ra.
+     16:17 Ei)^pon {N Ei)^pon > Ei)^pan } ou)^n e)k tw^n maqhtw^n au)tou^ pro\s a)llh/lous, Ti/ e)stin tou^to o(\ le/gei h(mi^n, Mikro\n kai\ ou) qewrei^te/ me, kai\ pa/lin mikro\n kai\ o)/yesqe/ me; Kai\ o(/ti )Egw\ {N )Egw\ > - } u(pa/gw pro\s to\n pate/ra;
+     16:18 )/Elegon ou)^n, Tou^to {N Tou^to ti/ e)stin o(\ le/gei > Ti/ e)stin tou^to [o(\ le/gei] } ti/ e)stin o(\ le/gei, to\ mikro/n; Ou)k oi)/damen ti/ lalei^.
+     16:19 )/Egnw ou)^n {N ou)^n o( > [o(] } o( )Ihsou^s o(/ti h)/qelon au)to\n e)rwta^|n, kai\ ei)^pen au)toi^s, Peri\ tou/tou zhtei^te met' a)llh/lwn, o(/ti ei)^pon, Mikro\n kai\ ou) qewrei^te/ me, kai\ pa/lin mikro\n kai\ o)/yesqe/ me;
+     16:20 )Amh\n a)mh\n le/gw u(mi^n o(/ti klau/sete kai\ qrhnh/sete u(mei^s, o( de\ ko/smos xarh/setai: u(mei^s de\ {N de\ luphqh/sesqe > luphqh/sesqe } luphqh/sesqe, a)ll' h( lu/ph u(mw^n ei)s xara\n genh/setai.
+     16:21 (H gunh\ o(/tan ti/kth| lu/phn e)/xei, o(/ti h)^lqen h( w(/ra au)th^s: o(/tan de\ gennh/sh| to\ paidi/on, ou)ke/ti mnhmoneu/ei th^s qli/yews, dia\ th\n xara\n o(/ti e)gennh/qh a)/nqrwpos ei)s to\n ko/smon.
+     16:22 Kai\ u(mei^s ou)^n lu/phn {N lu/phn me\n nu^n > nu^n me\n lu/phn } me\n nu^n e)/xete: pa/lin de\ o)/yomai u(ma^s, kai\ xarh/setai u(mw^n h( kardi/a, kai\ th\n xara\n u(mw^n ou)dei\s ai)/rei a)f' u(mw^n.
+     16:23 Kai\ e)n e)kei/nh| th^| h(me/ra| e)me\ ou)k e)rwth/sete ou)de/n. )Amh\n a)mh\n le/gw u(mi^n o(/ti {N o(/ti o(/sa a)\n > a)/n ti } o(/sa a)\n ai)th/shte to\n pate/ra e)n tw^| o)no/mati/ mou, dw/sei u(mi^n.
+     16:24 (/Ews a)/rti ou)k h)|th/sate ou)de\n e)n tw^| o)no/mati/ mou: ai)tei^te, kai\ lh/yesqe, {N lh/yesqe > lh/myesqe } i(/na h( xara\ u(mw^n h)^| peplhrwme/nh.
+     16:25 {P} Tau^ta e)n paroimi/ais lela/lhka u(mi^n: a)ll' {N a)ll' > - } e)/rxetai w(/ra o(/te ou)ke/ti e)n paroimi/ais lalh/sw u(mi^n, a)lla\ parrhsi/a| peri\ tou^ patro\s a)naggelw^ {N a)naggelw^ > a)paggelw^ } u(mi^n.
+     16:26 )En e)kei/nh| th^| h(me/ra| e)n tw^| o)no/mati/ mou ai)th/sesqe: kai\ ou) le/gw u(mi^n o(/ti e)gw\ e)rwth/sw to\n pate/ra peri\ u(mw^n:
+     16:27 au)to\s ga\r o( path\r filei^ u(ma^s, o(/ti u(mei^s e)me\ pefilh/kate, kai\ pepisteu/kate o(/ti e)gw\ para\ tou^ {N tou^ > [tou^] } qeou^ e)ch^lqon.
+     16:28 )Ech^lqon para\ tou^ patro/s, kai\ e)lh/luqa ei)s to\n ko/smon: pa/lin a)fi/hmi to\n ko/smon, kai\ poreu/omai pro\s to\n pate/ra.
+     16:29 Le/gousin au)tw^| {N au)tw^| > - } oi( maqhtai\ au)tou^, )/Ide, nu^n parrhsi/a| {N parrhsi/a| > e)n parrhsi/a| } lalei^s, kai\ paroimi/an ou)demi/an le/geis.
+     16:30 Nu^n oi)/damen o(/ti oi)^das pa/nta, kai\ ou) xrei/an e)/xeis i(/na ti/s se e)rwta^|: e)n tou/tw| pisteu/omen o(/ti a)po\ qeou^ e)ch^lqes.
+     16:31 )Apekri/qh au)toi^s o( {N o( > - } )Ihsou^s, )/Arti pisteu/ete;
+     16:32 )Idou/, e)/rxetai w(/ra kai\ nu^n {N nu^n > - } e)lh/luqen, i(/na skorpisqh^te e(/kastos ei)s ta\ i)/dia, kai\ {N kai\ e)me\ > ka)me\ } e)me\ mo/non a)fh^te: kai\ ou)k ei)mi\ mo/nos, o(/ti o( path\r met' e)mou^ e)stin.
+     16:33 Tau^ta lela/lhka u(mi^n, i(/na e)n e)moi\ ei)rh/nhn e)/xhte. )En tw^| ko/smw| qli/yin e)/xete: a)lla\ qarsei^te, e)gw\ neni/khka to\n ko/smon.
+     17:01 Tau^ta e)la/lhsen o( {N o( )Ihsou^s kai\ e)ph^ren > )Ihsou^s kai\ e)pa/ras } )Ihsou^s, kai\ e)ph^ren tou\s o)fqalmou\s au)tou^ ei)s to\n ou)rano/n, kai\ {N kai\ ei)^pen > ei)^pen } ei)^pen, Pa/ter, e)lh/luqen h( w(/ra: do/caso/n sou to\n ui(o/n, i(/na kai\ {N kai\ o( ui(o/s sou > o( ui(o\s } o( ui(o/s sou doca/sh| se:
+     17:02 kaqw\s e)/dwkas au)tw^| e)cousi/an pa/shs sarko/s, i(/na pa^n o(\ de/dwkas au)tw^|, dw/sei {N dw/sei > dw/sh| } au)toi^s zwh\n ai)w/nion.
+     17:03 Au(/th de/ e)stin h( ai)w/nios zwh/, i(/na ginw/skwsi/n se to\n mo/non a)lhqino\n qeo/n, kai\ o(\n a)pe/steilas )Ihsou^n xristo/n.
+     17:04 )Egw/ se e)do/casa e)pi\ th^s gh^s: to\ e)/rgon e)telei/wsa {N e)telei/wsa > teleiw/sas } o(\ de/dwka/s moi i(/na poih/sw.
+     17:05 Kai\ nu^n do/caso/n me su/, pa/ter, para\ seautw^| th^| do/ch| h(^| ei)^xon pro\ tou^ to\n ko/smon ei)^nai para\ soi/.
+     17:06 )Efane/rwsa/ sou to\ o)/noma toi^s a)nqrw/pois ou(\s de/dwka/s {N de/dwka/s moi > e)/dwka/s moi } moi e)k tou^ ko/smou: soi\ h)^san, kai\ {N kai\ e)moi\ > ka)moi\ } e)moi\ au)tou\s de/dwkas: {N de/dwkas kai\ > e)/dwkas kai\ } kai\ to\n lo/gon sou tethrh/kasin. {N tethrh/kasin > teth/rhkan }
+     17:07 Nu^n e)/gnwkan o(/ti pa/nta o(/sa de/dwka/s moi, para\ sou^ e)stin: {N e)stin > ei)sin }
+     17:08 o(/ti ta\ r(h/mata a(\ de/dwka/s {N de/dwka/s > e)/dwka/s } moi, de/dwka au)toi^s: kai\ au)toi\ e)/labon, kai\ e)/gnwsan a)lhqw^s o(/ti para\ sou^ e)ch^lqon, kai\ e)pi/steusan o(/ti su/ me a)pe/steilas.
+     17:09 )Egw\ peri\ au)tw^n e)rwtw^: ou) peri\ tou^ ko/smou e)rwtw^, a)lla\ peri\ w(^n de/dwka/s moi, o(/ti soi/ ei)sin:
+     17:10 kai\ ta\ e)ma\ pa/nta sa/ e)stin, kai\ ta\ sa\ e)ma/: kai\ dedo/casmai e)n au)toi^s.
+     17:11 Kai\ ou)ke/ti ei)mi\ e)n tw^| ko/smw|, kai\ ou(^toi {N ou(^toi > au)toi\ } e)n tw^| ko/smw| ei)si/n, kai\ {N kai\ e)gw\ > ka)gw\ } e)gw\ pro/s se e)/rxomai. Pa/ter a(/gie, th/rhson au)tou\s e)n tw^| o)no/mati/ sou, w(^| de/dwka/s moi, i(/na w)^sin e(/n, kaqw\s h(mei^s.
+     17:12 (/Ote h)/mhn met' au)tw^n e)n {N e)n tw^| ko/smw| > - } tw^| ko/smw|, e)gw\ e)th/roun au)tou\s e)n tw^| o)no/mati/ sou: ou(\s {N ou(\s > w(^| } de/dwka/s moi, {N moi > moi kai\ } e)fu/laca, kai\ ou)dei\s e)c au)tw^n a)pw/leto, ei) mh\ o( ui(o\s th^s a)pwlei/as, i(/na h( grafh\ plhrwqh^|.
+     17:13 Nu^n de\ pro/s se e)/rxomai, kai\ tau^ta lalw^ e)n tw^| ko/smw|, i(/na e)/xwsin th\n xara\n th\n e)mh\n peplhrwme/nhn e)n au)toi^s. {N au)toi^s > e(autoi^s }
+     17:14 )Egw\ de/dwka au)toi^s to\n lo/gon sou, kai\ o( ko/smos e)mi/shsen au)tou/s, o(/ti ou)k ei)si\n e)k tou^ ko/smou, kaqw\s e)gw\ ou)k ei)mi\ e)k tou^ ko/smou.
+     17:15 Ou)k e)rwtw^ i(/na a)/rh|s au)tou\s e)k tou^ ko/smou, a)ll' i(/na thrh/sh|s au)tou\s e)k tou^ ponhrou^.
+     17:16 )Ek tou^ ko/smou ou)k ei)si/n, kaqw\s e)gw\ e)k {N e)k tou^ ko/smou ou)k ei)mi/ > ou)k ei)mi\ e)k tou^ ko/smou } tou^ ko/smou ou)k ei)mi/.
+     17:17 (Agi/ason au)tou\s e)n th^| a)lhqei/a| sou: {N sou > - } o( lo/gos o( so\s a)lh/qeia/ e)stin.
+     17:18 Kaqw\s e)me\ a)pe/steilas ei)s to\n ko/smon, ka)gw\ a)pe/steila au)tou\s ei)s to\n ko/smon.
+     17:19 Kai\ u(pe\r au)tw^n e)gw\ a(gia/zw e)mauto/n, i(/na kai\ {N kai\ au)toi\ w)^sin > w)^sin kai\ au)toi\ } au)toi\ w)^sin h(giasme/noi e)n a)lhqei/a|.
+     17:20 Ou) peri\ tou/twn de\ e)rwtw^ mo/non, a)lla\ kai\ peri\ tw^n pisteuo/ntwn dia\ tou^ lo/gou au)tw^n ei)s e)me/:
+     17:21 i(/na pa/ntes e(\n w)^sin: kaqw\s su/, pa/ter, e)n e)moi/, ka)gw\ e)n soi/, i(/na kai\ au)toi\ e)n h(mi^n e(\n {N h(mi^n e(\n > h(mi^n } w)^sin: i(/na o( ko/smos pisteu/sh| {N pisteu/sh| > pisteu/h| } o(/ti su/ me a)pe/steilas.
+     17:22 Kai\ {N Kai\ e)gw\ > Ka)gw\ } e)gw\ th\n do/can h(\n de/dwka/s moi, de/dwka au)toi^s, i(/na w)^sin e(/n, kaqw\s h(mei^s e(/n e)smen. {N e)smen > - }
+     17:23 )Egw\ e)n au)toi^s, kai\ su\ e)n e)moi/, i(/na w)^sin teteleiwme/noi ei)s e(/n, kai\ {N kai\ i(/na > i(/na } i(/na ginw/skh| o( ko/smos o(/ti su/ me a)pe/steilas, kai\ h)ga/phsas au)tou/s, kaqw\s e)me\ h)ga/phsas.
+     17:24 Pa/ter, ou(\s {N ou(\s > o(\ } de/dwka/s moi, qe/lw i(/na o(/pou ei)mi\ e)gw\ ka)kei^noi w)^sin met' e)mou^: i(/na qewrw^sin th\n do/can th\n e)mh\n h(\n e)/dwka/s {B e)/dwka/s > de/dwka/s } {N e)/dwka/s > de/dwka/s } moi, o(/ti h)ga/phsa/s me pro\ katabolh^s ko/smou.
+     17:25 Pa/ter di/kaie, kai\ o( ko/smos se ou)k e)/gnw, e)gw\ de/ se e)/gnwn, kai\ ou(^toi e)/gnwsan o(/ti su/ me a)pe/steilas:
+     17:26 kai\ e)gnw/risa au)toi^s to\ o)/noma/ sou, kai\ gnwri/sw: i(/na h( a)ga/ph, h(\n h)ga/phsa/s me, e)n au)toi^s h)^|, ka)gw\ e)n au)toi^s.
+     18:01 Tau^ta ei)pw\n o( {N o( > - } )Ihsou^s e)ch^lqen su\n toi^s maqhtai^s au)tou^ pe/ran tou^ xeima/rrou tw^n {N tw^n > tou^ } Ke/drwn, o(/pou h)^n kh^pos, ei)s o(\n ei)sh^lqen au)to\s kai\ oi( maqhtai\ au)tou^.
+     18:02 )/|Hdei de\ kai\ )Iou/das, o( paradidou\s au)to/n, to\n to/pon: o(/ti polla/kis sunh/xqh {B sunh/xqh > sunh/xqh kai\ } o( )Ihsou^s {N o( )Ihsou^s > )Ihsou^s } e)kei^ meta\ tw^n maqhtw^n au)tou^.
+     18:03 (O ou)^n )Iou/das, labw\n th\n spei^ran, kai\ e)k tw^n a)rxiere/wn kai\ Farisai/wn {N Farisai/wn > e)k tw^n Farisai/wn } u(phre/tas, e)/rxetai e)kei^ meta\ fanw^n kai\ lampa/dwn kai\ o(/plwn.
+     18:04 )Ihsou^s ou)^n, ei)dw\s pa/nta ta\ e)rxo/mena e)p' au)to/n, e)celqw\n {N e)celqw\n ei)^pen > e)ch^lqen kai\ le/gei } ei)^pen au)toi^s, Ti/na zhtei^te;
+     18:05 )Apekri/qhsan au)tw^|, )Ihsou^n to\n Nazwrai^on. Le/gei au)toi^s o( {N o( )Ihsou^s > - } )Ihsou^s, )Egw/ ei)mi. Ei(sth/kei de\ kai\ )Iou/das o( paradidou\s au)to\n met' au)tw^n.
+     18:06 (Ws ou)^n ei)^pen au)toi^s o(/ti {N o(/ti > - } )Egw/ ei)mi, a)ph^lqon ei)s ta\ o)pi/sw, kai\ e)/peson {N e)/peson > e)/pesan } xamai/.
+     18:07 Pa/lin ou)^n au)tou\s {N au)tou\s e)phrw/thsen > e)phrw/thsen au)tou/s } e)phrw/thsen, Ti/na zhtei^te; Oi( de\ ei)^pon, {N ei)^pon > ei)^pan } )Ihsou^n to\n Nazwrai^on.
+     18:08 )Apekri/qh )Ihsou^s, Ei)^pon u(mi^n o(/ti e)gw/ ei)mi: ei) ou)^n e)me\ zhtei^te, a)/fete tou/tous u(pa/gein:
+     18:09 i(/na plhrwqh^| o( lo/gos o(\n ei)^pen o(/ti Ou(\s de/dwka/s moi, ou)k a)pw/lesa e)c au)tw^n ou)de/na.
+     18:10 Si/mwn ou)^n Pe/tros e)/xwn ma/xairan ei(/lkusen au)th/n, kai\ e)/paisen to\n tou^ a)rxiere/ws dou^lon, kai\ a)pe/koyen au)tou^ to\ w)ti/on {N w)ti/on > w)ta/rion } to\ decio/n. )^Hn de\ o)/noma tw^| dou/lw| Ma/lxos.
+     18:11 Ei)^pen ou)^n o( )Ihsou^s tw^| Pe/trw|, Ba/le th\n ma/xairan {B ma/xairan > ma/xaira/n sou } ei)s th\n qh/khn: to\ poth/rion o(\ de/dwke/n moi o( path/r, ou) mh\ pi/w au)to/;
+     18:12 {P} (H ou)^n spei^ra kai\ o( xili/arxos kai\ oi( u(phre/tai tw^n )Ioudai/wn sune/labon to\n )Ihsou^n, kai\ e)/dhsan au)to/n,
+     18:13 kai\ a)ph/gagon {N a)ph/gagon au)to\n > h)/gagon } au)to\n pro\s )/Annan prw^ton: h)^n ga\r penqero\s tou^ Kai+a/fa, o(\s h)^n a)rxiereu\s tou^ e)niautou^ e)kei/nou.
+     18:14 )^Hn de\ Kai+a/fas o( sumbouleu/sas toi^s )Ioudai/ois, o(/ti sumfe/rei e(/na a)/nqrwpon a)pole/sqai {N a)pole/sqai > a)poqanei^n } u(pe\r tou^ laou^.
+     18:15 {P} )Hkolou/qei de\ tw^| )Ihsou^ Si/mwn Pe/tros, kai\ o( {N o( a)/llos > a)/llos } a)/llos maqhth/s. (O de\ maqhth\s e)kei^nos h)^n gnwsto\s tw^| a)rxierei^, kai\ suneish^lqen tw^| )Ihsou^ ei)s th\n au)lh\n tou^ a)rxiere/ws:
+     18:16 o( de\ Pe/tros ei(sth/kei pro\s th^| qu/ra| e)/cw. )Ech^lqen ou)^n o( maqhth\s o( a)/llos o(\s {N o(\s h)^n gnwsto\s tw^| a)rxierei^ > o( gnwsto\s tou^ a)rxiere/ws } h)^n gnwsto\s tw^| a)rxierei^, kai\ ei)^pen th^| qurwrw^|, kai\ ei)sh/gagen to\n Pe/tron.
+     18:17 Le/gei ou)^n h( {N h( paidi/skh h( qurwro\s tw^| Pe/trw| > tw^| Pe/trw| h( paidi/skh h( qurwro/s } paidi/skh h( qurwro\s tw^| Pe/trw|, Mh\ kai\ su\ e)k tw^n maqhtw^n ei)^ tou^ a)nqrw/pou tou/tou; Le/gei e)kei^nos, Ou)k ei)mi/.
+     18:18 Ei(sth/keisan de\ oi( dou^loi kai\ oi( u(phre/tai a)nqrakia\n pepoihko/tes, o(/ti yu/xos h)^n, kai\ e)qermai/nonto: h)^n de\ met' {N met' au)tw^n o( Pe/tros > kai\ o( Pe/tros met' au)tw^n } au)tw^n o( Pe/tros e(stw\s kai\ qermaino/menos.
+     18:19 {P} (O ou)^n a)rxiereu\s h)rw/thsen to\n )Ihsou^n peri\ tw^n maqhtw^n au)tou^, kai\ peri\ th^s didaxh^s au)tou^.
+     18:20 )Apekri/qh au)tw^| o( {N o( > - } )Ihsou^s, )Egw\ parrhsi/a| e)la/lhsa {N e)la/lhsa tw^| > lela/lhka tw^| } tw^| ko/smw|: e)gw\ pa/ntote e)di/daca e)n sunagwgh^| kai\ e)n tw^| i(erw^|, o(/pou pa/ntote {N pa/ntote oi( > pa/ntes oi( } oi( )Ioudai^oi sune/rxontai, kai\ e)n kruptw^| e)la/lhsa ou)de/n.
+     18:21 Ti/ me e)perwta^|s; {N e)perwta^|s )Eperw/thson > e)rwta^|s )Erw/thson } )Eperw/thson tou\s a)khkoo/tas, ti/ e)la/lhsa au)toi^s: i)/de, ou(^toi oi)/dasin a(\ ei)^pon e)gw/.
+     18:22 Tau^ta de\ au)tou^ ei)po/ntos, ei(^s tw^n {N tw^n u(phretw^n paresthkw\s > paresthkw\s tw^n u(phretw^n } u(phretw^n paresthkw\s e)/dwken r(a/pisma tw^| )Ihsou^, ei)pw/n, Ou(/tws a)pokri/nh| tw^| a)rxierei^;
+     18:23 )Apekri/qh au)tw^| o( {N o( > - } )Ihsou^s, Ei) kakw^s e)la/lhsa, martu/rhson peri\ tou^ kakou^: ei) de\ kalw^s, ti/ me de/reis;
+     18:24 )Ape/steilen au)to\n {N au)to\n > ou)^n au)to\n } o( )/Annas dedeme/non pro\s Kai+a/fan to\n a)rxiere/a.
+     18:25 {P} )^Hn de\ Si/mwn Pe/tros e(stw\s kai\ qermaino/menos: ei)^pon ou)^n au)tw^|, Mh\ kai\ su\ e)k tw^n maqhtw^n au)tou^ ei)^; )Hrnh/sato ou)^n {N ou)^n e)kei^nos > e)kei^nos } e)kei^nos, kai\ ei)^pen, Ou)k ei)mi/.
+     18:26 Le/gei ei(^s e)k tw^n dou/lwn tou^ a)rxiere/ws, suggenh\s w)\n ou(^ a)pe/koyen Pe/tros to\ w)ti/on, Ou)k e)gw/ se ei)^don e)n tw^| kh/pw| met' au)tou^;
+     18:27 Pa/lin ou)^n h)rnh/sato o( {N o( > - } Pe/tros, kai\ eu)qe/ws a)le/ktwr e)fw/nhsen.
+     18:28 {P} )/Agousin ou)^n to\n )Ihsou^n a)po\ tou^ Kai+a/fa ei)s to\ praitw/rion: h)^n de\ prwi+/, {B prwi+/ > prwi+/a } kai\ au)toi\ ou)k ei)sh^lqon ei)s to\ praitw/rion, i(/na mh\ mianqw^sin, a)ll' {N a)ll' i(/na > a)lla\ } i(/na fa/gwsin to\ Pa/sxa.
+     18:29 )Ech^lqen ou)^n o( Pila/tos pro\s {N pro\s > e)/cw pro\s } au)tou/s, kai\ ei)^pen, {N ei)^pen > fhsi/n } Ti/na kathgori/an fe/rete kata\ {N kata\ > [kata\] } tou^ a)nqrw/pou tou/tou;
+     18:30 )Apekri/qhsan kai\ ei)^pon {N ei)^pon > ei)^pan } au)tw^|, Ei) mh\ h)^n ou(^tos kakopoio/s, {N kakopoio/s > kako\n poiw^n } ou)k a)/n soi paredw/kamen au)to/n.
+     18:31 Ei)^pen ou)^n au)toi^s o( Pila/tos, La/bete au)to\n u(mei^s, kai\ kata\ to\n no/mon u(mw^n kri/nate au)to/n. Ei)^pon ou)^n {N ou)^n au)tw^| > au)tw^| } au)tw^| oi( )Ioudai^oi, (Hmi^n ou)k e)/cestin a)poktei^nai ou)de/na:
+     18:32 i(/na o( lo/gos tou^ )Ihsou^ plhrwqh^|, o(\n ei)^pen, shmai/nwn poi/w| qana/tw| e)/mellen {B e)/mellen > h)/mellen } {N e)/mellen > h)/mellen } a)poqnh/|skein.
+     18:33 {P} Ei)sh^lqen ou)^n ei)s {N ei)s to\ praitw/rion pa/lin > pa/lin ei)s to\ praitw/rion } to\ praitw/rion pa/lin o( Pila/tos, kai\ e)fw/nhsen to\n )Ihsou^n, kai\ ei)^pen au)tw^|, Su\ ei)^ o( basileu\s tw^n )Ioudai/wn;
+     18:34 )Apekri/qh au)tw^| {N au)tw^| o( > - } o( )Ihsou^s, )Af' {N )Af' e(autou^ > )Apo\ seautou^ } e(autou^ su\ tou^to le/geis, h)\ a)/lloi soi {N soi ei)^pon > ei)^po/n soi } ei)^pon peri\ e)mou^;
+     18:35 )Apekri/qh o( Pila/tos, Mh/ti e)gw\ )Ioudai^o/s ei)mi; To\ e)/qnos to\ so\n kai\ oi( a)rxierei^s pare/dwka/n se e)moi/: ti/ e)poi/hsas;
+     18:36 )Apekri/qh )Ihsou^s, (H basilei/a h( e)mh\ ou)k e)/stin e)k tou^ ko/smou tou/tou: ei) e)k tou^ ko/smou tou/tou h)^n h( basilei/a h( e)mh/, oi( u(phre/tai a)\n {N a)\n > - } oi( e)moi\ h)gwni/zonto, i(/na {N i(/na > [a)\n] i(/na } mh\ paradoqw^ toi^s )Ioudai/ois: nu^n de\ h( basilei/a h( e)mh\ ou)k e)/stin e)nteu^qen.
+     18:37 Ei)^pen ou)^n au)tw^| o( Pila/tos, Ou)kou^n basileu\s ei)^ su/; )Apekri/qh {B )Ihsou^s > o( )Ihsou^s } )Ihsou^s, {N )Ihsou^s > o( )Ihsou^s } Su\ le/geis, o(/ti basileu/s ei)mi e)gw/. {N ei)mi e)gw/ > ei)mi } )Egw\ ei)s tou^to gege/nnhmai, kai\ ei)s tou^to e)lh/luqa ei)s to\n ko/smon, i(/na marturh/sw th^| a)lhqei/a|. Pa^s o( w)\n e)k th^s a)lhqei/as a)kou/ei mou th^s fwnh^s.
+     18:38 Le/gei au)tw^| o( Pila/tos, Ti/ e)stin a)lh/qeia; {P} Kai\ tou^to ei)pw/n, pa/lin e)ch^lqen pro\s tou\s )Ioudai/ous, kai\ le/gei au)toi^s, )Egw\ ou)demi/an ai)ti/an {N ai)ti/an eu(ri/skw e)n au)tw^| > eu(ri/skw e)n au)tw^| ai)ti/an } eu(ri/skw e)n au)tw^|.
+     18:39 )/Estin de\ sunh/qeia u(mi^n, i(/na e(/na u(mi^n {N u(mi^n a)polu/sw e)n > a)polu/sw u(mi^n e)n } a)polu/sw e)n tw^| Pa/sxa: bou/lesqe ou)^n u(mi^n {N u(mi^n a)polu/sw to\n > a)polu/sw u(mi^n to\n } a)polu/sw to\n basile/a tw^n )Ioudai/wn;
+     18:40 )Ekrau/gasan ou)^n pa/lin pa/ntes, {N pa/ntes > - } le/gontes, Mh\ tou^ton, a)lla\ to\n Barabba^n: h)^n de\ o( Barabba^s lh|sth/s.
+     19:01 To/te ou)^n e)/laben o( Pila/tos to\n )Ihsou^n, kai\ e)masti/gwsen.
+     19:02 Kai\ oi( stratiw^tai ple/cantes ste/fanon e)c a)kanqw^n e)pe/qhkan au)tou^ th^| kefalh^|, kai\ i(ma/tion porfurou^n perie/balon au)to/n,
+     19:03 kai\ e)/legon, {N e)/legon > h)/rxonto pro\s au)to\n kai\ e)/legon } Xai^re, o( basileu\s tw^n )Ioudai/wn: kai\ e)di/doun {N e)di/doun > e)di/dosan } au)tw^| r(api/smata.
+     19:04 )Ech^lqen {N )Ech^lqen ou)^n > Kai\ e)ch^lqen } ou)^n pa/lin e)/cw o( Pila/tos, kai\ le/gei au)toi^s, )/Ide, a)/gw u(mi^n au)to\n e)/cw, i(/na gnw^te o(/ti e)n {N e)n au)tw^| ou)demi/an ai)ti/an eu(ri/skw > ou)demi/an ai)ti/an eu(ri/skw e)n au)tw^| } au)tw^| ou)demi/an ai)ti/an eu(ri/skw.
+     19:05 )Ech^lqen ou)^n o( )Ihsou^s e)/cw, forw^n to\n a)ka/nqinon ste/fanon kai\ to\ porfurou^n i(ma/tion. Kai\ le/gei au)toi^s, )/Ide, {N )/Ide > )Idou/ } o( a)/nqrwpos.
+     19:06 (/Ote ou)^n ei)^don au)to\n oi( a)rxierei^s kai\ oi( u(phre/tai, e)krau/gasan le/gontes, Stau/rwson, stau/rwson au)to/n. {N au)to/n. Le/gei > Le/gei } Le/gei au)toi^s o( Pila/tos, La/bete au)to\n u(mei^s kai\ staurw/sate: e)gw\ ga\r ou)x eu(ri/skw e)n au)tw^| ai)ti/an.
+     19:07 )Apekri/qhsan au)tw^| oi( )Ioudai^oi, (Hmei^s no/mon e)/xomen, kai\ kata\ to\n no/mon h(mw^n {N h(mw^n > - } o)fei/lei a)poqanei^n, o(/ti e(auto\n {N e(auto\n ui(o\n qeou^ > ui(o\n qeou^ e(auto\n } ui(o\n qeou^ e)poi/hsen.
+     19:08 (/Ote ou)^n h)/kousen o( Pila/tos tou^ton to\n lo/gon, ma^llon e)fobh/qh,
+     19:09 kai\ ei)sh^lqen ei)s to\ praitw/rion pa/lin, kai\ le/gei tw^| )Ihsou^, Po/qen ei)^ su/; (O de\ )Ihsou^s a)po/krisin ou)k e)/dwken au)tw^|.
+     19:10 Le/gei ou)^n au)tw^| o( Pila/tos, )Emoi\ ou) lalei^s; Ou)k oi)^das o(/ti e)cousi/an e)/xw staurw^sai/ {N staurw^sai/ > a)polu^sai/ } se, kai\ e)cousi/an e)/xw a)polu^sai/ {N a)polu^sai/ > staurw^sai/ } se;
+     19:11 )Apekri/qh )Ihsou^s, {N )Ihsou^s > [au)tw^|] )Ihsou^s } Ou)k ei)^xes e)cousi/an ou)demi/an {N ou)demi/an kat' e)mou^ > kat' e)mou^ ou)demi/an } kat' e)mou^, ei) mh\ h)^n soi {N soi dedome/non > dedome/non soi } dedome/non a)/nwqen: dia\ tou^to o( paradidou/s {N paradidou/s > paradou/s } me/ soi mei/zona a(marti/an e)/xei.
+     19:12 )Ek tou/tou e)zh/tei {N e)zh/tei o( Pila/tos > o( Pila^tos e)zh/tei } o( Pila/tos a)polu^sai au)to/n. Oi( de\ )Ioudai^oi e)/krazon {N e)/krazon > e)krau/gasan } le/gontes, )Ea\n tou^ton a)polu/sh|s, ou)k ei)^ fi/los tou^ Kai/saros: pa^s o( basile/a e(auto\n poiw^n, a)ntile/gei tw^| Kai/sari.
+     19:13 (O ou)^n Pila/tos a)kou/sas tou^ton {N tou^ton to\n lo/gon > tw^n lo/gwn tou/twn } to\n lo/gon h)/gagen e)/cw to\n )Ihsou^n, kai\ e)ka/qisen e)pi\ tou^ {N tou^ > - } bh/matos, ei)s to/pon lego/menon Liqo/strwton, (Ebrai+sti\ de\ Gabbaqa^:
+     19:14 h)^n de\ Paraskeuh\ tou^ Pa/sxa, w(/ra de\ {N de\ w(sei\ > h)^n w(s } w(sei\ {B w(sei\ > w(s } e(/kth: kai\ le/gei toi^s )Ioudai/ois, )/Ide, o( basileu\s u(mw^n.
+     19:15 Oi( {N Oi( de\ e)krau/gasan > )Ekrau/gasan ou)^n e)kei^noi } de\ e)krau/gasan, )^Aron, a)^ron, stau/rwson au)to/n. Le/gei au)toi^s o( Pila/tos, To\n basile/a u(mw^n staurw/sw; )Apekri/qhsan oi( a)rxierei^s, Ou)k e)/xomen basile/a ei) mh\ Kai/sara.
+     19:16 To/te ou)^n pare/dwken au)to\n au)toi^s i(/na staurwqh^|. {P} Pare/labon de\ {N de\ to\n )Ihsou^n kai\ h)/gagon > ou)^n to\n )Ihsou^n } to\n )Ihsou^n kai\ h)/gagon:
+     19:17 kai\ basta/zwn to\n {N to\n stauro\n au)tou^ > e(autw^| to\n stauro\n } stauro\n au)tou^ e)ch^lqen ei)s {N ei)s to/pon > ei)s to\n } to/pon lego/menon Krani/ou To/pon, o(\s {N o(\s > o(\ } le/getai (Ebrai+sti\ Golgoqa^:
+     19:18 o(/pou au)to\n e)stau/rwsan, kai\ met' au)tou^ a)/llous du/o, e)nteu^qen kai\ e)nteu^qen, me/son de\ to\n )Ihsou^n.
+     19:19 )/Egrayen de\ kai\ ti/tlon o( Pila/tos, kai\ e)/qhken e)pi\ tou^ staurou^: h)^n de\ gegramme/non, )Ihsou^s o( Nazwrai^os o( basileu\s tw^n )Ioudai/wn.
+     19:20 Tou^ton ou)^n to\n ti/tlon polloi\ a)ne/gnwsan tw^n )Ioudai/wn, o(/ti e)ggu\s h)^n o( to/pos th^s po/lews o(/pou e)staurw/qh o( )Ihsou^s: kai\ h)^n gegramme/non (Ebrai+sti/, (Ellhnisti/, {N (Ellhnisti/ (Rwmai+sti/ > (Rwmai+sti/ (Ellhnisti/ } (Rwmai+sti/.
+     19:21 )/Elegon ou)^n tw^| Pila/tw| oi( a)rxierei^s tw^n )Ioudai/wn, Mh\ gra/fe, (O basileu\s tw^n )Ioudai/wn: a)ll' o(/ti )Ekei^nos ei)^pen, Basileu/s ei)mi tw^n )Ioudai/wn.
+     19:22 )Apekri/qh o( Pila/tos, (\O ge/grafa, ge/grafa.
+     19:23 {P} Oi( ou)^n stratiw^tai, o(/te e)stau/rwsan to\n )Ihsou^n, e)/labon ta\ i(ma/tia au)tou^, kai\ e)poi/hsan te/ssara me/rh, e(ka/stw| stratiw/th| me/ros, kai\ to\n xitw^na. )^Hn de\ o( xitw\n a)/rafos, e)k tw^n a)/nwqen u(fanto\s di' o(/lou.
+     19:24 Ei)^pon {N Ei)^pon > Ei)^pan } ou)^n pro\s a)llh/lous, Mh\ sxi/swmen au)to/n, a)lla\ la/xwmen peri\ au)tou^, ti/nos e)/stai: i(/na h( grafh\ plhrwqh^| h( {N h( le/gousa > [h( le/gousa] } le/gousa, Diemeri/santo ta\ i(ma/tia/ mou e(autoi^s, kai\ e)pi\ to\n i(matismo/n mou e)/balon klh^ron. Oi( me\n ou)^n stratiw^tai tau^ta e)poi/hsan.
+     19:25 Ei(sth/keisan de\ para\ tw^| staurw^| tou^ )Ihsou^ h( mh/thr au)tou^, kai\ h( a)delfh\ th^s mhtro\s au)tou^, Mari/a h( tou^ Klwpa^, kai\ Mari/a h( Magdalhnh/.
+     19:26 )Ihsou^s ou)^n i)dw\n th\n mhte/ra, kai\ to\n maqhth\n parestw^ta o(\n h)ga/pa, le/gei th^| mhtri\ au)tou^, {N au)tou^ > - } Gu/nai, i)dou\ {B i)dou\ > i)/de } {N i)dou\ > i)/de } o( ui(o/s sou.
+     19:27 Ei)^ta le/gei tw^| maqhth^|, )Idou\ {N )Idou\ > )/Ide } h( mh/thr sou. Kai\ a)p' e)kei/nhs th^s w(/ras e)/laben o( maqhth\s au)th\n ei)s ta\ i)/dia.
+     19:28 {P} Meta\ tou^to i)dw\n {N i)dw\n > ei)dw\s } o( )Ihsou^s o(/ti pa/nta {N pa/nta h)/dh > h)/dh pa/nta } h)/dh tete/lestai, i(/na teleiwqh^| h( grafh/, le/gei, Diyw^.
+     19:29 Skeu^os ou)^n {N ou)^n > - } e)/keito o)/cous mesto/n: oi( {N oi( de/ plh/santes > - } de/, plh/santes spo/ggon {N spo/ggon > spo/ggon ou)^n } o)/cous, {N o)/cous kai\ > mesto\n tou^ o)/cous } kai\ u(ssw/pw| periqe/ntes, prosh/negkan au)tou^ tw^| sto/mati.
+     19:30 (/Ote ou)^n e)/laben to\ o)/cos o( {N o( > [o(] } )Ihsou^s, ei)^pen, Tete/lestai: kai\ kli/nas th\n kefalh/n, pare/dwken to\ pneu^ma.
+     19:31 {P} Oi( ou)^n )Ioudai^oi, i(/na {N i(/na mh\ > e)pei\ Paraskeuh\ h)^n i(/na mh\ } mh\ mei/nh| e)pi\ tou^ staurou^ ta\ sw/mata e)n tw^| sabba/tw|, e)pei\ {N e)pei\ Paraskeuh\ h)^n > - } Paraskeuh\ h)^n - h)^n ga\r mega/lh h( h(me/ra e)kei/nou tou^ sabba/tou - h)rw/thsan to\n Pila/ton i(/na kateagw^sin au)tw^n ta\ ske/lh, kai\ a)rqw^sin.
+     19:32 )^Hlqon ou)^n oi( stratiw^tai, kai\ tou^ me\n prw/tou kate/acan ta\ ske/lh kai\ tou^ a)/llou tou^ sustaurwqe/ntos au)tw^|:
+     19:33 e)pi\ de\ to\n )Ihsou^n e)lqo/ntes, w(s ei)^don au)to\n {N au)to\n h)/dh > h)/dh au)to\n } h)/dh teqnhko/ta, ou) kate/acan au)tou^ ta\ ske/lh:
+     19:34 a)ll' ei(^s tw^n stratiwtw^n lo/gxh| au)tou^ th\n pleura\n e)/nucen, kai\ eu)qe/ws {N eu)qe/ws e)ch^lqen > e)ch^lqen eu)qu\s } e)ch^lqen ai(^ma kai\ u(/dwr.
+     19:35 Kai\ o( e(wrakw\s memartu/rhken, kai\ a)lhqinh/ e)stin {B e)stin au)tou^ > au)tou^ e)stin } {N e)stin au)tou^ > au)tou^ e)stin } au)tou^ h( marturi/a, ka)kei^nos {N ka)kei^nos > kai\ e)kei^nos } oi)^den o(/ti a)lhqh^ le/gei, i(/na u(mei^s {N u(mei^s pisteu/shte > kai\ u(mei^s pisteu/[s]hte } pisteu/shte.
+     19:36 )Ege/neto ga\r tau^ta i(/na h( grafh\ plhrwqh^|, )Ostou^n ou) suntribh/setai a)p' {N a)p' > - } au)tou^.
+     19:37 Kai\ pa/lin e(te/ra grafh\ le/gei, )/Oyontai ei)s o(\n e)ceke/nthsan.
+     19:38 {P} Meta\ tau^ta {N tau^ta > de\ tau^ta } h)rw/thsen to\n Pila/ton {B )Iwsh\f > o( )Iwsh\f } )Iwsh\f o( {N o( a)po\ > [o(] a)po\ } a)po\ )Arimaqai/as, w)\n maqhth\s tou^ )Ihsou^, kekrumme/nos de\ dia\ to\n fo/bon tw^n )Ioudai/wn, i(/na a)/rh| to\ sw^ma tou^ )Ihsou^: kai\ e)pe/treyen o( Pila/tos. )^Hlqen ou)^n kai\ h)^ren to\ sw^ma tou^ {N h)^ren to\ sw^ma tou^ )Ihsou^ > h)^ren to\ sw^ma au)tou^ } )Ihsou^.
+     19:39 )^Hlqen de\ kai\ Niko/dhmos, o( e)lqw\n pro\s to\n {N to\n )Ihsou^n > au)to\n } )Ihsou^n nukto\s to\ prw^ton, fe/rwn mi/gma smu/rnhs kai\ a)lo/hs w(s {B w(s > w(sei\ } li/tras e(kato/n.
+     19:40 )/Elabon ou)^n to\ sw^ma tou^ )Ihsou^, kai\ e)/dhsan au)to\ e)n {N e)n > - } o)qoni/ois meta\ tw^n a)rwma/twn, kaqw\s e)/qos e)sti\n toi^s )Ioudai/ois e)ntafia/zein.
+     19:41 )^Hn de\ e)n tw^| to/pw| o(/pou e)staurw/qh kh^pos, kai\ e)n tw^| kh/pw| mnhmei^on kaino/n, e)n w(^| ou)de/pw ou)dei\s e)te/qh. {N e)te/qh > h)^n teqeime/nos }
+     19:42 )Ekei^ ou)^n dia\ th\n Paraskeuh\n tw^n )Ioudai/wn, o(/ti e)ggu\s h)^n to\ mnhmei^on, e)/qhkan to\n )Ihsou^n.
+     20:01 Th^| de\ mia^| tw^n sabba/twn Mari/a h( Magdalhnh\ e)/rxetai prwi+/, skoti/as e)/ti ou)/shs, ei)s to\ mnhmei^on, kai\ ble/pei to\n li/qon h)rme/non e)k tou^ mnhmei/ou.
+     20:02 Tre/xei ou)^n kai\ e)/rxetai pro\s Si/mwna Pe/tron kai\ pro\s to\n a)/llon maqhth\n o(\n e)fi/lei o( )Ihsou^s, kai\ le/gei au)toi^s, )^Hran to\n ku/rion e)k tou^ mnhmei/ou, kai\ ou)k oi)/damen pou^ e)/qhkan au)to/n.
+     20:03 )Ech^lqen ou)^n o( Pe/tros kai\ o( a)/llos maqhth/s, kai\ h)/rxonto ei)s to\ mnhmei^on.
+     20:04 )/Etrexon de\ oi( du/o o(mou^: kai\ o( a)/llos maqhth\s proe/dramen ta/xion tou^ Pe/trou, kai\ h)^lqen prw^tos ei)s to\ mnhmei^on,
+     20:05 kai\ paraku/yas ble/pei kei/mena ta\ o)qo/nia, ou) me/ntoi ei)sh^lqen.
+     20:06 )/Erxetai ou)^n Si/mwn {N Si/mwn > kai\ Si/mwn } Pe/tros a)kolouqw^n au)tw^|, kai\ ei)sh^lqen ei)s to\ mnhmei^on, kai\ qewrei^ ta\ o)qo/nia kei/mena,
+     20:07 kai\ to\ souda/rion o(\ h)^n e)pi\ th^s kefalh^s au)tou^, ou) meta\ tw^n o)qoni/wn kei/menon, a)lla\ xwri\s e)ntetuligme/non ei)s e(/na to/pon.
+     20:08 To/te ou)^n ei)sh^lqen kai\ o( a)/llos maqhth\s o( e)lqw\n prw^tos ei)s to\ mnhmei^on, kai\ ei)^den, kai\ e)pi/steusen:
+     20:09 ou)de/pw ga\r h)/|deisan th\n grafh/n, o(/ti dei^ au)to\n e)k nekrw^n a)nasth^nai.
+     20:10 )Aph^lqon ou)^n pa/lin pro\s e(autou\s {N e(autou\s > au)tou\s } oi( maqhtai/.
+     20:11 {P} Mari/a de\ ei(sth/kei pro\s {B pro\s to\ mnhmei^on > pro\s tw^| mnhmei/w| } {N pro\s to\ mnhmei^on > pro\s tw^| mnhmei/w| } to\ mnhmei^on klai/ousa {N klai/ousa e)/cw > e)/cw klai/ousa } e)/cw: w(s ou)^n e)/klaien, pare/kuyen ei)s to\ mnhmei^on,
+     20:12 kai\ qewrei^ du/o a)gge/lous e)n leukoi^s kaqezome/nous, e(/na pro\s th^| kefalh^|, kai\ e(/na pro\s toi^s posi/n, o(/pou e)/keito to\ sw^ma tou^ )Ihsou^.
+     20:13 Kai\ le/gousin au)th^| e)kei^noi, Gu/nai, ti/ klai/eis; Le/gei au)toi^s, o(/ti )^Hran to\n ku/rio/n mou, kai\ ou)k oi)^da pou^ e)/qhkan au)to/n.
+     20:14 Kai\ {N Kai\ tau^ta > Tau^ta } tau^ta ei)pou^sa e)stra/fh ei)s ta\ o)pi/sw, kai\ qewrei^ to\n )Ihsou^n e(stw^ta, kai\ ou)k h)/|dei o(/ti )Ihsou^s e)stin.
+     20:15 Le/gei au)th^| o( {N o( )Ihsou^s > )Ihsou^s } )Ihsou^s, Gu/nai, ti/ klai/eis; Ti/na zhtei^s; )Ekei/nh, dokou^sa o(/ti o( khpouro/s e)stin, le/gei au)tw^|, Ku/rie, ei) su\ e)ba/stasas au)to/n, ei)pe/ moi pou^ e)/qhkas au)to/n, ka)gw\ au)to\n a)rw^.
+     20:16 Le/gei au)th^| o( {N o( )Ihsou^s Mari/a > )Ihsou^s Maria/m } )Ihsou^s, Mari/a. Strafei^sa e)kei/nh le/gei au)tw^|, (Rabbouni/ - {N (Rabbouni/ > (Ebrai+sti/ Rabbouni } o(\ le/getai, Dida/skale.
+     20:17 Le/gei au)th^| o( {N o( > - } )Ihsou^s, Mh/ mou a(/ptou, ou)/pw ga\r a)nabe/bhka pro\s to\n pate/ra mou: {N mou poreu/ou > poreu/ou } poreu/ou de\ pro\s tou\s a)delfou/s mou, kai\ ei)pe\ au)toi^s, )Anabai/nw pro\s to\n pate/ra mou kai\ pate/ra u(mw^n, kai\ qeo/n mou kai\ qeo\n u(mw^n.
+     20:18 )/Erxetai Mari/a {N Mari/a > Maria\m } h( Magdalhnh\ a)pagge/llousa {N a)pagge/llousa > a)gge/llousa } toi^s maqhtai^s o(/ti e(w/raken {N e(w/raken > (Ew/raka } to\n ku/rion, kai\ tau^ta ei)^pen au)th^|.
+     20:19 {P} Ou)/shs ou)^n o)yi/as, th^| h(me/ra| e)kei/nh| th^| mia^| tw^n {N tw^n sabba/twn > sabba/twn } sabba/twn, kai\ tw^n qurw^n kekleisme/nwn o(/pou h)^san oi( maqhtai\ sunhgme/noi, {N sunhgme/noi > - } dia\ to\n fo/bon tw^n )Ioudai/wn, h)^lqen o( )Ihsou^s kai\ e)/sth ei)s to\ me/son, kai\ le/gei au)toi^s, Ei)rh/nh u(mi^n.
+     20:20 Kai\ tou^to ei)pw\n e)/deicen au)toi^s {N au)toi^s ta\s > ta\s } ta\s xei^ras kai\ th\n pleura\n au)tou^. {N au)tou^ > au)toi^s } )Exa/rhsan ou)^n oi( maqhtai\ i)do/ntes to\n ku/rion.
+     20:21 Ei)^pen ou)^n au)toi^s o( {N o( )Ihsou^s > [o( )Ihsou^s] } )Ihsou^s pa/lin, Ei)rh/nh u(mi^n: kaqw\s a)pe/stalke/n me o( path/r, ka)gw\ pe/mpw u(ma^s.
+     20:22 Kai\ tou^to ei)pw\n e)nefu/shsen kai\ le/gei au)toi^s, La/bete pneu^ma a(/gion.
+     20:23 )/An tinwn a)fh^te ta\s a(marti/as, a)fi/entai {N a)fi/entai > a)fe/wntai } au)toi^s: a)/n tinwn krath^te, kekra/thntai.
+     20:24 {P} Qwma^s de/, ei(^s e)k tw^n dw/deka, o( lego/menos Di/dumos, ou)k h)^n met' au)tw^n o(/te h)^lqen o( {N o( )Ihsou^s > )Ihsou^s } )Ihsou^s.
+     20:25 )/Elegon ou)^n au)tw^| oi( a)/lloi maqhtai/, (Ewra/kamen to\n ku/rion. (O de\ ei)^pen au)toi^s, )Ea\n mh\ i)/dw e)n tai^s xersi\n au)tou^ to\n tu/pon tw^n h(/lwn, kai\ ba/lw to\n da/ktulo/n mou ei)s to\n tu/pon tw^n h(/lwn, kai\ ba/lw th\n {N th\n xei^ra/ mou > mou th\n xei^ra } xei^ra/ mou ei)s th\n pleura\n au)tou^, ou) mh\ pisteu/sw.
+     20:26 {P} Kai\ meq' h(me/ras o)ktw\ pa/lin h)^san e)/sw oi( maqhtai\ au)tou^, kai\ Qwma^s met' au)tw^n. )/Erxetai o( )Ihsou^s, tw^n qurw^n kekleisme/nwn, kai\ e)/sth ei)s to\ me/son kai\ ei)^pen, Ei)rh/nh u(mi^n.
+     20:27 Ei)^ta le/gei tw^| Qwma^|, Fe/re to\n da/ktulo/n sou w(^de, kai\ i)/de ta\s xei^ra/s mou: kai\ fe/re th\n xei^ra/ sou, kai\ ba/le ei)s th\n pleura/n mou: kai\ mh\ gi/nou a)/pistos, a)lla\ pisto/s.
+     20:28 Kai\ {N Kai\ a)pekri/qh > )Apekri/qh } a)pekri/qh Qwma^s, kai\ ei)^pen au)tw^|, (O ku/rio/s mou kai\ o( qeo/s mou.
+     20:29 Le/gei au)tw^| o( )Ihsou^s, (/Oti e(w/raka/s me, pepi/steukas; Maka/rioi oi( mh\ i)do/ntes, kai\ pisteu/santes.
+     20:30 {P} Polla\ me\n ou)^n kai\ a)/lla shmei^a e)poi/hsen o( )Ihsou^s e)nw/pion tw^n maqhtw^n au)tou^, {N au)tou^ > [au)tou^] } a(\ ou)k e)/stin gegramme/na e)n tw^| bibli/w| tou/tw|.
+     20:31 Tau^ta de\ ge/graptai, i(/na pisteu/shte {N pisteu/shte > pisteu/[s]hte } o(/ti )Ihsou^s e)stin o( xristo\s o( ui(o\s tou^ qeou^, kai\ i(/na pisteu/ontes zwh\n e)/xhte e)n tw^| o)no/mati au)tou^.
+     21:01 Meta\ tau^ta e)fane/rwsen e(auto\n pa/lin o( )Ihsou^s toi^s maqhtai^s {B maqhtai^s > maqhtai^s au)tou^ } e)pi\ th^s qala/sshs th^s Tiberia/dos: e)fane/rwsen de\ ou(/tws.
+     21:02 )^Hsan o(mou^ Si/mwn Pe/tros, kai\ Qwma^s o( lego/menos Di/dumos, kai\ Naqanah\l o( a)po\ Kana^ th^s Galilai/as, kai\ oi( tou^ Zebedai/ou, kai\ a)/lloi e)k tw^n maqhtw^n au)tou^ du/o.
+     21:03 Le/gei au)toi^s Si/mwn Pe/tros, (Upa/gw a(lieu/ein. Le/gousin au)tw^|, )Erxo/meqa kai\ h(mei^s su\n soi/. )Ech^lqon kai\ e)ne/bhsan ei)s to\ ploi^on eu)qu/s, {N eu)qu/s > - } kai\ e)n e)kei/nh| th^| nukti\ e)pi/asan ou)de/n.
+     21:04 Prwi+/as de\ h)/dh genome/nhs e)/sth o( {N o( > - } )Ihsou^s ei)s to\n ai)gialo/n: ou) me/ntoi h)/|deisan oi( maqhtai\ o(/ti )Ihsou^s e)stin.
+     21:05 Le/gei ou)^n au)toi^s o( {N o( > [o(] } )Ihsou^s, Paidi/a, mh/ ti prosfa/gion e)/xete; )Apekri/qhsan au)tw^|, Ou)/.
+     21:06 (O de\ ei)^pen au)toi^s, Ba/lete ei)s ta\ decia\ me/rh tou^ ploi/ou to\ di/ktuon, kai\ eu(rh/sete. )/Ebalon ou)^n, kai\ ou)ke/ti au)to\ e(lku/sai i)/sxusan {N i)/sxusan > i)/sxuon } a)po\ tou^ plh/qous tw^n i)xqu/wn.
+     21:07 Le/gei ou)^n o( maqhth\s e)kei^nos o(\n h)ga/pa o( )Ihsou^s tw^| Pe/trw|, (O ku/rio/s e)stin. Si/mwn ou)^n Pe/tros, a)kou/sas o(/ti o( ku/rio/s e)stin, to\n e)pendu/thn diezw/sato - h)^n ga\r gumno/s - kai\ e)/balen e(auto\n ei)s th\n qa/lassan.
+     21:08 Oi( de\ a)/lloi maqhtai\ tw^| ploiari/w| h)^lqon - ou) ga\r h)^san makra\n a)po\ th^s gh^s, a)ll' {N a)ll' > a)lla\ } w(s a)po\ phxw^n diakosi/wn - su/rontes to\ di/ktuon tw^n i)xqu/wn.
+     21:09 (Ws ou)^n a)pe/bhsan ei)s th\n gh^n, ble/pousin a)nqrakia\n keime/nhn kai\ o)ya/rion e)pikei/menon, kai\ a)/rton.
+     21:10 Le/gei au)toi^s o( )Ihsou^s, )Ene/gkate a)po\ tw^n o)yari/wn w(^n e)pia/sate nu^n.
+     21:11 )Ane/bh Si/mwn {N Si/mwn > ou)^n Si/mwn } Pe/tros, kai\ ei(/lkusen to\ di/ktuon e)pi\ {N e)pi\ th^s gh^s > ei)s th\n gh^n } th^s gh^s, mesto\n i)xqu/wn mega/lwn e(kato\n penth/konta triw^n: kai\ tosou/twn o)/ntwn, ou)k e)sxi/sqh to\ di/ktuon.
+     21:12 Le/gei au)toi^s o( )Ihsou^s, Deu^te a)risth/sate. Ou)dei\s de\ e)to/lma tw^n maqhtw^n e)ceta/sai au)to/n, Su\ ti/s ei)^; ei)do/tes o(/ti o( ku/rio/s e)stin.
+     21:13 )/Erxetai ou)^n {N ou)^n o( > - } o( )Ihsou^s, kai\ lamba/nei to\n a)/rton, kai\ di/dwsin au)toi^s, kai\ to\ o)ya/rion o(moi/ws.
+     21:14 Tou^to h)/dh tri/ton e)fanerw/qh o( {N o( > - } )Ihsou^s toi^s maqhtai^s au)tou^, {N au)tou^ > - } e)gerqei\s e)k nekrw^n.
+     21:15 {P} (/Ote ou)^n h)ri/sthsan, le/gei tw^| Si/mwni Pe/trw| o( )Ihsou^s, Si/mwn )Iwna^, {N )Iwna^ > )Iwa/nnou } a)gapa^|s me plei^on {N plei^on > ple/on } tou/twn; Le/gei au)tw^|, Nai\ ku/rie: su\ oi)^das o(/ti filw^ se. Le/gei au)tw^|, Bo/ske ta\ a)rni/a mou.
+     21:16 Le/gei au)tw^| pa/lin deu/teron, Si/mwn )Iwna^, {N )Iwna^ > )Iwa/nnou } a)gapa^|s me; Le/gei au)tw^|, Nai\ ku/rie: su\ oi)^das o(/ti filw^ se. Le/gei au)tw^|, Poi/maine ta\ pro/bata/ mou.
+     21:17 Le/gei au)tw^| to\ tri/ton, Si/mwn )Iwna^, {N )Iwna^ > )Iwa/nnou } filei^s me; )Eluph/qh o( Pe/tros o(/ti ei)^pen au)tw^| to\ tri/ton, Filei^s me; Kai\ {N Kai\ ei)^pen > Kai\ le/gei } ei)^pen au)tw^|, Ku/rie, su\ {N su\ pa/nta > pa/nta su\ } pa/nta oi)^das: su\ ginw/skeis o(/ti filw^ se. Le/gei au)tw^| o( {N o( )Ihsou^s > [o( )Ihsou^s] } )Ihsou^s, Bo/ske ta\ pro/bata/ mou.
+     21:18 )Amh\n a)mh\n le/gw soi, o(/te h)^s new/teros, e)zw/nnues seauto/n, kai\ periepa/teis o(/pou h)/qeles: o(/tan de\ ghra/sh|s, e)ktenei^s ta\s xei^ra/s sou, kai\ a)/llos se zw/sei, kai\ oi)/sei o(/pou ou) qe/leis.
+     21:19 Tou^to de\ ei)^pen, shmai/nwn poi/w| qana/tw| doca/sei to\n qeo/n. Kai\ tou^to ei)pw\n le/gei au)tw^|, )Akolou/qei moi.
+     21:20 )Epistrafei\s de\ {N de\ > - } o( Pe/tros ble/pei to\n maqhth\n o(\n h)ga/pa o( )Ihsou^s a)kolouqou^nta, o(\s kai\ a)ne/pesen e)n tw^| dei/pnw| e)pi\ to\ sth^qos au)tou^ kai\ ei)^pen, Ku/rie, ti/s e)stin o( paradidou/s se;
+     21:21 Tou^ton i)dw\n {N i)dw\n > ou)^n i)dw\n } o( Pe/tros le/gei tw^| )Ihsou^, Ku/rie, ou(^tos de\ ti/;
+     21:22 Le/gei au)tw^| o( )Ihsou^s, )Ea\n au)to\n qe/lw me/nein e(/ws e)/rxomai, ti/ pro/s se; Su\ a)kolou/qei {N a)kolou/qei moi > moi a)kolou/qei } moi.
+     21:23 )Ech^lqen ou)^n o( {N o( lo/gos ou(^tos > ou(^tos o( lo/gos } lo/gos ou(^tos ei)s tou\s a)delfou/s, o(/ti o( maqhth\s e)kei^nos ou)k a)poqnh/|skei: kai\ {N kai\ ou)k ei)^pen > ou)k ei)^pen de\ } ou)k ei)^pen au)tw^| o( )Ihsou^s, o(/ti ou)k a)poqnh/|skei: a)ll', )Ea\n au)to\n qe/lw me/nein e(/ws e)/rxomai, ti/ {N ti/ pro/s se > [ti/ pro\s se/] } pro/s se;
+     21:24 {P} Ou(^to/s e)stin o( maqhth\s o( marturw^n peri\ tou/twn, kai\ gra/yas {N gra/yas > o( gra/yas } tau^ta: kai\ oi)/damen o(/ti a)lhqh/s e)stin {N e)stin h( marturi/a au)tou^ > au)tou^ h( marturi/a e)sti/n } h( marturi/a au)tou^.
+     21:25 {P} )/Estin de\ kai\ a)/lla polla\ o(/sa {N o(/sa > a(\ } e)poi/hsen o( )Ihsou^s, a(/tina e)a\n gra/fhtai kaq' e(/n, ou)de\ {N ou)de\ > ou)d' } au)to\n oi)^mai to\n ko/smon xwrh^sai ta\ grafo/mena bibli/a. )Amh/n. {N )Amh/n > - }

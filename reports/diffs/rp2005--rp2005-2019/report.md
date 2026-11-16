@@ -1,0 +1,92 @@
+# Diff: rp2005 -> rp2005-2019
+
+- **Left:** `rp2005` (official; Published in print by Chilton Book Publishing, Southborough, Massachusetts)
+- **Right:** `rp2005-2019` (released; Recovered from git tag v2.0.3 (textonly-beta-code + parsed))
+- **Differing verses:** 54
+
+## Categories
+
+| Category | Count |
+| --- | ---: |
+| `accents-breathings` | 14 |
+| `capitalization` | 1 |
+| `letters` | 12 |
+| `punctuation` | 20 |
+| `variant` | 7 |
+
+## Books
+
+| Book | Differing verses |
+| --- | ---: |
+| `1CO` | 3 |
+| `1TI` | 1 |
+| `2CO` | 4 |
+| `2PE` | 1 |
+| `2TI` | 2 |
+| `ACT` | 3 |
+| `EPH` | 1 |
+| `HEB` | 2 |
+| `JOH` | 3 |
+| `LUK` | 7 |
+| `MAR` | 9 |
+| `MAT` | 9 |
+| `PHP` | 1 |
+| `REV` | 1 |
+| `ROM` | 6 |
+| `TIT` | 1 |
+
+## Examples
+
+### accents-breathings
+
+- `1TI 1:18`
+  - left: `? *TAU/THN TH\N PARAGGELI/AN PARATI/QEMAI/ SOI, TE/KNON *TIMO/QEE, KATA\ TA\S PROAGOU/SAS E)PI/ SE PROFHTEI/AS, I(/NA STRATEU/H| E)N AU)TAI=S TH\N KALH\N STRATE`
+  - right: `? *TAU/THN TH\N PARAGGELI/AN PARATI/QEMAI/ SOI, TE/KNON *TIMO/QEE, KATA\ TA\S PROAGOU/SAS E)PI\ SE\ PROFHTEI/AS, I(/NA STRATEU/H| E)N AU)TAI=S TH\N KALH\N STRAT`
+- `2CO 7:15`
+  - left: `*KAI\ TA\ SPLA/GXNA AU)TOU= PERISSOTE/RWS EI)S U(MA=S E)STI/N, A)NAMIMNHSKOME/NOU TH\N PA/NTWN U(MW=N U(PAKOH/N, W(S META\ FO/BOU KAI\ TRO/MOU E)DE/CASQE AU)TO/`
+  - right: `*KAI\ TA\ SPLA/GXNA AU)TOU= PERISSOTE/RWS EI)S U(MA=S E)STI/N, A)NAMIMNHS|KOME/NOU TH\N PA/NTWN U(MW=N U(PAKOH/N, W(S META\ FO/BOU KAI\ TRO/MOU E)DE/CASQE AU)TO`
+- `2PE 1:12`
+  - left: `? *DIO\ OU)K {N OU)K A)MELH/SW > MELLH/SW } A)MELH/SW A)EI\ U(MA=S U(POMIMNH/S|KEIN PERI\ TOU/TWN, KAI/PER EI)DO/TAS, KAI\ E)STHRIGME/NOUS E)N TH=| PAROU/SH| A)`
+  - right: `? *DIO\ OU)K {N OU)K A)MELH/SW > MELLH/SW } A)MELH/SW A)EI\ U(MA=S U(POMIMNH|/SKEIN PERI\ TOU/TWN, KAI/PER EI)DO/TAS, KAI\ E)STHRIGME/NOUS E)N TH=| PAROU/SH| A)`
+
+### capitalization
+
+- `MAT 27:46`
+  - left: `PERI\ DE\ TH\N E)NA/THN W(/RAN A)NEBO/HSEN O( *)IHSOU=S FWNH=| MEGA/LH|, LE/GWN, *)HLI/, *)HLI/, LIMA\ {N LIMA\ > LEMA } SABAXQANI/; *TOU=T' E)/STIN, *QEE/ MOU,`
+  - right: `*PERI\ DE\ TH\N E)NA/THN W(/RAN A)NEBO/HSEN O( *)IHSOU=S FWNH=| MEGA/LH|, LE/GWN, *)HLI/, *)HLI/, LIMA\ {N LIMA\ > LEMA } SABAXQANI/; *TOU=T' E)/STIN, *QEE/ MOU`
+
+### letters
+
+- `1CO 7:5`
+  - left: `*MH\ A)POSTEREI=TE A)LLH/LOUS, EI) MH/ {N MH/ TI > MH/TI } TI A)\N E)K SUMFW/NOU PRO\S KAIRO/N, I(/NA SXOLA/ZHTE {N SXOLA/ZHTE > SXOLA/SHTE } TH=| {N TH=| NHSTE`
+  - right: `*MH\ A)POSTEREI=TE A)LLH/LOUS, EI) MH/TI A)\N E)K SUMFW/NOU PRO\S KAIRO/N, I(/NA SXOLA/ZHTE {N SXOLA/ZHTE > SXOLA/SHTE } TH=| {N TH=| NHSTEI/A| KAI\ > - } NHSTE`
+- `1CO 11:24`
+  - left: `KAI\ EU)XARISTH/SAS E)/KLASEN KAI\ EI)=PEN, *LA/BETE, {N *LA/BETE FA/GETE > - } FA/GETE, *TOU=TO/ MOU/ E)STIN TO\ SW=MA TO\ U(PE\R U(MW=N KLW/MENON: {N KLW/MENO`
+  - right: `KAI\ EU)XARISTH/SAS E)/KLASEN KAI\ EI)=PEN, *LA/BETE, {N *LA/BETE FA/GETE > - } FA/GETE: TOU=TO/ MOU/ E)STIN TO\ SW=MA TO\ U(PE\R U(MW=N KLW/MENON: {N KLW/MENON`
+- `2CO 1:17`
+  - left: `*TOU=TO OU)=N BOULEUO/MENOS, {N BOULEUO/MENOS MH/ TI > BOULO/MENOS MH/TI } MH/ TI A)/RA TH=| E)LAFRI/A| E)XRHSA/MHN; *)\H A(\ BOULEU/OMAI, KATA\ SA/RKA BOULEU/O`
+  - right: `*TOU=TO OU)=N BOULEUO/MENOS, {N BOULEUO/MENOS > BOULO/MENOS } MH/TI A)/RA TH=| E)LAFRI/A| E)XRHSA/MHN; *)\H A(\ BOULEU/OMAI, KATA\ SA/RKA BOULEU/OMAI, I(/NA H)=`
+
+### punctuation
+
+- `ACT 10:6`
+  - left: `OU(=TOS CENI/ZETAI PARA/ TINI *SI/MWNI BURSEI=, W(=| E)STIN OI)KI/A PARA\ QA/LASSAN:`
+  - right: `OU(=TOS CENI/ZETAI PARA/ TINI *SI/MWNI BURSEI=, W(=| E)STIN OI)KI/A PARA\ QA/LASSAN.`
+- `JOH 19:31`
+  - left: `? *OI( OU)=N *)IOUDAI=OI, I(/NA {N I(/NA MH\ > E)PEI\ *PARASKEUH\ H)=N I(/NA MH\ } MH\ MEI/NH| E)PI\ TOU= STAUROU= TA\ SW/MATA E)N TW=| SABBA/TW| E)PEI\ {N E)PE`
+  - right: `? *OI( OU)=N *)IOUDAI=OI, I(/NA {N I(/NA MH\ > E)PEI\ *PARASKEUH\ H)=N I(/NA MH\ } MH\ MEI/NH| E)PI\ TOU= STAUROU= TA\ SW/MATA E)N TW=| SABBA/TW|, E)PEI\ {N E)P`
+- `LUK 6:9`
+  - left: `*EI)=PEN OU)=N {N OU)=N > DE\ } O( *)IHSOU=S PRO\S AU)TOU/S, *)EPERWTH/SW {N *)EPERWTH/SW > *)EPERWTW= } U(MA=S TI/, {N U(MA=S TI/, *)/ECESTIN > U(MA=S, *EI) E)`
+  - right: `*EI)=PEN OU)=N {N OU)=N > DE\ } O( *)IHSOU=S PRO\S AU)TOU/S, *)EPERWTH/SW {N *)EPERWTH/SW > *)EPERWTW= } U(MA=S TI/, {N U(MA=S TI/, *)/ECESTIN > U(MA=S, *EI) E)`
+
+### variant
+
+- `1CO 3:14`
+  - left: `*EI)/ TINOS TO\ E)/RGON ME/NEI O(\ E)POIKODO/MHSEN, MISQO\N LH/YETAI. {N LH/YETAI > LH/MYETAI }`
+  - right: `*EI)/ TINOS TO\ E)/RGON ME/NEI {N ME/NEI > MENEI= } O(\ E)POIKODO/MHSEN, MISQO\N LH/YETAI. {N LH/YETAI > LH/MYETAI }`
+- `EPH 1:17`
+  - left: `I(/NA O( QEO\S TOU= KURI/OU H(MW=N *)IHSOU= XRISTOU=, O( PATH\R TH=S DO/CHS, DW/H| U(MI=N PNEU=MA SOFI/AS KAI\ A)POKALU/YEWS, E)N E)PIGNW/SEI AU)TOU=:`
+  - right: `I(/NA O( QEO\S TOU= KURI/OU H(MW=N *)IHSOU= XRISTOU=, O( PATH\R TH=S DO/CHS, DW/H| {N DW/H| > DW/H| } U(MI=N PNEU=MA SOFI/AS KAI\ A)POKALU/YEWS, E)N E)PIGNW/SEI`
+- `PHP 3:5`
+  - left: `PERITOMH\ O)KTAH/MEROS, E)K GE/NOUS *)ISRAH/L, FULH=S *BENIAMI/N, *(EBRAI=OS E)C *(EBRAI/WN, KATA\ NO/MON *FARISAI=OS,`
+  - right: `PERITOMH\ {N PERITOMH\ > PERITOMH=| } O)KTAH/MEROS, E)K GE/NOUS *)ISRAH/L, FULH=S *BENIAMI/N, *(EBRAI=OS E)C *(EBRAI/WN, KATA\ NO/MON *FARISAI=OS,`

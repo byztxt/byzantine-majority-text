@@ -1,5 +1,7 @@
 # TEI-XML files of the Byzantine Textform
 
+> **Curated editions:** the TEI files in this folder are the working-tree outputs for the current text. Per-edition TEI exports live under [`editions/`](../editions) and are explained in [`docs/EDITIONS.md`](../docs/EDITIONS.md).
+
 This folder contains XML files of the entire New Testament (inside the `BYZ` subfolder) and of each book. These files *do not contain accents nor variants*. They represent the main text of the Byzantine Textform.
 
 The files are converted with a script in the `scripts` folder (see there for more details). The source files are in the `source/Strongs` folder.

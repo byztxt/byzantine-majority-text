@@ -1,0 +1,440 @@
+{
+  "artifact_files": [
+    {
+      "path": "csv/ascii-one-line/1CO.csv",
+      "sha256": "b0df864762e7b5713187e1722878f5a01ce485d0c9250389d90f82b0933f9542",
+      "size": 76010
+    },
+    {
+      "path": "csv/ascii-one-line/1JO.csv",
+      "sha256": "7e377c69064423b23752131d0d1aeb24a22be851554bb18316e09966d1a88e3b",
+      "size": 21780
+    },
+    {
+      "path": "csv/ascii-one-line/1PE.csv",
+      "sha256": "b5f54a397842e13c44a02d3a3935987bbd1a6328ebb93708ae3c8a8f245b3065",
+      "size": 20780
+    },
+    {
+      "path": "csv/ascii-one-line/1TH.csv",
+      "sha256": "d186c8939fd0a2504b5ee3d207f16ad05c75b04f082922d29497f50a98939156",
+      "size": 16972
+    },
+    {
+      "path": "csv/ascii-one-line/1TI.csv",
+      "sha256": "dd32891aeccddbac47338278ab1a5b1f4a19202c6c58332933b35a97c12fd0ec",
+      "size": 20213
+    },
+    {
+      "path": "csv/ascii-one-line/2CO.csv",
+      "sha256": "2ea1a7f87d460e2c401929d1ca64b3a71addeee967ee00c4a3547f4d677ae66d",
+      "size": 50907
+    },
+    {
+      "path": "csv/ascii-one-line/2JO.csv",
+      "sha256": "bf33da0ff64377d2f3d7e4eedafda9a87bedf84a7b66d6a9628919ccf0e71148",
+      "size": 2646
+    },
+    {
+      "path": "csv/ascii-one-line/2PE.csv",
+      "sha256": "e2a06afbc15ed8a9f6e7e057ae046fda383647f0bac687b2d86bd060f8943d40",
+      "size": 13628
+    },
+    {
+      "path": "csv/ascii-one-line/2TH.csv",
+      "sha256": "6df8c9c6e4343247e88df76419e60f9d11c04af64c561b1f127e510f59a5d361",
+      "size": 9260
+    },
+    {
+      "path": "csv/ascii-one-line/2TI.csv",
+      "sha256": "9d5e656e379fe66fc37a64381a6fbe62430ee5bc13369f4b59d22cc17af4ad6f",
+      "size": 14891
+    },
+    {
+      "path": "csv/ascii-one-line/3JO.csv",
+      "sha256": "f8b357626f710a40c2e4e3592992f5d11fb80f2b27bb809bf707ba332f25cb74",
+      "size": 2512
+    },
+    {
+      "path": "csv/ascii-one-line/ACT.csv",
+      "sha256": "49da7a9e13dc8bdfb57d0659e18555a3e1ce8b9165cf43a1b9dd505563dac4f4",
+      "size": 218687
+    },
+    {
+      "path": "csv/ascii-one-line/COL.csv",
+      "sha256": "3ba93e3b6f589ea948db38ccd4a9243019103e923cd1701d1f5e4341851e5c6c",
+      "size": 18150
+    },
+    {
+      "path": "csv/ascii-one-line/EPH.csv",
+      "sha256": "34e10e10c2bf895b7d5b8e214b3f39aeffb2f721bd755e5e6ba427b836046fb1",
+      "size": 27707
+    },
+    {
+      "path": "csv/ascii-one-line/GAL.csv",
+      "sha256": "97e385f1132d76cdfd948b858f91d94520bc1312175f8ad294ac839e2f2a75d4",
+      "size": 25488
+    },
+    {
+      "path": "csv/ascii-one-line/HEB.csv",
+      "sha256": "085183066387106e1e5e8cfc079930c2454370a5f4371d93ce702e04fb858815",
+      "size": 59907
+    },
+    {
+      "path": "csv/ascii-one-line/JAM.csv",
+      "sha256": "aa106087aa3df3a23f4997feb616d17942a2e616b00e176144848c670f858201",
+      "size": 20205
+    },
+    {
+      "path": "csv/ascii-one-line/JOH.csv",
+      "sha256": "b4048750bfb444edd9b0e1c996bc96e91fdb555bea932e6a6edf19b298d23d65",
+      "size": 166210
+    },
+    {
+      "path": "csv/ascii-one-line/JUD.csv",
+      "sha256": "a902ed416e3f5f7a4cf4d4e78496c29a2659c3c66776f626410c3cceebf91a32",
+      "size": 5673
+    },
+    {
+      "path": "csv/ascii-one-line/LUK.csv",
+      "sha256": "da63712df6a786b46e0fa837576aa29af50afbfdb86b8a9be48cea1b1f744aea",
+      "size": 222982
+    },
+    {
+      "path": "csv/ascii-one-line/MAR.csv",
+      "sha256": "06e13216e0e72cf0b832cd1e97089cc391eec0c0c43c8d3fa2a9a8686e03f129",
+      "size": 131913
+    },
+    {
+      "path": "csv/ascii-one-line/MAT.csv",
+      "sha256": "98e75a728db7b40205778cc5eb911b584b16de45844460939e72f67c0c8434ce",
+      "size": 209458
+    },
+    {
+      "path": "csv/ascii-one-line/PHM.csv",
+      "sha256": "73d0bfb4abdc4e1000902e5e970a06dbeca92c8e140458fb8f371b41d0288de6",
+      "size": 3679
+    },
+    {
+      "path": "csv/ascii-one-line/PHP.csv",
+      "sha256": "73d671aaf7409a58b57fa0c90e48fd7dd2e736ae0f4fb0295f2f46089193375b",
+      "size": 18335
+    },
+    {
+      "path": "csv/ascii-one-line/REV.csv",
+      "sha256": "83f819bad1a8b83f37bb4538da228b916aa51373f0e96524949db3046f462b1b",
+      "size": 104830
+    },
+    {
+      "path": "csv/ascii-one-line/ROM.csv",
+      "sha256": "5ba7c841ade9a68f39926df067ab48d06308c4bbe0f946f08cd2d65c103b205c",
+      "size": 79669
+    },
+    {
+      "path": "csv/ascii-one-line/TIT.csv",
+      "sha256": "47333dd7323be8cb74490ff30f43df5c33940e203a4b724d0803ec723bf0e95b",
+      "size": 8433
+    },
+    {
+      "path": "tei/ascii-one-line/1CO.xml",
+      "sha256": "3cd7bc3e7600fec378e644c9d27b800852c99f7b8c8931082044f441df3e14a9",
+      "size": 181274
+    },
+    {
+      "path": "tei/ascii-one-line/1JO.xml",
+      "sha256": "07a554b6bdf572c3712a01c92da718d29859369fc9ce0a8bd32732817392021f",
+      "size": 55140
+    },
+    {
+      "path": "tei/ascii-one-line/1PE.xml",
+      "sha256": "1d0c570f4b0873c759b67d43abb3f97e5c69e6dff51ea6b909b21cdef848a76b",
+      "size": 48525
+    },
+    {
+      "path": "tei/ascii-one-line/1TH.xml",
+      "sha256": "f4d8a73e0aa1eda7efa399838db439f3e6d46c7181097e52e2289499ce81ebc6",
+      "size": 41391
+    },
+    {
+      "path": "tei/ascii-one-line/1TI.xml",
+      "sha256": "87c454315f7bd61cc8943b18df08c19484b402afdfdf77b03da34214e2147109",
+      "size": 46956
+    },
+    {
+      "path": "tei/ascii-one-line/2CO.xml",
+      "sha256": "4805bc7589df20e789e2f175b746622a643d7dc7b02d8788c4ca368a3f8cb373",
+      "size": 119570
+    },
+    {
+      "path": "tei/ascii-one-line/2JO.xml",
+      "sha256": "168ca0dbbd7f1b455cca3b57d5c93bb46ccf43396d17090cd574c97eaef09843",
+      "size": 8521
+    },
+    {
+      "path": "tei/ascii-one-line/2PE.xml",
+      "sha256": "f5b339e2607e327e6d60a3e42a8253d2f799a6749b84d9bd24a6cffe15e79eea",
+      "size": 32042
+    },
+    {
+      "path": "tei/ascii-one-line/2TH.xml",
+      "sha256": "8dac3f95b43a56205958458701c038607a6367f693e7c4f64e7281faadb8f5fa",
+      "size": 23780
+    },
+    {
+      "path": "tei/ascii-one-line/2TI.xml",
+      "sha256": "26cde81b6c6c50e74c23d43418d8e1a178ede2e6fc0a65024ac444cc4d3053d5",
+      "size": 35893
+    },
+    {
+      "path": "tei/ascii-one-line/3JO.xml",
+      "sha256": "47fe6e6fba109b0fc4349bcd3d966a1c7400aa395dbe5ba959132880c790ac07",
+      "size": 7998
+    },
+    {
+      "path": "tei/ascii-one-line/ACT.xml",
+      "sha256": "536b556682ac741ca1df1f47f4b46ef8d0ebc864b1fda794847229aa577d6847",
+      "size": 493101
+    },
+    {
+      "path": "tei/ascii-one-line/BYZ/byz.xml",
+      "sha256": "b0d3172dbb3feff7d3e22509ba16154f0c78a0ba75e7c77815bd48944b5902a5",
+      "size": 3630327
+    },
+    {
+      "path": "tei/ascii-one-line/COL.xml",
+      "sha256": "1f8f0e47ef1b0196582cff281780408680dc6e7b794bf9c9d3668eb6c42f2301",
+      "size": 44203
+    },
+    {
+      "path": "tei/ascii-one-line/EPH.xml",
+      "sha256": "28e6955703a58769785a89826304ae4e829cdf5adebfe5456247c0a7fa51ec52",
+      "size": 66516
+    },
+    {
+      "path": "tei/ascii-one-line/GAL.xml",
+      "sha256": "a29057161b33a76d31629914132456877e225ca09f618cad600ce2121f1a60f1",
+      "size": 61438
+    },
+    {
+      "path": "tei/ascii-one-line/HEB.xml",
+      "sha256": "2259b29f54b2466d917937e4ba5e763518be4cef083c566c63f07f1e972919eb",
+      "size": 136048
+    },
+    {
+      "path": "tei/ascii-one-line/JAM.xml",
+      "sha256": "ec20a8133bea37d7f875c643fadd7a7d94e7629e389a490efa4d0354a1ca236d",
+      "size": 48561
+    },
+    {
+      "path": "tei/ascii-one-line/JOH.xml",
+      "sha256": "e8929f57701f06cf59c5a06982f9c871e5b53b2e83537ce23403758470b40202",
+      "size": 400630
+    },
+    {
+      "path": "tei/ascii-one-line/JUD.xml",
+      "sha256": "e53c1232e0917adaf4d7978ce5103bbabc815a8839cc94fb79ea954e7d40d95e",
+      "size": 14490
+    },
+    {
+      "path": "tei/ascii-one-line/LUK.xml",
+      "sha256": "2cd6b8d9a143e6cf6a58abc904726e0ee64ca9a713997d6efe55bf6df5335464",
+      "size": 516953
+    },
+    {
+      "path": "tei/ascii-one-line/MAR.xml",
+      "sha256": "265cd311d8bfb54cc18c94f2b96bf5b8b7ad6afa478179fd2e896b5ad793cfbe",
+      "size": 304895
+    },
+    {
+      "path": "tei/ascii-one-line/MAT.xml",
+      "sha256": "79eccf28198345067c679a64751ea2a22f4730d35bd833b3ceb9ca8c7f22f231",
+      "size": 486623
+    },
+    {
+      "path": "tei/ascii-one-line/PHM.xml",
+      "sha256": "35f08c325c115321f967a5eb07b248dedbb8b149a6f9159846b2d39f27c3e326",
+      "size": 11070
+    },
+    {
+      "path": "tei/ascii-one-line/PHP.xml",
+      "sha256": "05b70a983cb056a3a65c56264a643dc99d9e83b02eb26b14df668e6bdcef2aeb",
+      "size": 44992
+    },
+    {
+      "path": "tei/ascii-one-line/REV.xml",
+      "sha256": "cc2215780f7a51a4f1db0d99a76e9142c52f9d923e8430b9f808914c15137eb8",
+      "size": 248055
+    },
+    {
+      "path": "tei/ascii-one-line/ROM.xml",
+      "sha256": "1f8db2ca1564b4c30a9a1149fefef6f0868c63ee861ff0eeaf538d1bacace2ae",
+      "size": 188489
+    },
+    {
+      "path": "tei/ascii-one-line/TIT.xml",
+      "sha256": "dbe1f0ed4542fdbf8c52c380d244e1823f24aafb48684e4f9dcde15b12b99104",
+      "size": 20713
+    }
+  ],
+  "ascii_source": "data/raw/rp2005/editions-rp2-ascii",
+  "basis": "Published in print by Chilton Book Publishing, Southborough, Massachusetts",
+  "edition": "rp2005",
+  "first_release": "",
+  "generated_by": "python3 scripts/build_editions.py",
+  "latest_release": "",
+  "pdf": "data/raw/rp2005/official-pdf/editions-rp2.pdf",
+  "pdf_sha256": "ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce",
+  "pdf_size": 6156568,
+  "pdf_url": "https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf",
+  "preformatted_source": "data/raw/rp2005/editions-rp2-preformatted",
+  "release_range": "",
+  "source_files": [
+    {
+      "path": "source/ccat/1CO.CCT",
+      "sha256": "25c8e89277e9b7231fcdfba6d41ac4df9c1347523a23695be43f9f7286559c2e",
+      "size": 67369
+    },
+    {
+      "path": "source/ccat/1JO.CCT",
+      "sha256": "c1cc7fd2f883d2afb5126f05c5679131922541a9290c0a7f7ab44b0dcdf1899b",
+      "size": 18388
+    },
+    {
+      "path": "source/ccat/1PE.CCT",
+      "sha256": "d65b83538f5694a331967137bbaf6dc30b6c44256a21aa5f58c560ad25af0251",
+      "size": 17562
+    },
+    {
+      "path": "source/ccat/1TH.CCT",
+      "sha256": "cd0f919ea9576beac010c946454edceccdc66249d47dc879e9d1fadf05c0fb1f",
+      "size": 14203
+    },
+    {
+      "path": "source/ccat/1TI.CCT",
+      "sha256": "b6ef1beef003ed189f099faf182304f397eb4652b2f48c059afa4ba74802ef18",
+      "size": 16246
+    },
+    {
+      "path": "source/ccat/2CO.CCT",
+      "sha256": "67f851cf28b3e34aafd57932be8060d5fe7a5ea3e52cb4662e505ab68c66e797",
+      "size": 42926
+    },
+    {
+      "path": "source/ccat/2JO.CCT",
+      "sha256": "25e5e29df65b0c5de9faa5091b60b57b9d89a22535b64fe6703497d51f26df34",
+      "size": 2420
+    },
+    {
+      "path": "source/ccat/2PE.CCT",
+      "sha256": "ada397e9de3e1076875c278a01a81a5a5be52095e39c2e37fdf6a6083500048e",
+      "size": 11027
+    },
+    {
+      "path": "source/ccat/2TH.CCT",
+      "sha256": "23fd277d2a0eb12b43df83b4d2173d6a45e7666ede9114e38fd2c0eb0b744835",
+      "size": 7862
+    },
+    {
+      "path": "source/ccat/2TI.CCT",
+      "sha256": "b6159de097832ca5c0bf08642bbded71699649821035f674d5764ce00315f7c8",
+      "size": 12131
+    },
+    {
+      "path": "source/ccat/3JO.CCT",
+      "sha256": "2d2ae7f77b968cd2871a61db0249b90779118a3c1a473fd225043f0ca6804410",
+      "size": 2214
+    },
+    {
+      "path": "source/ccat/AC.CCT",
+      "sha256": "9fbf57fad03b4c68a95505c7de2a7477f6d21b0d0fcb4c58e514f823e27761a7",
+      "size": 193494
+    },
+    {
+      "path": "source/ccat/AC24.CCT",
+      "sha256": "db6227b1cff0555628e1dfcda9fba2e4d948dffa09582f5ed373804a326b1cab",
+      "size": 435
+    },
+    {
+      "path": "source/ccat/COL.CCT",
+      "sha256": "01d8cad7359197f69e44a8e79476a8cbd7c0fa67462fe112b9e81574eb91c169",
+      "size": 15707
+    },
+    {
+      "path": "source/ccat/EPH.CCT",
+      "sha256": "6ea6e2df35e1d10f95653804fb26b99e8ffe245c9823e8edc5943629c0cd272b",
+      "size": 23348
+    },
+    {
+      "path": "source/ccat/GA.CCT",
+      "sha256": "40b4732953dc8ff38ddea5df4c2755046450aaf62e6217de964b61311e2e2cb3",
+      "size": 21704
+    },
+    {
+      "path": "source/ccat/HEB.CCT",
+      "sha256": "d571a3accf285d5f32eba0cb4a9493d0beeb27fbc1c6e59793bb95d6940a7807",
+      "size": 47632
+    },
+    {
+      "path": "source/ccat/JAS.CCT",
+      "sha256": "e4af1df2c1288238f9bab136d7012e0c34cf13f59f353b442d1faf10322b0f29",
+      "size": 17435
+    },
+    {
+      "path": "source/ccat/JOH.CCT",
+      "sha256": "cf7126ecae6a1521eea59677b3b193f47c2841e9e8666e170dc570a258566619",
+      "size": 151406
+    },
+    {
+      "path": "source/ccat/JUDE.CCT",
+      "sha256": "35044e35aca7c156aac19bab50eeb45fee0fdf6167d0b0d21497ad21d432f67d",
+      "size": 5091
+    },
+    {
+      "path": "source/ccat/LU.CCT",
+      "sha256": "fa20db715bb32ec619fc3e3cd9155243c110feb815c6abd18ae8d1e031e0cdc0",
+      "size": 205360
+    },
+    {
+      "path": "source/ccat/MR.CCT",
+      "sha256": "2d60ff52f7be075a64bc56c65ddb28b7bb544a3a0af14b3bcfe2fc0501bb10e9",
+      "size": 130327
+    },
+    {
+      "path": "source/ccat/MT.CCT",
+      "sha256": "51828435b082f06617881fbc0100fd6d3e2c6ca5d1eb5aa60bab7efc47412941",
+      "size": 181034
+    },
+    {
+      "path": "source/ccat/PA.CCT",
+      "sha256": "70ac3e482d9236c171c82b99875d1e4d9901520a8ce1a58a454338039047092a",
+      "size": 1724
+    },
+    {
+      "path": "source/ccat/PHM.CCT",
+      "sha256": "d29f6688e7bfc27daf2adc87282ff8959622907a0a251f23c090f06fa1a81ea2",
+      "size": 3281
+    },
+    {
+      "path": "source/ccat/PHP.CCT",
+      "sha256": "6376aead1f3984d1b52eee82858dd6addce303542bf1681a1f2b0a8bca5d7fe3",
+      "size": 15492
+    },
+    {
+      "path": "source/ccat/RE.CCT",
+      "sha256": "9a7b5a32b967286b3e7a862e70a0ebb56f888035142208e60fa9bfd6a797b0ef",
+      "size": 101505
+    },
+    {
+      "path": "source/ccat/RO.CCT",
+      "sha256": "e436501a28cfcb0c119079ca7d574b513fbf1b73c3da8dbc4a167b6587bddf0a",
+      "size": 65867
+    },
+    {
+      "path": "source/ccat/TIT.CCT",
+      "sha256": "894d6614a3b549bdc4d98a75e57545e5ecbab743964caf2352a1768845f23ad2",
+      "size": 6871
+    }
+  ],
+  "status": "official",
+  "title": "Robinson-Pierpont 2005, official print edition"
+}

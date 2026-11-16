@@ -1,5 +1,7 @@
 # Unicode versions of the Byzantine text in `.csv` format
 
+> **Curated editions:** the CSV files in this folder are the working-tree outputs for the current text. Per-edition CSV exports (official 2005, released 2005+2019, official 2018, released 2018+2023) live under [`editions/`](../editions) and are explained in [`docs/EDITIONS.md`](../docs/EDITIONS.md).
+
 This folder contains Unicode versions of the original `.CCAT` and `.BP5` files produced by Prof. Robinson. The `.csv` files in this folder are provided to you merely as a convenience. Professor Robinson's files remain the ultimate source of truth.
 
 The scripts used to convert the files to the Unicode `.csv`s are in the `scripts` folder (see that folder's `README` for details).

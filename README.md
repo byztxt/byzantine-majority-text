@@ -44,3 +44,24 @@ A mirror of this repository is available at the [Software Heritage Archive](http
 ## Copyright
 
 All the code and text contained in this folder is in the Public Domain.
+
+<!-- editions:begin -->
+## Curated editions
+
+The repository now ships four curated editions, with their CSV and TEI
+exports, instead of asking you to dig through git history:
+
+| Edition | Status | Repo releases |
+| --- | --- | --- |
+| `rp2005` | official print 2005 | none |
+| `rp2005-2019` | released 2019 revision | `v1.0.0`-`v2.0.3` |
+| `rp2018` | official print 2018 | none |
+| `rp2018-2023` | released 2018+2023 text | `v3.0.0`-`v3.3.4` |
+
+See [`docs/EDITIONS.md`](docs/EDITIONS.md) for the full explanation,
+PDF links, provenance, and checksums.
+<!-- editions:end -->
+
+
+
+
