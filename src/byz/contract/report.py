@@ -123,18 +123,22 @@ def _contract_doc(derivation_rows, dataset_rows, inv_rows):
 def _decision_log():
     return """# Decision log - baseline contract
 
-Every row is a conflict or ambiguity found in the current corpus. The pipeline
-only flags; the maintainer decides.
+Adopted by the maintainer on 2026-11-16. The pipeline flags; the maintainer decides.
 
-| ID | Affected paths | Evidence | Options | Maintainer decision |
-| --- | --- | --- | --- | --- |
-| D1 | `source/CCAT/04a_PA.TXT`, `05a_ACT24.TXT`, `csv-unicode/ccat/*/PA.csv`, `ACT24.csv` | The section files are Byzantine expansions/alternatives that overlap John 8 and Acts 24; they exist only in the CCAT/CSV-CCAT datasets. | (a) Keep as separate pseudo-books. (b) Fold into John/Acts. (c) Treat as apparatus-only. | pending |
-| D2 | `tei-xml-unicode/*` | `scripts/tei_xml_converter.py` reads `csv-unicode/strongs/no-parsing`, so the TEI is unaccented and drops parsing. | (a) Intended. (b) TEI should use the CCAT text instead. | pending |
-| D3 | `source/`, `csv-unicode/`, `tei-xml-unicode/` | `README.md` claims RP2018 updated 2023-07-20; git history alone may not prove it. | (a) Model as `rp2018`. (b) Model as `rp2018@2023-07-20`. | pending |
-| D4 | generated CSV/TEI | They may be stale relative to `source/`. Exact regeneration is deferred to the pipeline cycle. | (a) Treat as current. (b) Regenerate before trusting. | pending |
-| D5 | all datasets | Which dataset is authoritative when views disagree. | (a) Source wins. (b) Generated view wins. (c) Maintainer decides per case. | pending |
-| D6 | CI | Whether the baseline contract is enforced now or only reported. | (a) Enforce in CI. (b) Report only until external reconciliation. | pending |
-| D7 | `source/CCAT/03_LUK.TXT:794`, `source/CCAT/05_ACT.TXT:290,553`; same refs in `source/Strongs` | Verse references have no text (LUK 17:36, ACT 8:37, ACT 15:34). They are not covered by a section file. | (a) Intentional omission. (b) Missing text. (c) Should move to apparatus. | pending |
+| ID | Question | Decision | Next step |
+| --- | --- | --- | --- |
+| D1 | What are `PA` and `ACT24`? | Keep them as separate pseudo-books linked to John 7:53-8:11 and Acts 24:6-8. | Revisit the TEI representation in Cycle 6. |
+| D2 | Is the TEI intentionally unaccented? | Yes. `tei-xml-unicode/no-accents` is the main-text export from `strongs/no-parsing`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
+| D3 | How is the current text labelled? | `rp2018` with a `2023-07-20` revision, not a separate edition. | Confirm against the official archive in Cycle 2. |
+| D4 | Are the generated CSV/TEI trustworthy? | The source files are authoritative; generated artifacts are unverified derivatives. | Reproduce them byte-for-byte in Cycle 3 before tagging an edition. |
+| D5 | Which view wins on disagreement? | The source files win; divergence is a bug to flag. | Enforce in the validators and the pipeline. |
+| D6 | Enforce the baseline contract in CI? | Yes, enforce the contract validators/tests now. Do not enforce artifact equality until Cycle 3. | CI workflow runs `tests/contract`. |
+| D7 | What about LUK 17:36, ACT 8:37, ACT 15:34? | Intentional: these verses are not part of the Byzantine tradition. | The official archives should confirm this in Cycle 2. |
+| D8 | Should blank verses be dropped from generated artifacts? | No. Preserve them as empty records so the intent is visible. | Implement in Cycle 3 and update the CSV/TEI contract. |
+
+Note: Acts 24:7 is a separate intentional blank; the Byzantine expansion is in
+`05a_ACT24.TXT`. The PA/ACT24 section files are the only pseudo-books without a
+Strong's/TEI counterpart.
 """
 
 
@@ -162,11 +166,14 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
         "",
         "## Key finding",
         "",
-        "- Source and generated coverage agree everywhere except LUK 17:36, "
-        "ACT 8:37, ACT 15:34, and ACT 24:7, which are blank in the source and "
-        "therefore absent from the CSV (and consequently the TEI).",
+        "- The only coverage difference is the four verses that are intentionally "
+        "blank because they are not part of the Byzantine tradition: LUK 17:36, "
+        "ACT 8:37, ACT 15:34, and ACT 24:7. The CSV currently drops them "
+        "(decision D7); Cycle 3 will preserve them as empty records (D8).",
         "- TEI matches `strongs/no-parsing` exactly (7953 verses).",
         "- All 140 expected derivations exist; `demo_john_1.xml` is auxiliary.",
+        "- The current text is modelled as `rp2018` revision `2023-07-20` (D3); "
+        "the source files are authoritative (D5).",
         "",
         "## Datasets",
         "",
@@ -205,10 +212,12 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
             "CCAT/CSV-CCAT and have no Strong's or TEI counterpart.",
             "- `05_ACT.TXT` leaves Acts 24:7 blank; the Byzantine expansion lives "
             "in `05a_ACT24.TXT`.",
-            "- LUK 17:36, ACT 8:37, and ACT 15:34 are also blank verse references "
-            "with no section file (decision log D7).",
+            "- LUK 17:36, ACT 8:37, and ACT 15:34 are intentionally blank "
+            "because they are not part of the Byzantine tradition (D7).",
             "- TEI is generated from `strongs/no-parsing`, so it is unaccented and "
-            "has no parsing.",
+            "has no parsing; this is intended (D2).",
+            "- Generated CSV/TEI are unverified derivatives until Cycle 3 "
+            "reproduces them byte-for-byte (D4).",
             "",
             "## Reproduce",
             "",

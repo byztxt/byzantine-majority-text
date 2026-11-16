@@ -4,7 +4,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Current HEAD
 
-`c62a53d|2026-11-16|Reorder milestones around existing corpus contract`
+`ab45222|2026-11-16|Add existing corpus baseline contract and reports`
 
 ## Tags
 

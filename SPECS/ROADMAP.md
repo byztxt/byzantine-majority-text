@@ -22,6 +22,8 @@ later RP2026), with readable deltas and reproducible CSV/TEI-XML exports.
 ## Cycle 1 - Existing corpus contract & matrix
 
 **Spec:** `SPECS/2026-11-16-existing-corpus-contract/`.
+**Decisions:** `SPECS/2026-11-16-existing-corpus-contract/decisions.md`
+(D1-D8, adopted 2026-11-16).
 
 **Goal:** get clarity on what is already in the repository before bringing in any
 external data. Establish a precise, testable contract and matrix for the current
@@ -43,7 +45,8 @@ edition/revision the repo currently claims. No external archives are fetched.
   regeneration checks deferred to the pipeline cycle.
 - Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
   July 2023 update.
-- A maintainer decision log for internal ambiguities.
+- A maintainer decision log for internal ambiguities, now adopted as D1-D8.
+- CI runs the contract validators/tests on pushes and pull requests (D6).
 
 **Acceptance**
 
@@ -76,6 +79,9 @@ ascii, ccat; 2018: ascii, ascii-one-line-per-verse, ccat).
   structural / missing / extra, at file, verse, and word level.
 - Categorized differences and a plain-language verdict for each edition.
 - Updated `docs/PROVENANCE.md` and `docs/HISTORY.md` with external evidence.
+- Confirmation that LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are absent
+  from the Byzantine tradition in the official archives (D7), and whether the
+  official 2018 archive matches the `2023-07-20` revision (D3).
 - A maintainer decision log for every conflict (the pipeline flags; the
   maintainer decides).
 
@@ -108,7 +114,12 @@ without changing the current output.
 - Determinism check: build twice, compare hashes.
 - Baseline: regenerate the current RP2018 CSV and TEI outputs and prove they are
   byte-identical to the committed artifacts (or document every intended
-  difference).
+  difference). Treat the source files as authoritative and flag divergence (D5).
+- Preserve the intentionally blank verses (LUK 17:36, ACT 8:37, ACT 15:34,
+  ACT 24:7) as empty records in the CSV and TEI instead of silently dropping
+  them, and update the contract and validators accordingly (D8). In TEI, use an
+  empty `<ab n="..."/>` (or a documented marker), never an empty `<w>`.
+- Enable the CI artifact-equality check once the rebuild is proven (D6).
 
 **Acceptance**
 

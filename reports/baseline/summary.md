@@ -10,9 +10,10 @@ Read-only inventory and validation of the corpus as it exists today. No external
 
 ## Key finding
 
-- Source and generated coverage agree everywhere except LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7, which are blank in the source and therefore absent from the CSV (and consequently the TEI).
+- The only coverage difference is the four verses that are intentionally blank because they are not part of the Byzantine tradition: LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7. The CSV currently drops them (decision D7); Cycle 3 will preserve them as empty records (D8).
 - TEI matches `strongs/no-parsing` exactly (7953 verses).
 - All 140 expected derivations exist; `demo_john_1.xml` is auxiliary.
+- The current text is modelled as `rp2018` revision `2023-07-20` (D3); the source files are authoritative (D5).
 
 ## Datasets
 
@@ -46,8 +47,9 @@ Read-only inventory and validation of the corpus as it exists today. No external
 
 - `04a_PA.TXT` is John 7:53-8:11 (Pericope Adulterae) and `05a_ACT24.TXT` is Acts 24:6-8. They are separate pseudo-books in CCAT/CSV-CCAT and have no Strong's or TEI counterpart.
 - `05_ACT.TXT` leaves Acts 24:7 blank; the Byzantine expansion lives in `05a_ACT24.TXT`.
-- LUK 17:36, ACT 8:37, and ACT 15:34 are also blank verse references with no section file (decision log D7).
-- TEI is generated from `strongs/no-parsing`, so it is unaccented and has no parsing.
+- LUK 17:36, ACT 8:37, and ACT 15:34 are intentionally blank because they are not part of the Byzantine tradition (D7).
+- TEI is generated from `strongs/no-parsing`, so it is unaccented and has no parsing; this is intended (D2).
+- Generated CSV/TEI are unverified derivatives until Cycle 3 reproduces them byte-for-byte (D4).
 
 ## Reproduce
 

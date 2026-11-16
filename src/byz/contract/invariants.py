@@ -5,12 +5,13 @@ from dataclasses import replace
 from . import bp5, ccat, csv_view, paths, tei_view
 
 _BLANK_REASON = (
-    "The verse reference is present with no text in the base file. The reading "
-    "is not in the main text here; needs maintainer confirmation (decision log D7)."
+    "Intentionally blank: this verse is not part of the Byzantine tradition "
+    "(maintainer decision D7). The generated CSV/TEI currently drop blank "
+    "verses; preserving them as empty records is a Cycle 3 task (D8)."
 )
 _ACT24_REASON = (
-    "Acts 24:6-8 Byzantine expansion lives in 05a_ACT24.TXT; "
-    "05_ACT.TXT leaves 24:7 blank by design."
+    "Acts 24:7 is intentionally blank because it is not part of the Byzantine "
+    "tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7)."
 )
 
 KNOWN_EXCEPTIONS = {

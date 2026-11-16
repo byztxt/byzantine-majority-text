@@ -34,14 +34,14 @@ No external archive is involved in this contract; that is the next cycle.
 
 | Dataset | Key | Reason |
 | --- | --- | --- |
-| `source/CCAT` | `LUK 17:36` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/CCAT` | `ACT 8:37` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/CCAT` | `ACT 15:34` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/CCAT` | `ACT 24:7` | Acts 24:6-8 Byzantine expansion lives in 05a_ACT24.TXT; 05_ACT.TXT leaves 24:7 blank by design. |
-| `source/Strongs` | `LUK 17:36` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/Strongs` | `ACT 8:37` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/Strongs` | `ACT 15:34` | The verse reference is present with no text in the base file. The reading is not in the main text here; needs maintainer confirmation (decision log D7). |
-| `source/Strongs` | `ACT 24:7` | Acts 24:6-8 Byzantine expansion lives in 05a_ACT24.TXT; 05_ACT.TXT leaves 24:7 blank by design. |
+| `source/CCAT` | `LUK 17:36` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/CCAT` | `ACT 8:37` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/CCAT` | `ACT 15:34` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/CCAT` | `ACT 24:7` | Acts 24:7 is intentionally blank because it is not part of the Byzantine tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7). |
+| `source/Strongs` | `LUK 17:36` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/Strongs` | `ACT 8:37` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/Strongs` | `ACT 15:34` | Intentionally blank: this verse is not part of the Byzantine tradition (maintainer decision D7). The generated CSV/TEI currently drop blank verses; preserving them as empty records is a Cycle 3 task (D8). |
+| `source/Strongs` | `ACT 24:7` | Acts 24:7 is intentionally blank because it is not part of the Byzantine tradition; the Byzantine expansion is in 05a_ACT24.TXT (decision D7). |
 
 ## Dataset contracts
 

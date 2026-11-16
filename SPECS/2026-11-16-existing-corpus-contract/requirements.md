@@ -214,7 +214,11 @@ tests/contract/...
 - The maintainer can read `reports/baseline/summary.md` and understand the state
   of the corpus without reading code.
 
-## Open questions (to resolve with the maintainer)
+## Open questions (resolved in `decisions.md`)
+
+All questions below were adopted on 2026-11-16; see `decisions.md` for D1-D8.
+
+
 
 1. What is the intended semantic contract for `04a_PA` and `05a_ACT24`? Are they
    Byzantine expansions intentionally omitted from the main CCAT line, and why do
