@@ -54,11 +54,12 @@ available), instead of asking you to dig through git history:
 
 | Edition | Status | Repo releases |
 | --- | --- | --- |
-| `rp2005` | official print 2005 | none |
-| `rp2005-2019` | released 2019 revision | `v1.0.0`-`v2.0.3` |
-| `rp2018` | official print 2018 | none |
-| `rp2018-2023` | released 2018+2023 text | `v3.0.0`-`v3.3.4` |
+| `rp2005` | official | none |
+| `rp2005-2019` | released | `v1.0.0`-`v2.0.3` |
+| `rp2018` | official | none |
+| `rp2018-2023` | released | `v3.0.0`-`v3.3.4` |
 
-See [`docs/EDITIONS.md`](docs/EDITIONS.md) for the full explanation,
-PDF links, provenance, and checksums.
+See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the
+[`editions/`](editions/) directory for the full explanation, PDF
+links, provenance, and checksums.
 <!-- editions:end -->

@@ -260,7 +260,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὡς</w>
 						<w>τὰ</w>
 						<w>ἄλογα</w>
-						<w>ζῶᾳ,</w>
+						<w>ζῷα,</w>
 						<w>ἐπίστανται,</w>
 						<w>ἐν</w>
 						<w>τούτοις</w>
@@ -493,7 +493,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δὲ</w>
 						<w>ἐν</w>
 						<w>φόβῳ</w>
-						<w>σώζ|ετε,</w>
+						<w>σῴζετε,</w>
 						<w>ἐκ</w>
 						<w>πυρὸς</w>
 						<w>ἁρπάζοντες,</w>

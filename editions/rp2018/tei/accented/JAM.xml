@@ -374,9 +374,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>περισσείαν</w>
 						<w>κακίας,</w>
 						<w>ἐν</w>
-						<w>πραυ|</w>
-						<w>́</w>
-						<w>̈τητι</w>
+						<w>πρᾳΰτητι</w>
 						<w>δέξασθε</w>
 						<w>τὸν</w>
 						<w>ἔμφυτον</w>
@@ -1244,9 +1242,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔργα</w>
 						<w>αὐτοῦ</w>
 						<w>ἐν</w>
-						<w>πραυ|</w>
-						<w>́</w>
-						<w>̈τητι</w>
+						<w>πρᾳΰτητι</w>
 						<w>σοφίας.</w>
 					</ab>
 					<ab n="B20K3V14">
@@ -1431,7 +1427,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὸ</w>
 						<w>πνεῦμα</w>
 						<w>ὃ</w>
-						<w>κατώκ|ησεν</w>
+						<w>κατῴκησεν</w>
 						<w>ἐν</w>
 						<w>ἡμῖν.</w>
 					</ab>

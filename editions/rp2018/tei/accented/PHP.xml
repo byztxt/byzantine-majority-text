@@ -290,7 +290,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δεσμοῖς</w>
 						<w>μου,</w>
 						<w>περισσοτέρως</w>
-						<w>τολμᾶν|</w>
+						<w>τολμᾷν</w>
 						<w>ἀφόβως</w>
 						<w>τὸν</w>
 						<w>λόγον</w>
@@ -419,7 +419,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἐμοὶ</w>
 						<w>γὰρ</w>
 						<w>τὸ</w>
-						<w>ζῆν|,</w>
+						<w>ζῇν,</w>
 						<w>χριστός·</w>
 						<w>καὶ</w>
 						<w>τὸ</w>
@@ -430,7 +430,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Εἰ</w>
 						<w>δὲ</w>
 						<w>τὸ</w>
-						<w>ζῆν|</w>
+						<w>ζῇν</w>
 						<w>ἐν</w>
 						<w>σαρκί,</w>
 						<w>τοῦτό</w>
@@ -1719,7 +1719,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καὶ</w>
 						<w>χορτάζεσθαι</w>
 						<w>καὶ</w>
-						<w>πεινᾶν|,</w>
+						<w>πεινᾷν,</w>
 						<w>καὶ</w>
 						<w>περισσεύειν</w>
 						<w>καὶ</w>

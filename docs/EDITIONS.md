@@ -28,7 +28,7 @@ the source files here are machine-readable companions.
 | `source/CCAT` | repo 2018+2023 | yes | no | yes | no |
 | `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |
 | `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |
-| `parsed` (v2.0.3) | repo parsed lineage | no | yes | no | yes |
+| `parsed` (v2.0.3) | repo parsed lineage | no | yes | yes | yes |
 | `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |
 
 ## What each edition is
@@ -113,6 +113,10 @@ python3 scripts/diff_editions.py
 - `rp2005-2019` -> `rp2018`: `reports/diffs/rp2005-2019--rp2018/report.md`
 - `rp2018` -> `rp2018-2023`: `reports/diffs/rp2018--rp2018-2023/report.md`
 - `rp2005` -> `rp2018`: `reports/diffs/rp2005--rp2018/report.md`
+
+Successive diffs compare the **source-tier main text** (official `.CCT`,
+historical `textonly-beta-code`, or current `source/CCAT`), not the
+generated CSV/TEI views.
 
 ## Source of truth
 

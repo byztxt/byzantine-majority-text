@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -40,18 +41,33 @@ ASCII_TO_GREEK = {
     "w": "ω",
 }
 
+UB5_TO_GREEK = dict(ASCII_TO_GREEK)
+UB5_TO_GREEK["q"] = "θ"
+UB5_TO_GREEK["y"] = "ψ"
+
 VERSE_RE = re.compile(r"^\s*(\d+):(\d+)\s?(.*)$")
 CCT_RE = re.compile(r"^(\d{2}):(\d{2})(?:\s(.*))?$")
+PAREN_REF_RE = re.compile(r"\((\d+):(\d+)\)")
 
 EXPORT_NOTES = {
     "official": "Accented CSV (with/without variants) and accented TEI are generated from the official `.CCT` source. Unaccented CSV and TEI are generated from the official ASCII. Strong's and parsing are not included because the official archives do not contain them.",
-    "historical": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`.",
+    "historical": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`. The historical `parsed` source includes apparatus markup; the Strong's views use the main text only.",
     "current": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are copied or generated from the current working tree.",
 }
 
 
 def ascii_to_greek(text: str) -> str:
     return "".join(ASCII_TO_GREEK.get(char, char) for char in text)
+
+
+def _git_commit(tag: str) -> str:
+    result = subprocess.run(
+        ["git", "-C", str(editions.ROOT), "rev-parse", f"{tag}^{{commit}}"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return result.stdout.strip()
 
 
 def _sha256(path: Path) -> str:
@@ -81,6 +97,10 @@ def parse_ascii_main(path: Path) -> dict:
     for line in path.read_text().splitlines():
         match = VERSE_RE.match(line)
         if not match:
+            if line.strip():
+                raise ValueError(
+                    f"unmatched ASCII line in {path.name}: {line[:80]}"
+                )
             continue
         key = (int(match.group(1)), int(match.group(2)))
         verses[key] = ascii_to_greek(match.group(3).strip())
@@ -102,10 +122,12 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
     for line in path.read_text().splitlines():
         if not line.strip() or line.lstrip().startswith("#"):
             continue
-        normalized = normalize.official_ccat_line(line)
+        normalized = normalize.official_ccat_line(line, reorder_iota=False)
         match = CCT_RE.match(normalized)
         if not match:
-            continue
+            raise ValueError(
+                f"unmatched .CCT line in {path.name}: {line[:80]}"
+            )
         key = (int(match.group(1)), int(match.group(2)))
         body = match.group(3) or ""
         body = buc.standardise_beta_code(body, drop_variants=drop_variants)
@@ -114,9 +136,89 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
     return verses
 
 
-def parse_parsed_ub5(path: Path) -> tuple:
+def ub5_to_greek(text: str) -> str:
+    greek = "".join(UB5_TO_GREEK.get(char, char) for char in text)
+    if greek.endswith("σ"):
+        greek = greek[:-1] + "ς"
+    return greek
+
+
+def _sanitize_ub5(text: str, label: str) -> str:
+    # Remove <word> plus the numbers/parsing that belong to the apparatus lemma.
+    text = re.sub(r"<[^>]+>(?:\s+\d+)*(?:\s+\{[^}]*\})*", " ", text)
+    # Remove variant blocks and their separators.
+    text = re.sub(r"(?:VAR|OR):?.*?:END", " ", text)
+    text = re.sub(r"M5:.*?:M5|M6:.*?:M6", " ", text)
+    text = re.sub(r"\|", " ", text)
+    text = re.sub(r"\b(?:OMIT|M5:|M6:)\b", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    if re.search(r"[|<>]|VAR:|:END", text):
+        raise ValueError(f"unparsed apparatus markup in {label}: {text[:120]}")
+    return text
+
+
+def _parse_ub5_text(text: str, label: str) -> tuple:
+    tokens = text.split()
+    parsed = []
+    text_only = []
+    index = 0
+    while index < len(tokens):
+        word = tokens[index]
+        index += 1
+        if word.isdigit() or word.startswith("{"):
+            raise ValueError(f"unexpected token {word!r} in {label}")
+        greek = ub5_to_greek(word)
+        text_only.append(greek)
+        pairs = []
+        while index < len(tokens):
+            numbers = []
+            lookahead = index
+            while lookahead < len(tokens) and tokens[lookahead].isdigit():
+                numbers.append(tokens[lookahead])
+                lookahead += 1
+            if (
+                lookahead < len(tokens)
+                and tokens[lookahead].startswith("{")
+                and tokens[lookahead].endswith("}")
+            ):
+                parsing = tokens[lookahead]
+                if numbers:
+                    # The parsed files carry Strong's + TVM numbers. Keep the
+                    # Strong's number and the parsing; drop the TVM number.
+                    pairs.append((numbers[0], parsing))
+                index = lookahead + 1
+                if index < len(tokens) and tokens[index].isdigit():
+                    continue
+                break
+            break
+        if pairs:
+            parsed.append(
+                greek + " " + " ".join(f"{strongs} {parsing}" for strongs, parsing in pairs)
+            )
+        else:
+            parsed.append(greek)
+    return " ".join(parsed), " ".join(text_only)
+
+
+def _split_parenthetical_refs(text: str):
+    # A leading (chapter:verse) is an alternative numbering note; keep the text.
+    text = re.sub(r"^\s*\(\d+:\d+\)\s*", "", text)
+    parts = PAREN_REF_RE.split(text)
+    base = parts[0]
+    segments = []
+    index = 1
+    while index + 2 < len(parts):
+        segments.append(
+            ((int(parts[index]), int(parts[index + 1])), parts[index + 2])
+        )
+        index += 3
+    return base, segments
+
+def parse_parsed_ub5(path: Path, reference=None) -> tuple:
     with_parsing = {}
     without_parsing = {}
+    prefixes_parsed = {}
+    prefixes_text = {}
     verses = {}
     current = None
     for line in path.read_text().splitlines():
@@ -126,34 +228,42 @@ def parse_parsed_ub5(path: Path) -> tuple:
             verses[current] = match.group(3).strip()
         elif current is not None and line.strip():
             verses[current] = (verses[current] + " " + line.strip()).strip()
-    for key, text in verses.items():
-        tokens = text.split()
-        index = 0
-        parsed = []
-        text_only = []
-        while index < len(tokens):
-            word = tokens[index]
-            index += 1
-            pairs = []
-            while (
-                index + 1 < len(tokens)
-                and tokens[index].isdigit()
-                and tokens[index + 1].startswith("{")
-                and tokens[index + 1].endswith("}")
-            ):
-                pairs.append((tokens[index], tokens[index + 1]))
-                index += 2
-            greek = ascii_to_greek(word)
-            text_only.append(greek)
-            if pairs:
-                for strongs, parsing in pairs:
-                    parsed.append(f"{greek} {strongs} {parsing}")
-            else:
-                parsed.append(greek)
-        with_parsing[key] = " ".join(parsed)
-        without_parsing[key] = " ".join(text_only)
+    for key, raw in verses.items():
+        label = f"{path.name} {key[0]}:{key[1]}"
+        sanitized = _sanitize_ub5(raw, label)
+        base, segments = _split_parenthetical_refs(sanitized)
+        parsed, text_only = _parse_ub5_text(base, label)
+        for target_key, segment in segments:
+            segment_parsed, segment_text = _parse_ub5_text(
+                segment, f"{path.name} {target_key[0]}:{target_key[1]}"
+            )
+            if not reference or not segment_text:
+                continue
+            current_ref = reference.get(key, "")
+            target_ref = reference.get(target_key, "")
+            if segment_text in current_ref:
+                parsed = (parsed + " " + segment_parsed).strip()
+                text_only = (text_only + " " + segment_text).strip()
+            elif segment_text in target_ref:
+                prefixes_parsed[target_key] = (
+                    prefixes_parsed.get(target_key, "") + " " + segment_parsed
+                ).strip()
+                prefixes_text[target_key] = (
+                    prefixes_text.get(target_key, "") + " " + segment_text
+                ).strip()
+        if key in with_parsing:
+            with_parsing[key] += " " + parsed
+            without_parsing[key] += " " + text_only
+        else:
+            with_parsing[key] = parsed
+            without_parsing[key] = text_only
+    for key, prefix in prefixes_parsed.items():
+        if key in with_parsing:
+            with_parsing[key] = (prefix + " " + with_parsing[key]).strip()
+            without_parsing[key] = (
+                prefixes_text[key] + " " + without_parsing[key]
+            ).strip()
     return with_parsing, without_parsing
-
 
 def write_csv(path: Path, verses: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -333,7 +443,15 @@ def build_historical(edition: dict) -> None:
         abbr = sources.OFFICIAL_TO_ABBR.get(path.stem.upper())
         if not abbr:
             continue
-        with_parsing, without_parsing = parse_parsed_ub5(path)
+        reference_path = (
+            edition_dir / "csv" / "unaccented" / f"{abbr}.csv"
+        )
+        reference = (
+            _read_csv_verses(reference_path) if reference_path.exists() else {}
+        )
+        with_parsing, without_parsing = parse_parsed_ub5(
+            path, reference=reference
+        )
         write_csv(
             edition_dir / "csv" / "strongs" / "with-parsing" / f"{abbr}.csv",
             with_parsing,
@@ -421,6 +539,9 @@ def write_manifest(edition: dict) -> dict:
         "artifact_files": _hash_tree(root / "csv", root)
         + _hash_tree(root / "tei", root),
     }
+    if edition.get("tag"):
+        manifest["tag"] = edition["tag"]
+        manifest["commit"] = _git_commit(edition["tag"])
     if edition["pdf"]:
         pdf_path = editions.ROOT / edition["pdf"]
         manifest["pdf_sha256"] = _sha256(pdf_path)

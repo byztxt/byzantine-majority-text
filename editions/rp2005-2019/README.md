@@ -11,7 +11,7 @@
 - `tei/` - generated TEI-XML
 - `manifest.json` - provenance and hashes
 
-Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`.
+Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`. The historical `parsed` source includes apparatus markup; the Strong's views use the main text only.
 
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older

@@ -24,6 +24,12 @@ This map is derived from git history only. It does not prove which official arch
 - `v3.3.3`
 - `v3.3.4`
 
+`v2016-07-28` is an earlier 2005-lineage snapshot (2017-05-23). It is not
+curated as a separate edition: `v2.0.3` is the last pre-2023 release and
+supersedes it. The curated `rp2005-2019` source is the `textonly-beta-code`
+and `parsed` tree at `v2.0.3` (commit
+`8ec95671e463030347c2c643358eb56e58235b19`).
+
 ## Edition mapping (internal evidence)
 
 | Claim | Evidence |

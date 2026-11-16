@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import json
 import subprocess
@@ -25,6 +26,28 @@ class CurateIntegrationTests(unittest.TestCase):
             self.assertEqual(manifest["edition"], edition_id)
             self.assertTrue(manifest["source_files"])
             self.assertTrue(manifest["artifact_files"])
+
+    def test_historical_manifest_tag_and_commit(self):
+        manifest = json.loads(
+            (
+                editions.edition_dir("rp2005-2019") / "manifest.json"
+            ).read_text()
+        )
+        self.assertEqual(manifest["tag"], "v2.0.3")
+        self.assertEqual(len(manifest["commit"]), 40)
+
+    def test_golden_matthew_1_1(self):
+        expected = "Βίβλος γενέσεως Ἰησοῦ χριστοῦ, υἱοῦ Δαυίδ, υἱοῦ Ἀβραάμ."
+        for edition_id in editions.EDITIONS:
+            path = (
+                editions.edition_dir(edition_id)
+                / "csv"
+                / "accented"
+                / "no-variants"
+                / "MAT.csv"
+            )
+            rows = list(csv.DictReader(path.open(encoding="utf-8")))
+            self.assertEqual(rows[0]["text"], expected, edition_id)
 
     def test_historical_recovery_matches_git(self):
         path = (
@@ -116,6 +139,50 @@ class CurateIntegrationTests(unittest.TestCase):
                 root / "csv" / "strongs" / "with-parsing" / "MAT.csv"
             ).read_text()
             self.assertIn("976", text)
+
+    def test_historical_strongs_views_are_clean(self):
+        base = editions.edition_dir("rp2005-2019") / "csv" / "strongs"
+        for kind in ("no-parsing", "with-parsing"):
+            for path in (base / kind).glob("*.csv"):
+                for row in csv.DictReader(path.open(encoding="utf-8")):
+                    text = row["text"]
+                    for marker in (
+                        "VAR:",
+                        ":END",
+                        "|",
+                        "<",
+                        ">",
+                        "OMIT",
+                        "M5:",
+                        "M6:",
+                    ):
+                        self.assertNotIn(marker, text, f"{path.name}:{row}")
+                    if kind == "no-parsing":
+                        self.assertNotRegex(text, r"\d|\{|\}")
+
+    def test_historical_strongs_matches_unaccented_except_segmentation(self):
+        base = editions.edition_dir("rp2005-2019") / "csv"
+        expected = {
+            ("1CO", 7, 5),
+            ("2CO", 1, 17),
+            ("2CO", 12, 18),
+            ("2CO", 13, 5),
+        }
+        found = set()
+        for path in (base / "strongs" / "no-parsing").glob("*.csv"):
+            unaccented_path = base / "unaccented" / path.name
+            first = {
+                (int(row["chapter"]), int(row["verse"])): row["text"]
+                for row in csv.DictReader(path.open(encoding="utf-8"))
+            }
+            second = {
+                (int(row["chapter"]), int(row["verse"])): row["text"]
+                for row in csv.DictReader(unaccented_path.open(encoding="utf-8"))
+            }
+            for key in set(first) | set(second):
+                if first.get(key, "") != second.get(key, ""):
+                    found.add((path.stem, key[0], key[1]))
+        self.assertEqual(found, expected)
 
     def test_docs_cover_all_editions(self):
         text = (editions.DOCS_DIR / "EDITIONS.md").read_text()

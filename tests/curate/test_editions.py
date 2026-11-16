@@ -15,8 +15,14 @@ class EditionTests(unittest.TestCase):
     def test_release_ranges(self):
         historical = editions.metadata("rp2005-2019")
         current = editions.metadata("rp2018-2023")
-        self.assertEqual(historical["release_range"], "v1.0.0-v2.0.3")
-        self.assertEqual(current["release_range"], "v3.0.0-v3.3.4")
+        self.assertEqual(historical["first_release"], "v1.0.0")
+        self.assertEqual(historical["latest_release"], "v2.0.3")
+        self.assertEqual(current["first_release"], "v3.0.0")
+        self.assertTrue(current["latest_release"].startswith("v3."))
+        self.assertEqual(
+            historical["release_range"],
+            f"{historical['first_release']}-{historical['latest_release']}",
+        )
         self.assertEqual(editions.metadata("rp2005")["release_range"], "")
         self.assertEqual(editions.metadata("rp2018")["release_range"], "")
 

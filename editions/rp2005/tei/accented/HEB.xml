@@ -624,7 +624,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>διὰ</w>
 						<w>παντὸς</w>
 						<w>τοῦ</w>
-						<w>ζῆν|</w>
+						<w>ζῇν</w>
 						<w>ἔνοχοι</w>
 						<w>ἦσαν</w>
 						<w>δουλείας.</w>
@@ -1460,7 +1460,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πρὸς</w>
 						<w>τὸν</w>
 						<w>δυνάμενον</w>
-						<w>σώζ|ειν</w>
+						<w>σῴζειν</w>
 						<w>αὐτὸν</w>
 						<w>ἐκ</w>
 						<w>θανάτου</w>
@@ -2096,7 +2096,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὧδε</w>
 						<w>μὲν</w>
 						<w>δεκάτας</w>
-						<w>ἀποθνήσ|κοντες</w>
+						<w>ἀποθνῄσκοντες</w>
 						<w>ἄνθρωποι</w>
 						<w>λαμβάνουσιν·</w>
 						<w>ἐκεῖ</w>
@@ -2373,7 +2373,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B19K7V25">
 						<w>Ὅθεν</w>
 						<w>καὶ</w>
-						<w>σώζ|ειν</w>
+						<w>σῴζειν</w>
 						<w>εἰς</w>
 						<w>τὸ</w>
 						<w>παντελὲς</w>
@@ -3797,7 +3797,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἢ</w>
 						<w>τρισὶν</w>
 						<w>μάρτυσιν</w>
-						<w>ἀποθνήσ|κει·</w>
+						<w>ἀποθνῄσκει·</w>
 					</ab>
 					<ab n="B19K10V29">
 						<w>πόσῳ,</w>
@@ -3857,7 +3857,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ζῶντος.</w>
 					</ab>
 					<ab n="B19K10V32">
-						<w>¶Ἀναμιμνήσ|κεσθε</w>
+						<w>¶Ἀναμιμνῄσκεσθε</w>
 						<w>δὲ</w>
 						<w>τὰς</w>
 						<w>πρότερον</w>
@@ -4151,7 +4151,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B19K11V9">
 						<w>Πίστει</w>
-						<w>παρώκ|ησεν</w>
+						<w>παρῴκησεν</w>
 						<w>εἰς</w>
 						<w>γῆν</w>
 						<w>τῆς</w>
@@ -4369,7 +4369,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B19K11V21">
 						<w>Πίστει</w>
 						<w>Ἰακὼβ</w>
-						<w>ἀποθνήσ|κων</w>
+						<w>ἀποθνῄσκων</w>
 						<w>ἕκαστον</w>
 						<w>τῶν</w>
 						<w>υἱῶν</w>
@@ -5064,7 +5064,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἧς</w>
 						<w>οἱ</w>
 						<w>ἀκούσαντες</w>
-						<w>παρητ|ήσαντο</w>
+						<w>παρῃτήσαντο</w>
 						<w>μὴ</w>
 						<w>προστεθῆναι</w>
 						<w>αὐτοῖς</w>
@@ -5403,7 +5403,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ὧν</w>
 						<w>γὰρ</w>
 						<w>εἰσφέρεται</w>
-						<w>ζώῳν</w>
+						<w>ζῴων</w>
 						<w>τὸ</w>
 						<w>αἷμα</w>
 						<w>περὶ</w>

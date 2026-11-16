@@ -53,6 +53,18 @@ def write_editions_doc() -> str:
             f"| `{edition_id}` | {row.get('status', '')} | "
             f"{row.get('basis', '')} | {release} | {pdf} |"
         )
+    hist = manifests.get("rp2005-2019", {})
+    cur = manifests.get("rp2018-2023", {})
+    hist_range = (
+        f"`{hist.get('first_release')}`-`{hist.get('latest_release')}`"
+        if hist.get("release_range")
+        else "none"
+    )
+    cur_range = (
+        f"`{cur.get('first_release')}`-`{cur.get('latest_release')}`"
+        if cur.get("release_range")
+        else "none"
+    )
     lines.extend(
         [
             "",
@@ -66,7 +78,7 @@ def write_editions_doc() -> str:
             "| `source/CCAT` | repo 2018+2023 | yes | no | yes | no |",
             "| `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |",
             "| `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |",
-            "| `parsed` (v2.0.3) | repo parsed lineage | no | yes | no | yes |",
+            "| `parsed` (v2.0.3) | repo parsed lineage | no | yes | yes | yes |",
             "| `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |",
             "",
             "## What each edition is",
@@ -84,7 +96,7 @@ def write_editions_doc() -> str:
             "(`textonly-beta-code` and `parsed`). It was updated in 2019 and is not",
             "the official 2005 print edition. It matches the official 2018 archive in",
             "99.96% of verses and the official 2005 archive in 99.32%, which is why",
-            "calling it simply \"2005\" is misleading. Repo releases: `v1.0.0`-`v2.0.3`.",
+            f"calling it simply \"2005\" is misleading. Repo releases: {hist_range}.",
             "",
             "### `rp2018` - official 2018",
             "",
@@ -96,7 +108,7 @@ def write_editions_doc() -> str:
             "",
             "The current maintained text: the 2018 edition plus the 2023 adjustments",
             "and later minor fixes. It was first released in `v3.0.0` and continues",
-            "to receive releases. Repo releases: `v3.0.0`-`v3.3.4` (and later tags).",
+            f"to receive releases. Repo releases: {cur_range} (and later tags).",
             "",
             "## Why the history looks messy",
             "",
@@ -176,6 +188,10 @@ def write_editions_doc() -> str:
     lines.extend(
         [
             "",
+            "Successive diffs compare the **source-tier main text** (official `.CCT`,",
+            "historical `textonly-beta-code`, or current `source/CCAT`), not the",
+            "generated CSV/TEI views.",
+            "",
             "## Source of truth",
             "",
             "If a PDF, an archive, and the curated source disagree, the PDF wins and",
@@ -191,6 +207,7 @@ def write_editions_doc() -> str:
 def update_root_readme() -> str:
     path = editions.ROOT / "README.md"
     text = path.read_text(encoding="utf-8")
+    manifests = {row["edition"]: row for row in _manifests()}
     block = [
         BEGIN,
         "## Curated editions",
@@ -201,15 +218,26 @@ def update_root_readme() -> str:
         "",
         "| Edition | Status | Repo releases |",
         "| --- | --- | --- |",
-        "| `rp2005` | official print 2005 | none |",
-        "| `rp2005-2019` | released 2019 revision | `v1.0.0`-`v2.0.3` |",
-        "| `rp2018` | official print 2018 | none |",
-        "| `rp2018-2023` | released 2018+2023 text | `v3.0.0`-`v3.3.4` |",
-        "",
-        "See [`docs/EDITIONS.md`](docs/EDITIONS.md) for the full explanation,",
-        "PDF links, provenance, and checksums.",
-        END,
     ]
+    for edition_id in editions.EDITIONS:
+        row = manifests.get(edition_id, {})
+        release = (
+            f"`{row.get('first_release')}`-`{row.get('latest_release')}`"
+            if row.get("release_range")
+            else "none"
+        )
+        block.append(
+            f"| `{edition_id}` | {row.get('status', '')} | {release} |"
+        )
+    block.extend(
+        [
+            "",
+            "See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the",
+            "[`editions/`](editions/) directory for the full explanation, PDF",
+            "links, provenance, and checksums.",
+            END,
+        ]
+    )
     if BEGIN in text and END in text:
         before = text[: text.index(BEGIN)].rstrip()
         after = text[text.index(END) + len(END) :].strip()

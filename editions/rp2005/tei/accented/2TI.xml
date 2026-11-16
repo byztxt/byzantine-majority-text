@@ -125,7 +125,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀνυποκρίτου</w>
 						<w>πίστεως,</w>
 						<w>ἥτις</w>
-						<w>ἐνώκ|ησεν</w>
+						<w>ἐνῴκησεν</w>
 						<w>πρῶτον</w>
 						<w>ἐν</w>
 						<w>τῇ</w>
@@ -185,7 +185,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B16K1V8">
 						<w>Μὴ</w>
 						<w>οὖν</w>
-						<w>ἐπαισχυνθῆσ|</w>
+						<w>ἐπαισχυνθῇς</w>
 						<w>τὸ</w>
 						<w>μαρτύριον</w>
 						<w>τοῦ</w>
@@ -347,7 +347,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἑρμογένης.</w>
 					</ab>
 					<ab n="B16K1V16">
-						<w>Δώῃ</w>
+						<w>Δῴη</w>
 						<w>ἔλεος</w>
 						<w>ὁ</w>
 						<w>κύριος</w>
@@ -378,7 +378,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>-</w>
 					</ab>
 					<ab n="B16K1V18">
-						<w>δώῃ</w>
+						<w>δῴη</w>
 						<w>αὐτῷ</w>
 						<w>ὁ</w>
 						<w>κύριος</w>
@@ -486,7 +486,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Νόει</w>
 						<w>ἃ</w>
 						<w>λέγω·</w>
-						<w>δώῃ</w>
+						<w>δῴη</w>
 						<w>γάρ</w>
 						<w>σοι</w>
 						<w>ὁ</w>
@@ -784,8 +784,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					</ab>
 					<ab n="B16K2V25">
 						<w>ἐν</w>
-						<w>πραο|</w>
-						<w>́τητι</w>
+						<w>πρᾳότητι</w>
 						<w>παιδεύοντα</w>
 						<w>τοὺς</w>
 						<w>ἀντιδιατιθεμένους·</w>
@@ -999,7 +998,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οἱ</w>
 						<w>θέλοντες</w>
 						<w>εὐσεβῶς</w>
-						<w>ζῆν|</w>
+						<w>ζῇν</w>
 						<w>ἐν</w>
 						<w>χριστῷ</w>
 						<w>Ἰησοῦ</w>
@@ -1302,8 +1301,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὃν</w>
 						<w>ἀπέλιπον</w>
 						<w>ἐν</w>
-						<w>Τρωᾳ</w>
-						<w>́δι</w>
+						<w>Τρῳάδι</w>
 						<w>παρὰ</w>
 						<w>Κάρπῳ,</w>
 						<w>ἐρχόμενος</w>
@@ -1323,7 +1321,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μοι</w>
 						<w>κακὰ</w>
 						<w>ἐνεδείξατο·</w>
-						<w>ἀποδώῃ</w>
+						<w>ἀποδῴη</w>
 						<w>αὐτῷ</w>
 						<w>ὁ</w>
 						<w>κύριος</w>

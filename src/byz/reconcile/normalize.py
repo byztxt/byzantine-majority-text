@@ -52,19 +52,23 @@ def _canonicalize_token(token: str) -> str:
     return token
 
 
-def normalize_spacing(text: str) -> str:
+def normalize_spacing(text: str, reorder_iota: bool = True) -> str:
     text = text.replace("\r", "")
     text = re.sub(r"\s*\.\.\.\s*", " ... ", text)
     text = re.sub(r"\s*>\s*", " > ", text)
     text = re.sub(r"\[\s+", "[", text)
     text = re.sub(r"\s+\]", "]", text)
     text = re.sub(r"\s*-\s*", " - ", text)
-    text = re.sub(r"\|([A-Z])", r"\1|", text)
+    if reorder_iota:
+        # Comparison only: align the official iota-subscript ordering with the
+        # repository's current convention. Production conversion must not use
+        # this (it would corrupt the accented text).
+        text = re.sub(r"\|([A-Z])", r"\1|", text)
     text = re.sub(r" +", " ", text)
     return text.strip()
 
 
-def official_ccat_line(line: str) -> str:
+def official_ccat_line(line: str, reorder_iota: bool = True) -> str:
     line = line.strip()
     line = line.replace("{P}", "? ")
     tokens = []
@@ -77,7 +81,7 @@ def official_ccat_line(line: str) -> str:
         marked = "*" + token if re.search(r"[A-Z]", token) else token
         tokens.append(_canonicalize_token(marked))
     line = " ".join(tokens).upper().replace("^", "=")
-    return normalize_spacing(line)
+    return normalize_spacing(line, reorder_iota=reorder_iota)
 
 
 def current_ccat_line(line: str) -> str:
