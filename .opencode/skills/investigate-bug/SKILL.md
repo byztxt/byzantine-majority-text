@@ -9,7 +9,7 @@ You are investigating a bug. Your job is to diagnose the **instance**, classify
 the **category**, and patch the **class** - not just the symptom. Follow the
 three horizons in order. **Report your findings** to your caller (the
 orchestrating agent if you are a subagent in a loop, otherwise the user). Do not
-write plan files to disk - crafting `specs/` plans is the plan agent's job. Your
+write plan files to disk - crafting `SPECS/` plans is the plan agent's job. Your
 report informs that next step.
 
 ## When to invoke
@@ -153,7 +153,7 @@ over the implementer's job.
 - **In a loop (subagent -> orchestrator):** Return a structured report to the
   calling agent via your final message. The orchestrator decides whether to hand
   it to the plan agent (new plan), the spec-implementer (patch loop), or the
-  user. Do not write `specs/...` files yourself.
+  user. Do not write `SPECS/...` files yourself.
 - **Invoked directly by the user:** Report to the user in the same structured
   format (RCA -> H1 table -> H2 table -> proposed fixes -> prevention -> check
   proposals -> open questions).
@@ -175,7 +175,7 @@ over the implementer's job.
 ## Reference precedents
 
 - Concrete precedents accumulate in the READMEs and commit history. Record every
-  new class in the relevant README (or a `specs/` plan) so it becomes a
+  new class in the relevant README (or a `SPECS/` plan) so it becomes a
   searchable precedent.
 - The governing invariant to cite for every conversion bug: **the source files
   are the truth; the scripts are the only producers of the Unicode CSV/TEI-XML

@@ -3,7 +3,7 @@ description: >-
   Reviews changes on a feature branch by diffing against master. Called by the
   build agent after the spec-implementer finishes, to find bugs, validation gaps,
   and inconsistencies before verification. Reviews the local diff - it does not
-  create or manage PRs. Example: user: "Review the change for specs/2026-11-16-example/."
+  create or manage PRs. Example: user: "Review the change for SPECS/2026-11-16-example/."
   assistant: "I'll use the code-reviewer agent to review the branch diff against master."
 mode: subagent
 permission:
@@ -51,7 +51,7 @@ act on.
    number so your feedback targets the exact code introduced or modified.
    Confirm which branch you are on first (`git branch --show-current`).
 
-2. **Read the plan.** If a plan folder exists under `specs/`, read its
+2. **Read the plan.** If a plan folder exists under `SPECS/`, read its
    `requirements.md`, `plan.md`, and `validation.md` so you can judge whether the
    change actually satisfies it.
 

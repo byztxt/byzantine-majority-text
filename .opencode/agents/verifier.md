@@ -46,11 +46,12 @@ branch is committed and pushed.
 
 ## Your workflow
 
-1. **Read the plan and the docs.** Read any plan folder under `specs/`
-   (`requirements.md`, `plan.md`, `validation.md`), the root `README.md`, and the
-   README of every folder the change touches (`source/README.md`,
-   `scripts/README.md`, `csv-unicode/README.md`, `tei-xml-unicode/README.md`,
-   `essay/README.md`).
+1. **Read the plan, the constitution, and the docs.** Read any plan folder under
+   `SPECS/` (`requirements.md`, `plan.md`, `validation.md`), the constitution
+   (`SPECS/MISSION.md`, `SPECS/TECH.md`, `SPECS/ROADMAP.md`), the root
+   `README.md`, and the README of every folder the change touches
+   (`source/README.md`, `scripts/README.md`, `csv-unicode/README.md`,
+   `tei-xml-unicode/README.md`, `essay/README.md`).
 
 2. **Go through the verification checklist.** Work through `validation.md` item
    by item when present, otherwise check the change against the stated request.

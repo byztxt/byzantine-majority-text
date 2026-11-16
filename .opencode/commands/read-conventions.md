@@ -2,7 +2,13 @@
 description: Review this repository's conventions
 ---
 
-1. Read these files:
+1. Read the constitution:
+
+- SPECS/MISSION.md
+- SPECS/TECH.md
+- SPECS/ROADMAP.md
+
+2. Then read these files:
 
 - README.md
 - source/README.md
@@ -16,8 +22,8 @@ the variant codes (N/B/C/M/S/E), the parsing codes, and the Strong's-number
 conventions that the converters rely on. The other READMEs describe each folder's
 purpose and how to run the scripts.
 
-2. Then read the converter scripts in `scripts/` (`csv_converter.py`,
+3. Then read the converter scripts in `scripts/` (`csv_converter.py`,
    `tei_xml_converter.py`, and `beta_to_unicode_custom/`) so you understand how
    the Unicode CSV and TEI-XML derivatives are generated.
 
-3. Once you've done that, stand by for further instructions.
+4. Once you've done that, stand by for further instructions.

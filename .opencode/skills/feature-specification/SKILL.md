@@ -10,7 +10,7 @@ the plan before writing.
 
 Create:
 
-- A new directory `specs/YYYY-MM-DD-<change-name>/` for this work.
+- A new directory `SPECS/YYYY-MM-DD-<change-name>/` for this work.
 - In there:
   - `plan.md` as a series of numbered task groups. If a step needs checks, say
     exactly how to verify it (install `scripts/requirements.txt`, run the

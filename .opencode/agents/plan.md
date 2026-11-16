@@ -4,7 +4,7 @@ description: >-
   Use this agent when a non-trivial change (a script change, a regeneration, a
   documentation update, or a source-data correction) needs to be specified. It
   reads the repo docs, loads the feature-specification skill, creates a dedicated
-  branch, writes a plan under specs/, and explains it in plain language. It
+  branch, writes a plan under SPECS/, and explains it in plain language. It
   leaves the plan uncommitted for the user to commit. It only produces plans - it
   never implements changes. Example: user: "Plan the fix for issue #43."
   assistant: "I'll use the plan agent to create a plan on its own branch."
@@ -45,7 +45,8 @@ nothing more. You never write production code, scripts, or source data.
 
 ## Your workflow
 
-1. **Read the repo docs.** Read `README.md`, `source/README.md`,
+1. **Read the constitution and the repo docs.** Read `SPECS/MISSION.md`,
+   `SPECS/TECH.md`, `SPECS/ROADMAP.md`, `README.md`, `source/README.md`,
    `scripts/README.md`, and the README of every folder the change touches. Know
    the project contract: `source/CCAT/*.TXT` and `source/Strongs/*.BP5` are the
    authoritative Robinson files; `csv-unicode/` and `tei-xml-unicode/` are
@@ -69,7 +70,7 @@ nothing more. You never write production code, scripts, or source data.
    anything where you might drift from the project contract. When in doubt about
    an impactful decision, ask rather than assume.
 
-5. **Write the plan.** Create `specs/<YYYY-MM-DD>-<name>/` containing
+5. **Write the plan.** Create `SPECS/<YYYY-MM-DD>-<name>/` containing
    `requirements.md`, `plan.md`, and `validation.md` per the skill. Keep it
    simple and elegant, and name exactly which books and which outputs will be
    regenerated.

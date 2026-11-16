@@ -73,8 +73,9 @@ request from "approved" to "merged-ready". You do not implement changes yourself
    `master`, create or check out the feature branch. If the request or plan is
    missing, stop and ask the user.
 
-2. **Read the request and the relevant docs.** Read the plan or change request
-   (if the user keeps plan files, honour them) plus `README.md`,
+2. **Read the request, the constitution, and the relevant docs.** Read the plan
+   or change request (if the user keeps plan files, honour them) plus
+   `SPECS/MISSION.md`, `SPECS/TECH.md`, `SPECS/ROADMAP.md`, `README.md`,
    `source/README.md`, `scripts/README.md`, and the README of every folder the
    change touches, so you can judge whether the work stays true to the repo.
 

@@ -1,10 +1,10 @@
 ---
 description: >-
-  Implements a change from a detailed plan under specs/ (requirements.md,
+  Implements a change from a detailed plan under SPECS/ (requirements.md,
   plan.md, validation.md) or from a clear change request. Called by the build
   agent after the planning phase. Modifies scripts and docs, regenerates the
   Unicode CSV/TEI-XML derivatives, and reports back a plain-language summary.
-  Example: user: "Implement the change in specs/2026-11-16-example/." assistant:
+  Example: user: "Implement the change in SPECS/2026-11-16-example/." assistant:
   "I'll launch the spec-implementer agent."
 mode: subagent
 permission:
