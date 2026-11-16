@@ -24,6 +24,8 @@ later RP2026), with readable deltas and reproducible CSV/TEI-XML exports.
 **Spec:** `SPECS/2026-11-16-existing-corpus-contract/`.
 **Decisions:** `SPECS/2026-11-16-existing-corpus-contract/decisions.md`
 (D1-D8, adopted 2026-11-16).
+**Status:** Complete (2026-11-16). Verified in `validation.md`; generated
+artifacts were regenerated for D8.
 
 **Goal:** get clarity on what is already in the repository before bringing in any
 external data. Establish a precise, testable contract and matrix for the current
@@ -41,18 +43,22 @@ edition/revision the repo currently claims. No external archives are fetched.
   `05a_ACT24`, with chapter/verse counts, gaps, blanks, and duplicates.
 - Internal consistency report: every invariant violation with `file:line` and a
   known-exception/decision entry.
-- Derivation map (input → output) evidenced by the scripts, with exact
-  regeneration checks deferred to the pipeline cycle.
+- Derivation map (input → output) evidenced by the scripts; the converters were
+  run for D8, with the full byte-for-byte reproduction deferred to Cycle 3.
 - Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
   July 2023 update.
 - A maintainer decision log for internal ambiguities, now adopted as D1-D8.
 - Local test command documented; no GitHub CI (D6).
+- D8 implemented: intentionally blank verses are preserved as empty CSV rows and
+  empty `<ab/>` TEI elements; the stale 2TI 2:22 and ACT 4:9 outputs were
+  corrected during regeneration.
 
 **Acceptance**
 
 - Every dataset is documented and machine-validated.
 - Every book/section is accounted for; every violation is visible, not silenced.
-- Reports are deterministic; no data file changed; no external fetch.
+- Reports are deterministic; source files are unchanged; generated artifacts were
+  regenerated for D8; no external fetch.
 - The maintainer can understand the corpus from `reports/baseline/summary.md`
   alone.
 
@@ -115,8 +121,9 @@ without changing the current output.
 - Baseline: regenerate the current RP2018 CSV and TEI outputs and prove they are
   byte-identical to the committed artifacts (or document every intended
   difference). Treat the source files as authoritative and flag divergence (D5).
-- Verify that the D8 empty-record behavior (intentional blank verses kept as
-  empty CSV rows and empty `<ab/>` TEI elements) survives the pipeline rewrite.
+- Keep the D8 empty-record behavior (already implemented: intentional blank
+  verses kept as empty CSV rows and empty `<ab/>` TEI elements) in the rewritten
+  pipeline.
 - Add the local artifact-equality check once the rebuild is proven (D6).
 
 **Acceptance**

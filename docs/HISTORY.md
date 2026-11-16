@@ -4,7 +4,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`b7485a3` (2026-11-11) Fix morphology tags per Dr. Robinson (issue #43, partial)
+`dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts
 
 ## Tags
 
@@ -38,9 +38,9 @@ This map is derived from git history only. It does not prove which official arch
 | --- | --- | --- |
 | `source/CCAT` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `16859b2` (2023-07-20) Add Pericope Adulterae and Acts 24 beta code |
 | `source/Strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `b7485a3` (2026-11-11) Fix morphology tags per Dr. Robinson (issue #43, partial) |
-| `csv-unicode/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `27a45ff` (2024-12-31) Clearly mark new paragraphs with a pilcrow sign |
-| `csv-unicode/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `97371d7` (2023-05-31) Update source files and Unicode CSVs |
-| `tei-xml-unicode` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `f2a0cc1` (2023-07-19) Correct edition number in TEI XML |
+| `csv-unicode/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
+| `csv-unicode/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
+| `tei-xml-unicode` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
 | `essay` | `e8e5189` (2023-09-03) Add Robinson's Case for Byz Priority essay | `d84f8e7` (2023-09-06) Update README |
 
 ## June-September 2023 commits touching the corpus

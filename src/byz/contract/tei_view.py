@@ -99,19 +99,20 @@ def validate(path, dataset="tei-xml-unicode/no-accents") -> DatasetResult:
                     )
                 seen_anchors.add(anchor)
                 match = ANCHOR_RE.match(anchor)
+                chapter_number = int(match.group(2))
+                verse_number = int(match.group(3))
+                words = verse.findall(_tag("w"))
+                total_words += len(words)
                 records.append(
                     {
                         "book": abbr,
-                        "chapter": int(match.group(2)),
-                        "verse": int(match.group(3)),
+                        "chapter": chapter_number,
+                        "verse": verse_number,
                         "n": anchor,
+                        "text": "" if not words else "present",
                     }
                 )
-                words = verse.findall(_tag("w"))
-                total_words += len(words)
                 if not words:
-                    chapter_number = int(match.group(2))
-                    verse_number = int(match.group(3))
                     if not contracts.is_intentional_blank(
                         abbr, chapter_number, verse_number
                     ):
