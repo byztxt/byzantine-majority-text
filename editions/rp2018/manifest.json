@@ -1,279 +1,709 @@
 {
   "artifact_files": [
     {
-      "path": "csv/ascii-one-line/1CO.csv",
+      "path": "csv/accented/no-variants/1CO.csv",
+      "sha256": "afeed1dc5e4d0142d24b6f45ecefd052e42984eb283d7f6cb68f1c80f4607ba3",
+      "size": 84971
+    },
+    {
+      "path": "csv/accented/no-variants/1JO.csv",
+      "sha256": "e7be23aee6d882ac0e9626284e92aa37be5ec4932dd8b9b1dfbed07a8c575d30",
+      "size": 24754
+    },
+    {
+      "path": "csv/accented/no-variants/1PE.csv",
+      "sha256": "b25dcdb3653abacb54e89ea6deacaad28466454376e4af385f6fbe53b343d2f9",
+      "size": 23063
+    },
+    {
+      "path": "csv/accented/no-variants/1TH.csv",
+      "sha256": "697c21d5a226a60b433c22969a643e3f769518f80d603a3ce99d3b8bf17ce8c9",
+      "size": 19014
+    },
+    {
+      "path": "csv/accented/no-variants/1TI.csv",
+      "sha256": "de0de7be156b0110783d63cdcb22136d73eb24c8547da09828b20e4b3e6fa6ed",
+      "size": 22247
+    },
+    {
+      "path": "csv/accented/no-variants/2CO.csv",
+      "sha256": "71e1215bf282944e61ad81f02f8c6f1f13c115b9c9d19e9636505d26b7946395",
+      "size": 56894
+    },
+    {
+      "path": "csv/accented/no-variants/2JO.csv",
+      "sha256": "8e30e56b99fd783fe5fcdb9c2c5f5e9d4ed6cd5a7ecfbbeba1b9efc7800e07cd",
+      "size": 2980
+    },
+    {
+      "path": "csv/accented/no-variants/2PE.csv",
+      "sha256": "e307342e1cffe26e78dc9a9a43e358a5a466b4fcacdf1b71e7ca509e0304ebdf",
+      "size": 15015
+    },
+    {
+      "path": "csv/accented/no-variants/2TH.csv",
+      "sha256": "42091b722fd034d292160a22b5794bf209f6aa4cbc2e4226cc41871cd0135ff3",
+      "size": 10390
+    },
+    {
+      "path": "csv/accented/no-variants/2TI.csv",
+      "sha256": "45e20bb8f97efc4759f873a5ab8b31c04442ea26870a9f06aed45fc89b8ee802",
+      "size": 16480
+    },
+    {
+      "path": "csv/accented/no-variants/3JO.csv",
+      "sha256": "9cc1aeef3dd1ba29421640d31365c399a06809cb7117f4a6d1a1e2d69f391efc",
+      "size": 2812
+    },
+    {
+      "path": "csv/accented/no-variants/ACT.csv",
+      "sha256": "88b2bb5f034bf7d775754e1dab4121f2ef980613a53402fae0e25f5cd534eb87",
+      "size": 241615
+    },
+    {
+      "path": "csv/accented/no-variants/ACT24.csv",
+      "sha256": "561c1570dd4cb0ff43f093543c7242ae4a676e73458fa685bd5e8a6cc65a70d8",
+      "size": 669
+    },
+    {
+      "path": "csv/accented/no-variants/COL.csv",
+      "sha256": "3209a8533158c2909e8a6814283d925ee3a2d79097a7a1eec898ac94ae3f2c59",
+      "size": 20276
+    },
+    {
+      "path": "csv/accented/no-variants/EPH.csv",
+      "sha256": "07386b84884b479f04adf9063db5cc66446a030549f793cc5675e1ec4a4dca95",
+      "size": 30818
+    },
+    {
+      "path": "csv/accented/no-variants/GAL.csv",
+      "sha256": "db6be728e79fa760dff9ad05a1ed2b7354dfebbde9de0dc9207588ed7bcdad47",
+      "size": 28452
+    },
+    {
+      "path": "csv/accented/no-variants/HEB.csv",
+      "sha256": "158e147e97a294b4f905cdf08d9af8dfb2792774a0d4492d6f3b0159313db601",
+      "size": 66097
+    },
+    {
+      "path": "csv/accented/no-variants/JAM.csv",
+      "sha256": "4d24780b68d6940904447d3672bf8e7e88eb523e4ad02ebcf8e84e55fa9abf90",
+      "size": 22446
+    },
+    {
+      "path": "csv/accented/no-variants/JOH.csv",
+      "sha256": "b944c047c1c278aebada7d2f90d46bbd8ead0b8fd5bf1f7a3f0fc3c732668aa2",
+      "size": 187256
+    },
+    {
+      "path": "csv/accented/no-variants/JUD.csv",
+      "sha256": "3d4f0a2f4aa99a6ed9d7a5e070bc9b55c926e072515332d70f72b2939a914db5",
+      "size": 6249
+    },
+    {
+      "path": "csv/accented/no-variants/LUK.csv",
+      "sha256": "58a5fee87c22e5f525582d0cdf8d8390bcbf1041556903ad56f31637c49884f5",
+      "size": 249040
+    },
+    {
+      "path": "csv/accented/no-variants/MAR.csv",
+      "sha256": "95d6971f656499bde0d341b9d19c26dcf1c5ec549515d75c45d65e08dd8f47c3",
+      "size": 147325
+    },
+    {
+      "path": "csv/accented/no-variants/MAT.csv",
+      "sha256": "ed2d14935c35f2b919ad85aa58b0a11614912802f6de75bd95fbb70494aa6057",
+      "size": 233994
+    },
+    {
+      "path": "csv/accented/no-variants/PA.csv",
+      "sha256": "e6e32cfaecaba8907118308b2ddc400b5e9aa3cd2931e3aeb771b1565ca90b83",
+      "size": 2067
+    },
+    {
+      "path": "csv/accented/no-variants/PHM.csv",
+      "sha256": "a2785c0c1a50174be861fb6e8c320ebad020f94691107c9bc46722e0b37b0ae2",
+      "size": 4127
+    },
+    {
+      "path": "csv/accented/no-variants/PHP.csv",
+      "sha256": "da306d6fdd3063da29520c45aa1c5de4fab960dfd07df0316d673594b6fae19c",
+      "size": 20457
+    },
+    {
+      "path": "csv/accented/no-variants/REV.csv",
+      "sha256": "4d131fecf7e7a7e9fae36d83e31ea61d6de1df58d706047f5426c024d12953f4",
+      "size": 116926
+    },
+    {
+      "path": "csv/accented/no-variants/ROM.csv",
+      "sha256": "441ac69fae11035b4a9cd10c393b94165f302baaf0e2d2824b540a05f91c81cf",
+      "size": 88898
+    },
+    {
+      "path": "csv/accented/no-variants/TIT.csv",
+      "sha256": "c9a69b89e52b867a0c098204bd10b30ffaeb2c105f15dded7b3e3055c53e45ff",
+      "size": 9304
+    },
+    {
+      "path": "csv/accented/with-variants/1CO.csv",
+      "sha256": "cd3c135990ec3894ee1d8e02c7f183a67856c743d9938fe5e24c70118d6c11f6",
+      "size": 101162
+    },
+    {
+      "path": "csv/accented/with-variants/1JO.csv",
+      "sha256": "f0fdfc0111d670416cb68d2debeb6144923e3c9bf5aa16921c0402c1c38f85f9",
+      "size": 27485
+    },
+    {
+      "path": "csv/accented/with-variants/1PE.csv",
+      "sha256": "d012e772f01cd0e8837ff876f52c00f5b9ae2a90d84b2ba1224304823d6217fc",
+      "size": 26839
+    },
+    {
+      "path": "csv/accented/with-variants/1TH.csv",
+      "sha256": "c8605e97c574f9d29327289cfe1f72439c1a13ad3c393d30959c2b70bae2ab4c",
+      "size": 21478
+    },
+    {
+      "path": "csv/accented/with-variants/1TI.csv",
+      "sha256": "ce3a4ac685bf879e56c7cc55b030661b9f099ced296e11d38e7bbb5df551a348",
+      "size": 24706
+    },
+    {
+      "path": "csv/accented/with-variants/2CO.csv",
+      "sha256": "24a829dae81bf018aee316af6f410440e5c204dabb7faf06a3a6f45eb76770af",
+      "size": 65239
+    },
+    {
+      "path": "csv/accented/with-variants/2JO.csv",
+      "sha256": "0bcbe628e38114607591db5c72753e854215d1ac2fe088079c104e996b092efb",
+      "size": 3559
+    },
+    {
+      "path": "csv/accented/with-variants/2PE.csv",
+      "sha256": "9675974079374a1c62a8015399142760902e3cee20c3a42c481d717ab71e807b",
+      "size": 16934
+    },
+    {
+      "path": "csv/accented/with-variants/2TH.csv",
+      "sha256": "2da79a9b30ac349b504241d17880ebad0e166f808c25317e9e30c256699ea138",
+      "size": 11869
+    },
+    {
+      "path": "csv/accented/with-variants/2TI.csv",
+      "sha256": "c1395e022bfac88c0d7b5983f51d1a820347adabd907fe37710ad0d2852bfe32",
+      "size": 18325
+    },
+    {
+      "path": "csv/accented/with-variants/3JO.csv",
+      "sha256": "87a2e30de86bce6a3e4a7a96c1e17e2fe2cd54f499c2406690f6bdf8a50863d2",
+      "size": 3230
+    },
+    {
+      "path": "csv/accented/with-variants/ACT.csv",
+      "sha256": "48d51fd7267d65d137a9a5ed64b06c6d78c2617056ab3579cb4777ed71cec100",
+      "size": 296706
+    },
+    {
+      "path": "csv/accented/with-variants/ACT24.csv",
+      "sha256": "2c6b497ed95929751d5c6a7ee77a0796302f5e52d792a7fa3f1d907d428683de",
+      "size": 695
+    },
+    {
+      "path": "csv/accented/with-variants/COL.csv",
+      "sha256": "7c8bdda1f6df8610aa05a0184f6209866572a84d512a7ee21e0b306637b473a8",
+      "size": 23722
+    },
+    {
+      "path": "csv/accented/with-variants/EPH.csv",
+      "sha256": "405dbd7dc0550544738b50f78bf2e3d0b77e669f7f5999ef285900b5c9ceefb0",
+      "size": 35242
+    },
+    {
+      "path": "csv/accented/with-variants/GAL.csv",
+      "sha256": "4c7be35cc8567a99173e23e04b2e38b4d8c2b8c956cf455dbff40b9fe2087a0d",
+      "size": 32527
+    },
+    {
+      "path": "csv/accented/with-variants/HEB.csv",
+      "sha256": "507241dea835d50f3ad67fc799a6e641f1088b2bb753e502bf676d9cd70e3a78",
+      "size": 73082
+    },
+    {
+      "path": "csv/accented/with-variants/JAM.csv",
+      "sha256": "f8f72e8b8b434d4e5f71535d8d47fc3f69ee2bac2100b684626edb1bd860b1d8",
+      "size": 26327
+    },
+    {
+      "path": "csv/accented/with-variants/JOH.csv",
+      "sha256": "27752b1ea9faabd59b6c08d3daf9c31fd1d72d49a9c7d1823b4321dc200a702a",
+      "size": 225946
+    },
+    {
+      "path": "csv/accented/with-variants/JUD.csv",
+      "sha256": "856adc534bd16dcb60874d9f6e387d5746ec4a22f0d7978c9fe03bd085cbc055",
+      "size": 7761
+    },
+    {
+      "path": "csv/accented/with-variants/LUK.csv",
+      "sha256": "b219d31b926b40690cda3aff8e50d6d8a322338090ab9e3c7837c88cbeadf8f8",
+      "size": 310611
+    },
+    {
+      "path": "csv/accented/with-variants/MAR.csv",
+      "sha256": "75a65545f193308292284500a9375aa30083c2133c7e241ecdb968f9a542ff06",
+      "size": 197554
+    },
+    {
+      "path": "csv/accented/with-variants/MAT.csv",
+      "sha256": "df5686817aae2d64c3ebc877fc56da8dcbac8d55b4ac67f0e70995dc4e9425f2",
+      "size": 274354
+    },
+    {
+      "path": "csv/accented/with-variants/PA.csv",
+      "sha256": "5378779dce217c567e6085d259d15048ed8afffe5e6314bf63afb29ad0841602",
+      "size": 2585
+    },
+    {
+      "path": "csv/accented/with-variants/PHM.csv",
+      "sha256": "d3adfaae919c318b7471263e581e7783e6f76d28e2db3244a06a6cb4652b106b",
+      "size": 4758
+    },
+    {
+      "path": "csv/accented/with-variants/PHP.csv",
+      "sha256": "7d5ed036fb8910db0c1a65746138a7eae7583d74953c6af04fea6f7454a36db2",
+      "size": 23406
+    },
+    {
+      "path": "csv/accented/with-variants/REV.csv",
+      "sha256": "1ea6797d61756f544c9f8965ef1d24ad22f78dae926a864503b5c1f65c1f6d74",
+      "size": 155086
+    },
+    {
+      "path": "csv/accented/with-variants/ROM.csv",
+      "sha256": "4f1aaf631c37ad03a4962c9f7786e0d7c0c244ea0f82a849c67b9ee11cdb36bf",
+      "size": 99574
+    },
+    {
+      "path": "csv/accented/with-variants/TIT.csv",
+      "sha256": "81f2110668e27cbe684e63e47229aefc14dd8bd79fb96ade164e735d485b356b",
+      "size": 10400
+    },
+    {
+      "path": "csv/unaccented/1CO.csv",
       "sha256": "b0df864762e7b5713187e1722878f5a01ce485d0c9250389d90f82b0933f9542",
       "size": 76010
     },
     {
-      "path": "csv/ascii-one-line/1JO.csv",
+      "path": "csv/unaccented/1JO.csv",
       "sha256": "7e377c69064423b23752131d0d1aeb24a22be851554bb18316e09966d1a88e3b",
       "size": 21780
     },
     {
-      "path": "csv/ascii-one-line/1PE.csv",
+      "path": "csv/unaccented/1PE.csv",
       "sha256": "b5f54a397842e13c44a02d3a3935987bbd1a6328ebb93708ae3c8a8f245b3065",
       "size": 20780
     },
     {
-      "path": "csv/ascii-one-line/1TH.csv",
+      "path": "csv/unaccented/1TH.csv",
       "sha256": "d186c8939fd0a2504b5ee3d207f16ad05c75b04f082922d29497f50a98939156",
       "size": 16972
     },
     {
-      "path": "csv/ascii-one-line/1TI.csv",
+      "path": "csv/unaccented/1TI.csv",
       "sha256": "dd32891aeccddbac47338278ab1a5b1f4a19202c6c58332933b35a97c12fd0ec",
       "size": 20213
     },
     {
-      "path": "csv/ascii-one-line/2CO.csv",
+      "path": "csv/unaccented/2CO.csv",
       "sha256": "2ea1a7f87d460e2c401929d1ca64b3a71addeee967ee00c4a3547f4d677ae66d",
       "size": 50907
     },
     {
-      "path": "csv/ascii-one-line/2JO.csv",
+      "path": "csv/unaccented/2JO.csv",
       "sha256": "bf33da0ff64377d2f3d7e4eedafda9a87bedf84a7b66d6a9628919ccf0e71148",
       "size": 2646
     },
     {
-      "path": "csv/ascii-one-line/2PE.csv",
+      "path": "csv/unaccented/2PE.csv",
       "sha256": "e2a06afbc15ed8a9f6e7e057ae046fda383647f0bac687b2d86bd060f8943d40",
       "size": 13628
     },
     {
-      "path": "csv/ascii-one-line/2TH.csv",
+      "path": "csv/unaccented/2TH.csv",
       "sha256": "6df8c9c6e4343247e88df76419e60f9d11c04af64c561b1f127e510f59a5d361",
       "size": 9260
     },
     {
-      "path": "csv/ascii-one-line/2TI.csv",
+      "path": "csv/unaccented/2TI.csv",
       "sha256": "9d5e656e379fe66fc37a64381a6fbe62430ee5bc13369f4b59d22cc17af4ad6f",
       "size": 14891
     },
     {
-      "path": "csv/ascii-one-line/3JO.csv",
+      "path": "csv/unaccented/3JO.csv",
       "sha256": "f8b357626f710a40c2e4e3592992f5d11fb80f2b27bb809bf707ba332f25cb74",
       "size": 2512
     },
     {
-      "path": "csv/ascii-one-line/ACT.csv",
+      "path": "csv/unaccented/ACT.csv",
       "sha256": "49da7a9e13dc8bdfb57d0659e18555a3e1ce8b9165cf43a1b9dd505563dac4f4",
       "size": 218687
     },
     {
-      "path": "csv/ascii-one-line/COL.csv",
+      "path": "csv/unaccented/COL.csv",
       "sha256": "3ba93e3b6f589ea948db38ccd4a9243019103e923cd1701d1f5e4341851e5c6c",
       "size": 18150
     },
     {
-      "path": "csv/ascii-one-line/EPH.csv",
+      "path": "csv/unaccented/EPH.csv",
       "sha256": "34e10e10c2bf895b7d5b8e214b3f39aeffb2f721bd755e5e6ba427b836046fb1",
       "size": 27707
     },
     {
-      "path": "csv/ascii-one-line/GAL.csv",
+      "path": "csv/unaccented/GAL.csv",
       "sha256": "97e385f1132d76cdfd948b858f91d94520bc1312175f8ad294ac839e2f2a75d4",
       "size": 25488
     },
     {
-      "path": "csv/ascii-one-line/HEB.csv",
+      "path": "csv/unaccented/HEB.csv",
       "sha256": "085183066387106e1e5e8cfc079930c2454370a5f4371d93ce702e04fb858815",
       "size": 59907
     },
     {
-      "path": "csv/ascii-one-line/JAM.csv",
+      "path": "csv/unaccented/JAM.csv",
       "sha256": "aa106087aa3df3a23f4997feb616d17942a2e616b00e176144848c670f858201",
       "size": 20205
     },
     {
-      "path": "csv/ascii-one-line/JOH.csv",
+      "path": "csv/unaccented/JOH.csv",
       "sha256": "ec3217c97c08e6b794760d73ea34e23e234da4dd9916a1c102dde7d446a09d25",
       "size": 166203
     },
     {
-      "path": "csv/ascii-one-line/JUD.csv",
+      "path": "csv/unaccented/JUD.csv",
       "sha256": "a902ed416e3f5f7a4cf4d4e78496c29a2659c3c66776f626410c3cceebf91a32",
       "size": 5673
     },
     {
-      "path": "csv/ascii-one-line/LUK.csv",
+      "path": "csv/unaccented/LUK.csv",
       "sha256": "da63712df6a786b46e0fa837576aa29af50afbfdb86b8a9be48cea1b1f744aea",
       "size": 222982
     },
     {
-      "path": "csv/ascii-one-line/MAR.csv",
+      "path": "csv/unaccented/MAR.csv",
       "sha256": "06e13216e0e72cf0b832cd1e97089cc391eec0c0c43c8d3fa2a9a8686e03f129",
       "size": 131913
     },
     {
-      "path": "csv/ascii-one-line/MAT.csv",
+      "path": "csv/unaccented/MAT.csv",
       "sha256": "98e75a728db7b40205778cc5eb911b584b16de45844460939e72f67c0c8434ce",
       "size": 209458
     },
     {
-      "path": "csv/ascii-one-line/PHM.csv",
+      "path": "csv/unaccented/PHM.csv",
       "sha256": "73d0bfb4abdc4e1000902e5e970a06dbeca92c8e140458fb8f371b41d0288de6",
       "size": 3679
     },
     {
-      "path": "csv/ascii-one-line/PHP.csv",
+      "path": "csv/unaccented/PHP.csv",
       "sha256": "73d671aaf7409a58b57fa0c90e48fd7dd2e736ae0f4fb0295f2f46089193375b",
       "size": 18335
     },
     {
-      "path": "csv/ascii-one-line/REV.csv",
+      "path": "csv/unaccented/REV.csv",
       "sha256": "83f819bad1a8b83f37bb4538da228b916aa51373f0e96524949db3046f462b1b",
       "size": 104830
     },
     {
-      "path": "csv/ascii-one-line/ROM.csv",
+      "path": "csv/unaccented/ROM.csv",
       "sha256": "5ba7c841ade9a68f39926df067ab48d06308c4bbe0f946f08cd2d65c103b205c",
       "size": 79669
     },
     {
-      "path": "csv/ascii-one-line/TIT.csv",
+      "path": "csv/unaccented/TIT.csv",
       "sha256": "47333dd7323be8cb74490ff30f43df5c33940e203a4b724d0803ec723bf0e95b",
       "size": 8433
     },
     {
-      "path": "tei/ascii-one-line/1CO.xml",
-      "sha256": "305857401ce5f9ced4a807b9a5b25cb214e6b6b8a08f5498f3dee1a06c7aa4cf",
-      "size": 181274
+      "path": "tei/accented/1CO.xml",
+      "sha256": "f1fd907a7e6e4abf5d8731ded75af5d4b355f4d430305bfb6b82d10f138946cb",
+      "size": 189516
     },
     {
-      "path": "tei/ascii-one-line/1JO.xml",
-      "sha256": "213a790c9ee4f532ae14e08fa72ad1727d802aeed88594477869c2af2a4dc2d2",
-      "size": 55140
+      "path": "tei/accented/1JO.xml",
+      "sha256": "8b588b2b1fef44701291ccd5f0abc944bba92a89c57ef56521d589fb5cdc40a1",
+      "size": 57913
     },
     {
-      "path": "tei/ascii-one-line/1PE.xml",
-      "sha256": "5f2b747dc3bd809ffa2b96233bbc36b16e78a8b1513fc3234adbd8744eef9d0f",
-      "size": 48525
+      "path": "tei/accented/1PE.xml",
+      "sha256": "a5889302e46cc405ae0bca65a6dd7fb999228ad947bd12dd8849c40f7479061a",
+      "size": 50656
     },
     {
-      "path": "tei/ascii-one-line/1TH.xml",
-      "sha256": "95f727ae12587650eb383a36d3b91ea4cbe64f7f9a3873c0aabb5d4455536c6d",
-      "size": 41391
+      "path": "tei/accented/1TH.xml",
+      "sha256": "a187c665f53e8c1f04b12625b2378b4751893279ee0736846bf8acf960bfda59",
+      "size": 43290
     },
     {
-      "path": "tei/ascii-one-line/1TI.xml",
-      "sha256": "fb3253f7551578a023596dad4f97ddbf1f910d5441d56485ba5fa69561231bc6",
-      "size": 46956
+      "path": "tei/accented/1TI.xml",
+      "sha256": "7dfbaa977ac9ae569ad66208e01be68a10c77fbc6dc7cd4872fc650723349b58",
+      "size": 48802
     },
     {
-      "path": "tei/ascii-one-line/2CO.xml",
-      "sha256": "2926de38701c5d340e3aa621cb802874e352d69d89b4ed0e030be7d3a40af558",
-      "size": 119570
+      "path": "tei/accented/2CO.xml",
+      "sha256": "1cc4eb06d34774dbfc67a88bd9b0ce8ff71146778d82f3db71025686cedddef8",
+      "size": 125307
     },
     {
-      "path": "tei/ascii-one-line/2JO.xml",
-      "sha256": "1c9b2b22a3f27fda065f3300580211ec76c33c26f956b2611fb065c440f2959c",
-      "size": 8521
+      "path": "tei/accented/2JO.xml",
+      "sha256": "9da003eb34577aaef4b30ff0f710ca4fcad9885acd75c28b833fc35dc92943b9",
+      "size": 8826
     },
     {
-      "path": "tei/ascii-one-line/2PE.xml",
-      "sha256": "dba03d70d1718d678a9ce6964aa18bc872438b178c9ed4221e2e9597352f4692",
-      "size": 32042
+      "path": "tei/accented/2PE.xml",
+      "sha256": "9cab4dd9d2ce0f5fd80d46cf8aa6847dc3120783b8e0ff49eb7c75273b1bd0ec",
+      "size": 33321
     },
     {
-      "path": "tei/ascii-one-line/2TH.xml",
-      "sha256": "ec7b75d1cae09bfbb9f4f917439e606e5d9a72a928dbe4b228bf01066f5eefb7",
-      "size": 23780
+      "path": "tei/accented/2TH.xml",
+      "sha256": "21c544f0693cf0070f29caf24aee428db6ffce5ad521adccc6bd8cf018fa3578",
+      "size": 24821
     },
     {
-      "path": "tei/ascii-one-line/2TI.xml",
-      "sha256": "77ee7dea0bb2879ff1b728ba8ffd169bb39696f8d89c398927f45e43c574724c",
-      "size": 35893
+      "path": "tei/accented/2TI.xml",
+      "sha256": "390322c8336f77393119d50a9df3a2b5a91774584d3254378b8292ae85e91e5d",
+      "size": 37400
     },
     {
-      "path": "tei/ascii-one-line/3JO.xml",
-      "sha256": "4cd712164c4e210edad1fe6cb5e57982d5794f04eac87fea11419a65eb5be597",
-      "size": 7998
+      "path": "tei/accented/3JO.xml",
+      "sha256": "cd8c2bdc9666bc70e43229cd23b52e6145471f9fbe557c3ce50cc9b1646ff75e",
+      "size": 8269
     },
     {
-      "path": "tei/ascii-one-line/ACT.xml",
-      "sha256": "28f435844821c42004193aa2944cd610967cf066dfd2691995f033726e1a75dd",
-      "size": 493101
+      "path": "tei/accented/ACT.xml",
+      "sha256": "71b7598eea1505a4071e70fec973799ea399c0c32238a76e0470bebf546d2566",
+      "size": 514436
     },
     {
-      "path": "tei/ascii-one-line/BYZ/byz.xml",
-      "sha256": "66690194b2ffa83ea86087b28f8f55ddae730818ce8c97fa28fae2e2cac89565",
-      "size": 3630307
+      "path": "tei/accented/BYZ/byz.xml",
+      "sha256": "232a1ea290aaac92b68f6e1e435ad12ff1583dde077d4e18631f12e25c547b65",
+      "size": 3799178
     },
     {
-      "path": "tei/ascii-one-line/COL.xml",
-      "sha256": "876d5fe98662a8ed6ecc15bd1d1ec91ce2f315a78fe6a17f422063b16112278c",
-      "size": 44203
+      "path": "tei/accented/COL.xml",
+      "sha256": "c67d7dbe6de379821a08ed587f9ec8d8c91c7e6ff39bd0ce59e59307ce9f3ac0",
+      "size": 46189
     },
     {
-      "path": "tei/ascii-one-line/EPH.xml",
-      "sha256": "1b670ae43110ea713adb8bca5ab3dee1cced045b638992bffac40079754a3079",
-      "size": 66516
+      "path": "tei/accented/EPH.xml",
+      "sha256": "a8cdd868d2cabadafdb633306df74d3d5b3c7aece79059086573aaf7ff50d549",
+      "size": 69431
     },
     {
-      "path": "tei/ascii-one-line/GAL.xml",
-      "sha256": "f0598bdaee8295f9ddc765b3e85921d66226441101676b25eb25ffe8a3034730",
-      "size": 61438
+      "path": "tei/accented/GAL.xml",
+      "sha256": "743fda482fc8a3620b7063fae4dcccdf9b8a2819a5b397193c247724c9513b36",
+      "size": 64200
     },
     {
-      "path": "tei/ascii-one-line/HEB.xml",
-      "sha256": "56dfafa40713169af585bff5db840217dc0dc8d3e303f762540590706e60e861",
-      "size": 136048
+      "path": "tei/accented/HEB.xml",
+      "sha256": "4e0aea5f8c73d5a17dfb9fdfb6fc67e045a48baff32c3d8d0aae4c5f72db150b",
+      "size": 141850
     },
     {
-      "path": "tei/ascii-one-line/JAM.xml",
-      "sha256": "c0b019c47e184bf1fe29b6c9ed8d8dcfddcf0b32f0aa2ae08fa2d2209ea27dd8",
-      "size": 48561
+      "path": "tei/accented/JAM.xml",
+      "sha256": "67747e778be9dabaf1573cf6ad21f76522f41f6b7aa5c7a55b28d3fd27e3439c",
+      "size": 50661
     },
     {
-      "path": "tei/ascii-one-line/JOH.xml",
-      "sha256": "cea7683d4543aefeb59621dc27f29801e80b3efb00f765a3cdf22d7ad4f8df6b",
-      "size": 400610
+      "path": "tei/accented/JOH.xml",
+      "sha256": "3a9c67faeca04a7e0f9430ebe52a375fe683decd7d3a9da50770356f77668937",
+      "size": 420375
     },
     {
-      "path": "tei/ascii-one-line/JUD.xml",
-      "sha256": "a633c8a2a2201fecd104ae0a2f6cdd2a43e772194dbae033531058e31cc6db28",
-      "size": 14490
+      "path": "tei/accented/JUD.xml",
+      "sha256": "f50f06c9be3e236c943aa9b45922ca5f42e47b9debf6ad160e0867d7bc82e522",
+      "size": 15013
     },
     {
-      "path": "tei/ascii-one-line/LUK.xml",
-      "sha256": "560a0d39060ac10c3db433b46b1d49c1faaffb6af6d5ff5b15cd51a6afde58ac",
-      "size": 516953
+      "path": "tei/accented/LUK.xml",
+      "sha256": "33947b56bfe6ec7f67f23b6163aaea3ca713c5676f87bcccfd5a6aa3852ec07a",
+      "size": 541167
     },
     {
-      "path": "tei/ascii-one-line/MAR.xml",
-      "sha256": "e050d0aa44514d534e99ed658b4446dd77d451950f24eb2c5c35ffec811f99ab",
-      "size": 304895
+      "path": "tei/accented/MAR.xml",
+      "sha256": "c3e04409ee4a29f6e1972880bac5928655f475e67a61b385e9f573701e28a37c",
+      "size": 319149
     },
     {
-      "path": "tei/ascii-one-line/MAT.xml",
-      "sha256": "5669f2464917b657c910f1351cc0c417f121206bb321d6bda31b295e1361fc30",
-      "size": 486623
+      "path": "tei/accented/MAT.xml",
+      "sha256": "4e224c490770f1d78d5b97749c3131906faa1e1b7eb04e8b432c9fe801223354",
+      "size": 509379
     },
     {
-      "path": "tei/ascii-one-line/PHM.xml",
-      "sha256": "5e5813fb4e241e50317e93ec20031e101939ffd0583090a58f71caf5f4f3dd09",
-      "size": 11070
+      "path": "tei/accented/PHM.xml",
+      "sha256": "23b290b2f8c92b7a84eaf70df77f6f4b411a336f7291d2ff2454b1e92459d260",
+      "size": 11469
     },
     {
-      "path": "tei/ascii-one-line/PHP.xml",
-      "sha256": "52ab361ff6458f46e00535b8c48f813d17dcf823734c7e6e6a880abce4e6fdad",
-      "size": 44992
+      "path": "tei/accented/PHP.xml",
+      "sha256": "85be3aa3755dd520aee8f6b4e9fe7dd2dc45aa7fa35378ce07fd4f5ce189f408",
+      "size": 46927
     },
     {
-      "path": "tei/ascii-one-line/REV.xml",
-      "sha256": "53ea8b22707d3fec8d271dcc70676c6c76a38894f708cf2877bf08986f753e2a",
-      "size": 248055
+      "path": "tei/accented/REV.xml",
+      "sha256": "6c410e019a5d48311f8b259298fe732a8ef2870e847379598393634f6358b5b9",
+      "size": 259422
     },
     {
-      "path": "tei/ascii-one-line/ROM.xml",
-      "sha256": "00c659115171d008c5f2e70deca023f7ce22c752d02c38a66d52e19968cff0bf",
-      "size": 188489
+      "path": "tei/accented/ROM.xml",
+      "sha256": "745fcf4c535bbd1a8f6f64a085f7ea43f4a0b152af46a9e80983b5723020b83d",
+      "size": 197239
     },
     {
-      "path": "tei/ascii-one-line/TIT.xml",
-      "sha256": "24ec47ab93dca5c5d2c09da183108f4accc265984d2863314b113b71c88955e0",
-      "size": 20713
+      "path": "tei/accented/TIT.xml",
+      "sha256": "8019ca714c8c398555f93684b053da3d1175619e90347a103e45e61c7ad26d63",
+      "size": 21508
+    },
+    {
+      "path": "tei/unaccented/1CO.xml",
+      "sha256": "09113217727d36d4e072e97173283b5add6bcd9260f1974c0c268d2c35596ef0",
+      "size": 181267
+    },
+    {
+      "path": "tei/unaccented/1JO.xml",
+      "sha256": "2be749fcafa0aec56328d1752c9bf56d04ab243d983c48db17435d805b49fb7f",
+      "size": 55133
+    },
+    {
+      "path": "tei/unaccented/1PE.xml",
+      "sha256": "c0aa652a849683186d94bcb76ace5570032bf70a9ecbbb8c5300000031ca8ef7",
+      "size": 48518
+    },
+    {
+      "path": "tei/unaccented/1TH.xml",
+      "sha256": "ef14fdb4a4fd0bb5666b20768bc0a8382158d47308fb8612cbe44030f4df937f",
+      "size": 41384
+    },
+    {
+      "path": "tei/unaccented/1TI.xml",
+      "sha256": "1330d492b7ee1aa314003e0a0b809d60edb742447bed7907b5e8e26bd81a4b15",
+      "size": 46949
+    },
+    {
+      "path": "tei/unaccented/2CO.xml",
+      "sha256": "5f6cc22cf614ab0b23f61515c04015ef0b35c7baa90dbb8a470e3dad0cae327f",
+      "size": 119563
+    },
+    {
+      "path": "tei/unaccented/2JO.xml",
+      "sha256": "77dd3ca97e3565fa8f08d7e2f8ee3a597dee85129d5a41e116fd913e308f317c",
+      "size": 8514
+    },
+    {
+      "path": "tei/unaccented/2PE.xml",
+      "sha256": "777733946208ed6eb67e3bf7ff84abf7d62db23cd24fc078b8b16818d8f78aff",
+      "size": 32035
+    },
+    {
+      "path": "tei/unaccented/2TH.xml",
+      "sha256": "2ccc5ff4e7da0b261d450bd0624087b37718213217c75dc1b2291cbd43da17d1",
+      "size": 23773
+    },
+    {
+      "path": "tei/unaccented/2TI.xml",
+      "sha256": "19cc9744727c1eca7bea71e3a16d3da0ab040283e3c4375481dab94dc2c80293",
+      "size": 35886
+    },
+    {
+      "path": "tei/unaccented/3JO.xml",
+      "sha256": "52af919fe17334c37e14fa5b7a4fdb299419691172b2e99d643fe11a856c5f74",
+      "size": 7991
+    },
+    {
+      "path": "tei/unaccented/ACT.xml",
+      "sha256": "139d85b78c23f26bfafd8b7a448c99d3294ddcac1a2a342a42af2adee307fa4b",
+      "size": 493094
+    },
+    {
+      "path": "tei/unaccented/BYZ/byz.xml",
+      "sha256": "59aa3448c18218af6859267b45c5878b91f8704959db905bbad7a553bcc35ac1",
+      "size": 3630300
+    },
+    {
+      "path": "tei/unaccented/COL.xml",
+      "sha256": "8d2201841f20b7c6e4b4ca2d04fbf1c4504c67a7d47349453b5e2be10d0b7a70",
+      "size": 44196
+    },
+    {
+      "path": "tei/unaccented/EPH.xml",
+      "sha256": "c173d139e79c3f6f651fd310ca0e5d3cbddb640ab369fb6552cf5ad1e4d6b9cc",
+      "size": 66509
+    },
+    {
+      "path": "tei/unaccented/GAL.xml",
+      "sha256": "00ada4a42e751ecddb7ce363dd1cacb8ddc76a66b42fedbad29a3ac4a5eed702",
+      "size": 61431
+    },
+    {
+      "path": "tei/unaccented/HEB.xml",
+      "sha256": "208598598b8494080b24a85e9168bdf407eee84b943625ba7281561cc325835d",
+      "size": 136041
+    },
+    {
+      "path": "tei/unaccented/JAM.xml",
+      "sha256": "b799b9ab3aaba73b0f3fe41075b889bb88324dc28bf4943a5b8f5ac6afc94d6f",
+      "size": 48554
+    },
+    {
+      "path": "tei/unaccented/JOH.xml",
+      "sha256": "29a8483e38e62350ccaad3e4fd73dba781b68335f3bc81d9acf3211d6681050a",
+      "size": 400603
+    },
+    {
+      "path": "tei/unaccented/JUD.xml",
+      "sha256": "8b748dbc5e7a2f4f10e0f52eef36e17e39f71dfc3f2dbed085e535cd8636e982",
+      "size": 14483
+    },
+    {
+      "path": "tei/unaccented/LUK.xml",
+      "sha256": "12b66f02be03f90f3d02be38a8cddb67976ea542acd6115e8d8e4b1151279251",
+      "size": 516946
+    },
+    {
+      "path": "tei/unaccented/MAR.xml",
+      "sha256": "8783a31fef40780f6436ffa1b4151fe2b4629e8fbc13d672cbfc6234b4ad3a06",
+      "size": 304888
+    },
+    {
+      "path": "tei/unaccented/MAT.xml",
+      "sha256": "f85091f4adefb04efe1e2f23c08b1a31d77500b3a72aef3a0e24933bd1072586",
+      "size": 486616
+    },
+    {
+      "path": "tei/unaccented/PHM.xml",
+      "sha256": "362162cea998b3b57d7c28364237977178d47a20664a564f604ca5cefeced714",
+      "size": 11063
+    },
+    {
+      "path": "tei/unaccented/PHP.xml",
+      "sha256": "754383918a6e3eee5b1b8cd1565c11e2afa9d8df36b6e4100f44c6515288b9ac",
+      "size": 44985
+    },
+    {
+      "path": "tei/unaccented/REV.xml",
+      "sha256": "143ff12edcbbf050a159079b99cdf8bf2aa4edb9f06b43bbdcd7a24f79c83b07",
+      "size": 248048
+    },
+    {
+      "path": "tei/unaccented/ROM.xml",
+      "sha256": "bf253dd7ba04d1b98f02716e5e388be8f7d78a3189ff3cef35e6cbd8f2fea394",
+      "size": 188482
+    },
+    {
+      "path": "tei/unaccented/TIT.xml",
+      "sha256": "2ae10eeadc96c200f9f91c1484bb2b11b5c4c4100d736ec0499fb24fb678b238",
+      "size": 20706
     }
   ],
   "ascii_source": "data/raw/rp2018/rp2018-ascii-one-line-per-verse",

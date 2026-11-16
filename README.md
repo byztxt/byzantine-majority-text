@@ -48,8 +48,9 @@ All the code and text contained in this folder is in the Public Domain.
 <!-- editions:begin -->
 ## Curated editions
 
-The repository now ships four curated editions, with their CSV and TEI
-exports, instead of asking you to dig through git history:
+The repository now ships four curated editions, with every CSV/TEI view
+their sources support (accented, unaccented, and Strong's/parsing where
+available), instead of asking you to dig through git history:
 
 | Edition | Status | Repo releases |
 | --- | --- | --- |
@@ -61,7 +62,3 @@ exports, instead of asking you to dig through git history:
 See [`docs/EDITIONS.md`](docs/EDITIONS.md) for the full explanation,
 PDF links, provenance, and checksums.
 <!-- editions:end -->
-
-
-
-

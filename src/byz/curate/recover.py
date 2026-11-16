@@ -16,6 +16,8 @@ SOURCE_PREFIXES = [
 ]
 ARTIFACT_PREFIXES = [
     "csv-unicode/accents/no-variants/",
+    "csv-unicode/accents/with-variants/",
+    "csv-unicode/no-accents/",
     "tei-xml-unicode/no-accents/",
 ]
 
@@ -81,8 +83,10 @@ def recover_historical(edition: dict) -> Path:
     )
     # Keep the historical released artifacts as the edition's CSV/TEI.
     mapping = {
-        "csv-unicode/accents/no-variants": "csv/main",
-        "tei-xml-unicode/no-accents": "tei/no-accents",
+        "csv-unicode/accents/no-variants": "csv/accented/no-variants",
+        "csv-unicode/accents/with-variants": "csv/accented/with-variants",
+        "csv-unicode/no-accents": "csv/unaccented",
+        "tei-xml-unicode/no-accents": "tei/unaccented",
     }
     for src_prefix, target in mapping.items():
         target_path = dest / target
@@ -95,8 +99,13 @@ def recover_historical(edition: dict) -> Path:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
     # Curated CSV/TEI filenames use the current book abbreviations.
-    for sub in ("csv/main", "tei/no-accents"):
-        for path in sorted((dest / sub).glob("*")):
+    for sub in (
+        "csv/accented/no-variants",
+        "csv/accented/with-variants",
+        "csv/unaccented",
+        "tei/unaccented",
+    ):
+        for path in sorted((dest / sub).rglob("*")):
             if not path.is_file():
                 continue
             abbr = sources.OFFICIAL_TO_ABBR.get(path.stem)
@@ -119,11 +128,27 @@ def recover_current(edition: dict) -> Path:
     _copy_tree(editions.ROOT / "source" / "Strongs", dest / "source" / "Strongs")
     _copy_tree(
         editions.ROOT / "csv-unicode" / "ccat" / "no-variants",
-        dest / "csv" / "main",
+        dest / "csv" / "accented" / "no-variants",
+    )
+    _copy_tree(
+        editions.ROOT / "csv-unicode" / "ccat" / "with-variants",
+        dest / "csv" / "accented" / "with-variants",
+    )
+    _copy_tree(
+        editions.ROOT / "csv-unicode" / "strongs" / "with-parsing",
+        dest / "csv" / "strongs" / "with-parsing",
+    )
+    _copy_tree(
+        editions.ROOT / "csv-unicode" / "strongs" / "no-parsing",
+        dest / "csv" / "strongs" / "no-parsing",
+    )
+    _copy_tree(
+        editions.ROOT / "csv-unicode" / "strongs" / "no-parsing",
+        dest / "csv" / "unaccented",
     )
     _copy_tree(
         editions.ROOT / "tei-xml-unicode" / "no-accents",
-        dest / "tei" / "no-accents",
+        dest / "tei" / "unaccented",
     )
     return dest
 

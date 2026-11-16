@@ -8,14 +8,28 @@
 
 - `source/` - frozen source files
 - `csv/` - generated Unicode CSV
-- `tei/` - generated TEI-XML main text
+- `tei/` - generated TEI-XML
 - `manifest.json` - provenance and hashes
 
-`csv/main` and `tei/no-accents` are the historical released artifacts recovered from `v2.0.3`.
+Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`.
 
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
 official codes (`MT`, `MR`, ...).
+
+## Derived artifacts
+
+- `csv/accented`
+- `csv/accented/no-variants`
+- `csv/accented/with-variants`
+- `csv/strongs`
+- `csv/strongs/no-parsing`
+- `csv/strongs/with-parsing`
+- `csv/unaccented`
+- `tei/accented`
+- `tei/accented/BYZ`
+- `tei/unaccented`
+- `tei/unaccented/BYZ`
 
 ## Notes
 

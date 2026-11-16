@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TEI [
+<!-- entities used in individual transcriptions will be defined here -->
+]>
+<?xml-model href="TEI-NTMSS.rng" type="application/xml" 
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xml:id="Byz" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>The New Testament in the Original Greek: The Byzantine Textform</title>
+                <title type="collection" level="s" xml:lang="en">The New Testament</title>
+				<title type="work" level="m" xml:lang="en" n="24">Second John</title>
+				<title type="short" level="m" xml:lang="en" n="24">2JO</title>                
+                <respStmt>
+                    <resp>Created by</resp><name>Maurice A. Robinson and William Pierpont</name>
+                </respStmt>
+            </titleStmt> 
+        <editionStmt>
+            <edition n="2005">Curated edition</edition>
+        </editionStmt>
+        <publicationStmt>
+            <availability><p>This file is in the Public Domain</p></availability>
+        </publicationStmt>
+        <sourceDesc>
+            <msDesc>
+            <msIdentifier>
+                <country>United States of America</country>
+                <msName xml:lang="en">The New Testament in the Original Greek: The Byzantine Textform</msName>
+                <altIdentifier type="Byz"></altIdentifier>
+            </msIdentifier>
+            </msDesc>
+        </sourceDesc>
+        </fileDesc>
+        <encodingDesc n="1.5">
+            <editorialDecl>
+                <p>The initial transcription file was a set of plain text files, later converted to XML. Further information about the procedures followed may be found in the electronic edition at <ptr target="https://github.com/byztxt/byzantine-majority-text/"/></p>
+                <p>The XML specifications used were version 1.5 of the IGNTP Guidelines available at <ptr target="http://epapers.bham.ac.uk/1892/"/></p>
+            </editorialDecl> 
+            <variantEncoding method="parallel-segmentation" location="internal"/>
+        </encodingDesc>
+    </teiHeader>
+    <text xml:lang="grc">
+        <body>
+			<div type="book" n="B24">
+				<div type="chapter" n="B24K1">
+					<ab n="B24K1V1">
+						<w>Ὁ</w>
+						<w>πρεσβύτερος</w>
+						<w>ἐκλεκτῇ</w>
+						<w>κυρίᾳ</w>
+						<w>καὶ</w>
+						<w>τοῖς</w>
+						<w>τέκνοις</w>
+						<w>αὐτῆς,</w>
+						<w>οὓς</w>
+						<w>ἐγὼ</w>
+						<w>ἀγαπῶ</w>
+						<w>ἐν</w>
+						<w>ἀληθείᾳ,</w>
+						<w>καὶ</w>
+						<w>οὐκ</w>
+						<w>ἐγὼ</w>
+						<w>μόνος,</w>
+						<w>ἀλλὰ</w>
+						<w>καὶ</w>
+						<w>πάντες</w>
+						<w>οἱ</w>
+						<w>ἐγνωκότες</w>
+						<w>τὴν</w>
+						<w>ἀλήθειαν,</w>
+					</ab>
+					<ab n="B24K1V2">
+						<w>διὰ</w>
+						<w>τὴν</w>
+						<w>ἀλήθειαν</w>
+						<w>τὴν</w>
+						<w>μένουσαν</w>
+						<w>ἐν</w>
+						<w>ἡμῖν,</w>
+						<w>καὶ</w>
+						<w>μεθ’</w>
+						<w>ἡμῶν</w>
+						<w>ἔσται</w>
+						<w>εἰς</w>
+						<w>τὸν</w>
+						<w>αἰῶνα·</w>
+					</ab>
+					<ab n="B24K1V3">
+						<w>ἔσται</w>
+						<w>μεθ’</w>
+						<w>ἡμῶν</w>
+						<w>χάρις,</w>
+						<w>ἔλεος,</w>
+						<w>εἰρήνη</w>
+						<w>παρὰ</w>
+						<w>θεοῦ</w>
+						<w>πατρός,</w>
+						<w>καὶ</w>
+						<w>παρὰ</w>
+						<w>κυρίου</w>
+						<w>Ἰησοῦ</w>
+						<w>χριστοῦ</w>
+						<w>τοῦ</w>
+						<w>υἱοῦ</w>
+						<w>τοῦ</w>
+						<w>πατρός,</w>
+						<w>ἐν</w>
+						<w>ἀληθείᾳ</w>
+						<w>καὶ</w>
+						<w>ἀγάπῃ.</w>
+					</ab>
+					<ab n="B24K1V4">
+						<w>¶Ἐχάρην</w>
+						<w>λίαν</w>
+						<w>ὅτι</w>
+						<w>εὕρηκα</w>
+						<w>ἐκ</w>
+						<w>τῶν</w>
+						<w>τέκνων</w>
+						<w>σου</w>
+						<w>περιπατοῦντας</w>
+						<w>ἐν</w>
+						<w>ἀληθείᾳ,</w>
+						<w>καθὼς</w>
+						<w>ἐντολὴν</w>
+						<w>ἐλάβομεν</w>
+						<w>παρὰ</w>
+						<w>τοῦ</w>
+						<w>πατρός.</w>
+					</ab>
+					<ab n="B24K1V5">
+						<w>Καὶ</w>
+						<w>νῦν</w>
+						<w>ἐρωτῶ</w>
+						<w>σε,</w>
+						<w>κυρία,</w>
+						<w>οὐχ</w>
+						<w>ὡς</w>
+						<w>ἐντολὴν</w>
+						<w>γράφων</w>
+						<w>σοι</w>
+						<w>καινήν,</w>
+						<w>ἀλλὰ</w>
+						<w>ἣν</w>
+						<w>εἴχομεν</w>
+						<w>ἀπ’</w>
+						<w>ἀρχῆς,</w>
+						<w>ἵνα</w>
+						<w>ἀγαπῶμεν</w>
+						<w>ἀλλήλους.</w>
+					</ab>
+					<ab n="B24K1V6">
+						<w>Καὶ</w>
+						<w>αὕτη</w>
+						<w>ἐστὶν</w>
+						<w>ἡ</w>
+						<w>ἀγάπη,</w>
+						<w>ἵνα</w>
+						<w>περιπατῶμεν</w>
+						<w>κατὰ</w>
+						<w>τὰς</w>
+						<w>ἐντολὰς</w>
+						<w>αὐτοῦ.</w>
+						<w>Αὕτη</w>
+						<w>ἐστὶν</w>
+						<w>ἡ</w>
+						<w>ἐντολή,</w>
+						<w>καθὼς</w>
+						<w>ἠκούσατε</w>
+						<w>ἀπ’</w>
+						<w>ἀρχῆς,</w>
+						<w>ἵνα</w>
+						<w>ἐν</w>
+						<w>αὐτῇ</w>
+						<w>περιπατῆτε.</w>
+					</ab>
+					<ab n="B24K1V7">
+						<w>Ὅτι</w>
+						<w>πολλοὶ</w>
+						<w>πλάνοι</w>
+						<w>εἰσῆλθον</w>
+						<w>εἰς</w>
+						<w>τὸν</w>
+						<w>κόσμον,</w>
+						<w>οἱ</w>
+						<w>μὴ</w>
+						<w>ὁμολογοῦντες</w>
+						<w>Ἰησοῦν</w>
+						<w>χριστὸν</w>
+						<w>ἐρχόμενον</w>
+						<w>ἐν</w>
+						<w>σαρκί.</w>
+						<w>Οὗτός</w>
+						<w>ἐστιν</w>
+						<w>ὁ</w>
+						<w>πλάνος</w>
+						<w>καὶ</w>
+						<w>ὁ</w>
+						<w>ἀντίχριστος.</w>
+					</ab>
+					<ab n="B24K1V8">
+						<w>Βλέπετε</w>
+						<w>ἑαυτούς,</w>
+						<w>ἵνα</w>
+						<w>μὴ</w>
+						<w>ἀπολέσωμεν</w>
+						<w>ἃ</w>
+						<w>εἰργασάμεθα,</w>
+						<w>ἀλλὰ</w>
+						<w>μισθὸν</w>
+						<w>πλήρη</w>
+						<w>ἀπολάβωμεν.</w>
+					</ab>
+					<ab n="B24K1V9">
+						<w>Πᾶς</w>
+						<w>ὁ</w>
+						<w>παραβαίνων</w>
+						<w>καὶ</w>
+						<w>μὴ</w>
+						<w>μένων</w>
+						<w>ἐν</w>
+						<w>τῇ</w>
+						<w>διδαχῇ</w>
+						<w>τοῦ</w>
+						<w>χριστοῦ,</w>
+						<w>θεὸν</w>
+						<w>οὐκ</w>
+						<w>ἔχει·</w>
+						<w>ὁ</w>
+						<w>μένων</w>
+						<w>ἐν</w>
+						<w>τῇ</w>
+						<w>διδαχῇ</w>
+						<w>τοῦ</w>
+						<w>χριστοῦ,</w>
+						<w>οὗτος</w>
+						<w>καὶ</w>
+						<w>τὸν</w>
+						<w>πατέρα</w>
+						<w>καὶ</w>
+						<w>τὸν</w>
+						<w>υἱὸν</w>
+						<w>ἔχει.</w>
+					</ab>
+					<ab n="B24K1V10">
+						<w>Εἴ</w>
+						<w>τις</w>
+						<w>ἔρχεται</w>
+						<w>πρὸς</w>
+						<w>ὑμᾶς,</w>
+						<w>καὶ</w>
+						<w>ταύτην</w>
+						<w>τὴν</w>
+						<w>διδαχὴν</w>
+						<w>οὐ</w>
+						<w>φέρει,</w>
+						<w>μὴ</w>
+						<w>λαμβάνετε</w>
+						<w>αὐτὸν</w>
+						<w>εἰς</w>
+						<w>οἰκίαν,</w>
+						<w>καὶ</w>
+						<w>χαίρειν</w>
+						<w>αὐτῷ</w>
+						<w>μὴ</w>
+						<w>λέγετε·</w>
+					</ab>
+					<ab n="B24K1V11">
+						<w>ὁ</w>
+						<w>γὰρ</w>
+						<w>λέγων</w>
+						<w>αὐτῷ</w>
+						<w>χαίρειν</w>
+						<w>κοινωνεῖ</w>
+						<w>τοῖς</w>
+						<w>ἔργοις</w>
+						<w>αὐτοῦ</w>
+						<w>τοῖς</w>
+						<w>πονηροῖς.</w>
+					</ab>
+					<ab n="B24K1V12">
+						<w>¶Πολλὰ</w>
+						<w>ἔχων</w>
+						<w>ὑμῖν</w>
+						<w>γράφειν,</w>
+						<w>οὐκ</w>
+						<w>ἐβουλήθην</w>
+						<w>διὰ</w>
+						<w>χάρτου</w>
+						<w>καὶ</w>
+						<w>μέλανος·</w>
+						<w>ἀλλὰ</w>
+						<w>ἐλπίζω</w>
+						<w>ἐλθεῖν</w>
+						<w>πρὸς</w>
+						<w>ὑμᾶς,</w>
+						<w>καὶ</w>
+						<w>στόμα</w>
+						<w>πρὸς</w>
+						<w>στόμα</w>
+						<w>λαλῆσαι,</w>
+						<w>ἵνα</w>
+						<w>ἡ</w>
+						<w>χαρὰ</w>
+						<w>ἡμῶν</w>
+						<w>ᾖ</w>
+						<w>πεπληρωμένη.</w>
+					</ab>
+					<ab n="B24K1V13">
+						<w>Ἀσπάζεταί</w>
+						<w>σε</w>
+						<w>τὰ</w>
+						<w>τέκνα</w>
+						<w>τῆς</w>
+						<w>ἀδελφῆς</w>
+						<w>σου</w>
+						<w>τῆς</w>
+						<w>ἐκλεκτῆς.</w>
+						<w>Ἀμήν.</w>
+					</ab>
+				</div>
+			</div>
+		</body>
+	</text>
+</TEI>

@@ -18,6 +18,17 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(verses[(1, 1)], "βιβλος γενεσεως")
             self.assertEqual(verses[(1, 2)], "αβρααμ")
 
+    def test_parse_parsed_ub5(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "MT.UB5"
+            path.write_text(
+                "     1:1 biblov 976 {N-NSF} genesewv 1078 {N-GSF}\n",
+                encoding="utf-8",
+            )
+            parsed, text_only = build.parse_parsed_ub5(path)
+            self.assertEqual(parsed[(1, 1)], "βιβλος 976 {N-NSF} γενεσεως 1078 {N-GSF}")
+            self.assertEqual(text_only[(1, 1)], "βιβλος γενεσεως")
+
     def test_write_csv_and_tei_empty_verse(self):
         with tempfile.TemporaryDirectory() as tmp:
             csv_path = Path(tmp) / "MAT.csv"

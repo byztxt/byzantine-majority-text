@@ -84,6 +84,39 @@ class CurateIntegrationTests(unittest.TestCase):
                 (directory / "report.md").read_text(),
             )
 
+    def test_official_artifact_views(self):
+        for edition_id in ("rp2005", "rp2018"):
+            root = editions.edition_dir(edition_id)
+            for rel in (
+                "csv/accented/no-variants",
+                "csv/accented/with-variants",
+                "csv/unaccented",
+                "tei/accented",
+                "tei/unaccented",
+            ):
+                self.assertTrue((root / rel).is_dir(), f"{edition_id}/{rel}")
+            self.assertFalse((root / "csv" / "strongs").exists())
+            text = (root / "csv" / "accented" / "no-variants" / "MAT.csv").read_text()
+            self.assertIn("Βίβλος", text)
+
+    def test_released_artifact_views(self):
+        for edition_id in ("rp2005-2019", "rp2018-2023"):
+            root = editions.edition_dir(edition_id)
+            for rel in (
+                "csv/accented/no-variants",
+                "csv/accented/with-variants",
+                "csv/unaccented",
+                "csv/strongs/with-parsing",
+                "csv/strongs/no-parsing",
+                "tei/accented",
+                "tei/unaccented",
+            ):
+                self.assertTrue((root / rel).is_dir(), f"{edition_id}/{rel}")
+            text = (
+                root / "csv" / "strongs" / "with-parsing" / "MAT.csv"
+            ).read_text()
+            self.assertIn("976", text)
+
     def test_docs_cover_all_editions(self):
         text = (editions.DOCS_DIR / "EDITIONS.md").read_text()
         for edition_id in editions.EDITIONS:

@@ -18,6 +18,19 @@ the source files here are machine-readable companions.
 | `rp2018` | official | Published in print by VTR, Nuremberg | none | [`rp2018 PDF`](https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf) (`00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c`) |
 | `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | `v3.0.0`-`v3.3.4` | none |
 
+## Source feature matrix
+
+| Source | Provenance | Accents | Strong's | Apparatus | Parsing |
+| --- | --- | --- | --- | --- | --- |
+| Official 2005/2018 `ccat` (`.CCT`) | official archive | yes | no | yes | no |
+| Official 2005/2018 ASCII / preformatted | official archive | no | no | no | no |
+| Official 2005/2018 PDFs | published print | yes | no | yes | no |
+| `source/CCAT` | repo 2018+2023 | yes | no | yes | no |
+| `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |
+| `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |
+| `parsed` (v2.0.3) | repo parsed lineage | no | yes | no | yes |
+| `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |
+
 ## What each edition is
 
 ### `rp2005` - official 2005
@@ -61,13 +74,32 @@ to receive releases. Repo releases: `v3.0.0`-`v3.3.4` (and later tags).
 Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and
 `README.md`. The manifest records source and artifact SHA-256 hashes.
 
-- Official editions: `csv/` and `tei/` are unaccented main-text exports
-  generated from the official ASCII. `source/ccat` holds the official
-  `.CCT` source; the PDF is the ultimate source of truth.
-- `rp2005-2019`: `csv/main` and `tei/no-accents` are the historical
-  released artifacts recovered from `v2.0.3`.
-- `rp2018-2023`: `csv/main` and `tei/no-accents` are copied from the
-  current working tree (accented CCAT no-variants CSV, unaccented TEI).
+- Official editions: accented CSV (with/without variants) and accented
+  TEI are generated from the official `.CCT`; unaccented CSV/TEI are
+  generated from the official ASCII. Strong's/parsing are absent because
+  the official URL files do not contain them.
+- `rp2005-2019`: accented with/without variants, unaccented, Strong's
+  with/no parsing, and accented/unaccented TEI are recovered or generated
+  from `v2.0.3`.
+- `rp2018-2023`: the same views are copied or generated from the current
+  working tree.
+
+## Derived artifacts by edition
+
+| Edition | Accented no-variants | Accented with-variants | Unaccented | Strong's with-parsing | Strong's no-parsing | Accented TEI | Unaccented TEI |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `rp2005` | yes | yes | yes | no | no | yes | yes |
+| `rp2005-2019` | yes | yes | yes | yes | yes | yes | yes |
+| `rp2018` | yes | yes | yes | no | no | yes | yes |
+| `rp2018-2023` | yes | yes | yes | yes | yes | yes | yes |
+
+Where a source carries accents, Strong's, apparatus, or parsing, the
+edition provides the corresponding derived view. Official editions
+have no Strong's/parsing view because those data are not in the official
+URL files.
+
+Accented CSV also includes the `PA` and `ACT24` section files where the
+source provides them. TEI is the 27-book main text.
 
 ```bash
 python3 scripts/recover_editions.py

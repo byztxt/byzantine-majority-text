@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 from byz.contract import paths
@@ -40,21 +41,17 @@ ASCII_TO_GREEK = {
 }
 
 VERSE_RE = re.compile(r"^\s*(\d+):(\d+)\s?(.*)$")
+CCT_RE = re.compile(r"^(\d{2}):(\d{2})(?:\s(.*))?$")
+
+EXPORT_NOTES = {
+    "official": "Accented CSV (with/without variants) and accented TEI are generated from the official `.CCT` source. Unaccented CSV and TEI are generated from the official ASCII. Strong's and parsing are not included because the official archives do not contain them.",
+    "historical": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`.",
+    "current": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are copied or generated from the current working tree.",
+}
 
 
 def ascii_to_greek(text: str) -> str:
     return "".join(ASCII_TO_GREEK.get(char, char) for char in text)
-
-
-def parse_ascii_main(path: Path) -> dict:
-    verses = {}
-    for line in path.read_text().splitlines():
-        match = VERSE_RE.match(line)
-        if not match:
-            continue
-        key = (int(match.group(1)), int(match.group(2)))
-        verses[key] = ascii_to_greek(match.group(3).strip())
-    return verses
 
 
 def _sha256(path: Path) -> str:
@@ -79,12 +76,91 @@ def _hash_tree(path: Path, root: Path) -> list:
     return rows
 
 
+def parse_ascii_main(path: Path) -> dict:
+    verses = {}
+    for line in path.read_text().splitlines():
+        match = VERSE_RE.match(line)
+        if not match:
+            continue
+        key = (int(match.group(1)), int(match.group(2)))
+        verses[key] = ascii_to_greek(match.group(3).strip())
+    return verses
+
+
+def _buc():
+    scripts = str(editions.ROOT / "scripts")
+    if scripts not in sys.path:
+        sys.path.insert(0, scripts)
+    import beta_to_unicode_custom.beta_to_unicode_custom as buc
+
+    return buc
+
+
+def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
+    buc = _buc()
+    verses = {}
+    for line in path.read_text().splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        normalized = normalize.official_ccat_line(line)
+        match = CCT_RE.match(normalized)
+        if not match:
+            continue
+        key = (int(match.group(1)), int(match.group(2)))
+        body = match.group(3) or ""
+        body = buc.standardise_beta_code(body, drop_variants=drop_variants)
+        text = buc.convert_beta_to_unicode(body)
+        verses[key] = text.replace("? ", "¶")
+    return verses
+
+
+def parse_parsed_ub5(path: Path) -> tuple:
+    with_parsing = {}
+    without_parsing = {}
+    verses = {}
+    current = None
+    for line in path.read_text().splitlines():
+        match = VERSE_RE.match(line)
+        if match:
+            current = (int(match.group(1)), int(match.group(2)))
+            verses[current] = match.group(3).strip()
+        elif current is not None and line.strip():
+            verses[current] = (verses[current] + " " + line.strip()).strip()
+    for key, text in verses.items():
+        tokens = text.split()
+        index = 0
+        parsed = []
+        text_only = []
+        while index < len(tokens):
+            word = tokens[index]
+            index += 1
+            pairs = []
+            while (
+                index + 1 < len(tokens)
+                and tokens[index].isdigit()
+                and tokens[index + 1].startswith("{")
+                and tokens[index + 1].endswith("}")
+            ):
+                pairs.append((tokens[index], tokens[index + 1]))
+                index += 2
+            greek = ascii_to_greek(word)
+            text_only.append(greek)
+            if pairs:
+                for strongs, parsing in pairs:
+                    parsed.append(f"{greek} {strongs} {parsing}")
+            else:
+                parsed.append(greek)
+        with_parsing[key] = " ".join(parsed)
+        without_parsing[key] = " ".join(text_only)
+    return with_parsing, without_parsing
+
+
 def write_csv(path: Path, verses: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
         writer.writerow(["chapter", "verse", "text"])
-        for (chapter, verse) in sorted(verses):
+        for chapter, verse in sorted(verses):
             writer.writerow([chapter, verse, verses[(chapter, verse)]])
 
 
@@ -92,9 +168,7 @@ def _tei_verse(book_id: str, chapter: int, verse: int, text: str) -> str:
     anchor = f"{book_id}K{chapter}V{verse}"
     if not text:
         return f'\t\t\t\t\t<ab n="{anchor}"/>'
-    words = "\n".join(
-        f"\t\t\t\t\t\t<w>{word}</w>" for word in text.split(" ")
-    )
+    words = "\n".join(f"\t\t\t\t\t\t<w>{word}</w>" for word in text.split(" "))
     return f'\t\t\t\t\t<ab n="{anchor}">\n{words}\n\t\t\t\t\t</ab>'
 
 
@@ -127,11 +201,13 @@ def write_tei(
     if edition_label:
         template = re.sub(
             r'<edition n="[^"]*">.*?</edition>',
-            f'<edition n="{edition_label}">Official print edition</edition>',
+            f'<edition n="{edition_label}">Curated edition</edition>',
             template,
             flags=re.S,
         )
-    body = "\n".join(_tei_book(abbr, book_id, verses) for abbr, book_id, verses in books)
+    body = "\n".join(
+        _tei_book(abbr, book_id, verses) for abbr, book_id, verses in books
+    )
     if combined:
         prefix = template.replace("BOOK_METADATA_PLACEHOLDER", "")
     else:
@@ -147,48 +223,143 @@ def write_tei(
     path.write_text(prefix + body + "\n\t\t</body>\n\t</text>\n</TEI>", encoding="utf-8")
 
 
+def _read_csv_verses(path: Path) -> dict:
+    verses = {}
+    with open(path, newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            verses[(int(row["chapter"]), int(row["verse"]))] = row["text"]
+    return verses
+
+
+def _edition_label(edition: dict) -> str:
+    if edition["id"] == "rp2005":
+        return "2005"
+    if edition["id"] == "rp2005-2019":
+        return "2005 (2019 revision)"
+    if edition["id"] == "rp2018":
+        return "2018"
+    return "2018 (2023 revision)"
+
+
+def write_accented_tei(edition: dict) -> None:
+    edition_dir = editions.edition_dir(edition["id"])
+    csv_dir = edition_dir / "csv" / "accented" / "no-variants"
+    books = []
+    for path in sorted(csv_dir.glob("*.csv")):
+        abbr = path.stem
+        if abbr not in paths.ABBR_TO_BOOK_ID:
+            # PA/ACT24 are section exports, not separate TEI books.
+            continue
+        verses = _read_csv_verses(path)
+        book_id = paths.ABBR_TO_BOOK_ID[abbr]
+        books.append((abbr, book_id, verses))
+        write_tei(
+            edition_dir / "tei" / "accented" / f"{abbr}.xml",
+            [(abbr, book_id, verses)],
+            edition_label=_edition_label(edition),
+        )
+    write_tei(
+        edition_dir / "tei" / "accented" / "BYZ" / "byz.xml",
+        books,
+        combined=True,
+        edition_label=_edition_label(edition),
+    )
+
+
 def build_official(edition: dict) -> None:
     edition_dir = editions.edition_dir(edition["id"])
     ascii_dir = editions.ROOT / edition["ascii_dir"]
     ccat_dir = edition_dir / "source" / "ccat"
+    label = _edition_label(edition)
     books = []
     for ascii_file in sorted(ascii_dir.glob("*_Byz.txt")):
         code = ascii_file.name.split("_", 1)[0]
         abbr = sources.OFFICIAL_TO_ABBR.get(code)
         if not abbr:
             continue
-        verses = parse_ascii_main(ascii_file)
+        unaccented = parse_ascii_main(ascii_file)
         ccat_file = ccat_dir / f"{code}.CCT"
         if ccat_file.exists():
-            official_keys = normalize.parse_cct(ccat_file.read_text())
-            for key in official_keys:
-                verses.setdefault(key, "")
-        write_csv(edition_dir / "csv" / "ascii-one-line" / f"{abbr}.csv", verses)
+            for key in parse_cct_accented(ccat_file, drop_variants=True):
+                unaccented.setdefault(key, "")
+        write_csv(edition_dir / "csv" / "unaccented" / f"{abbr}.csv", unaccented)
         book_id = paths.ABBR_TO_BOOK_ID[abbr]
-        books.append((abbr, book_id, verses))
-    label = edition["id"].replace("rp", "")
+        books.append((abbr, book_id, unaccented))
+        if ccat_file.exists():
+            write_csv(
+                edition_dir / "csv" / "accented" / "no-variants" / f"{abbr}.csv",
+                parse_cct_accented(ccat_file, drop_variants=True),
+            )
+            write_csv(
+                edition_dir / "csv" / "accented" / "with-variants" / f"{abbr}.csv",
+                parse_cct_accented(ccat_file, drop_variants=False),
+            )
+    processed = {abbr for abbr, _, _ in books}
+    for cct_file in sorted(ccat_dir.glob("*.CCT")):
+        if cct_file.stem.upper() == "GREEK":
+            continue
+        abbr = sources.OFFICIAL_TO_ABBR.get(cct_file.stem.upper())
+        if not abbr or abbr in processed:
+            continue
+        # Longer alternative sections (PA/ACT24) have no separate ASCII book,
+        # but they are part of the accented CCAT source.
+        write_csv(
+            edition_dir / "csv" / "accented" / "no-variants" / f"{abbr}.csv",
+            parse_cct_accented(cct_file, drop_variants=True),
+        )
+        write_csv(
+            edition_dir / "csv" / "accented" / "with-variants" / f"{abbr}.csv",
+            parse_cct_accented(cct_file, drop_variants=False),
+        )
     for abbr, book_id, verses in books:
         write_tei(
-            edition_dir / "tei" / "ascii-one-line" / f"{abbr}.xml",
+            edition_dir / "tei" / "unaccented" / f"{abbr}.xml",
             [(abbr, book_id, verses)],
             edition_label=label,
         )
     write_tei(
-        edition_dir / "tei" / "ascii-one-line" / "BYZ" / "byz.xml",
+        edition_dir / "tei" / "unaccented" / "BYZ" / "byz.xml",
         books,
         combined=True,
         edition_label=label,
     )
+    write_accented_tei(edition)
 
 
-EXPORT_NOTES = {
-    "official": "`csv/` and `tei/` are unaccented main-text exports generated from the official ASCII. `source/ccat` holds the official `.CCT` source; the published PDF is the ultimate source of truth.",
-    "historical": "`csv/main` and `tei/no-accents` are the historical released artifacts recovered from `v2.0.3`.",
-    "current": "`csv/main` and `tei/no-accents` are copied from the current working tree (accented CCAT no-variants CSV and unaccented TEI).",
-}
+def build_historical(edition: dict) -> None:
+    edition_dir = editions.edition_dir(edition["id"])
+    parsed_dir = edition_dir / "source" / "parsed"
+    for path in sorted(parsed_dir.glob("*.UB5")):
+        abbr = sources.OFFICIAL_TO_ABBR.get(path.stem.upper())
+        if not abbr:
+            continue
+        with_parsing, without_parsing = parse_parsed_ub5(path)
+        write_csv(
+            edition_dir / "csv" / "strongs" / "with-parsing" / f"{abbr}.csv",
+            with_parsing,
+        )
+        write_csv(
+            edition_dir / "csv" / "strongs" / "no-parsing" / f"{abbr}.csv",
+            without_parsing,
+        )
+    write_accented_tei(edition)
+
+
+def build_current(edition: dict) -> None:
+    write_accented_tei(edition)
+
+
+def _artifact_dirs(root: Path) -> list:
+    dirs = set()
+    for base in ("csv", "tei"):
+        for path in (root / base).rglob("*"):
+            if path.is_dir() and any(path.iterdir()):
+                dirs.add(str(path.relative_to(root)))
+    return sorted(dirs)
 
 
 def _readme(edition: dict) -> str:
+    root = editions.edition_dir(edition["id"])
     lines = [
         f"# {edition['id']} - {edition['title']}",
         "",
@@ -214,7 +385,7 @@ def _readme(edition: dict) -> str:
             "",
             "- `source/` - frozen source files",
             "- `csv/` - generated Unicode CSV",
-            "- `tei/` - generated TEI-XML main text",
+            "- `tei/` - generated TEI-XML",
             "- `manifest.json` - provenance and hashes",
             "",
             EXPORT_NOTES[edition["source_kind"]],
@@ -223,12 +394,13 @@ def _readme(edition: dict) -> str:
             "(`MAT`, `MAR`, ...). Historical source files may use the older",
             "official codes (`MT`, `MR`, ...).",
             "",
-            "## Notes",
-            "",
-            edition.get("note", ""),
+            "## Derived artifacts",
             "",
         ]
     )
+    for path in _artifact_dirs(root):
+        lines.append(f"- `{path}`")
+    lines.extend(["", "## Notes", "", edition.get("note", ""), ""])
     return "\n".join(lines)
 
 
@@ -270,5 +442,9 @@ def build_all() -> list:
         edition = editions.metadata(edition_id)
         if edition["source_kind"] == "official":
             build_official(edition)
+        elif edition["source_kind"] == "historical":
+            build_historical(edition)
+        else:
+            build_current(edition)
         built.append(write_manifest(edition))
     return built

@@ -56,6 +56,19 @@ def write_editions_doc() -> str:
     lines.extend(
         [
             "",
+            "## Source feature matrix",
+            "",
+            "| Source | Provenance | Accents | Strong's | Apparatus | Parsing |",
+            "| --- | --- | --- | --- | --- | --- |",
+            "| Official 2005/2018 `ccat` (`.CCT`) | official archive | yes | no | yes | no |",
+            "| Official 2005/2018 ASCII / preformatted | official archive | no | no | no | no |",
+            "| Official 2005/2018 PDFs | published print | yes | no | yes | no |",
+            "| `source/CCAT` | repo 2018+2023 | yes | no | yes | no |",
+            "| `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |",
+            "| `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |",
+            "| `parsed` (v2.0.3) | repo parsed lineage | no | yes | no | yes |",
+            "| `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |",
+            "",
             "## What each edition is",
             "",
             "### `rp2005` - official 2005",
@@ -99,13 +112,46 @@ def write_editions_doc() -> str:
             "Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and",
             "`README.md`. The manifest records source and artifact SHA-256 hashes.",
             "",
-            "- Official editions: `csv/` and `tei/` are unaccented main-text exports",
-            "  generated from the official ASCII. `source/ccat` holds the official",
-            "  `.CCT` source; the PDF is the ultimate source of truth.",
-            "- `rp2005-2019`: `csv/main` and `tei/no-accents` are the historical",
-            "  released artifacts recovered from `v2.0.3`.",
-            "- `rp2018-2023`: `csv/main` and `tei/no-accents` are copied from the",
-            "  current working tree (accented CCAT no-variants CSV, unaccented TEI).",
+            "- Official editions: accented CSV (with/without variants) and accented",
+            "  TEI are generated from the official `.CCT`; unaccented CSV/TEI are",
+            "  generated from the official ASCII. Strong's/parsing are absent because",
+            "  the official URL files do not contain them.",
+            "- `rp2005-2019`: accented with/without variants, unaccented, Strong's",
+            "  with/no parsing, and accented/unaccented TEI are recovered or generated",
+            "  from `v2.0.3`.",
+            "- `rp2018-2023`: the same views are copied or generated from the current",
+            "  working tree.",
+            "",
+            "## Derived artifacts by edition",
+            "",
+            "| Edition | Accented no-variants | Accented with-variants | Unaccented | Strong's with-parsing | Strong's no-parsing | Accented TEI | Unaccented TEI |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for edition_id in editions.EDITIONS:
+        root = editions.edition_dir(edition_id)
+        def has(*parts):
+            return (root.joinpath(*parts)).is_dir()
+        lines.append(
+            f"| `{edition_id}` | "
+            f"{'yes' if has('csv','accented','no-variants') else 'no'} | "
+            f"{'yes' if has('csv','accented','with-variants') else 'no'} | "
+            f"{'yes' if has('csv','unaccented') else 'no'} | "
+            f"{'yes' if has('csv','strongs','with-parsing') else 'no'} | "
+            f"{'yes' if has('csv','strongs','no-parsing') else 'no'} | "
+            f"{'yes' if has('tei','accented') else 'no'} | "
+            f"{'yes' if has('tei','unaccented') else 'no'} |"
+        )
+    lines.extend(
+        [
+            "",
+            "Where a source carries accents, Strong's, apparatus, or parsing, the",
+            "edition provides the corresponding derived view. Official editions",
+            "have no Strong's/parsing view because those data are not in the official",
+            "URL files.",
+            "",
+            "Accented CSV also includes the `PA` and `ACT24` section files where the",
+            "source provides them. TEI is the 27-book main text.",
             "",
             "```bash",
             "python3 scripts/recover_editions.py",
@@ -149,8 +195,9 @@ def update_root_readme() -> str:
         BEGIN,
         "## Curated editions",
         "",
-        "The repository now ships four curated editions, with their CSV and TEI",
-        "exports, instead of asking you to dig through git history:",
+        "The repository now ships four curated editions, with every CSV/TEI view",
+        "their sources support (accented, unaccented, and Strong's/parsing where",
+        "available), instead of asking you to dig through git history:",
         "",
         "| Edition | Status | Repo releases |",
         "| --- | --- | --- |",
@@ -164,9 +211,11 @@ def update_root_readme() -> str:
         END,
     ]
     if BEGIN in text and END in text:
-        before = text[: text.index(BEGIN)]
-        after = text[text.index(END) + len(END) :]
-        text = before.rstrip() + "\n\n" + "\n".join(block) + "\n" + after
+        before = text[: text.index(BEGIN)].rstrip()
+        after = text[text.index(END) + len(END) :].strip()
+        text = before + "\n\n" + "\n".join(block) + "\n"
+        if after:
+            text += "\n" + after + "\n"
     else:
         text = text.rstrip() + "\n\n" + "\n".join(block) + "\n"
     path.write_text(text, encoding="utf-8")

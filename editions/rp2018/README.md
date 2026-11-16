@@ -9,14 +9,25 @@
 
 - `source/` - frozen source files
 - `csv/` - generated Unicode CSV
-- `tei/` - generated TEI-XML main text
+- `tei/` - generated TEI-XML
 - `manifest.json` - provenance and hashes
 
-`csv/` and `tei/` are unaccented main-text exports generated from the official ASCII. `source/ccat` holds the official `.CCT` source; the published PDF is the ultimate source of truth.
+Accented CSV (with/without variants) and accented TEI are generated from the official `.CCT` source. Unaccented CSV and TEI are generated from the official ASCII. Strong's and parsing are not included because the official archives do not contain them.
 
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
 official codes (`MT`, `MR`, ...).
+
+## Derived artifacts
+
+- `csv/accented`
+- `csv/accented/no-variants`
+- `csv/accented/with-variants`
+- `csv/unaccented`
+- `tei/accented`
+- `tei/accented/BYZ`
+- `tei/unaccented`
+- `tei/unaccented/BYZ`
 
 ## Notes
 
