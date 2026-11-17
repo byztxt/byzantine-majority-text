@@ -1,3 +1,5 @@
+import hashlib
+import io
 import tempfile
 import unittest
 import zipfile
@@ -139,49 +141,122 @@ class DownloadUrlTests(unittest.TestCase):
             fetch._check_url("https://dropbox.com.evil.example/file.zip")
 
 
-class PinnedDigestTests(unittest.TestCase):
-    """`run()` must verify every archive against the pinned digest."""
+class ForceModeTests(unittest.TestCase):
+    """`--force` is the only mode that downloads, extracts, and records."""
 
-    def test_run_fails_loudly_on_a_wrong_digest(self):
+    def test_force_downloads_extracts_and_writes_provenance(self):
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w") as archive:
+            archive.writestr("MT.CCT", b"x")
+        payload = buffer.getvalue()
+        expected = hashlib.sha256(payload).hexdigest()
+        spec = {
+            "edition": "rp2018",
+            "name": "fixture.zip",
+            "url": "https://www.dropbox.com/s/abc/fixture.zip?dl=0",
+            "format": "ccat",
+            "sha256": expected,
+        }
+
+        def fake_download(url, dest):
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(payload)
+            return {
+                "http_status": 200,
+                "final_url": url.replace("?dl=0", "?dl=1"),
+            }
+
         with tempfile.TemporaryDirectory() as tmp:
-            tmp = Path(tmp)
-            original = (
-                fetch.sources.ARCHIVES,
-                fetch.sources.ARCHIVE_DIR,
-                fetch.sources.PROVENANCE_DIR,
-                fetch.sources.RAW_DIR,
-                fetch.download,
+            root = Path(tmp)
+            with (
+                mock.patch.object(fetch.sources, "ARCHIVES", [spec]),
+                mock.patch.object(
+                    fetch.sources, "ARCHIVE_DIR", root / "archives"
+                ),
+                mock.patch.object(
+                    fetch.sources, "PROVENANCE_DIR", root / "provenance"
+                ),
+                mock.patch.object(fetch.sources, "RAW_DIR", root / "raw"),
+                mock.patch.object(fetch.sources, "ROOT", root),
+                mock.patch.object(
+                    fetch, "download", side_effect=fake_download
+                ) as download,
+            ):
+                written = fetch.run(force=True)
+
+            archive = root / "archives" / "rp2018" / "fixture.zip"
+            self.assertEqual(download.call_count, 1)
+            self.assertEqual(archive.read_bytes(), payload)
+            self.assertTrue(
+                (root / "raw" / "rp2018" / "fixture" / "MT.CCT").is_file()
             )
+            provenance = root / "provenance" / "rp2018.toml"
+            self.assertEqual(written, [provenance])
+            text = provenance.read_text(encoding="utf-8")
+            self.assertIn(f'sha256 = "{expected}"', text)
+            self.assertIn(f"size = {len(payload)}", text)
+            self.assertIn("downloaded = ", text)
 
-            def fake_download(url, dest):
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                dest.write_bytes(b"not the official archive")
-                return {"http_status": 200, "final_url": url}
 
-            fetch.sources.ARCHIVES = [
-                {
-                    "edition": "rp2018",
-                    "name": "fixture.zip",
-                    "url": "https://www.dropbox.com/s/abc/fixture.zip?dl=0",
-                    "format": "ccat",
-                    "sha256": "0" * 64,
-                }
-            ]
-            fetch.sources.ARCHIVE_DIR = tmp / "archives"
-            fetch.sources.PROVENANCE_DIR = tmp / "provenance"
-            fetch.sources.RAW_DIR = tmp / "raw"
-            fetch.download = fake_download
-            try:
-                with self.assertRaises(SystemExit):
-                    fetch.run(verify=True)
-            finally:
-                (
-                    fetch.sources.ARCHIVES,
-                    fetch.sources.ARCHIVE_DIR,
-                    fetch.sources.PROVENANCE_DIR,
-                    fetch.sources.RAW_DIR,
-                    fetch.download,
-                ) = original
+class VerifyModeTests(unittest.TestCase):
+    """`--verify` is pure validation: no downloads and no provenance writes."""
+
+    def test_verify_all_present_leaves_provenance_byte_identical(self):
+        before = {
+            path.name: fetch.sha256_file(path)
+            for path in sorted(fetch.sources.PROVENANCE_DIR.glob("*.toml"))
+        }
+        with mock.patch.object(
+            fetch, "download", side_effect=AssertionError("network access")
+        ):
+            written = fetch.run(verify=True)
+        after = {
+            path.name: fetch.sha256_file(path)
+            for path in sorted(fetch.sources.PROVENANCE_DIR.glob("*.toml"))
+        }
+        self.assertEqual(written, [])
+        self.assertEqual(after, before)
+
+    def test_verify_missing_archive_fails_without_network(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.object(fetch.sources, "ARCHIVE_DIR", Path(tmp)):
+                with mock.patch.object(
+                    fetch, "download", side_effect=AssertionError("network access")
+                ):
+                    with self.assertRaises(SystemExit) as caught:
+                        fetch.run(verify=True)
+        message = str(caught.exception)
+        self.assertIn("archive missing", message)
+        self.assertIn("git checkout --", message)
+
+    def test_verify_corrupt_archive_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            archive = root / "rp2018" / "fixture.zip"
+            archive.parent.mkdir(parents=True)
+            archive.write_bytes(b"not the official archive")
+            spec = {
+                "edition": "rp2018",
+                "name": "fixture.zip",
+                "url": "https://www.dropbox.com/s/abc/fixture.zip?dl=0",
+                "format": "ccat",
+                "sha256": "0" * 64,
+            }
+            with mock.patch.object(fetch.sources, "ARCHIVES", [spec]):
+                with mock.patch.object(fetch.sources, "ARCHIVE_DIR", root):
+                    with mock.patch.object(fetch.sources, "ROOT", root):
+                        with mock.patch.object(
+                            fetch,
+                            "download",
+                            side_effect=AssertionError("network access"),
+                        ):
+                            with self.assertRaises(SystemExit) as caught:
+                                fetch.run(verify=True)
+        self.assertIn("does not match the pinned sha256", str(caught.exception))
+
+    def test_verify_and_force_are_mutually_exclusive(self):
+        with self.assertRaises(SystemExit):
+            fetch.run(verify=True, force=True)
 
 
 if __name__ == "__main__":

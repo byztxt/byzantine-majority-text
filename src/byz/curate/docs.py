@@ -29,7 +29,11 @@ def write_editions_doc() -> str:
         "- **Released** means published as an artifact in this repository.",
         "",
         "The official PDFs are the ultimate source of truth. The ZIP archives and",
-        "the source files here are machine-readable companions.",
+        "`source/` are the authoritative machine-readable text for the",
+        "derivatives.",
+        "",
+        "For where everything lives in the repository, see the layout table in",
+        "the [root README](../README.md#repository-layout).",
         "",
         "## The four editions",
         "",
@@ -248,47 +252,64 @@ def write_editions_doc() -> str:
     return str(path)
 
 
-def update_root_readme() -> str:
-    path = editions.ROOT / "README.md"
-    text = path.read_text(encoding="utf-8")
+def _release_cell(row: dict) -> str:
+    if row.get("release_range"):
+        return f"`{row.get('first_release')}`-`{row.get('latest_release')}`"
+    return "none"
+
+
+def root_readme_block() -> list:
+    """The generated `<!-- editions:begin -->` block for the root README."""
     manifests = {row["edition"]: row for row in _manifests()}
     block = [
         BEGIN,
         "## Curated editions",
         "",
-        "The repository now ships four curated editions, with every CSV/TEI view",
-        "their sources support (accented, unaccented, and Strong's/parsing where",
-        "available), instead of asking you to dig through git history:",
+        "Four editions are curated under [`editions/`](editions/), each with its",
+        "own `source/`, `csv/`, `tei/`, `manifest.json`, and `README.md`.",
+        "`rp2018-2023` is the current text, `rp2018` and `rp2005` are the official",
+        "print editions, and `rp2005-2019` is the historical 2019 revision of the",
+        "2005 lineage.",
         "",
         "| Edition | Status | Repo releases |",
         "| --- | --- | --- |",
     ]
     for edition_id in editions.EDITIONS:
         row = manifests.get(edition_id, {})
-        release = (
-            f"`{row.get('first_release')}`-`{row.get('latest_release')}`"
-            if row.get("release_range")
-            else "none"
-        )
         block.append(
-            f"| `{edition_id}` | {row.get('status', '')} | {release} |"
+            f"| `{edition_id}` | {row.get('status', '')} | {_release_cell(row)} |"
         )
     block.extend(
         [
             "",
             "See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the",
             "[`editions/`](editions/) directory for the full explanation, PDF",
-            "links, provenance, and checksums.",
+            "links, provenance, manifests, and checksums.",
             END,
         ]
     )
+    return block
+
+
+def replace_block(text: str, block: str) -> str:
+    """Replace (or append) the generated block without touching the rest."""
     if BEGIN in text and END in text:
         before = text[: text.index(BEGIN)].rstrip()
         after = text[text.index(END) + len(END) :].strip()
-        text = before + "\n\n" + "\n".join(block) + "\n"
+        text = before + "\n\n" + block + "\n"
         if after:
             text += "\n" + after + "\n"
-    else:
-        text = text.rstrip() + "\n\n" + "\n".join(block) + "\n"
-    path.write_text(text, encoding="utf-8")
+        return text
+    return text.rstrip() + "\n\n" + block + "\n"
+
+
+def render_root_readme(text: str) -> str:
+    """Return `text` with the generated editions block in place."""
+    return replace_block(text, "\n".join(root_readme_block()))
+
+
+def update_root_readme() -> str:
+    path = editions.ROOT / "README.md"
+    text = path.read_text(encoding="utf-8")
+    path.write_text(render_root_readme(text), encoding="utf-8")
     return str(path)

@@ -2,7 +2,7 @@
 
 > **Curated editions:** `source/` is the current working tree (2018+2023). The official 2005, released 2005+2019, official 2018, and released 2018+2023 editions are curated under [`editions/`](../editions); see [`docs/EDITIONS.md`](../docs/EDITIONS.md). The published PDFs are the ultimate source of truth.
 
-This folder contains the source files of the Byzantine Texform as created and maintained by Dr. Maurice A. Robinson. These files are the ultimate source of truth should any question arise regarding the derivative Unicode files provided in this repository.
+This folder contains the source files of the Byzantine Texform as created and maintained by Dr. Maurice A. Robinson. They are the authoritative machine-readable source for the derivative Unicode files provided in this repository; the published PDFs are the ultimate source of truth for the printed editions.
 
 These files are written in Beta code. The Beta code of the files differs from the standard used by the `beta-code` library (which is used for the conversion to Unicode) as explained in the docstring and code of the `standardise_beta_code()` function in the `scripts/beta_to_unicode_custom/beta_to_unicode_custom.py` script.
 

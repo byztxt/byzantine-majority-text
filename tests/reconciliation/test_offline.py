@@ -1,12 +1,15 @@
-"""Offline reconciliation checks: pinned hashes and committed report totals.
+"""Offline reconciliation checks: pinned hashes, committed archives, reports.
 
-These run in a fresh clone without the git-ignored archive zips.
+The six original zips are committed under `data/raw/_archives/`, so these tests
+run in a normal checkout and need no network access or extra fetch step.
 """
 
+import shutil
+import subprocess
 import unittest
 from pathlib import Path
 
-from byz.reconcile import sources
+from byz.reconcile import fetch, sources
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORTS = ROOT / "reports" / "reconciliation"
@@ -71,6 +74,30 @@ class PinnedArchiveHashTests(unittest.TestCase):
     def test_archive_urls_are_https(self):
         for spec in sources.ARCHIVES:
             self.assertTrue(spec["url"].startswith("https://"), spec["name"])
+
+
+class CommittedArchiveTests(unittest.TestCase):
+    """The six official zips are committed, pinned, and not git-ignored."""
+
+    def test_six_archives_are_committed_with_pinned_hashes(self):
+        for spec in sources.ARCHIVES:
+            path = sources.ARCHIVE_DIR / spec["edition"] / spec["name"]
+            self.assertTrue(path.is_file(), f"missing committed archive: {path}")
+            self.assertEqual(fetch.sha256_file(path), spec["sha256"], str(path))
+
+    @unittest.skipIf(shutil.which("git") is None, "git is not installed")
+    def test_committed_archives_are_not_gitignored(self):
+        for spec in sources.ARCHIVES:
+            path = sources.ARCHIVE_DIR / spec["edition"] / spec["name"]
+            result = subprocess.run(
+                ["git", "check-ignore", "--quiet", str(path)],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(
+                result.returncode, 1, f"committed archive is git-ignored: {path}"
+            )
 
 
 class CommittedReportTests(unittest.TestCase):

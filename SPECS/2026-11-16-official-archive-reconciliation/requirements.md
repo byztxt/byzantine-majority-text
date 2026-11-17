@@ -99,9 +99,10 @@ The Cycle 1 baseline and the current tracked files:
 - Write `data/provenance/rp2005.toml` and `data/provenance/rp2018.toml` per
   `TECH.md` §3.
 - Extraction is immutable: never edit an extracted input.
-- Commit the extracted inputs under `data/raw/<edition>/`; the original zips may
-  stay outside git if size is a problem, but their URLs and checksums are
-  recorded.
+- Commit the extracted inputs under `data/raw/<edition>/` and the six original
+  zips under `data/raw/_archives/<edition>/`; their URLs and checksums are
+  recorded. Keeping the original zips committed preserves the exact published
+  files for posterity and lets the offline tests verify them.
 - Re-running the fetch against the recorded checksums must produce no unexpected
   change; a changed hash is recorded and flagged.
 - Tests must run offline; only the fetch step uses the network.
@@ -193,7 +194,8 @@ Every non-exact difference is classified into at least one category:
 - `reports/reconciliation/categories.csv` - category totals.
 - `reports/reconciliation/archives.csv` - archive inventory and checksums.
 - `reports/reconciliation/decision-log.md` - every conflict with evidence,
-  options, and an empty maintainer decision field.
+  options, and a maintainer decision field. The archive-commit question (R8) is
+  resolved: the six original zips are committed under `data/raw/_archives/`.
 - Reports are deterministic (stable ordering, no timestamps).
 
 ### R9 - Safety
@@ -273,7 +275,8 @@ tests/reconciliation/...
 5. If an official file differs from `source/`, should the official file replace
    it (with approval), or should the repository keep its current revision?
 6. Should the original zip files be committed, or only the extracted inputs plus
-   checksums?
+   checksums? **Resolved (2026-11-17):** the six original zips are committed
+   under `data/raw/_archives/`, alongside the extracted inputs and checksums.
 
 ## Risks
 

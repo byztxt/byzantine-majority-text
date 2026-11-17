@@ -7,11 +7,16 @@ The scripts have dependencies, which are listed in the `requirements.txt` file. 
 Python 3.10 is recommended. Install the converter dependencies with
 `pip install -r requirements.txt` (run from this folder).
 
-- `fetch_official.py` - fetch, checksum, and extract the official ZIP archives.
+- `fetch_official.py` - checksum, extract, and (re)fetch the official ZIP
+  archives. The six original zips are committed under `data/raw/_archives/`,
+  so `--verify` checks them against the pinned digests with no network access
+  and no writes. `--force` is the only mode that downloads: it re-downloads and
+  re-extracts the archives and rewrites `data/provenance/*.toml`. The two modes
+  cannot be combined.
 - `recover_editions.py` - recover the 2005 lineage from git and freeze the four
   curated editions under `editions/`.
 - `build_editions.py` - build curated CSV/TEI, manifests, per-edition READMEs,
-  and `docs/EDITIONS.md`.
+  `docs/EDITIONS.md`, and the generated editions block in the root `README.md`.
 - `diff_editions.py` - write the successive edition diffs under `reports/diffs/`.
 
 Run them from the repository root:
@@ -31,7 +36,7 @@ See `docs/EDITIONS.md` for the edition model and release numbers.
 
 ```bash
 PYTHONPATH=src python3 -m byz.contract
-PYTHONPATH=src python3 -m byz.reconcile   # needs data/raw/_archives/
+PYTHONPATH=src python3 -m byz.reconcile   # reads data/raw/_archives/
 ```
 
 `byz.contract` owns the baseline document but preserves the

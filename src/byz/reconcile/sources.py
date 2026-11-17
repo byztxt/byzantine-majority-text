@@ -12,8 +12,9 @@ DOCS_DIR = ROOT / "docs"
 
 # The pinned SHA-256 of each official archive. These values also appear in
 # `data/provenance/*.toml`; `fetch.run()` refuses to record or extract an
-# archive whose digest does not match. Keeping them in code makes the offline
-# reconciliation tests independent of the (git-ignored) zip files.
+# archive whose digest does not match. The archives themselves are committed
+# under `data/raw/_archives/`, so the offline reconciliation tests can hash the
+# real files without any network access.
 ARCHIVES = [
     {
         "edition": "rp2005",

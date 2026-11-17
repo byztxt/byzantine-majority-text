@@ -162,11 +162,12 @@ Results:
 
 - 24 curate tests pass (one accented-conversion test runs under the pinned
   Python 3.10 environment), plus 40 contract and 25 reconciliation tests.
-  *(2026-11-17 correction: the "25 reconciliation tests pass" claim does not
+  *(2026-11-17 correction: the "25 reconciliation tests pass" claim did not
   reproduce in a clean clone. Six of those tests call `compare.run()`, which
-  needs the git-ignored `data/raw/_archives/**/*.zip`, so a fresh clone gets six
-  `FileNotFoundError`s. They are now skipped with a loud message, and offline
-  replacements were added; see the 2026-11-17 run below.)*
+  needs the six official archives; they are now committed under
+  `data/raw/_archives/`, offline replacements were added for the pinned hashes
+  and report totals, and the full 43-test reconciliation suite runs. See the
+  2026-11-17 run below.)*
 - All 57 recovered `rp2005-2019` source files match `git show v2.0.3:...`.
 - Official `.CCT` source counts: `rp2005` 29, `rp2018` 30; both match
   `data/raw/`.
@@ -210,13 +211,12 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation
 
 ### Tests
 
-- `tests/curate`: 58 tests pass.
+- `tests/curate`: 62 tests pass.
 - `tests/contract`: 44 tests pass.
-- `tests/reconciliation`: 41 tests run (35 pass, 6 skipped), with the six
-  archive-dependent integration tests skipped with `official archives not
-  fetched: run python3 scripts/fetch_official.py --verify`. The offline
-  replacements cover the six pinned SHA-256 values and the committed report
-  totals.
+- `tests/reconciliation`: 47 tests pass, 0 skipped. The six archive-dependent
+  integration tests now run because the original zips are committed under
+  `data/raw/_archives/`. The offline checks cover the six pinned SHA-256 values,
+  the committed copies not being git-ignored, and the committed report totals.
 - The legacy `scripts/csv_converter.py` and `scripts/tei_xml_converter.py` were
   re-run and `csv-unicode/` and `tei-xml-unicode/` are byte-identical to
   `HEAD`.
@@ -337,10 +337,10 @@ PYTHONPATH=src python -m unittest discover -s tests/reconciliation
 - Two complete recover -> build -> diff -> contract runs were compared by
   SHA-256 over every file under `editions/`, `reports/`, and `docs/`: 887 files
   were byte-identical, and `git status` stayed clean after both runs.
-- `tests/curate`: 58 pass; `tests/contract`: 44 pass; `tests/reconciliation`:
-  41 run, 6 skipped, 35 pass. The six skips are all in
-  `tests/reconciliation/test_integration.py` and need the git-ignored
-  `data/raw/_archives/**/*.zip` plus `scripts/fetch_official.py --verify`.
+- `tests/curate`: 62 pass; `tests/contract`: 44 pass; `tests/reconciliation`:
+  47 pass, 0 skipped. The archive-dependent integration tests run against the
+  committed `data/raw/_archives/**/*.zip`; `scripts/fetch_official.py --verify`
+  validates those committed copies offline.
 - The legacy `scripts/csv_converter.py` and `scripts/tei_xml_converter.py`
   were re-run in a throwaway copy of the worktree; `csv-unicode/` (113 files)
   and `tei-xml-unicode/` (32 files) were byte-identical to the committed tree.
@@ -385,6 +385,8 @@ PYTHONPATH=src python -m unittest discover -s tests/reconciliation
 
 - The maintainer has not yet reviewed `docs/EDITIONS.md`, the manifests, and the
   diff reports.
-- The archive-dependent reconciliation checks cannot be re-run offline; the
-  committed reports were produced with the archives present.
+- The archive-dependent reconciliation checks now run offline from a normal
+  checkout: the six original zips are committed under `data/raw/_archives/`,
+  and `scripts/fetch_official.py --verify` validates the committed copies
+  without touching the provenance TOMLs.
 

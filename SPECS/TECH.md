@@ -62,6 +62,12 @@ PDF, flag the conflict and escalate to the maintainer; never silently choose.
 
 **2026** - to be supplied when the edition is published (see `ROADMAP.md`).
 
+The six archives are committed under `data/raw/_archives/<edition>/`, so a clone
+carries the exact published files for posterity and offline reproducibility.
+`data/provenance/*.toml` pins each SHA-256, and
+`scripts/fetch_official.py --verify` re-checks the committed copies without
+network access.
+
 The provenance of the existing `source/Strongs/*.BP5` (parsing and Strong's
 numbers) must be established separately during the reconciliation cycle; it is
 not assumed to come from the archives listed above.
@@ -110,6 +116,7 @@ SPECS/                      # constitution + one folder per change
     validation.md
 
 data/
+  raw/_archives/<edition>/  # immutable original official zips (committed)
   raw/<edition>/            # immutable extracted official inputs (committed)
   provenance/<edition>.toml # urls, sha256, dates, decisions
 

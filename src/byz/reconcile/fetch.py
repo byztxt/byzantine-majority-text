@@ -123,6 +123,14 @@ def extract(zip_path: Path, dest: Path) -> None:
                 shutil.copyfileobj(source, handle)
 
 
+def _repo_relative(path: Path) -> str:
+    """Best-effort repo-relative path for user-facing messages."""
+    try:
+        return str(path.relative_to(sources.ROOT))
+    except ValueError:
+        return str(path)
+
+
 def _existing_records(provenance_path: Path) -> dict:
     if not provenance_path.exists():
         return {}
@@ -180,6 +188,16 @@ def _write_provenance(edition: str, records: list) -> Path:
 
 
 def run(verify: bool = False, force: bool = False) -> list:
+    """Check, fetch, extract, and record the official archives.
+
+    With ``verify`` the archives are only checked against the pinned digests:
+    nothing is downloaded, extracted, or written, so the call is safe offline.
+    ``force`` re-downloads, re-extracts, and rewrites the provenance records.
+    The two modes are mutually exclusive.
+    """
+    if verify and force:
+        raise SystemExit("--verify and --force are mutually exclusive")
+    written = []
     by_edition = {}
     for spec in sources.ARCHIVES:
         edition = spec["edition"]
@@ -188,16 +206,29 @@ def run(verify: bool = False, force: bool = False) -> list:
         zip_path = sources.ARCHIVE_DIR / edition / spec["name"]
         expected = spec["sha256"]
 
+        if verify:
+            if not zip_path.exists():
+                raise SystemExit(
+                    f"archive missing: {_repo_relative(zip_path)}. Restore the "
+                    f"committed copy with `git checkout -- "
+                    f"{_repo_relative(zip_path)}`, or run with "
+                    f"--force to re-download it."
+                )
+            actual = sha256_file(zip_path)
+            if actual != expected:
+                raise SystemExit(
+                    f"archive {spec['name']} does not match the pinned "
+                    f"sha256: expected {expected}, got {actual}. Restore the "
+                    f"committed copy with `git checkout -- "
+                    f"{_repo_relative(zip_path)}`, or run with "
+                    f"--force to re-download it."
+                )
+            continue
+
         need_download = force or not zip_path.exists()
         if zip_path.exists() and not need_download:
             actual = sha256_file(zip_path)
             if actual != expected:
-                if verify:
-                    raise SystemExit(
-                        f"archive {spec['name']} does not match the pinned "
-                        f"sha256: expected {expected}, got {actual}. Delete "
-                        f"{zip_path} to re-download it."
-                    )
                 need_download = True
 
         if need_download:
@@ -239,7 +270,6 @@ def run(verify: bool = False, force: bool = False) -> list:
         }
         by_edition.setdefault(edition, []).append(record)
 
-    written = []
     for edition, records in by_edition.items():
         written.append(_write_provenance(edition, records))
     return written
@@ -250,15 +280,26 @@ def main(argv=None) -> int:
     parser.add_argument(
         "--verify",
         action="store_true",
-        help="verify existing archives against the pinned checksums",
+        help=(
+            "validate the committed archives (no download, no writes); cannot "
+            "be combined with --force"
+        ),
     )
     parser.add_argument(
-        "--force", action="store_true", help="re-download and re-extract"
+        "--force",
+        action="store_true",
+        help=(
+            "re-download, re-extract, and rewrite provenance; cannot be "
+            "combined with --verify"
+        ),
     )
     args = parser.parse_args(argv)
     written = run(verify=args.verify, force=args.force)
-    for path in written:
-        print(f"wrote {path}")
+    if args.verify:
+        print(f"verified {len(sources.ARCHIVES)} archives")
+    else:
+        for path in written:
+            print(f"wrote {path}")
     return 0
 
 

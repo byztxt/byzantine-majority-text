@@ -1,19 +1,27 @@
 import unittest
 
-from byz.reconcile import compare, historical, sources
+from byz.reconcile import compare, fetch, historical, sources
 
 
 def _archive_path(spec):
     return sources.ARCHIVE_DIR / spec["edition"] / spec["name"]
 
 
-ARCHIVES_PRESENT = all(_archive_path(spec).is_file() for spec in sources.ARCHIVES)
+def _archive_ok(spec):
+    """True when the committed archive exists and matches its pinned digest."""
+    path = _archive_path(spec)
+    if not path.is_file():
+        return False
+    return fetch.sha256_file(path) == spec["sha256"]
+
+
+ARCHIVES_PRESENT = all(_archive_ok(spec) for spec in sources.ARCHIVES)
 
 MISSING_MESSAGE = (
-    "official archives not fetched: run "
-    "`python3 scripts/fetch_official.py --verify` (and install the pinned "
-    "Python 3.10 environment). The zips are git-ignored, so a fresh clone has "
-    "to fetch them before these archive-dependent checks can run."
+    "the official archives committed under data/raw/_archives are missing or "
+    "corrupt: restore them with `git checkout -- data/raw/_archives`, or run "
+    "`python3 scripts/fetch_official.py --force` to re-download. These checks "
+    "also need the pinned Python 3.10 environment."
 )
 
 

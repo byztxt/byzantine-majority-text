@@ -29,8 +29,9 @@ The maintainer decides canonical sources (TECH.md §4).
 - [ ] Write `data/provenance/rp2005.toml` and `rp2018.toml`.
 - [ ] Re-running the fetch against recorded checksums produces no unexpected
       change; a changed hash is recorded and flagged.
-- [ ] Decide with the maintainer whether to commit the original zips or only the
-      extracted inputs plus checksums (open question 6).
+- [x] Decided with the maintainer (2026-11-17, open question 6): commit the six
+      original zips under `data/raw/_archives/<edition>/` alongside the
+      extracted inputs and checksums, for posterity and offline reproducibility.
 
 ## Task group 3 - Archive inventory
 

@@ -123,9 +123,11 @@ def _provenance_doc(results, source_stats, derived_stats, history_rows):
     lines = [
         "# Provenance",
         "",
-        "External evidence gathered in Cycle 2. The source files remain",
-        "authoritative; these records describe the official archives and how far",
-        "the current corpus matches them.",
+        "External evidence gathered in Cycle 2. The published PDFs are the",
+        "ultimate source of truth for the printed editions, and `source/` is the",
+        "authoritative machine-readable text for the derivatives. These records",
+        "describe the official archives and how far the current corpus matches",
+        "them.",
         "",
         "## Archives",
         "",
@@ -139,8 +141,10 @@ def _provenance_doc(results, source_stats, derived_stats, history_rows):
     lines.extend(
         [
             "",
-            "The original zips live under `data/raw/_archives/` (gitignored); the",
-            "extracted inputs are committed under `data/raw/<edition>/`.",
+            "The original zips are committed under `data/raw/_archives/` and are",
+            "pinned by SHA-256 in `data/provenance/*.toml`. The extracted inputs",
+            "under `data/raw/<edition>/` are produced from those zips; they are not",
+            "separately hashed in the provenance files.",
             "",
             "## Match verdict",
             "",
@@ -383,7 +387,7 @@ The pipeline flags; the maintainer decides. No source file was changed.
 | R5 | `GREEK.CCT` is documentation, not text. | Inventory shows it is a transliteration key. | (a) Auxiliary. (b) Map elsewhere. | pending |
 | R6 | Formatting-only differences (`*[` vs `[*`, dash/ellipsis spacing). | Treated as normalization-only. | (a) Accept as equivalent. (b) Preserve exactly. | pending |
 | R7 | Should official 2018 files replace current `source/`? | Current includes post-2018 changes (e.g. apparatus codes). | (a) Keep current. (b) Adopt official. (c) merge per decision R1/R2. | pending |
-| R8 | Commit original zips? | They live under gitignored `data/raw/_archives/`; checksums recorded. | (a) Keep out of git. (b) Commit them. | pending |
+| R8 | Commit original zips? | They live under `data/raw/_archives/`; checksums are recorded in `data/provenance/*.toml`. | (a) Keep out of git. (b) Commit them. | adopted (2026-11-17): commit the six original zips under `data/raw/_archives/` for posterity and offline reproducibility; `fetch_official.py --verify` checks the committed copies. |
 | R9 | Which historical state is the 2005 edition? | `v2.0.3 textonly-beta-code` is a 2019 revision of the 2005 edition; it matches official 2018 (99.96%) more closely than official 2005 (99.32%). The current source is the 2023 2018 text, first added in `97371d7` and merged in `v3.0.0`. | (a) Use the official 2005 archive as the 2005 edition. (b) Use `v2.0.3` (the repo's 2019 revision). (c) Keep both, clearly labelled. | pending |
 """
 

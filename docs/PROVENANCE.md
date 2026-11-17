@@ -1,8 +1,10 @@
 # Provenance
 
-External evidence gathered in Cycle 2. The source files remain
-authoritative; these records describe the official archives and how far
-the current corpus matches them.
+External evidence gathered in Cycle 2. The published PDFs are the
+ultimate source of truth for the printed editions, and `source/` is the
+authoritative machine-readable text for the derivatives. These records
+describe the official archives and how far the current corpus matches
+them.
 
 ## Archives
 
@@ -15,8 +17,10 @@ the current corpus matches them.
 | `rp2018` | `rp2018-ascii-one-line-per-verse.zip` | `5ea075d9d52d85511ce627be258fcc78e901d08e8a912dda96dffe977add7fb6` | 324888 |
 | `rp2018` | `rp2018-ccat.ZIP` | `55eae8ffc5679fc740318e7b520b283393ca09c66b7a6c1934336d54eca3a394` | 469973 |
 
-The original zips live under `data/raw/_archives/` (gitignored); the
-extracted inputs are committed under `data/raw/<edition>/`.
+The original zips are committed under `data/raw/_archives/` and are
+pinned by SHA-256 in `data/provenance/*.toml`. The extracted inputs
+under `data/raw/<edition>/` are produced from those zips; they are not
+separately hashed in the provenance files.
 
 ## Match verdict
 

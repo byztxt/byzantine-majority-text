@@ -7,7 +7,11 @@ and two are **released**.
 - **Released** means published as an artifact in this repository.
 
 The official PDFs are the ultimate source of truth. The ZIP archives and
-the source files here are machine-readable companions.
+`source/` are the authoritative machine-readable text for the
+derivatives.
+
+For where everything lives in the repository, see the layout table in
+the [root README](../README.md#repository-layout).
 
 ## The four editions
 

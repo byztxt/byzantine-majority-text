@@ -2,7 +2,23 @@ import hashlib
 import re
 import unittest
 
-from byz.curate import editions
+from byz.curate import docs, editions
+
+ROOT_ITEMS = (
+    "editions",
+    "source",
+    "csv-unicode",
+    "tei-xml-unicode",
+    "data",
+    "docs",
+    "reports",
+    "scripts",
+    "src",
+    "tests",
+    "essay",
+    "SPECS",
+    ".opencode",
+)
 
 
 class EditionTests(unittest.TestCase):
@@ -85,6 +101,39 @@ class EditionTests(unittest.TestCase):
             self.assertTrue(path.is_file())
             digest = hashlib.sha256(path.read_bytes()).hexdigest()
             self.assertEqual(digest, expected)
+
+
+class RootReadmeTests(unittest.TestCase):
+    """The root README orients newcomers and stays generator-reproducible."""
+
+    def setUp(self):
+        self.path = editions.ROOT / "README.md"
+        self.text = self.path.read_text(encoding="utf-8")
+
+    def test_lists_every_root_directory(self):
+        for name in ROOT_ITEMS:
+            self.assertIn(f"`{name}/`", self.text, f"README does not list {name}/")
+
+    def test_has_exactly_one_generated_block(self):
+        self.assertEqual(self.text.count(docs.BEGIN), 1)
+        self.assertEqual(self.text.count(docs.END), 1)
+        self.assertLess(self.text.index(docs.BEGIN), self.text.index(docs.END))
+        for edition_id in editions.EDITIONS:
+            self.assertIn(f"| `{edition_id}` |", self.text)
+
+    def test_has_no_contradictory_version_wording(self):
+        self.assertNotIn("Four versions are available", self.text)
+        # "source of truth" may only be claimed for the PDFs (the ultimate
+        # authority for the printed editions) or with machine-readable context.
+        for sentence in re.split(r"(?<=[.!?])\s+", self.text):
+            if "source of truth" in sentence:
+                self.assertTrue(
+                    "PDF" in sentence or "machine-readable" in sentence,
+                    f"unqualified source-of-truth claim: {sentence!r}",
+                )
+
+    def test_generated_block_matches_the_generator(self):
+        self.assertEqual(docs.render_root_readme(self.text), self.text)
 
 
 if __name__ == "__main__":
