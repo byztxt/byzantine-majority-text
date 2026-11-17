@@ -2303,7 +2303,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὅσον</w>
 						<w>οὐ</w>
 						<w>χωρὶς</w>
-						<w>ὁρκωμοσίας-</w>
+						<w>ὁρκωμοσίας</w>
+						<pc>-</pc>
 						<w>οἱ</w>
 						<w>μὲν</w>
 						<w>γὰρ</w>
@@ -3484,7 +3485,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐκ</w>
 						<w>ἠθέλησας,</w>
 						<w>οὐδὲ</w>
-						<w>εὐδόκησας-</w>
+						<w>εὐδόκησας</w>
+						<pc>-</pc>
 						<w>αἵτινες</w>
 						<w>κατὰ</w>
 						<w>τὸν</w>
@@ -4678,7 +4680,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἦν</w>
 						<w>ἄξιος</w>
 						<w>ὁ</w>
-						<w>κόσμος-</w>
+						<w>κόσμος</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>ἐρημίαις</w>
 						<w>πλανώμενοι</w>

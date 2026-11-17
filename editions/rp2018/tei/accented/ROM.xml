@@ -266,7 +266,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>προεθέμην</w>
 						<w>ἐλθεῖν</w>
 						<w>πρὸς</w>
-						<w>ὑμᾶς-</w>
+						<w>ὑμᾶς</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἐκωλύθην</w>
 						<w>ἄχρι</w>

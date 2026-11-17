@@ -1066,7 +1066,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μηδὲ</w>
 						<w>γεύσῃ,</w>
 						<w>μηδὲ</w>
-						<w>θίγῃς-</w>
+						<w>θίγῃς</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B12K2V22">
 						<w>ἅ</w>
@@ -1708,7 +1709,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>περὶ</w>
 						<w>οὗ</w>
 						<w>ἐλάβετε</w>
-						<w>ἐντολάς-</w>
+						<w>ἐντολάς</w>
+						<pc>-</pc>
 						<w>ἐὰν</w>
 						<w>ἔλθῃ</w>
 						<w>πρὸς</w>

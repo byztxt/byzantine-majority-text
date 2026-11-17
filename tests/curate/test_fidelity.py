@@ -33,6 +33,8 @@ ORPHAN_MARK_RE = re.compile(r"\s[\u0300-\u036f\u0345]")
 APPARATUS_RE = re.compile(r"\{[^{}]*\}")
 # A dash glued to the preceding word.
 ATTACHED_DASH_RE = re.compile(r"\S- ")
+# A dash glued to the preceding word, at end of text too.
+ATTACHED_MAIN_DASH_RE = re.compile(r"\S-(?=\s|$)")
 
 
 def _csv_verses(path):
@@ -103,12 +105,80 @@ class DashGuardTests(unittest.TestCase):
     """The review claim that the converter adds spaces before dashes is false.
 
     The official main text uses spaced dashes; only the 2023 `source/CCAT`
-    switched to attached dashes. These checks are guards, not fixes.
+    switched to attached dashes. These checks are guards, not fixes — except for
+    the final-sigma case, where the inherited converter's unconditional
+    `ς -` -> `ς-` rewrite is undone in the production path.
     """
+
+    # Verses whose printed dashes follow a word ending in final sigma. Each dash
+    # is spaced in the official `.CCT` source but was emitted attached until the
+    # production path restored the source spacing (2CO 9:4 has two dashes).
+    AFFECTED_VERSES = [
+        ("MAT", 9, 6),
+        ("MAR", 2, 10),
+        ("LUK", 5, 24),
+        ("JOH", 1, 14),
+        ("JOH", 1, 42),
+        ("JOH", 7, 50),
+        ("JOH", 21, 7),
+        ("ACT", 4, 36),
+        ("ACT", 13, 8),
+        ("ROM", 1, 13),
+        ("2CO", 2, 5),
+        ("2CO", 9, 4),
+        ("COL", 4, 10),
+        ("HEB", 7, 20),
+        ("HEB", 10, 8),
+        ("HEB", 11, 38),
+        ("REV", 21, 25),
+    ]
 
     def test_official_edition_keeps_the_spaced_dash(self):
         text = _verse("rp2018", "accented/no-variants", "JOH", 1, 14)
         self.assertIn("ἡμῖν - καὶ", text)
+
+    def test_spaced_dash_restored_after_final_sigma(self):
+        for edition_id in ("rp2005", "rp2018"):
+            for book, chapter, verse in self.AFFECTED_VERSES:
+                text = _verse(
+                    edition_id, "accented/no-variants", book, chapter, verse
+                )
+                self.assertIn(
+                    "ς -", text, f"{edition_id} {book} {chapter}:{verse}"
+                )
+                self.assertNotRegex(
+                    text,
+                    r"ς-",
+                    f"{edition_id} {book} {chapter}:{verse} still attached",
+                )
+            # The examples named by the verifier.
+            self.assertIn(
+                "πατρός - πλήρης",
+                _verse(edition_id, "accented/no-variants", "JOH", 1, 14),
+            )
+            self.assertIn(
+                "ἁμαρτίας - τότε",
+                _verse(edition_id, "accented/no-variants", "MAT", 9, 6),
+            )
+            self.assertIn(
+                "ὁρκωμοσίας - οἱ",
+                _verse(edition_id, "accented/no-variants", "HEB", 7, 20),
+            )
+
+    def test_official_accents_have_no_attached_main_text_dashes(self):
+        # Corpus-wide invariant: the source has no attached main-text dashes, so
+        # neither may the generated official editions. This catches any
+        # final-sigma (or other) dash regression, including at end of verse.
+        for edition_id in ("rp2005", "rp2018"):
+            root = editions.edition_dir(edition_id) / "csv" / "accented"
+            for path in sorted(root.rglob("*.csv")):
+                text = APPARATUS_RE.sub(
+                    "", path.read_text(encoding="utf-8")
+                )
+                self.assertIsNone(
+                    ATTACHED_MAIN_DASH_RE.search(text),
+                    f"attached dash in {edition_id}/{path.name}",
+                )
 
     def test_official_ccat_main_text_has_no_attached_dashes(self):
         for edition_id in ("rp2005", "rp2018"):
@@ -121,6 +191,19 @@ class DashGuardTests(unittest.TestCase):
                     ATTACHED_DASH_RE.search(text),
                     f"attached dash in {edition_id}/{path.name}",
                 )
+
+    def test_official_tei_splits_the_dash_after_final_sigma(self):
+        anchor = f"{paths.ABBR_TO_BOOK_ID['JOH']}K1V14"
+        text = (
+            editions.edition_dir("rp2018") / "tei" / "accented" / "JOH.xml"
+        ).read_text(encoding="utf-8")
+        block = re.search(
+            rf'<ab n="{anchor}">(.*?)</ab>', text, re.S
+        ).group(1)
+        self.assertNotIn("<w>πατρός-</w>", block)
+        self.assertRegex(
+            block, r"<w>πατρός</w>\s+<pc>-</pc>\s+<w>πλήρης</w>"
+        )
 
 
 class ManifestIntegrityTests(unittest.TestCase):

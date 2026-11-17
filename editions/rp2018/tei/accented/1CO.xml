@@ -7783,7 +7783,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῖς</w>
 						<w>ἁγίοις</w>
 						<w>ἔταξαν</w>
-						<w>ἑαυτούς-</w>
+						<w>ἑαυτούς</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B07K16V16">
 						<w>ἵνα</w>

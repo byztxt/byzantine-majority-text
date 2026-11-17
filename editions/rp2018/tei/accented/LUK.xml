@@ -4490,7 +4490,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>γῆς</w>
 						<w>ἀφιέναι</w>
-						<w>ἁμαρτίας-</w>
+						<w>ἁμαρτίας</w>
+						<pc>-</pc>
 						<w>εἶπεν</w>
 						<w>τῷ</w>
 						<w>παραλελυμένῳ</w>
@@ -21373,7 +21374,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀνὴρ</w>
 						<w>ἀγαθὸς</w>
 						<w>καὶ</w>
-						<w>δίκαιος-</w>
+						<w>δίκαιος</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K23V51">
 						<w>οὗτος</w>

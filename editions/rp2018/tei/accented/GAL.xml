@@ -593,7 +593,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καθὼς</w>
 						<w>Πέτρος</w>
 						<w>τῆς</w>
-						<w>περιτομῆς-</w>
+						<w>περιτομῆς</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B09K2V8">
 						<w>ὁ</w>

@@ -4984,7 +4984,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>γῆς</w>
 						<w>ἀφιέναι</w>
-						<w>ἁμαρτίας-</w>
+						<w>ἁμαρτίας</w>
+						<pc>-</pc>
 						<w>τότε</w>
 						<w>λέγει</w>
 						<w>τῷ</w>

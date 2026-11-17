@@ -155,6 +155,15 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
         body = match.group(3) or ""
         body = buc.standardise_beta_code(body, drop_variants=drop_variants)
         text = buc.convert_beta_to_unicode(body)
+        # The inherited historical converter unconditionally rewrites `ς -` to
+        # `ς-`, which is right for the legacy csv-unicode pipeline but wrong for
+        # the official `.CCT` text: its main text contains no attached dashes at
+        # all, and a genuinely attached source dash renders with a *medial*
+        # sigma (`σ-`), never `ς-`. So every `ς-` followed by whitespace or the
+        # end of the verse came from a spaced source dash. Restore it here only,
+        # in the production path, so the legacy pipeline and the recovered
+        # `v2.0.3` artifacts stay byte-identical.
+        text = re.sub(r"ς-(?=\s|$)", "ς -", text)
         verses[key] = text.replace("? ", "¶")
     return verses
 

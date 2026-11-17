@@ -7344,7 +7344,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦ</w>
 						<w>θεοῦ</w>
 						<w>τοῦ</w>
-						<w>παντοκράτορος-</w>
+						<w>παντοκράτορος</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B27K16V15">
 						<w>Ἰδού,</w>
@@ -10319,7 +10320,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐ</w>
 						<w>μὴ</w>
 						<w>κλεισθῶσιν</w>
-						<w>ἡμέρας-</w>
+						<w>ἡμέρας</w>
+						<pc>-</pc>
 						<w>νὺξ</w>
 						<w>γὰρ</w>
 						<w>οὐκ</w>

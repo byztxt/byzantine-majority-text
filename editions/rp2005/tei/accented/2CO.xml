@@ -686,7 +686,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>λελύπηκεν,</w>
 						<w>ἀλλὰ</w>
 						<w>ἀπὸ</w>
-						<w>μέρους-</w>
+						<w>μέρους</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>μὴ</w>
 						<w>ἐπιβαρῶ</w>
@@ -1727,7 +1728,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>περιπατοῦμεν,</w>
 						<w>οὐ</w>
 						<w>διὰ</w>
-						<w>εἴδους-</w>
+						<w>εἴδους</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K5V8">
 						<w>θαρροῦμεν</w>
@@ -2018,7 +2020,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦ</w>
 						<w>θεοῦ</w>
 						<w>δέξασθαι</w>
-						<w>ὑμᾶς-</w>
+						<w>ὑμᾶς</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K6V2">
 						<w>λέγει</w>
@@ -2040,7 +2043,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἰδού,</w>
 						<w>νῦν</w>
 						<w>ἡμέρα</w>
-						<w>σωτηρίας-</w>
+						<w>σωτηρίας</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K6V3">
 						<w>μηδεμίαν</w>
@@ -3221,11 +3225,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμᾶς</w>
 						<w>ἀπαρασκευάστους,</w>
 						<w>καταισχυνθῶμεν</w>
-						<w>ἡμεῖς-</w>
+						<w>ἡμεῖς</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>μὴ</w>
 						<w>λέγωμεν</w>
-						<w>ὑμεῖς-</w>
+						<w>ὑμεῖς</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>τῇ</w>
 						<w>ὑποστάσει</w>

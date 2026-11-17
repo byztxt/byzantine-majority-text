@@ -1054,7 +1054,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπὶ</w>
 						<w>τῆς</w>
 						<w>γῆς</w>
-						<w>ἁμαρτίας-</w>
+						<w>ἁμαρτίας</w>
+						<pc>-</pc>
 						<w>λέγει</w>
 						<w>τῷ</w>
 						<w>παραλυτικῷ</w>

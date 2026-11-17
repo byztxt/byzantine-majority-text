@@ -1,8 +1,11 @@
 # Validation - Edition recovery, curation & successive diffs (Cycle 3)
 
 **Status:** Verified 2026-11-16; review fixes implemented and verified
-2026-11-17 on `feature/2026-11-16-edition-recovery-curation` (PR #46). Two
-non-blocking maintainer-review items remain (see the end of this document).
+2026-11-17 on `feature/2026-11-16-edition-recovery-curation` (PR #46). The final
+verifier pass on 2026-11-17 passed every regeneration, determinism, historical
+fidelity, manifest, and test-suite check; its one blocking fidelity finding
+(dash spacing after final sigma in the two official editions) was fixed and is
+recorded as resolved below. Two non-blocking maintainer-review items remain.
 
 ## 1. Terminology and metadata
 
@@ -207,12 +210,13 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation
 
 ### Tests
 
-- `tests/curate`: 49 tests pass.
-- `tests/contract`: 43 tests pass.
-- `tests/reconciliation`: 39 tests run, 6 archive-dependent integration tests
-  skipped with `official archives not fetched: run python3
-  scripts/fetch_official.py --verify`. The offline replacements cover the six
-  pinned SHA-256 values and the committed report totals.
+- `tests/curate`: 58 tests pass.
+- `tests/contract`: 44 tests pass.
+- `tests/reconciliation`: 41 tests run (35 pass, 6 skipped), with the six
+  archive-dependent integration tests skipped with `official archives not
+  fetched: run python3 scripts/fetch_official.py --verify`. The offline
+  replacements cover the six pinned SHA-256 values and the committed report
+  totals.
 - The legacy `scripts/csv_converter.py` and `scripts/tei_xml_converter.py` were
   re-run and `csv-unicode/` and `tei-xml-unicode/` are byte-identical to
   `HEAD`.
@@ -234,16 +238,42 @@ texts that changed are:
 `csv/unaccented` is unchanged for both editions; the only other CSV difference
 is the generated line endings (LF).
 
-### Dash analysis (review claim corrected)
+### Dash analysis (review claim corrected; final-sigma regression resolved)
 
 The review claim that the converter "adds spaces before dashes" is a false
-positive. The official `.CCT` main text uses spaced dashes throughout (both
+positive: the official `.CCT` main text uses spaced dashes throughout (both
 archives contain zero attached `word- ` dashes once apparatus blocks and
-`GREEK.CCT` are excluded), and the historical converter preserves them; for
-example `rp2018` JOH 1:14 keeps `ἡμῖν - καὶ`. The differences against
-`csv-unicode/ccat` are genuine edition differences: the 2023 `source/CCAT` uses
-attached dashes where the official editions do not. A guard test now pins
-both facts (`tests/curate/test_fidelity.py`), and no dash spacing was changed.
+`GREEK.CCT` are excluded), and the converter never inserts a space before a
+dash.
+
+However, the inherited historical converter contains an unconditional
+`ς -` -> `ς-` rewrite (present since `97371d7`). It affected every main-text
+dash whose preceding word ends in final sigma. A genuinely attached source dash
+renders with a medial sigma (`σ-`), never `ς-`, so every `ς-` in the generated
+official text came from a spaced source dash. The production path in
+`src/byz/curate/build.py::parse_cct_accented` now restores the source spacing
+with `re.sub(r"ς-(?=\s|$)", "ς -", text)` after beta-code conversion. The
+legacy converter, `csv-unicode/`, and the recovered `v2.0.3` artifacts are
+untouched.
+
+The fix changed 29 verses per official edition in both accented CSV views (and
+the corresponding accented TEI `<ab>` elements), by inserting the missing space
+and nothing else:
+
+`MAT 9:6; MAR 2:10; LUK 5:24, 23:50; JOH 1:14, 1:42, 4:1, 7:50, 21:7; ACT 1:17,
+1:19, 4:36, 10:36, 13:8; ROM 1:13; 2CO 2:5, 5:7, 6:1, 6:2, 9:4; GAL 2:7;
+COL 2:21, 4:10; HEB 7:20, 10:8, 11:38; REV 16:14, 21:25`.
+
+`2CO 9:4` has two dashes, so the 29 verses contain 30 dashes. The verifier's
+count of "18 dashes" scanned `ς- ` followed by a space and therefore missed the
+12 end-of-verse dashes (`1CO 16:15; 2CO 5:7, 6:1, 6:2; ACT 1:17, 1:19, 10:36;
+COL 2:21; GAL 2:7; JOH 4:1; LUK 23:50; REV 16:14`), which the same source and
+converter issue also affected. The `v2.0.3` accented CSV already keeps all of
+them spaced (e.g. `ἑαυτούς -`), confirming the correct rendering.
+`rp2005-2019`, `rp2018-2023`, `csv-unicode/`, and `tei-xml-unicode/` are
+unchanged. New tests pin the 17 named verses plus the end-of-verse cases, a
+corpus-wide "no attached main-text dash" invariant over both accented views, and
+the TEI token split (`<w>πατρός</w>`, `<pc>-</pc>`, `<w>πλήρης</w>`).
 
 ### Determinism, history, and artifacts
 
@@ -284,6 +314,72 @@ both facts (`tests/curate/test_fidelity.py`), and no dash spacing was changed.
 - `SPECS/ROADMAP.md` marks Cycle 3 complete, and its acceptance wording now says
   that `data/raw/` is additive (Cycle 2 deliverables) while the existing
   corpus datasets stay unchanged.
+
+## Final verifier pass - 2026-11-17
+
+Worktree `/tmp/opencode/pr46`, HEAD `9b75447`, clean before and after; pinned
+Python 3.10 (pandas 1.4.2, beta-code 1.0.0).
+
+Commands, from the repository root:
+
+```bash
+python scripts/recover_editions.py
+python scripts/build_editions.py
+python scripts/diff_editions.py
+PYTHONPATH=src python -m byz.contract
+PYTHONPATH=src python -m unittest discover -s tests/curate
+PYTHONPATH=src python -m unittest discover -s tests/contract
+PYTHONPATH=src python -m unittest discover -s tests/reconciliation
+```
+
+### Regeneration and determinism
+
+- Two complete recover -> build -> diff -> contract runs were compared by
+  SHA-256 over every file under `editions/`, `reports/`, and `docs/`: 887 files
+  were byte-identical, and `git status` stayed clean after both runs.
+- `tests/curate`: 58 pass; `tests/contract`: 44 pass; `tests/reconciliation`:
+  41 run, 6 skipped, 35 pass. The six skips are all in
+  `tests/reconciliation/test_integration.py` and need the git-ignored
+  `data/raw/_archives/**/*.zip` plus `scripts/fetch_official.py --verify`.
+- The legacy `scripts/csv_converter.py` and `scripts/tei_xml_converter.py`
+  were re-run in a throwaway copy of the worktree; `csv-unicode/` (113 files)
+  and `tei-xml-unicode/` (32 files) were byte-identical to the committed tree.
+
+### Output inspection
+
+- `rp2005` and `rp2018` accented CSV: MAR 14:65 `ἔβαλλον`, LUK 9:22
+  `ἀναστῆναι`; `rp2018` HEB 2:6 `μιμνῄσκῃ`; `rp2018`
+  with-variants REV 3:7 `—ΔΑΔ`. No orphan combining mark after whitespace in
+  any main text CSV or TEI; no apparatus markup in main-text views; no
+  all-uppercase main-text runs.
+- **Resolved (official-edition fidelity):** the historical converter's
+  unconditional `ς -` -> `ς-` rewrite affected 29 verses per official edition in
+  `csv/accented/{no-variants,with-variants}` and the corresponding accented TEI
+  `<ab>` elements (30 dashes; the verifier's "18" counted only `ς- ` followed by
+  a space). The production path now restores the source's spaced dash, and the
+  corpus-wide invariant finds zero attached main-text dashes in either accented
+  view. `rp2005-2019`, `rp2018-2023`, `csv-unicode/`, and `tei-xml-unicode/` are
+  unchanged. See the dash analysis above.
+- `editions/rp2005-2019`: 30 `.CCT`, 27 `.UB5`, 29+29 accented CSV, 27
+  unaccented CSV, and all 27 unaccented TEI books plus `BYZ/byz.xml` are
+  byte-identical to `v2.0.3`. The accented TEI and the Strong's views are
+  generated here (`v2.0.3` has no accented TEI). The generated Strong's views
+  have 7957 rows, no `0` placeholder, and include the four blank verses.
+- `rp2005/source/ccat` and `rp2018/source/ccat` are byte-identical to their
+  `data/raw/` archives; `rp2018-2023/source/` is byte-identical to the current
+  `source/CCAT` and `source/Strongs`. PDF SHA-256 values match
+  `data/provenance/pdfs.toml`.
+- All 224 TEI files under `editions/` (and the 29 legacy TEI files) are
+  well-formed. Manifest hashes and sizes match every listed file for all four
+  editions; no absolute paths, hostnames, or timestamps were found in the
+  manifests, reports, or generated docs.
+- `docs/HISTORY.md` contains exactly one `<!-- cycle2:begin -->` block and one
+  "External archive evidence (Cycle 2)" heading, plus the `v2016-07-28`
+  paragraph; a second contract run produces no diff. `reports/baseline/*` is
+  current (222 inventory rows; hashes and sizes match the tree).
+- `source/`, `csv-unicode/`, `tei-xml-unicode/`, and `essay/` have no content
+  changes versus `master` (only their README pointers changed); `data/raw/` is
+  additive and unchanged.
 
 ### Remaining
 

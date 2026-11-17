@@ -428,7 +428,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κλῆρον</w>
 						<w>τῆς</w>
 						<w>διακονίας</w>
-						<w>ταύτης-</w>
+						<w>ταύτης</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K1V18">
 						<w>Οὗτος</w>
@@ -473,7 +474,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦτ’</w>
 						<w>ἔστιν,</w>
 						<w>χωρίον</w>
-						<w>αἵματος-</w>
+						<w>αἵματος</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K1V20">
 						<w>Γέγραπται</w>
@@ -2861,7 +2863,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐστιν,</w>
 						<w>μεθερμηνευόμενον,</w>
 						<w>υἱὸς</w>
-						<w>παρακλήσεως-</w>
+						<w>παρακλήσεως</w>
+						<pc>-</pc>
 						<w>Λευΐτης,</w>
 						<w>Κύπριος</w>
 						<w>τῷ</w>
@@ -7700,7 +7703,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὗτός</w>
 						<w>ἐστιν</w>
 						<w>πάντων</w>
-						<w>κύριος-</w>
+						<w>κύριος</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K10V37">
 						<w>ὑμεῖς</w>
@@ -9268,7 +9272,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῖς</w>
 						<w>Ἐλύμας,</w>
 						<w>ὁ</w>
-						<w>μάγος-</w>
+						<w>μάγος</w>
+						<pc>-</pc>
 						<w>οὕτως</w>
 						<w>γὰρ</w>
 						<w>μεθερμηνεύεται</w>

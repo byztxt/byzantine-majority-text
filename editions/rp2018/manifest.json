@@ -2,8 +2,8 @@
   "artifact_files": [
     {
       "path": "csv/accented/no-variants/1CO.csv",
-      "sha256": "6e82512133e068156e5caf4247502632cadd51bd5e898f7da7ebd01eda9a99ca",
-      "size": 84528
+      "sha256": "f5917a2060a44338fb5309472f8a8fb45824d038dd8be966fbfebba6b2eeb4ff",
+      "size": 84529
     },
     {
       "path": "csv/accented/no-variants/1JO.csv",
@@ -27,8 +27,8 @@
     },
     {
       "path": "csv/accented/no-variants/2CO.csv",
-      "sha256": "7f324d774845e8903e1f1cc1e897afff125b4c35813fa7e77cba6aae44cbdeb8",
-      "size": 56628
+      "sha256": "c1cbf959c72a6de34d440298f86d6bbd6e483193eeae1cd5c636441130fb3086",
+      "size": 56634
     },
     {
       "path": "csv/accented/no-variants/2JO.csv",
@@ -57,8 +57,8 @@
     },
     {
       "path": "csv/accented/no-variants/ACT.csv",
-      "sha256": "91b245eb1c3b69bdc6fc9490455fa8f29282650908107aa365a8a12ccea75d4e",
-      "size": 240571
+      "sha256": "d4e0a8c924f9461b4827335ae2f11ac6f86b29872333d350fbab56a380750403",
+      "size": 240576
     },
     {
       "path": "csv/accented/no-variants/ACT24.csv",
@@ -67,8 +67,8 @@
     },
     {
       "path": "csv/accented/no-variants/COL.csv",
-      "sha256": "2acdd0bcb35bb778cd5bce2d0fefd497d553ad107525128e050ab9c55a2a9e1b",
-      "size": 20174
+      "sha256": "344b858f091417feff6744ee5794b323c525b38eb1014c6735e9a4545ac4650e",
+      "size": 20176
     },
     {
       "path": "csv/accented/no-variants/EPH.csv",
@@ -77,13 +77,13 @@
     },
     {
       "path": "csv/accented/no-variants/GAL.csv",
-      "sha256": "74f9c3e2a8a0f095a3651949443cf6443ca0540cb165ce046a3fd6d1d9e2e620",
-      "size": 28294
+      "sha256": "83639bbf0b6cb5aae7c4ee3c8d7b2ed317125ac6c423a041391ff11f7e8eb7a4",
+      "size": 28295
     },
     {
       "path": "csv/accented/no-variants/HEB.csv",
-      "sha256": "b81e670d2b4ac32d5d0aee8084ff93b95fcf3b9288f05e0b8e6cedfc726f59ab",
-      "size": 65786
+      "sha256": "43335f6a9c6f63838c7b6f0c3cef105d504a0b3b3f18734df5df34b24340b203",
+      "size": 65789
     },
     {
       "path": "csv/accented/no-variants/JAM.csv",
@@ -92,8 +92,8 @@
     },
     {
       "path": "csv/accented/no-variants/JOH.csv",
-      "sha256": "b6115bec16622f67063251ea95003871c111fe71d00026c39f140bc5373771bf",
-      "size": 186356
+      "sha256": "300d15e866ee17f76b3233f07f424cb2d5901793e4294e778cc622a2db72d817",
+      "size": 186361
     },
     {
       "path": "csv/accented/no-variants/JUD.csv",
@@ -102,18 +102,18 @@
     },
     {
       "path": "csv/accented/no-variants/LUK.csv",
-      "sha256": "c5cb77f332e2f6b991da2190ca1a6b633d533464ec118e1f94777003699817c8",
-      "size": 247862
+      "sha256": "43fa1aafe90f948f1c130fb631d42c590833e50e0b9d833490722e8d6d2cf05d",
+      "size": 247864
     },
     {
       "path": "csv/accented/no-variants/MAR.csv",
-      "sha256": "61951cb9a2fdd57c148cc7a8b21ba7aa302bc34c6f433ab20b4367918591a2d7",
-      "size": 146631
+      "sha256": "dd57f9fd7e9495557a56125401235f302be9591fd15f921d1201dc41a1ad54bb",
+      "size": 146632
     },
     {
       "path": "csv/accented/no-variants/MAT.csv",
-      "sha256": "17c6100128cd2706a2d08ecb889ab8e1865f27616b27c13325e16ccc5fa8f286",
-      "size": 232898
+      "sha256": "9735b2e66847abe9a84b76c5b2fa29a5e0d68936b0c3cc61cc51412247a80007",
+      "size": 232899
     },
     {
       "path": "csv/accented/no-variants/PA.csv",
@@ -132,13 +132,13 @@
     },
     {
       "path": "csv/accented/no-variants/REV.csv",
-      "sha256": "fa5e898e3daa61bddac063466944ce2ff428d37b3974d3138a84bfdc12af6389",
-      "size": 116501
+      "sha256": "6b2f539e26ece650b3cc03959d9d497181f6cb494898da39df2744baddd718c3",
+      "size": 116503
     },
     {
       "path": "csv/accented/no-variants/ROM.csv",
-      "sha256": "1bfaa4c9d34d111f31590de17487367dcaf120132f224d6e94dad8e619346dd1",
-      "size": 88455
+      "sha256": "c0ee030eef4b2a87d7b80eeddde87b6f8b6a56b55889f1814db82a15237479de",
+      "size": 88456
     },
     {
       "path": "csv/accented/no-variants/TIT.csv",
@@ -147,8 +147,8 @@
     },
     {
       "path": "csv/accented/with-variants/1CO.csv",
-      "sha256": "803475497b079d2ee6770f85e23c6062241a26ca20bf0285dd82324d0410012d",
-      "size": 100715
+      "sha256": "4918f5a55de9eca60016e114212ed2a203dd960d50a458142cc25f8e4065bb12",
+      "size": 100716
     },
     {
       "path": "csv/accented/with-variants/1JO.csv",
@@ -172,8 +172,8 @@
     },
     {
       "path": "csv/accented/with-variants/2CO.csv",
-      "sha256": "939309a473f9fc5349607891b0ee3fd0e1d52e7da97a8a340b2642d0265fb880",
-      "size": 64970
+      "sha256": "af342e1cdaa8e61a326d26350401910e93d8b31e211058be06f82df5cd6b5cc5",
+      "size": 64976
     },
     {
       "path": "csv/accented/with-variants/2JO.csv",
@@ -202,8 +202,8 @@
     },
     {
       "path": "csv/accented/with-variants/ACT.csv",
-      "sha256": "2db347d56e147f59bb79936702f5bb74ca8695bffbaab2b883b679b064682bbd",
-      "size": 295658
+      "sha256": "0c1cced9ae775089bb3ace7e0ccf5031903e25f3168d0866cf18ab33ab5787e2",
+      "size": 295663
     },
     {
       "path": "csv/accented/with-variants/ACT24.csv",
@@ -212,8 +212,8 @@
     },
     {
       "path": "csv/accented/with-variants/COL.csv",
-      "sha256": "0db7c9d1159f3a4ef3c37d9fe31e5bb08d07c67bbd7f3be8674d2a59482fc30e",
-      "size": 23617
+      "sha256": "dc8d0e877997f3fd7123cdc02e508d0662cf139c0d115da579ac15e033b910cd",
+      "size": 23619
     },
     {
       "path": "csv/accented/with-variants/EPH.csv",
@@ -222,13 +222,13 @@
     },
     {
       "path": "csv/accented/with-variants/GAL.csv",
-      "sha256": "d661a3bf6d420cb9b9cd745146694999a64f8f2bddc22e1db627826332500b2a",
-      "size": 32361
+      "sha256": "4c2b870307951d0b01d8f7960c198b07971a3df4f74f2df1a850f8e0b71b7206",
+      "size": 32362
     },
     {
       "path": "csv/accented/with-variants/HEB.csv",
-      "sha256": "fddfdc282736643200ff2545a9d942df3a199a02da996d09899a80b0c16b1615",
-      "size": 72771
+      "sha256": "e9dcc6976229e6b09afb0fd89d3f930a9fc313ba5f6e3486dbae7d02f66d65c6",
+      "size": 72774
     },
     {
       "path": "csv/accented/with-variants/JAM.csv",
@@ -237,8 +237,8 @@
     },
     {
       "path": "csv/accented/with-variants/JOH.csv",
-      "sha256": "97a0271d4abb6740da47cf1de864a1c18b627bbbb52081bf5a2ce37ab6fe2c64",
-      "size": 225041
+      "sha256": "c9fc71355cee379c81fd844b11e0dabed45a7b729c58f700f35edc6ff361a6d1",
+      "size": 225046
     },
     {
       "path": "csv/accented/with-variants/JUD.csv",
@@ -247,18 +247,18 @@
     },
     {
       "path": "csv/accented/with-variants/LUK.csv",
-      "sha256": "0247070bfeb2a58f231ec2a60085c3d5a7bfc091230a5e77c4147d24747c1172",
-      "size": 309421
+      "sha256": "cafd1d9fe347e9396766bdbf166f31f92ae081541f91c23614c3c3d3d3849a8e",
+      "size": 309423
     },
     {
       "path": "csv/accented/with-variants/MAR.csv",
-      "sha256": "47889612323accad5ea022b3e95a85a6b2e286b087a7163eae7369c484ccf308",
-      "size": 196857
+      "sha256": "bd62c5998906387435c23dccecb6a285c8439ba706cd5f4671b22dc4dbcb5c19",
+      "size": 196858
     },
     {
       "path": "csv/accented/with-variants/MAT.csv",
-      "sha256": "0a94c10d41e13a809596422cf8a001fea627ed7a4841c1b5c1498b1ab03f5a9b",
-      "size": 273252
+      "sha256": "8b58a66d83e0d7b60188847b70b1906a8ac78bec9cb4b0224c93724e2e546df7",
+      "size": 273253
     },
     {
       "path": "csv/accented/with-variants/PA.csv",
@@ -277,13 +277,13 @@
     },
     {
       "path": "csv/accented/with-variants/REV.csv",
-      "sha256": "9f456f94b372bb9f53a4d366bff32f3ac19b682d75b1ee5fc01076233b9a5480",
-      "size": 154628
+      "sha256": "4f681eaf18f2d137b9ae923e3e7addc3afc98bc46e4dabd90572bc0760360dbe",
+      "size": 154630
     },
     {
       "path": "csv/accented/with-variants/ROM.csv",
-      "sha256": "9638e91dcf4d86a68e3f3a40280d811fa5e12208652c6911d1ffd8fbb2fbafe1",
-      "size": 99130
+      "sha256": "183e47754459cdb4dc04ec2dc0c0f52958c914d62633e89ca224d0b0ec583a6d",
+      "size": 99131
     },
     {
       "path": "csv/accented/with-variants/TIT.csv",
@@ -427,8 +427,8 @@
     },
     {
       "path": "tei/accented/1CO.xml",
-      "sha256": "ac7b8f7588f6e7bad8d082d79521ac0b55c8d5f682e61c2ca3fc56e8eb2fd310",
-      "size": 191147
+      "sha256": "5b766c99faa3d7fc93ad197f0f284f4fe5fe20726932668b5779b56cfa1b8ad9",
+      "size": 191163
     },
     {
       "path": "tei/accented/1JO.xml",
@@ -452,8 +452,8 @@
     },
     {
       "path": "tei/accented/2CO.xml",
-      "sha256": "48a05cce75ce83196c06a1f5a46463e41038688a518642ef9ee36c4741795f85",
-      "size": 126433
+      "sha256": "6eea1e61eb3b4777c86e1e7ef7ce03224f2305a700b3803f8a27cebc0f822843",
+      "size": 126529
     },
     {
       "path": "tei/accented/2JO.xml",
@@ -482,18 +482,18 @@
     },
     {
       "path": "tei/accented/ACT.xml",
-      "sha256": "83d697309d3933372506f74dd5c2ab5595b8b62f452da717e9b50b30338922a4",
-      "size": 519538
+      "sha256": "ae27ec5e79fa4e993e59a2a0c7da6b2bb2f534ba4c52dd9e65f6ca285dd586f1",
+      "size": 519618
     },
     {
       "path": "tei/accented/BYZ/byz.xml",
-      "sha256": "b8f10564dd27828ae674cfb8fe465eb327996035381577d86d01dbe0e15567f0",
-      "size": 3840665
+      "sha256": "a6f18846d86dec80184f0f6a3da464ecbacff1eda6a6451ee823b73ec7e5f7b5",
+      "size": 3841145
     },
     {
       "path": "tei/accented/COL.xml",
-      "sha256": "df52fbde2e747e4da526f3005a4038f1043b83253bab89531d10431fb06c9cb2",
-      "size": 46817
+      "sha256": "54ea3404017ac39bb3872fcdd798f8ef6d988c4b203f99480c05a2d2a9835ed7",
+      "size": 46849
     },
     {
       "path": "tei/accented/EPH.xml",
@@ -502,13 +502,13 @@
     },
     {
       "path": "tei/accented/GAL.xml",
-      "sha256": "496fe0807070b5d0b579007f450f9877a9da45fb5c2536b127143a141cab6930",
-      "size": 64971
+      "sha256": "baf3e0790c7eda56302696902c34d2282ade4eeefd07f5a4aec28b7d9ce15dcc",
+      "size": 64987
     },
     {
       "path": "tei/accented/HEB.xml",
-      "sha256": "b49762eefae5b62c2699204533975fdb240b3cb4a7ea8335739a2dbcab434b60",
-      "size": 142916
+      "sha256": "c2ccf07508157e2255314ff06cff9fbb428245b7ff11e95e857949233cb91616",
+      "size": 142964
     },
     {
       "path": "tei/accented/JAM.xml",
@@ -517,8 +517,8 @@
     },
     {
       "path": "tei/accented/JOH.xml",
-      "sha256": "a052544d25541a430adb4abc08149633fae30b6aaa4bf51e4e99a448e6ae4f1e",
-      "size": 423926
+      "sha256": "dffeb934d9d9ed48bb437588563fa44a75b3b53dc48243d3bf6c21368cbee57e",
+      "size": 424006
     },
     {
       "path": "tei/accented/JUD.xml",
@@ -527,18 +527,18 @@
     },
     {
       "path": "tei/accented/LUK.xml",
-      "sha256": "7f07e6ea16e114dd1860d92c6df169a1714dd1cf4dbf261a8cae8a1ab0b8ccf0",
-      "size": 548151
+      "sha256": "56a6c6b37aa025857785dc01e9c39dc8fe0d2d7f339361547ddc5217ed537abd",
+      "size": 548183
     },
     {
       "path": "tei/accented/MAR.xml",
-      "sha256": "869a887ebc325904114208ff84113af3b227f6cfa63095fb744008c7cd12c22e",
-      "size": 323182
+      "sha256": "303b97eda97a72783dd9dab554bab8eb93c9f42a7b1a1da43b3314462b9ae356",
+      "size": 323198
     },
     {
       "path": "tei/accented/MAT.xml",
-      "sha256": "f607559cd176e82110fb2475f8e472261364dbf7d6a1aa40fc92f9aabd752522",
-      "size": 515398
+      "sha256": "e356d998527f19a2ab8b9de5f607c5f7220594ba755eda522cc9c6f0756930ed",
+      "size": 515414
     },
     {
       "path": "tei/accented/PHM.xml",
@@ -552,13 +552,13 @@
     },
     {
       "path": "tei/accented/REV.xml",
-      "sha256": "ac605de810fe57344d2d69c2c7af2c6ac537cd9d10c24f2a926f4dd9cb42ff7c",
-      "size": 263166
+      "sha256": "0d83335d025bd1004ec877a7d82e30f88038ffc895f4bb26b58e79761caa5778",
+      "size": 263198
     },
     {
       "path": "tei/accented/ROM.xml",
-      "sha256": "c5323b05b66ea3d8d9d7d348de6a938b6b83dab7c0c7839fc658390a73fbabcb",
-      "size": 198896
+      "sha256": "8113dcb7b67e7cea2fac64ef0d0f720e8ed1543b474cbb5ad54412ccf0ae2552",
+      "size": 198912
     },
     {
       "path": "tei/accented/TIT.xml",
