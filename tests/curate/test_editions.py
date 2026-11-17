@@ -32,6 +32,38 @@ class EditionTests(unittest.TestCase):
         self.assertEqual(editions.metadata("rp2005-2019")["status"], "released")
         self.assertEqual(editions.metadata("rp2018-2023")["status"], "released")
 
+    def test_official_edition_has_no_release_range(self):
+        self.assertEqual(editions.release_range(editions.EDITIONS["rp2005"]), ("", ""))
+        self.assertEqual(editions.release_range(editions.EDITIONS["rp2018"]), ("", ""))
+
+    def test_released_edition_without_tags_raises(self):
+        original = editions.tags
+        editions.tags = lambda: []
+        try:
+            with self.assertRaises(RuntimeError) as caught:
+                editions.release_range(editions.EDITIONS["rp2018-2023"])
+        finally:
+            editions.tags = original
+        self.assertIn("rp2018-2023", str(caught.exception))
+
+    def test_tag_command_failure_names_the_command(self):
+        original = editions.subprocess.run
+
+        class Result:
+            returncode = 128
+            stdout = ""
+            stderr = "fatal: not a git repository"
+
+        editions.subprocess.run = lambda *args, **kwargs: Result()
+        try:
+            with self.assertRaises(RuntimeError) as caught:
+                editions.tags()
+        finally:
+            editions.subprocess.run = original
+        message = str(caught.exception)
+        self.assertIn("git -C", message)
+        self.assertIn("tag --list", message)
+
     def test_pdf_hashes(self):
         text = (editions.PROVENANCE_DIR / "pdfs.toml").read_text()
         records = {}

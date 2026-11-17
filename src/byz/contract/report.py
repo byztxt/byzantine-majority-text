@@ -6,6 +6,12 @@ from collections import Counter
 
 from . import contracts, coverage, derivation, history, invariants, paths
 
+# The reconciliation cycle appends its evidence to `docs/HISTORY.md` between
+# these markers. The baseline contract owns the rest of the document, so it must
+# carry this block forward instead of overwriting it.
+CYCLE2_BEGIN = "<!-- cycle2:begin -->"
+CYCLE2_END = "<!-- cycle2:end -->"
+
 
 def write_csv(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -16,6 +22,18 @@ def write_csv(path, rows):
         writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
+
+
+def _preserved_history_block(path):
+    """Return the existing Cycle 2 evidence block, if any."""
+    if not path.exists():
+        return ""
+    text = path.read_text(encoding="utf-8")
+    begin = text.find(CYCLE2_BEGIN)
+    end = text.find(CYCLE2_END)
+    if begin == -1 or end == -1 or end < begin:
+        return ""
+    return text[begin : end + len(CYCLE2_END)]
 
 
 def write_json(path, payload):
@@ -177,6 +195,9 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
         "",
         f"- Datasets: {len(results)}",
         f"- Files: {sum(len(v) for v in results.values())} validated; see `files.csv`",
+        "- `files.csv` records, for each file, the last commit that touched it. "
+        "Because the working tree has not been committed yet, that column lags "
+        "by one commit until the next commit lands.",
         f"- Invariant findings: {len(inv_rows)} ({unknown} unresolved, {known} known exception)",
         f"- Missing derived files: {len(missing)}",
         f"- Cross-dataset coverage mismatches: {len(diff_issues)}",
@@ -260,6 +281,16 @@ def _rel(root, value):
     return value[len(prefix) :] if value.startswith(prefix) else value
 
 
+def _render_history(root, docs) -> str:
+    """Render `docs/HISTORY.md`, keeping any Cycle 2 evidence block in place."""
+    path = docs / "HISTORY.md"
+    preserved = _preserved_history_block(path)
+    text = history.render(root)
+    if preserved:
+        text = text.rstrip() + "\n\n" + preserved + "\n"
+    return text
+
+
 def write_all(results, root=paths.ROOT):
     inv_rows = [
         violation.as_row()
@@ -297,7 +328,7 @@ def write_all(results, root=paths.ROOT):
         safe = name.replace("/", "__")
         write_json(contract_dir / f"{safe}.json", contract)
 
-    (docs / "HISTORY.md").write_text(history.render(root), encoding="utf-8")
+    (docs / "HISTORY.md").write_text(_render_history(root, docs), encoding="utf-8")
     (docs / "DATA_CONTRACT.md").write_text(
         _contract_doc(derivation_rows, dataset_rows, inv_rows), encoding="utf-8"
     )

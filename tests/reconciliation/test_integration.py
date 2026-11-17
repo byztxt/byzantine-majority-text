@@ -1,8 +1,23 @@
 import unittest
 
-from byz.reconcile import compare, historical
+from byz.reconcile import compare, historical, sources
 
 
+def _archive_path(spec):
+    return sources.ARCHIVE_DIR / spec["edition"] / spec["name"]
+
+
+ARCHIVES_PRESENT = all(_archive_path(spec).is_file() for spec in sources.ARCHIVES)
+
+MISSING_MESSAGE = (
+    "official archives not fetched: run "
+    "`python3 scripts/fetch_official.py --verify` (and install the pinned "
+    "Python 3.10 environment). The zips are git-ignored, so a fresh clone has "
+    "to fetch them before these archive-dependent checks can run."
+)
+
+
+@unittest.skipUnless(ARCHIVES_PRESENT, MISSING_MESSAGE)
 class IntegrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

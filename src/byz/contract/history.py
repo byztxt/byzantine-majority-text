@@ -111,6 +111,15 @@ def render(root=paths.ROOT) -> str:
     lines.extend(
         [
             "",
+            # Static text: this is a documented git fact (tag date and commit),
+            # not data read from the archives, so it is safe to emit verbatim
+            # even when the baseline contract is regenerated offline.
+            "`v2016-07-28` is an earlier 2005-lineage snapshot (2017-05-23). It is not",
+            "curated as a separate edition: `v2.0.3` is the last pre-2023 release and",
+            "supersedes it. The curated `rp2005-2019` source is the `textonly-beta-code`",
+            "and `parsed` tree at `v2.0.3` (commit",
+            "`8ec95671e463030347c2c643358eb56e58235b19`).",
+            "",
             "## Edition mapping (internal evidence)",
             "",
             "| Claim | Evidence |",
@@ -162,14 +171,4 @@ def render(root=paths.ROOT) -> str:
             "",
         ]
     )
-    if (root / "docs" / "PROVENANCE.md").exists():
-        lines.extend(
-            [
-                "## External archive evidence",
-                "",
-                "See `docs/PROVENANCE.md` for the Cycle 2 archive checksums and "
-                "match verdicts.",
-                "",
-            ]
-        )
     return "\n".join(lines)

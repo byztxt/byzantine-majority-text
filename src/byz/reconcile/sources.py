@@ -10,42 +10,52 @@ PROVENANCE_DIR = ROOT / "data" / "provenance"
 REPORTS_DIR = ROOT / "reports" / "reconciliation"
 DOCS_DIR = ROOT / "docs"
 
+# The pinned SHA-256 of each official archive. These values also appear in
+# `data/provenance/*.toml`; `fetch.run()` refuses to record or extract an
+# archive whose digest does not match. Keeping them in code makes the offline
+# reconciliation tests independent of the (git-ignored) zip files.
 ARCHIVES = [
     {
         "edition": "rp2005",
         "name": "editions-rp2-preformatted.zip",
         "url": "https://www.dropbox.com/s/ago0uhvmjndbsy5/editions-rp2-preformatted.zip?dl=0",
         "format": "preformatted",
+        "sha256": "e8719d9eafa4239fb5131e80cc1b5584915ad2efd37aac2783fcc484e438f3a3",
     },
     {
         "edition": "rp2005",
         "name": "editions-rp2-ascii.zip",
         "url": "https://www.dropbox.com/s/oil2m3la4vsnbpb/editions-rp2-ascii.zip?dl=0",
         "format": "ascii-one-line",
+        "sha256": "c85ccdcbccee55fbb0ca7744352330806f505514b28a6ae02302843f65a86a2a",
     },
     {
         "edition": "rp2005",
         "name": "editions-rp2-ccat.zip",
         "url": "https://www.dropbox.com/s/f3di0cgdflqjwq4/editions-rp2-ccat.zip?dl=0",
         "format": "ccat",
+        "sha256": "d172e27a6adf77459cb08c2dc67a57b69239bb27605791c3d1cfaadcda97e2e2",
     },
     {
         "edition": "rp2018",
         "name": "rp2018-ascii.zip",
         "url": "https://www.dropbox.com/s/ug3i36zsvtg39x0/rp2018-ascii.zip?dl=0",
         "format": "preformatted",
+        "sha256": "cd8634562b6c8ae77fb04c2045e306fb7bd3a1870944bb569926d6d94dc3991c",
     },
     {
         "edition": "rp2018",
         "name": "rp2018-ascii-one-line-per-verse.zip",
         "url": "https://www.dropbox.com/s/cr592513g0v2imc/rp2018-ascii-one-line-per-verse.zip?dl=0",
         "format": "ascii-one-line",
+        "sha256": "5ea075d9d52d85511ce627be258fcc78e901d08e8a912dda96dffe977add7fb6",
     },
     {
         "edition": "rp2018",
         "name": "rp2018-ccat.ZIP",
         "url": "https://www.dropbox.com/s/u47y6wedewv4mv9/rp2018-ccat.ZIP?dl=0",
         "format": "ccat",
+        "sha256": "55eae8ffc5679fc740318e7b520b283393ca09c66b7a6c1934336d54eca3a394",
     },
 ]
 

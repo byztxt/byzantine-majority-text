@@ -72,7 +72,7 @@ def _git_commit(tag: str) -> str:
     return result.stdout.strip()
 
 
-def _last_commit(path: str) -> str:
+def _last_commit(*paths: str) -> str:
     result = subprocess.run(
         [
             "git",
@@ -82,14 +82,14 @@ def _last_commit(path: str) -> str:
             "-1",
             "--format=%H",
             "--",
-            path,
+            *paths,
         ],
         capture_output=True,
         text=True,
         check=False,
     )
     if result.returncode != 0:
-        raise ValueError(f"cannot resolve last commit for {path!r}")
+        raise ValueError(f"cannot resolve last commit for {paths!r}")
     return result.stdout.strip()
 
 
@@ -145,7 +145,7 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
     for line in path.read_text().splitlines():
         if not line.strip() or line.lstrip().startswith("#"):
             continue
-        normalized = normalize.official_ccat_line(line, reorder_iota=False)
+        normalized = normalize.production_ccat_line(line)
         match = CCT_RE.match(normalized)
         if not match:
             raise ValueError(
@@ -295,17 +295,43 @@ def parse_parsed_ub5(path: Path, reference=None) -> tuple:
 def write_csv(path: Path, verses: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        # Generated CSV uses Unix line endings everywhere. Copied historical and
+        # current views keep whatever the source artifact used.
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["chapter", "verse", "text"])
         for chapter, verse in sorted(verses):
             writer.writerow([chapter, verse, verses[(chapter, verse)]])
+
+
+def _tei_tokens(text: str):
+    """Split a verse into TEI tokens, yielding None for a paragraph marker."""
+    for token in text.split(" "):
+        while token.startswith("¶"):
+            yield None
+            token = token[1:]
+        if token:
+            yield token
+
+
+def _tei_token(token: str) -> str:
+    if not any(char.isalnum() for char in token):
+        # Standalone punctuation: the official text uses a bare `-` as a
+        # punctuation/deletion mark, not as a word. Emit it as TEI punctuation.
+        return f"<pc>{token}</pc>"
+    return f"<w>{token}</w>"
 
 
 def _tei_verse(book_id: str, chapter: int, verse: int, text: str) -> str:
     anchor = f"{book_id}K{chapter}V{verse}"
     if not text:
         return f'\t\t\t\t\t<ab n="{anchor}"/>'
-    words = "\n".join(f"\t\t\t\t\t\t<w>{word}</w>" for word in text.split(" "))
+    items = []
+    for token in _tei_tokens(text):
+        if token is None:
+            items.append('<milestone unit="paragraph" type="start"/>')
+        else:
+            items.append(_tei_token(token))
+    words = "\n".join(f"\t\t\t\t\t\t{item}" for item in items)
     return f'\t\t\t\t\t<ab n="{anchor}">\n{words}\n\t\t\t\t\t</ab>'
 
 
@@ -545,7 +571,10 @@ def _readme(edition: dict) -> str:
     )
     for path in _artifact_dirs(root):
         lines.append(f"- `{path}`")
-    lines.extend(["", "## Notes", "", edition.get("note", ""), ""])
+    note = edition.get("note", "")
+    if note:
+        lines.extend(["", "## Notes", "", note])
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -570,7 +599,11 @@ def write_manifest(edition: dict) -> dict:
         manifest["tag"] = edition["tag"]
         manifest["commit"] = _git_commit(edition["tag"])
     if edition["source_kind"] == "current":
-        manifest["source_commit"] = _last_commit("source")
+        # The Greek text and the Strong's/parsing data have separate lineages.
+        # Restrict each lookup to its data directory so that documentation
+        # pointers such as `source/README.md` never masquerade as a text change.
+        manifest["source_commit"] = _last_commit("source/CCAT")
+        manifest["strongs_commit"] = _last_commit("source/Strongs")
     if edition["pdf"]:
         pdf_path = editions.ROOT / edition["pdf"]
         manifest["pdf_sha256"] = _sha256(pdf_path)

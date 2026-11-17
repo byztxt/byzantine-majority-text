@@ -25,6 +25,21 @@ python3 scripts/diff_editions.py
 
 See `docs/EDITIONS.md` for the edition model and release numbers.
 
+### Report generation order
+
+`docs/HISTORY.md` is written by two steps. Regenerate them in this order:
+
+```bash
+PYTHONPATH=src python3 -m byz.contract
+PYTHONPATH=src python3 -m byz.reconcile   # needs data/raw/_archives/
+```
+
+`byz.contract` owns the baseline document but preserves the
+`<!-- cycle2:begin -->` ... `<!-- cycle2:end -->` evidence block if it exists,
+and `byz.reconcile` rebuilds that block from the archives. Running the contract
+first and the reconciliation second leaves exactly one block and one heading,
+and a second run of either step produces no diff.
+
 ## Csv converter
 
 You call it using `python3 csv_converter.py` (or `python csv_converter.py`

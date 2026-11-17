@@ -4,12 +4,22 @@ import argparse
 import hashlib
 import json
 import shutil
+import urllib.parse
 import urllib.request
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
 from . import sources
+
+# Refuse to download anything larger than this. The official archives are all
+# under 0.5 MB, so 50 MB leaves plenty of headroom.
+MAX_DOWNLOAD_BYTES = 50 * 1024 * 1024
+
+# The official archives are hosted on Dropbox. Downloads are https-only and the
+# host (including redirect targets such as `*.dl.dropboxusercontent.com`) must be
+# on this allow-list.
+ALLOWED_HOSTS = ("dropbox.com", "dropboxusercontent.com")
 
 
 def sha256_file(path) -> str:
@@ -24,23 +34,81 @@ def _download_url(url: str) -> str:
     return url.replace("?dl=0", "?dl=1")
 
 
+def _check_url(url: str) -> str:
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme != "https":
+        raise ValueError(f"refusing non-https archive URL: {url}")
+    host = (parsed.hostname or "").lower()
+    allowed = any(
+        host == suffix or host.endswith("." + suffix)
+        for suffix in ALLOWED_HOSTS
+    )
+    if not allowed:
+        raise ValueError(
+            f"refusing archive URL from untrusted host {host!r}: {url}"
+        )
+    return url
+
+
 def download(url: str, dest: Path) -> dict:
     dest.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(
-        _download_url(url), headers={"User-Agent": "byz-reconcile/1.0"}
+        _check_url(_download_url(url)), headers={"User-Agent": "byz-reconcile/1.0"}
     )
-    with urllib.request.urlopen(request, timeout=180) as response:
-        status = getattr(response, "status", None) or 200
-        final_url = response.geturl()
-        with open(dest, "wb") as handle:
-            shutil.copyfileobj(response, handle)
+    try:
+        with urllib.request.urlopen(request, timeout=180) as response:
+            status = getattr(response, "status", None) or 200
+            final_url = response.geturl()
+            _check_url(final_url)
+            length = response.headers.get("Content-Length")
+            if length is not None and int(length) > MAX_DOWNLOAD_BYTES:
+                raise ValueError(
+                    f"archive at {final_url} is {length} bytes, above the "
+                    f"{MAX_DOWNLOAD_BYTES}-byte download cap"
+                )
+            written = 0
+            with open(dest, "wb") as handle:
+                while True:
+                    chunk = response.read(1 << 20)
+                    if not chunk:
+                        break
+                    written += len(chunk)
+                    if written > MAX_DOWNLOAD_BYTES:
+                        raise ValueError(
+                            f"archive at {final_url} exceeds the "
+                            f"{MAX_DOWNLOAD_BYTES}-byte download cap"
+                        )
+                    handle.write(chunk)
+    except BaseException:
+        # Never leave a truncated archive behind to be mistaken for a good one.
+        if dest.exists():
+            dest.unlink()
+        raise
     return {"http_status": status, "final_url": final_url}
+
+
+def _safe_member(dest: Path, name: str) -> Path:
+    """Return the extraction target for a zip member, rejecting escapes."""
+    member = Path(name)
+    if member.is_absolute() or ".." in member.parts:
+        raise ValueError(f"unsafe absolute or parent path in archive member: {name!r}")
+    target = (dest / name).resolve()
+    if not target.is_relative_to(dest.resolve()):
+        raise ValueError(f"archive member escapes the destination: {name!r}")
+    return target
 
 
 def extract(zip_path: Path, dest: Path) -> None:
     dest.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zip_path) as archive:
-        archive.extractall(dest)
+        for member in archive.infolist():
+            target = _safe_member(dest, member.filename)
+            if member.is_dir():
+                target.mkdir(parents=True, exist_ok=True)
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with archive.open(member) as source, open(target, "wb") as handle:
+                shutil.copyfileobj(source, handle)
 
 
 def _existing_records(provenance_path: Path) -> dict:
@@ -112,18 +180,20 @@ def run(verify: bool = False, force: bool = False) -> list:
         edition = spec["edition"]
         provenance_path = sources.PROVENANCE_DIR / f"{edition}.toml"
         existing_records = _existing_records(provenance_path)
-        existing = {
-            name: record.get("sha256", "")
-            for name, record in existing_records.items()
-        }
         zip_path = sources.ARCHIVE_DIR / edition / spec["name"]
-        expected = existing.get(spec["name"])
+        expected = spec["sha256"]
 
         need_download = force or not zip_path.exists()
-        if zip_path.exists() and expected and sha256_file(zip_path) != expected:
-            need_download = True
-        if verify and zip_path.exists() and expected is None:
-            need_download = True
+        if zip_path.exists() and not need_download:
+            actual = sha256_file(zip_path)
+            if actual != expected:
+                if verify:
+                    raise SystemExit(
+                        f"archive {spec['name']} does not match the pinned "
+                        f"sha256: expected {expected}, got {actual}. Delete "
+                        f"{zip_path} to re-download it."
+                    )
+                need_download = True
 
         if need_download:
             meta = download(spec["url"], zip_path)
@@ -136,10 +206,13 @@ def run(verify: bool = False, force: bool = False) -> list:
             }
             downloaded = previous.get("downloaded", "")
 
+        # The pinned digest is authoritative: verify every archive we are about
+        # to record and extract, whether it was just downloaded or reused.
         digest = sha256_file(zip_path)
-        if expected and digest != expected:
+        if digest != expected:
             raise SystemExit(
-                f"checksum changed for {spec['name']}: {expected} -> {digest}"
+                f"checksum mismatch for {spec['name']}: pinned {expected}, "
+                f"got {digest}. Delete {zip_path} to re-download it."
             )
 
         stem = Path(spec["name"]).stem
@@ -172,7 +245,7 @@ def main(argv=None) -> int:
     parser.add_argument(
         "--verify",
         action="store_true",
-        help="verify existing archives against recorded checksums",
+        help="verify existing archives against the pinned checksums",
     )
     parser.add_argument(
         "--force", action="store_true", help="re-download and re-extract"

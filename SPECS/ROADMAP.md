@@ -113,7 +113,9 @@ expire.
 ## Cycle 3 - Edition recovery, curation & successive diffs
 
 **Spec:** `SPECS/2026-11-16-edition-recovery-curation/`.
-**Status:** Spec ready; implementation not started.
+**Status:** Complete (2026-11-16). Review fixes implemented on
+`feature/2026-11-16-edition-recovery-curation` (PR #46). Verification is
+recorded in `validation.md`.
 **Note:** moved ahead of the pipeline skeleton because users need stable editions
 now. The pipeline refactor follows in Cycle 4.
 
@@ -148,8 +150,11 @@ successive-edition diffs.
   `rp2018-2023` = `v3.0.0`-`v3.3.4` (and future tags).
 - Every edition has deterministic CSV/TEI and a manifest with hashes.
 - Successive diffs are categorized and deterministic.
-- `source/`, `csv-unicode/`, `tei-xml-unicode/`, `essay/`, and `data/raw/` are
-  unchanged.
+- The authoritative files under `source/`, `csv-unicode/`,
+  `tei-xml-unicode/`, and `essay/` are unchanged. `data/raw/` is additive: this
+  cycle commits the official PDFs and the extracted archive inputs under
+  `data/raw/<edition>/` (the Cycle 2 deliverables), without modifying the
+  existing corpus datasets.
 
 **Risks:** the historical converter may not reproduce old artifacts exactly; the
 official `.CCT` parser is new; curated artifacts increase repo size.

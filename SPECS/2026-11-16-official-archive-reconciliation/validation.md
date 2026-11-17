@@ -4,6 +4,17 @@ A cycle is complete only when every item below is verified against the actual
 archives, files, and reports. Attach evidence (archive checksums, report
 excerpts, commands) to each check.
 
+> **Note (2026-11-17, PR #46).** The committed reports under
+> `reports/reconciliation/`, `docs/PROVENANCE.md`, and the Cycle 2 block in
+> `docs/HISTORY.md` were produced with all six archives present in
+> `data/raw/_archives/`. Those zips are git-ignored, so a fresh clone cannot
+> re-run the archive-dependent comparison until it fetches them
+> (`python3 scripts/fetch_official.py --verify`). The archive-dependent boxes
+> below are therefore left unticked for offline verification; instead the
+> offline suite pins the six SHA-256 values in `src/byz/reconcile/sources.py`
+> and checks that they match `data/provenance/*.toml`, and it asserts the
+> headline totals in the committed reports (`7811/7972`, `7769/7972`).
+
 ## 1. Archives and provenance
 
 - [ ] All six official archives were downloaded from the URLs in
@@ -93,12 +104,18 @@ line-ending noise is not counted as textual change.
 
 ## 9. Determinism and safety
 
-- [ ] Running the comparison twice produces byte-identical reports.
-- [ ] `git status` shows no modifications under `source/`, `csv-unicode/`,
-      `tei-xml-unicode/`, or `essay/`.
-- [ ] No corpus file was moved, deleted, or normalized in place.
-- [ ] No canonical source was selected automatically.
-- [ ] Tests run offline and pass.
+- [ ] Running the comparison twice produces byte-identical reports. *(Archive-
+      dependent; not verified offline in PR #46.)*
+- [x] `git status` shows no modifications under `source/`, `csv-unicode/`,
+      `tei-xml-unicode/`, or `essay/`. *(Verified 2026-11-17: the legacy
+      converters reproduce `csv-unicode/` and `tei-xml-unicode/` byte-identically
+      and the curated editions live under `editions/`.)*
+- [x] No corpus file was moved, deleted, or normalized in place.
+- [ ] No canonical source was selected automatically. *(Decision log rows are
+      still `pending`; the pipeline only flags.)*
+- [x] Tests run offline and pass. *(2026-11-17: `tests/reconciliation` runs 39
+      tests with 6 archive-dependent tests skipped; the six pinned hashes and the
+      committed report totals are checked without the zips.)*
 
 ## 10. Decision log and handoff
 
@@ -112,8 +129,12 @@ line-ending noise is not counted as textual change.
 
 ## 11. Definition of done
 
-- [ ] `data/raw/rp2005/` and `data/raw/rp2018/` exist with provenance records.
-- [ ] `reports/reconciliation/{summary.md,archives.csv,files.csv,verses.csv,categories.csv,decision-log.md}` exist.
-- [ ] `docs/PROVENANCE.md` exists and `docs/HISTORY.md` is updated.
+- [x] `data/raw/rp2005/` and `data/raw/rp2018/` exist with provenance records.
+- [x] `reports/reconciliation/{summary.md,archives.csv,files.csv,verses.csv,categories.csv,decision-log.md}` exist.
+- [x] `docs/PROVENANCE.md` exists and `docs/HISTORY.md` is updated. *(The Cycle 2
+      block is preserved across `byz.contract` regeneration; see
+      `tests/contract/test_integration.py`.)*
 - [ ] Tests are green; reports are deterministic; corpus files are untouched.
+      *(Offline tests are green and the corpus files are untouched; report
+      determinism cannot be re-checked without the archives.)*
 - [ ] The plan's task groups are complete, or every deviation is recorded here.

@@ -24,6 +24,14 @@ EDITIONS = {
         "preformatted_dir": "data/raw/rp2005/editions-rp2-preformatted",
         "pdf": "data/raw/rp2005/official-pdf/editions-rp2.pdf",
         "pdf_url": "https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf",
+        "note": (
+            "The official `.CCT` archive is the accented source; the official "
+            "ASCII archive supplies the unaccented text. The archive does not "
+            "contain LUK 17:36, ACT 8:37, ACT 15:34, or ACT 24:7 at all, because "
+            "those verses are not part of the Byzantine tradition; this is "
+            "expected, not a conversion loss. The other three curated editions "
+            "keep those verses as empty CSV rows and empty `<ab/>` TEI elements."
+        ),
     },
     "rp2005-2019": {
         "id": "rp2005-2019",
@@ -35,6 +43,16 @@ EDITIONS = {
         "tag": "v2.0.3",
         "pdf": "",
         "pdf_url": "",
+        "note": (
+            "The source and every recovered artifact are byte-identical to git "
+            "tag `v2.0.3`. That release predates the intentional blank verses, "
+            "so it omits LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 entirely: "
+            "the unaccented CSV has 7953 rows instead of 7957 and the TEI has no "
+            "empty `<ab/>` for them. The rows are deliberately **not** added "
+            "here, because the historical artifacts must stay byte-identical. "
+            "The other three curated editions preserve those verses as empty "
+            "rows and empty `<ab/>` elements."
+        ),
     },
     "rp2018": {
         "id": "rp2018",
@@ -48,6 +66,14 @@ EDITIONS = {
         "preformatted_dir": "data/raw/rp2018/rp2018-ascii",
         "pdf": "data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf",
         "pdf_url": "https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf",
+        "note": (
+            "The official `.CCT` archive is the accented source; the official "
+            "ASCII archive supplies the unaccented text. The archive does not "
+            "contain LUK 17:36, ACT 8:37, ACT 15:34, or ACT 24:7 at all, because "
+            "those verses are not part of the Byzantine tradition; this is "
+            "expected, not a conversion loss. The other three curated editions "
+            "keep those verses as empty CSV rows and empty `<ab/>` TEI elements."
+        ),
     },
     "rp2018-2023": {
         "id": "rp2018-2023",
@@ -58,6 +84,14 @@ EDITIONS = {
         "source_kind": "current",
         "pdf": "",
         "pdf_url": "",
+        "note": (
+            "The manifest separates the Greek-text commit (`source_commit`, from "
+            "`source/CCAT`) from the Strong's/parsing commit (`strongs_commit`, "
+            "from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 "
+            "are not part of the Byzantine tradition and appear as empty CSV "
+            "rows and empty `<ab/>` elements the same way as in the official "
+            "editions."
+        ),
     },
 }
 
@@ -99,12 +133,19 @@ def _version_key(tag: str):
 
 
 def tags() -> list:
+    command = ["git", "-C", str(ROOT), "tag", "--list"]
     result = subprocess.run(
-        ["git", "-C", str(ROOT), "tag", "--list"],
+        command,
         capture_output=True,
         text=True,
         check=False,
     )
+    if result.returncode != 0:
+        raise RuntimeError(
+            "cannot list git tags: "
+            + " ".join(command)
+            + f" exited {result.returncode}: {result.stderr.strip()}"
+        )
     return sorted(
         (tag for tag in result.stdout.splitlines() if tag),
         key=_version_key,
@@ -114,10 +155,14 @@ def tags() -> list:
 def release_range(edition: dict) -> tuple:
     prefixes = edition.get("release_prefixes") or []
     if not prefixes:
+        # Official print editions have no repository release number.
         return "", ""
     matching = [tag for tag in tags() if any(tag.startswith(p) for p in prefixes)]
     if not matching:
-        return "", ""
+        raise RuntimeError(
+            f"released edition {edition['id']!r} has no git tags matching "
+            f"{prefixes!r}; run `git tag --list` in {ROOT}"
+        )
     return matching[0], matching[-1]
 
 

@@ -70,6 +70,7 @@ def _write_changes(path: Path, rows: list) -> None:
                 "left_text",
                 "right_text",
             ],
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(rows)

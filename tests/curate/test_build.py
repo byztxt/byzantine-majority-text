@@ -102,6 +102,51 @@ class BuildTests(unittest.TestCase):
             build.write_tei(second, [("MAT", "B01", verses)])
             self.assertEqual(first.read_text(), second.read_text())
 
+    def test_tei_marks_punctuation_and_paragraphs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "MAT.xml"
+            verses = {(1, 1): "¶Καὶ - λόγος"}
+            build.write_tei(path, [("MAT", "B01", verses)])
+            text = path.read_text()
+            self.assertIn('<milestone unit="paragraph" type="start"/>', text)
+            self.assertIn("<pc>-</pc>", text)
+            self.assertNotIn("<w>-</w>", text)
+            self.assertIn("<w>λόγος</w>", text)
+
+
+class ProductionNormalizeTests(unittest.TestCase):
+    """The production wrapper must keep the comparison default untouched."""
+
+    def test_comparison_default_is_unchanged(self):
+        from byz.reconcile import normalize
+
+        line = "     14:65 Kai\\ e)/ballon.{B e)/ballon > e)/balon }"
+        self.assertEqual(
+            normalize.official_ccat_line(line),
+            normalize.official_ccat_line(line, reorder_iota=True),
+        )
+        self.assertIn("*E)/BALLON.{B", normalize.official_ccat_line(line))
+
+    def test_production_splits_word_from_glued_code(self):
+        from byz.reconcile import normalize
+
+        line = "     14:65 Kai\\ e)/ballon.{B e)/ballon > e)/balon }"
+        normalized = normalize.production_ccat_line(line)
+        self.assertIn("E)/BALLON.{B", normalized)
+        self.assertNotIn("*E)/BALLON", normalized)
+
+    def test_production_marks_each_abbreviation_letter(self):
+        from byz.reconcile import normalize
+
+        normalized = normalize.production_ccat_line("     03:07 {B Daui/d > _DAD }")
+        self.assertIn("_*D*A*D", normalized)
+
+    def test_production_reorders_iota_subscript(self):
+        from byz.reconcile import normalize
+
+        normalized = normalize.production_ccat_line("     02:06 mimnh|/skh|")
+        self.assertIn("MIMNH/|SKH|", normalized)
+
 
 if __name__ == "__main__":
     unittest.main()
