@@ -32,10 +32,11 @@
 | Category | Count |
 | --- | ---: |
 | `accents-breathings` | 14 |
-| `capitalization` | 1 |
-| `letters` | 12 |
-| `punctuation` | 20 |
+| `capitalization` | 5 |
+| `letters` | 2 |
+| `punctuation` | 22 |
 | `variant` | 7 |
+| `word-segmentation` | 4 |
 
 ## Books (source tier)
 
@@ -102,7 +103,7 @@ Source (Beta code):
 *)APOKRIQEI\S DE\ O( *)IHSOU=S EI)=PEN AU)TOI=S, *)AMH\N LE/GW U(MI=N, E)A\N E)/XHTE PI/STIN, KAI\ MH\ DIAKRIQH=TE, OU) MO/NON TO\ TH=S SUKH=S POIH/SETE, A)LLA\ KA)\N TW=| O)/REI TOU/TW| EI)/PHTE, [-*)/ARQHTI-]{+*)/ARQHTI,+} KAI\ BLH/QHTI EI)S TH\N QA/LASSAN, GENH/SETAI.
 ```
 
-### MAT 22:37 · `letters`
+### MAT 22:37 · `capitalization`
 
 Text:
 
@@ -270,7 +271,7 @@ Source (Beta code):
 *)=HN DE\ TO\ *PA/SXA KAI\ TA\ A)/ZUMA META\ DU/O H(ME/RAS: KAI\ E)ZH/TOUN OI( A)RXIEREI=S KAI\ OI( GRAMMATEI=S PW=S AU)TO\N E)N DO/LW| KRATH/SANTES [-A)POKTEI/NWSIN:-]{+A)POKTEI/NWSIN.+}
 ```
 
-### MAR 14:2 · `letters`
+### MAR 14:2 · `capitalization`
 
 Text:
 
@@ -340,7 +341,7 @@ Source (Beta code):
 *)IOU/DAN {N *)IOU/DAN *)IAKW/BOU > KAI\ *)IOU/DAN *)IAKW/BOU } *)IAKW/BOU, KAI\ *)IOU/DAN *)ISKARIW/THN, {N *)ISKARIW/THN > *)ISKARIW/Q } O(\S {N O(\S KAI\ > O(\S } KAI\ E)GE/NETO [-PRODO/THS,-]{+PRODO/THS.+}
 ```
 
-### LUK 7:4 · `letters`
+### LUK 7:4 · `capitalization`
 
 Text:
 
@@ -396,7 +397,7 @@ Source (Beta code):
 LE/GWN, *PA/TER, EI) [-BOU/LEI,-]{+BOU/LEI+} PARENEGKEI=N {N PARENEGKEI=N TO\ POTH/RION TOU=TO > PARE/NEGKE TOU=TO TO\ POTH/RION } TO\ POTH/RION TOU=TO A)P' E)MOU=: PLH\N MH\ TO\ QE/LHMA/ MOU, A)LLA\ TO\ SO\N GENE/SQW. {B GENE/SQW > GINE/SQW } {N GENE/SQW > GINE/SQW }
 ```
 
-### LUK 22:54 · `letters`
+### LUK 22:54 · `punctuation`
 
 Text:
 
@@ -466,7 +467,7 @@ Source (Beta code):
 OU(=TOS CENI/ZETAI PARA/ TINI *SI/MWNI BURSEI=, W(=| E)STIN OI)KI/A PARA\ [-QA/LASSAN:-]{+QA/LASSAN.+}
 ```
 
-### ACT 10:7 · `letters`
+### ACT 10:7 · `capitalization`
 
 Text:
 
@@ -522,7 +523,7 @@ Source (Beta code):
 *TOLMHRO/TERON DE\ E)/GRAYA U(MI=N, A)DELFOI/, {N A)DELFOI/ > - } A)PO\ ME/ROUS, W(S [-E)PANAMIMNH/SKWN-]{+E)PANAMIMNH|/SKWN+} U(MA=S, DIA\ TH\N XA/RIN TH\N DOQEI=SA/N MOI U(PO\ TOU= QEOU=,
 ```
 
-### 1CO 7:5 · `letters`
+### 1CO 7:5 · `word-segmentation`
 
 Text:
 
@@ -536,7 +537,7 @@ Source (Beta code):
 *MH\ A)POSTEREI=TE A)LLH/LOUS, EI) [-MH/ {N MH/ TI >-] MH/TI [-} TI-] A)\N E)K SUMFW/NOU PRO\S KAIRO/N, I(/NA SXOLA/ZHTE {N SXOLA/ZHTE > SXOLA/SHTE } TH=| {N TH=| NHSTEI/A| KAI\ > - } NHSTEI/A| KAI\ TH=| PROSEUXH=|, KAI\ PA/LIN E)PI\ TO\ AU)TO\ SUNE/RXHSQE, {N SUNE/RXHSQE > H)=TE } I(/NA MH\ PEIRA/ZH| U(MA=S O( *SATANA=S DIA\ TH\N A)KRASI/AN U(MW=N.
 ```
 
-### 1CO 11:24 · `letters`
+### 1CO 11:24 · `punctuation`
 
 Text:
 
@@ -550,7 +551,7 @@ Source (Beta code):
 KAI\ EU)XARISTH/SAS E)/KLASEN KAI\ EI)=PEN, *LA/BETE, {N *LA/BETE FA/GETE > - } [-FA/GETE,-]{+FA/GETE:+} [-*TOU=TO/-]{+TOU=TO/+} MOU/ E)STIN TO\ SW=MA TO\ U(PE\R U(MW=N KLW/MENON: {N KLW/MENON > - } TOU=TO POIEI=TE EI)S TH\N E)MH\N A)NA/MNHSIN.
 ```
 
-### 2CO 1:17 · `letters`
+### 2CO 1:17 · `word-segmentation`
 
 Text:
 
@@ -578,7 +579,7 @@ Source (Beta code):
 *KAI\ TA\ SPLA/GXNA AU)TOU= PERISSOTE/RWS EI)S U(MA=S E)STI/N, [-A)NAMIMNHSKOME/NOU-]{+A)NAMIMNHS|KOME/NOU+} TH\N PA/NTWN U(MW=N U(PAKOH/N, W(S META\ FO/BOU KAI\ TRO/MOU E)DE/CASQE AU)TO/N.
 ```
 
-### 2CO 12:18 · `letters`
+### 2CO 12:18 · `word-segmentation`
 
 Text:
 
@@ -592,7 +593,7 @@ Source (Beta code):
 *PAREKA/LESA *TI/TON, KAI\ SUNAPE/STEILA TO\N A)DELFO/N: [-MH/ {N MH/ TI >-] MH/TI [-} TI-] E)PLEONE/KTHSEN U(MA=S *TI/TOS; *OU) TW=| AU)TW=| PNEU/MATI PERIEPATH/SAMEN; *OU) TOI=S AU)TOI=S I)/XNESIN;
 ```
 
-### 2CO 13:5 · `letters`
+### 2CO 13:5 · `word-segmentation`
 
 Text:
 

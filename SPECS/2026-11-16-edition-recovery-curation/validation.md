@@ -114,8 +114,9 @@ recorded as resolved below. Two non-blocking maintainer-review items remain.
       every source-differing verse whose exact Unicode text differs;
       `derived.diff` covers every differing verse in the normalised derived
       text.
-- [x] The `.diff` files are diff-style (`@@ BOOK CHAPTER:VERSE [category] @@`,
-      one hunk per verse), not patchable unified diffs with line ranges.
+- [x] The `.diff` files are word-diff style
+      (`@@ BOOK CHAPTER:VERSE [category] @@`, one hunk per verse), not
+      patchable line-based diffs with line ranges.
 - [x] Changes are categorized and counted; examples are included. Actual
       counts:
 

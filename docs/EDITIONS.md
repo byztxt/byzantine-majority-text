@@ -195,21 +195,23 @@ Each directory contains:
   diffs, the full source/text left and right, and a `text_changed`
   flag. `text_word_diff` is normalised; `text_left`/`text_right` are
   exact.
-- `source.diff` - diff-style, one hunk per differing verse, for the
+- `source.diff` - word-diff style, one line per verse, for the
   Beta-code source tier.
-- `text.diff` - the same diff-style view for the exact derived
+- `text.diff` - the same word-diff view for the exact derived
   Unicode accented main text (`csv/accented/no-variants`). It
   includes formatting-only changes such as a `¶` edit;
   paragraph markers and apostrophes are shown as stored.
-- `derived.diff` - the full normalised Unicode-main-text diff for
-  every differing verse.
+- `derived.diff` - the word diff of the normalised Unicode main
+  text for every differing verse.
 
 The source-tier comparison canonicalises dash spacing (`-` ↔ ` - `), so raw
 dash-spacing differences are invisible there but survive in the derived
 text. All current derived-only cases are attached-vs-spaced dashes.
 
-The `.diff` files are diff-style (`@@ BOOK CHAPTER:VERSE [category] @@`),
-not patchable unified diffs: they have no line ranges.
+The `.diff` files are word-diff style, with one
+`@@ BOOK CHAPTER:VERSE [category] @@` hunk and one marked line per
+verse, not patchable line-based diffs: they have no line ranges and
+no `-`/`+` whole-verse lines.
 
 **Source** is the edition's Beta-code source tier: the official
 `.CCT` archive for `rp2005`/`rp2018`, the recovered

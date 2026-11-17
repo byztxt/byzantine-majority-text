@@ -32,8 +32,8 @@
 | Category | Count |
 | --- | ---: |
 | `accents-breathings` | 23 |
-| `letters` | 3 |
-| `punctuation` | 1 |
+| `capitalization` | 2 |
+| `punctuation` | 2 |
 | `variant` | 89 |
 | `variant-code` | 45 |
 
@@ -62,7 +62,7 @@
 
 ## Main-text changes
 
-### LUK 11:18 · `letters`
+### LUK 11:18 · `punctuation`
 
 Text:
 
@@ -144,10 +144,10 @@ Source (Beta code):
 - `MAR 9:44` · `variant`: `O(/POU O( SKW/LHC AU)TW=N OU) TELEUTA=|, KAI\ TO\ PU=R OU) SBE/NNUTAI. {N [---]{+~+} }`
 - `MAR 9:46` · `variant`: `O(/POU O( SKW/LHC AU)TW=N OU) TELEUTA=|, KAI\ TO\ PU=R OU) SBE/NNUTAI. {N [---]{+~+} }`
 - `MAR 11:26` · `variant`: `*EI) DE\ U(MEI=S OU)K A)FI/ETE, OU)DE\ O( PATH\R U(MW=N O( E)N TOI=S OU)RANOI=S A)FH/SEI TA\ PARAPTW/MATA U(MW=N. {N [---]{+~+} }`
-- `MAR 14:65` · `letters`: `*KAI\ H)/RCANTO/ TINES E)MPTU/EIN AU)TW=|, KAI\ PERIKALU/PTEIN TO\ {N TO\ PRO/SWPON AU)TOU= > AU)TOU= TO\ PRO/SWPON } PRO/SWPON AU)TOU=, KAI\ KOLAFI/ZEIN AU)TO/N, KAI\ LE/GEIN AU)TW=|, *PROFH/TEUSON. *KAI\ OI( U(PHRE/TAI R(API/SMASIN AU)TO\N [-*E)/BALLON.{B-]{+E)/BALLON. {B+} E)/BALLON > E)/BALON } {N E)/BALLON > E)/LABON }`
+- `MAR 14:65` · `capitalization`: `*KAI\ H)/RCANTO/ TINES E)MPTU/EIN AU)TW=|, KAI\ PERIKALU/PTEIN TO\ {N TO\ PRO/SWPON AU)TOU= > AU)TOU= TO\ PRO/SWPON } PRO/SWPON AU)TOU=, KAI\ KOLAFI/ZEIN AU)TO/N, KAI\ LE/GEIN AU)TW=|, *PROFH/TEUSON. *KAI\ OI( U(PHRE/TAI R(API/SMASIN AU)TO\N [-*E)/BALLON.{B-]{+E)/BALLON. {B+} E)/BALLON > E)/BALON } {N E)/BALLON > E)/LABON }`
 - `MAR 15:28` · `variant`: `*KAI\ E)PLHRW/QH H( GRAFH\ H( LE/GOUSA, *KAI\ META\ A)NO/MWN E)LOGI/SQH. {N [---]{+~+} }`
 - `MAR 16:8` · `variant`: `*KAI\ E)CELQOU=SAI E)/FUGON A)PO\ TOU= MNHMEI/OU: EI)=XEN DE\ {N DE\ > GA\R } AU)TA\S TRO/MOS KAI\ E)/KSTASIS: KAI\ OU)DENI\ OU)DE\N EI)=PON, {N EI)=PON > EI)=PAN } E)FOBOU=NTO GA/R. {N GA/R > GA/R "+" [["SHORTER [-ENDING"]]}-]{+ENDING"]] }+}`
-- `LUK 9:22` · `letters`: `EI)PW\N O(/TI *DEI= TO\N UI(O\N TOU= A)NQRW/POU POLLA\ PAQEI=N, KAI\ A)PODOKIMASQH=NAI A)PO\ TW=N PRESBUTE/RWN KAI\ A)RXIERE/WN KAI\ GRAMMATE/WN, KAI\ A)POKTANQH=NAI, KAI\ TH=| TRI/TH| H(ME/RA| [-*A)NASTH=NAI.{B-]{+A)NASTH=NAI. {B+} A)NASTH=NAI > E)GERQH=NAI } {N A)NASTH=NAI > E)GERQH=NAI }`
+- `LUK 9:22` · `capitalization`: `EI)PW\N O(/TI *DEI= TO\N UI(O\N TOU= A)NQRW/POU POLLA\ PAQEI=N, KAI\ A)PODOKIMASQH=NAI A)PO\ TW=N PRESBUTE/RWN KAI\ A)RXIERE/WN KAI\ GRAMMATE/WN, KAI\ A)POKTANQH=NAI, KAI\ TH=| TRI/TH| H(ME/RA| [-*A)NASTH=NAI.{B-]{+A)NASTH=NAI. {B+} A)NASTH=NAI > E)GERQH=NAI } {N A)NASTH=NAI > E)GERQH=NAI }`
 - `LUK 10:15` · `accents-breathings`: `*KAI\ SU/, *KAPERNAOU/M, {N *KAPERNAOU/M H( > *KAFARNAOU/M MH\ } H( E(/WS TOU= {N TOU= OU)RANOU= U(YWQEI=SA > OU)RANOU= U(YWQH/SH| } OU)RANOU= U(YWQEI=SA, E(/WS [-*(/A|DOU-]{+*(/AD|OU+} {N [-*(/A|DOU-]{+*(/AD|OU+} KATABIBASQH/SH| > TOU= [-*(/A|DOU-]{+*(/AD|OU+} KATABH/SH| } KATABIBASQH/SH|.`
 - `LUK 16:23` · `accents-breathings`: `*KAI\ E)N TW=| [-*(/A|DH|-]{+*(/AD|H|+} E)PA/RAS TOU\S O)FQALMOU\S AU)TOU=, U(PA/RXWN E)N BASA/NOIS, O(RA=| TO\N {N TO\N > - } *)ABRAA\M A)PO\ MAKRO/QEN, KAI\ *LA/ZARON E)N TOI=S KO/LPOIS AU)TOU=.`
 - `LUK 19:22` · `accents-breathings`: `*LE/GEI DE\ {N DE\ > - } AU)TW=|, *)EK TOU= STO/MATO/S SOU KRINW= SE, PONHRE\ DOU=LE. [-*)/H|DEIS-]{+*)/HD|EIS+} O(/TI E)GW\ A)/NQRWPOS AU)STHRO/S EI)MI, AI)/RWN O(\ OU)K E)/QHKA, KAI\ QERI/ZWN O(\ OU)K E)/SPEIRA:`

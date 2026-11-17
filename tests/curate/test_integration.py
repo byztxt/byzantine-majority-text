@@ -194,6 +194,13 @@ class CurateIntegrationTests(unittest.TestCase):
             exact = [
                 row for row in rows if row["text_left"] != row["text_right"]
             ]
+            report = (directory / "report.md").read_text(encoding="utf-8")
+            derived_count = int(
+                re.search(
+                    r"Derived-text differing verses \(normalised\):\*\* (\d+)",
+                    report,
+                ).group(1)
+            )
             source_diff = (directory / "source.diff").read_text(
                 encoding="utf-8"
             )
@@ -211,6 +218,45 @@ class CurateIntegrationTests(unittest.TestCase):
                 len(exact),
                 name,
             )
+            self.assertEqual(
+                sum(1 for line in derived_diff.splitlines() if line.startswith("@@ ")),
+                derived_count,
+                name,
+            )
+            left, right = name.split("--")
+            self.assertIn(
+                f"# Word diff: {left} -> {right} (Beta-code source tier)",
+                source_diff,
+            )
+            self.assertIn(
+                f"# Word diff: {left} -> {right} "
+                "(exact Unicode accented main text)",
+                text_diff,
+            )
+            self.assertIn(
+                f"# Word diff: {left} -> {right} "
+                "(normalised Unicode accented main text)",
+                derived_diff,
+            )
+            # Word-diff style: every hunk carries `[-removed-]{+added+}`, and
+            # verse lines never use `-`/`+` prefixes.
+            for kind, text in (
+                ("source", source_diff),
+                ("text", text_diff),
+                ("derived", derived_diff),
+            ):
+                for line in text.splitlines():
+                    if line.startswith(("#", "@@")):
+                        continue
+                    self.assertFalse(
+                        line.startswith(("-", "+")),
+                        f"{name}/{kind}: verse text uses a diff prefix: "
+                        f"{line[:40]}",
+                    )
+                    self.assertTrue(
+                        "[-" in line or "{+" in line,
+                        f"{name}/{kind}: unmarked hunk line: {line[:80]}",
+                    )
             self.assertIn(
                 "Includes typographic/converter-generation differences", derived_diff
             )
@@ -220,17 +266,13 @@ class CurateIntegrationTests(unittest.TestCase):
             self.assertIn(
                 "derived.diff is the normalised full view", text_diff
             )
-            self.assertIn(
-                f"--- {name.split('--')[0]}/text (Unicode accented main text)",
-                derived_diff,
-            )
 
     def test_diff_has_unicode_first_examples(self):
         report = (
             editions.DIFFS_DIR / "rp2005-2019--rp2018" / "report.md"
         ).read_text(encoding="utf-8")
-        # Letters/punctuation change: the Unicode diff marks the words.
-        self.assertIn("### MAT 1:18 · `letters`", report)
+        # Punctuation (plus capitalisation): the Unicode diff marks the words.
+        self.assertIn("### MAT 1:18 · `punctuation`", report)
         self.assertIn("[-ἦν.-]{+ἦν·+}", report)
         self.assertIn("[-Μνηστευθείσης-]{+μνηστευθείσης+}", report)
         self.assertIn("### REV 11:15 · `punctuation`", report)
@@ -260,7 +302,7 @@ class CurateIntegrationTests(unittest.TestCase):
         # The apparatus change is still visible in the source word diff.
         self.assertIn("{+{N ME/NEI > MENEI= }+}", apparatus["source_word_diff"])
         changed = rows[("1CO", 7, 5)]
-        self.assertEqual(changed["category"], "letters")
+        self.assertEqual(changed["category"], "word-segmentation")
         self.assertEqual(changed["text_changed"], "true")
         self.assertIn("[-μή τι-]{+μήτι+}", changed["text_word_diff"])
         self.assertIn("[-MH/", changed["source_word_diff"])
@@ -321,9 +363,32 @@ class CurateIntegrationTests(unittest.TestCase):
         end = text_diff.find("\n@@ ", start + 1)
         block = text_diff[start : end if end != -1 else None]
         self.assertIn("¶", block)
-        # rp2005 has the paragraph marker, rp2005-2019 does not.
-        self.assertIn("-¶Διὸ", block)
-        self.assertIn("+Διὸ", block)
+        # rp2005 has the paragraph marker, rp2005-2019 does not: the word diff
+        # marks it without turning the verse into `-`/`+` lines.
+        self.assertIn("[-¶Διὸ-]{+Διὸ+}", block)
+
+    def test_diff_files_use_word_diff_samples(self):
+        source = (
+            editions.DIFFS_DIR / "rp2005--rp2018" / "source.diff"
+        ).read_text(encoding="utf-8")
+        start = source.index("@@ 1CO 7:5")
+        block = source[start : source.find("\n@@ ", start + 1)]
+        self.assertIn("@@ 1CO 7:5 [word-segmentation] @@", block)
+        self.assertIn("[-MH/", block)
+        self.assertIn("MH/TI", block)
+        self.assertNotIn("\n-*MH\\", source)
+
+        text = (
+            editions.DIFFS_DIR / "rp2005-2019--rp2018" / "text.diff"
+        ).read_text(encoding="utf-8")
+        start = text.index("@@ REV 11:15")
+        block = text[start : text.find("\n@@ ", start + 1)]
+        self.assertIn("@@ REV 11:15 [punctuation] @@", block)
+        self.assertIn("[-Καὶ-]{+¶Καὶ+}", block)
+        self.assertIn("[-κόσμου,-]{+κόσμου+}", block)
+        # No whole-verse line-diff prefixes.
+        self.assertNotIn("\n-Καὶ ὁ ἕβδομος", text)
+        self.assertNotIn("\n+¶Καὶ ὁ ἕβδομος", text)
 
     def test_readme_is_generated_from_the_module_constant(self):
         path = editions.DIFFS_DIR / "README.md"
@@ -332,7 +397,9 @@ class CurateIntegrationTests(unittest.TestCase):
         self.assertIn("canonicalises dash spacing", diff.README_TEXT)
         self.assertIn("attached-vs-spaced dashes", diff.README_TEXT)
         self.assertIn("empty rows", diff.README_TEXT)
-        self.assertIn("not patchable unified diffs", diff.README_TEXT)
+        self.assertIn("not patchable line-based diffs", diff.README_TEXT)
+        self.assertIn("word-diff style", diff.README_TEXT)
+        self.assertIn("no `-`/`+` whole-verse", diff.README_TEXT)
         self.assertIn(
             "The marker delimiters are the fixed strings", diff.README_TEXT
         )
@@ -475,6 +542,8 @@ class CurateIntegrationTests(unittest.TestCase):
         )
         self.assertIn("[-εἶπεν --]{+εἶπεν-+}", text)
         self.assertNotIn("{+eἶπεν-+}", text)
+        self.assertIn("word-diff style", text)
+        self.assertIn("no `-`/`+` whole-verse lines", text)
 
 
 if __name__ == "__main__":

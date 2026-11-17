@@ -22,36 +22,54 @@ def _main_text(text: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"\{[^}]*\}", "", text)).strip()
 
 
+# Beta code marks a capital with `*` before the vowel's breathings, while the
+# lowercase form puts the breathings after the letter: `*)/E` (capital) versus
+# `E)/` (lowercase).  Strip the capital marker and move the leading diacritics
+# back after the letter so a case-only edit compares equal.
+_CAPITAL_RE = re.compile(r"\*([\\/()|+=~]*)([A-Za-z])")
+
+
+def _uncapitalize(text: str) -> str:
+    text = _CAPITAL_RE.sub(lambda match: match.group(2) + match.group(1), text)
+    return text.replace("*", "")
+
+
 def classify_diff(current: str, official: str) -> str:
     if current == official:
         return ""
     if not current or not official:
         return "missing"
-    cur_codes = VARIANT_CODE_RE.findall(current)
-    off_codes = VARIANT_CODE_RE.findall(official)
-    if _main_text(current) == _main_text(official):
+    cur_main = _main_text(current)
+    off_main = _main_text(official)
+    if cur_main == off_main:
+        # Only the apparatus differs: distinguish a code change from a
+        # variant-content change.
+        cur_codes = VARIANT_CODE_RE.findall(current)
+        off_codes = VARIANT_CODE_RE.findall(official)
         if cur_codes == off_codes:
             return "variant"
         without = lambda text: VARIANT_CODE_RE.sub("{", text)
         if without(current) == without(official):
             return "variant-code"
         return "variant"
-    if cur_codes != off_codes:
-        without = lambda text: VARIANT_CODE_RE.sub("{", text)
-        if without(current) == without(official):
-            return "variant-code"
-    if current.replace("*", "") == official.replace("*", ""):
+    # Classify the main text only.  A capitalisation change can be accompanied
+    # by an unrelated apparatus edit; the main text must decide the category.
+    cur_case = _uncapitalize(cur_main)
+    off_case = _uncapitalize(off_main)
+    if cur_case == off_case:
         return "capitalization"
-    if current.replace(" ", "") == official.replace(" ", ""):
+    # Lower-priority categories ignore capitalisation, so a verse that changes
+    # both case and punctuation is classified by the punctuation (MAT 1:18).
+    if cur_case.replace(" ", "") == off_case.replace(" ", ""):
         return "word-segmentation"
-    if re.sub(r"\s+", "", current) == re.sub(r"\s+", "", official):
+    if re.sub(r"\s+", "", cur_case) == re.sub(r"\s+", "", off_case):
         return "whitespace"
-    if "".join(ch for ch in current if ch not in PUNCTUATION) == "".join(
-        ch for ch in official if ch not in PUNCTUATION
+    if "".join(ch for ch in cur_case if ch not in PUNCTUATION) == "".join(
+        ch for ch in off_case if ch not in PUNCTUATION
     ):
         return "punctuation"
-    if "".join(ch for ch in current if ch not in ACCENTS) == "".join(
-        ch for ch in official if ch not in ACCENTS
+    if "".join(ch for ch in cur_case if ch not in ACCENTS) == "".join(
+        ch for ch in off_case if ch not in ACCENTS
     ):
         return "accents-breathings"
     return "letters"

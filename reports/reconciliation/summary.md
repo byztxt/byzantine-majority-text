@@ -20,7 +20,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation -v
 
 **Closest edition:** `rp2018`.
 
-Current `source/CCAT` is closest to `rp2018`. For `rp2018`, 3 verses differ in main-text letters, 1 in punctuation, 134 are apparatus/variant differences, and 23 are diacritic-ordering differences. Everything is itemised in `verses.csv` and the decision log.
+Current `source/CCAT` is closest to `rp2018`. For `rp2018`, 0 verses differ in main-text letters, 2 in punctuation, 134 are apparatus/variant differences, and 23 are diacritic-ordering differences. Everything is itemised in `verses.csv` and the decision log.
 
 
 ## Historical lineage
@@ -86,14 +86,15 @@ CCAT archives; D7 is confirmed.
 | `derived` | `rp2005` | `word-segmentation` | 16 |
 | `derived` | `rp2018` | `word-segmentation` | 16 |
 | `source` | `rp2005` | `accents-breathings` | 28 |
-| `source` | `rp2005` | `capitalization` | 1 |
-| `source` | `rp2005` | `letters` | 17 |
-| `source` | `rp2005` | `punctuation` | 21 |
+| `source` | `rp2005` | `capitalization` | 7 |
+| `source` | `rp2005` | `letters` | 2 |
+| `source` | `rp2005` | `punctuation` | 26 |
 | `source` | `rp2005` | `variant` | 91 |
 | `source` | `rp2005` | `variant-code` | 45 |
+| `source` | `rp2005` | `word-segmentation` | 4 |
 | `source` | `rp2018` | `accents-breathings` | 23 |
-| `source` | `rp2018` | `letters` | 3 |
-| `source` | `rp2018` | `punctuation` | 1 |
+| `source` | `rp2018` | `capitalization` | 2 |
+| `source` | `rp2018` | `punctuation` | 2 |
 | `source` | `rp2018` | `variant` | 89 |
 | `source` | `rp2018` | `variant-code` | 45 |
 

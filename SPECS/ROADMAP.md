@@ -137,8 +137,8 @@ successive-edition diffs.
 - Successive diffs: `rp2005--rp2005-2019`, `rp2005-2019--rp2018`,
   `rp2018--rp2018-2023`, and `rp2005--rp2018`, each with a Unicode-first
   `report.md`, a machine-readable `changes.csv`, and diff-style `source.diff`,
-  `text.diff`, and `derived.diff` views (one hunk per verse, not patchable
-  unified diffs). Diffs are word-level for both the Beta-code source tier and
+  `text.diff`, and `derived.diff` views (one hunk per verse, word-diff files).
+  Diffs are word-level for both the Beta-code source tier and
   the derived Unicode accented main text.
 - `docs/EDITIONS.md`, root README "Editions" section, per-edition READMEs, and
   updated script/folder READMEs.

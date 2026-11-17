@@ -19,6 +19,38 @@ class CompareTests(unittest.TestCase):
     def test_classify_capitalization(self):
         self.assertEqual(compare.classify_diff("*word", "word"), "capitalization")
 
+    def test_classify_capitalization_with_apparatus(self):
+        # MAR 14:2: rp2005 has lowercase `E)/LEGON`, the current source the
+        # capital `*)/ELEGON`.  The shared apparatus must not force `letters`.
+        self.assertEqual(
+            compare.classify_diff(
+                "*)/ELEGON DE/, {N DE/ > GA/R } *MH\\ E)N TH=| E(ORTH=|.",
+                "E)/LEGON DE/, {N DE/ > GA/R } *MH\\ E)N TH=| E(ORTH=|.",
+            ),
+            "capitalization",
+        )
+
+    def test_classify_capitalization_with_breathing_before_letter(self):
+        # LUK 7:4: the capital `*)/ACIO/S` and lowercase `A)/CIO/S` differ
+        # only in where beta code puts the breathing relative to the letter.
+        self.assertEqual(
+            compare.classify_diff(
+                "LE/GONTES O(/TI A)/CIO/S E)STIN {N PARE/CEI > PARE/CH| }.",
+                "LE/GONTES O(/TI *)/ACIO/S E)STIN {N PARE/CEI > PARE/CH| }.",
+            ),
+            "capitalization",
+        )
+
+    def test_classify_punctuation_wins_over_capitalization(self):
+        # MAT 1:18 changes both punctuation (`.` -> `:`) and capitalisation.
+        self.assertEqual(
+            compare.classify_diff(
+                "OU(/TWS H)=N: MNHSTEUQEI/SHS GA\\R {N GA\\R > - }.",
+                "OU(/TWS H)=N. *MNHSTEUQEI/SHS GA\\R {N GA\\R > - }.",
+            ),
+            "punctuation",
+        )
+
     def test_classify_word_segmentation(self):
         self.assertEqual(compare.classify_diff("mhti", "mh ti"), "word-segmentation")
 

@@ -32,8 +32,7 @@
 | Category | Count |
 | --- | ---: |
 | `accents-breathings` | 1 |
-| `letters` | 1 |
-| `punctuation` | 1 |
+| `punctuation` | 2 |
 
 ## Books (source tier)
 
@@ -45,7 +44,7 @@
 
 ## Main-text changes
 
-### MAT 1:18 · `letters`
+### MAT 1:18 · `punctuation`
 
 Text:
 
