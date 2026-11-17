@@ -2,8 +2,69 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest import mock
 
 from byz.reconcile import fetch
+
+
+class _FakeResponse:
+    """Minimal stand-in for the object returned by urllib."""
+
+    status = 200
+    headers = {}
+
+    def __init__(self, payload):
+        self._chunks = [payload]
+
+    def geturl(self):
+        return "https://www.dropbox.com/s/abc/file.zip?dl=1"
+
+    def read(self, size):
+        return self._chunks.pop(0) if self._chunks else b""
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+
+class DownloadTests(unittest.TestCase):
+    URL = "https://www.dropbox.com/s/abc/file.zip?dl=0"
+
+    def test_successful_download_writes_archive_atomically(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "file.zip"
+            dest.write_bytes(b"old archive")
+            response = _FakeResponse(b"official archive bytes")
+            with mock.patch.object(
+                fetch.urllib.request, "urlopen", return_value=response
+            ) as urlopen:
+                meta = fetch.download(self.URL, dest)
+            self.assertTrue(urlopen.called)
+            request = urlopen.call_args[0][0]
+            self.assertTrue(request.full_url.endswith("?dl=1"))
+            self.assertEqual(dest.read_bytes(), b"official archive bytes")
+            self.assertFalse(dest.with_name(dest.name + ".part").exists())
+            self.assertEqual(meta["http_status"], 200)
+            self.assertEqual(
+                meta["final_url"],
+                "https://www.dropbox.com/s/abc/file.zip?dl=1",
+            )
+
+    def test_failed_download_keeps_previous_archive(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "good.zip"
+            dest.write_bytes(b"last known good")
+            with mock.patch.object(
+                fetch.urllib.request,
+                "urlopen",
+                side_effect=OSError("network down"),
+            ):
+                with self.assertRaises(OSError):
+                    fetch.download(self.URL, dest)
+            self.assertEqual(dest.read_bytes(), b"last known good")
+            self.assertFalse(dest.with_name(dest.name + ".part").exists())
 
 
 class FetchTests(unittest.TestCase):
@@ -36,26 +97,6 @@ class FetchTests(unittest.TestCase):
             fetch.extract(path, dest)
             self.assertTrue((dest / "MT.CCT").is_file())
             self.assertFalse((dest / "stale.txt").exists())
-
-    def test_download_keeps_previous_archive_on_failure(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            dest = Path(tmp) / "good.zip"
-            dest.write_bytes(b"last known good")
-            original = fetch.urllib.request.urlopen
-
-            def unavailable(*args, **kwargs):
-                raise OSError("network down")
-
-            fetch.urllib.request.urlopen = unavailable
-            try:
-                with self.assertRaises(OSError):
-                    fetch.download(
-                        "https://www.dropbox.com/s/abc/file.zip?dl=0", dest
-                    )
-            finally:
-                fetch.urllib.request.urlopen = original
-            self.assertEqual(dest.read_bytes(), b"last known good")
-            self.assertFalse(dest.with_name(dest.name + ".part").exists())
 
 
 class ExtractSafetyTests(unittest.TestCase):

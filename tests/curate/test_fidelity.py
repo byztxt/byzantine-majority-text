@@ -164,6 +164,9 @@ class DocumentationTests(unittest.TestCase):
         self.assertIn("LUK 17:36", text)
         self.assertIn("7953", text)
         self.assertIn("byte-identical", text)
+        # v2.0.3 has no accented TEI; that view is generated here.
+        self.assertIn("`v2.0.3` itself has no accented TEI", text)
+        self.assertIn("generated here", text)
 
     def test_editions_doc_documents_blank_verse_omission_and_tei(self):
         text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
@@ -176,6 +179,8 @@ class DocumentationTests(unittest.TestCase):
             self.assertIn(count, text, f"missing row count {count}")
         self.assertIn("four empty", text)
         self.assertIn("<ab/>", text)
+        self.assertIn("`v2.0.3` itself has no", text)
+        self.assertIn("accented TEI", text)
         self.assertIn("<pc>", text)
 
     def test_editions_doc_documents_converter_apparatus_quirk(self):

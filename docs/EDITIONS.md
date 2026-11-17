@@ -95,16 +95,19 @@ empty), and empty `<ab/>` elements in both TEI views.
 `rp2018-2023` behaves the same way (7972 / 7957 rows plus empty
 `<ab/>` elements).
 
-The byte-frozen `rp2005-2019` edition is the exception. Its `v2.0.3`
-accents and no-accents CSV and its TEI were generated before the blank
-verses were preserved, so they **omit** the four verses: the accented
-CSV has 7968 rows, the unaccented CSV 7953, and there is no empty
-`<ab/>`, even though the `textonly-beta-code` and `parsed` files in
-that tag do contain the blank verse lines. The Strong's views,
-generated here from `parsed`, do include the four verses as empty rows
-(7957 rows). The recovered artifacts must stay byte-identical to
-`v2.0.3`, so the rows are deliberately not added back; the edition
-README records the omission.
+The byte-frozen `rp2005-2019` edition is the exception. Its
+`textonly-beta-code`, `parsed`, accented CSV (both views), unaccented
+CSV, and unaccented TEI are recovered byte-identically from `v2.0.3`.
+The accented TEI (from the recovered accented CSV) and the Strong's
+views (from `parsed`) are generated here, and `v2.0.3` itself has no
+accented TEI. The accented CSV (7968 rows), unaccented CSV (7953
+rows), and unaccented TEI **omit** the four verses: the rows are
+absent and there is no empty `<ab/>`, even though the source files in
+that tag do contain the blank verse lines. The generated accented TEI
+inherits the omission; the generated Strong's views include the four
+verses as empty rows (7957 rows). The recovered artifacts must stay
+byte-identical, so the rows are deliberately not added back; the
+edition README records the omission.
 
 ## TEI punctuation
 

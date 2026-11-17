@@ -66,12 +66,14 @@ def remove_worktree(path):
         capture_output=True,
         text=True,
     )
+    shutil.rmtree(path.parent, ignore_errors=True)
+    # Prune after the directory is gone so a failed `worktree remove` cannot
+    # leave stale worktree metadata behind.
     subprocess.run(
         ["git", "-C", str(ROOT), "worktree", "prune"],
         capture_output=True,
         text=True,
     )
-    shutil.rmtree(path.parent, ignore_errors=True)
 
 
 def run_generators(worktree):
