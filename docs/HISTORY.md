@@ -4,7 +4,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`6c46590` (2026-11-16) Add curated editions, manifests, docs, and successive diffs
+`0d9dff5` (2026-11-17) Commit official archives and rewrite the root README
 
 ## Tags
 
