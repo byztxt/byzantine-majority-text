@@ -165,12 +165,28 @@ editions/
   - `rp2005-2019` -> `rp2018`
   - `rp2018` -> `rp2018-2023`
 - Also produce `rp2005` -> `rp2018` for the official-to-official view.
-- Each diff has a human-readable `report.md` and machine-readable `changes.csv`,
-  categorized: letters, accents/breathings, punctuation, capitalization,
-  variants/apparatus, parsing, Strong's, word segmentation, encoding/EOL, other.
-- Diffs are verse-aligned (and word-aligned where possible), deterministic, and
-  documented with counts and examples.
-- Do not report encoding/normalization noise as textual change.
+- Each diff has a Unicode-first human-readable `report.md` and a
+  machine-readable `changes.csv`, plus diff-style `source.diff`, `text.diff`,
+  and `derived.diff` views (one hunk per verse, with `@@ BOOK CHAPTER:VERSE
+  [category] @@` anchors rather than patch line ranges).
+- Rows and hunks are categorized with the classifier's actual values:
+  `letters`, `accents-breathings`, `punctuation`, `capitalization`, `variant`,
+  `variant-code`, `word-segmentation`, `whitespace`, and `missing`.
+- `report.md` puts `Main-text changes` first, with the normalised Unicode word
+  diff and the Beta-code source word diff, and compacts apparatus-only source
+  differences into one line per verse.
+- Diffs show word-level changes with `[-removed-]{+added+}` markers for both
+  the Beta-code source tier and the derived Unicode accented main text. Exact
+  text stays in `changes.csv.text_left`/`text_right` and `text.diff`.
+- Apparatus-only changes (source differs but the Unicode main text is
+  identical) are counted and marked separately, including formatting-only
+  cases where only a `¶` differs. `derived.diff` states that the source-tier
+  comparison canonicalises dash spacing, so attached-vs-spaced dashes appear
+  there but not in the source tier.
+- Diffs are verse-aligned, deterministic, and documented with counts and
+  examples.
+- Do not report encoding/normalization noise (paragraph markers, apostrophe
+  typography, whitespace runs) as textual change.
 
 ### R8 - Documentation and discoverability
 

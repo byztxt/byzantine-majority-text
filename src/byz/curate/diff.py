@@ -1,6 +1,14 @@
-"""Successive edition diffs."""
+"""Successive edition diffs.
+
+Each pair produces a Unicode-first report, a machine-readable CSV, and three
+diff-style views: the Beta-code source tier, the exact Unicode main text for
+the source-differing verses, and the full normalised Unicode main text.
+"""
 
 import csv
+import difflib
+import re
+import textwrap
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -15,6 +23,42 @@ PAIRS = [
     ("rp2018", "rp2018-2023"),
     ("rp2005", "rp2018"),
 ]
+
+# Word-diff tokens are either a run of non-whitespace (a word, with any
+# attached punctuation) or a run of whitespace.  Keeping whitespace as tokens
+# lets us detect pure-whitespace edits and leave them unmarked.
+TOKEN_RE = re.compile(r"\S+|\s+")
+
+PARAGRAPH_MARKER = "\u00b6"
+APOSTROPHE_TABLE = str.maketrans({"\u2019": "'", "\u2018": "'"})
+
+CSV_FIELDS = [
+    "book",
+    "chapter",
+    "verse",
+    "category",
+    "source_word_diff",
+    "text_word_diff",
+    "source_left",
+    "source_right",
+    "text_left",
+    "text_right",
+    "text_changed",
+]
+
+# Shared with docs/EDITIONS.md so the explanation cannot drift.  The
+# source-tier comparison runs `normalize.normalize_spacing`, which rewrites
+# `\s*-\s*` to ` - `; the derived text keeps each artifact's raw dash spacing.
+DERIVED_ONLY_TEXT = (
+    "The source-tier comparison canonicalises dash spacing (`-` \u2194 ` - `), "
+    "so raw dash-spacing differences are invisible there but survive in the "
+    "derived text. All current derived-only cases are attached-vs-spaced dashes."
+)
+
+
+def derived_only_lines(width: int = 76) -> list:
+    """Wrapped lines for the derived-only explanation."""
+    return textwrap.wrap(DERIVED_ONLY_TEXT, width=width)
 
 
 def _load_official(edition_id: str) -> dict:
@@ -57,38 +101,254 @@ def load_source(edition_id: str) -> dict:
     return _load_current(edition_id)
 
 
+def load_text(edition_id: str) -> dict:
+    """Load the Unicode accented main text keyed by (book, chapter, verse)."""
+    directory = (
+        editions.edition_dir(edition_id) / "csv" / "accented" / "no-variants"
+    )
+    verses = {}
+    for path in sorted(directory.glob("*.csv")):
+        with path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                key = (path.stem, int(row["chapter"]), int(row["verse"]))
+                verses[key] = row["text"]
+    return verses
+
+
+def normalize_text(text: str) -> str:
+    """Comparison form of a Unicode verse.
+
+    Paragraph markers are removed, apostrophe typography is mapped to a
+    straight apostrophe, and whitespace runs are collapsed (not removed)
+    before the word diff is computed.  Dash spacing is preserved, so ` - `
+    and `-` still differ.  The exact text is kept separately in the CSV
+    `text_left`/`text_right` columns.
+    """
+    text = text.replace(PARAGRAPH_MARKER, "").translate(APOSTROPHE_TABLE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _boundaries(tokens: list) -> tuple:
+    """Split changed tokens into (leading whitespace, words, trailing space)."""
+    start, end = 0, len(tokens)
+    while start < end and not tokens[start].strip():
+        start += 1
+    while end > start and not tokens[end - 1].strip():
+        end -= 1
+    return (
+        "".join(tokens[:start]),
+        "".join(tokens[start:end]),
+        "".join(tokens[end:]),
+    )
+
+
+def word_diff(left: str, right: str) -> str:
+    """Return `left` with git `--word-diff` markers for changes to `right`.
+
+    The text is reconstructed with markers, with removed words wrapped in
+    `[-...-]` and added words in `{+...+}`.  Whitespace between changed words
+    stays inside the markers, but whitespace at change boundaries may be
+    normalised.  A change that is only whitespace is left unmarked.  Exact
+    text is in `changes.csv` (`*_left`/`*_right`).
+    """
+    left_tokens = TOKEN_RE.findall(left)
+    right_tokens = TOKEN_RE.findall(right)
+    matcher = difflib.SequenceMatcher(
+        None, left_tokens, right_tokens, autojunk=False
+    )
+    parts = []
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == "equal":
+            parts.append("".join(left_tokens[i1:i2]))
+            continue
+        old_prefix, old_words, old_suffix = _boundaries(left_tokens[i1:i2])
+        new_prefix, new_words, new_suffix = _boundaries(right_tokens[j1:j2])
+        if not old_words and not new_words:
+            # A pure-whitespace edit: show it, but do not pretend it is a word.
+            parts.append(
+                "".join(right_tokens[j1:j2]) or "".join(left_tokens[i1:i2])
+            )
+            continue
+        parts.append(new_prefix or old_prefix)
+        if old_words:
+            parts.append(f"[-{old_words}-]")
+        if new_words:
+            parts.append(f"{{+{new_words}+}}")
+        parts.append(new_suffix or old_suffix)
+    return "".join(parts)
+
+
+def _book_key(book: str) -> tuple:
+    try:
+        return (editions.BOOK_ORDER.index(book), book)
+    except ValueError:
+        return (len(editions.BOOK_ORDER), book)
+
+
+def _verse_key(row: dict) -> tuple:
+    return (_book_key(row["book"]), row["chapter"], row["verse"])
+
+
+def _source_rows(left: dict, right: dict) -> list:
+    rows = []
+    for abbr in set(left) | set(right):
+        metrics = compare.compare_maps(left.get(abbr, {}), right.get(abbr, {}))
+        for difference in metrics["differences"]:
+            rows.append(
+                {
+                    "book": abbr,
+                    "chapter": difference["chapter"],
+                    "verse": difference["verse"],
+                    "category": difference["category"],
+                    "source_left": difference["current"],
+                    "source_right": difference["official"],
+                }
+            )
+    rows.sort(key=_verse_key)
+    return rows
+
+
+def _add_text(rows: list, left_text: dict, right_text: dict) -> None:
+    """Add the derived-text view and word diffs to each source-tier row."""
+    for row in rows:
+        key = (row["book"], row["chapter"], row["verse"])
+        text_left = left_text.get(key, "")
+        text_right = right_text.get(key, "")
+        row["text_left"] = text_left
+        row["text_right"] = text_right
+        row["source_word_diff"] = word_diff(
+            row["source_left"], row["source_right"]
+        )
+        # The readable Text view is the normalised form, so paragraph markers
+        # and apostrophe/whitespace conventions cannot masquerade as changes.
+        row["text_word_diff"] = word_diff(
+            normalize_text(text_left), normalize_text(text_right)
+        )
+        row["text_changed"] = (
+            "true"
+            if normalize_text(text_left) != normalize_text(text_right)
+            else "false"
+        )
+
+
+def _derived_rows(left_text: dict, right_text: dict, categories: dict) -> list:
+    """Every verse whose normalised Unicode main text differs."""
+    rows = []
+    for key in set(left_text) | set(right_text):
+        text_left = left_text.get(key, "")
+        text_right = right_text.get(key, "")
+        if normalize_text(text_left) == normalize_text(text_right):
+            continue
+        rows.append(
+            {
+                "book": key[0],
+                "chapter": key[1],
+                "verse": key[2],
+                "category": categories.get(key, ""),
+                "left": text_left,
+                "right": text_right,
+            }
+        )
+    rows.sort(key=_verse_key)
+    return rows
+
+
 def _write_changes(path: Path, rows: list) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=[
-                "book",
-                "chapter",
-                "verse",
-                "category",
-                "left_text",
-                "right_text",
-            ],
+            fieldnames=CSV_FIELDS,
             lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(rows)
 
 
-def _report(left_id: str, right_id: str, rows: list, path: Path) -> None:
+def _verse_diff(
+    path: Path,
+    left_id: str,
+    right_id: str,
+    tier: str,
+    label: str,
+    entries: list,
+    preamble: tuple = (),
+) -> None:
+    """Write a diff-style file with one `@@ BOOK C:V @@` hunk per verse."""
+    lines = list(preamble)
+    lines.append(f"--- {left_id}/{tier} ({label})")
+    lines.append(f"+++ {right_id}/{tier} ({label})")
+    for entry in entries:
+        category = f" [{entry['category']}]" if entry.get("category") else ""
+        lines.append(
+            f"@@ {entry['book']} {entry['chapter']}:{entry['verse']}"
+            f"{category} @@"
+        )
+        lines.append(f"-{entry['left']}")
+        lines.append(f"+{entry['right']}")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _code_block(lines: list, text: str) -> None:
+    lines.append("```")
+    lines.append(text)
+    lines.append("```")
+
+
+def _report(
+    left_id: str,
+    right_id: str,
+    rows: list,
+    derived: list,
+    path: Path,
+) -> None:
     left = editions.metadata(left_id)
     right = editions.metadata(right_id)
     categories = Counter(row["category"] for row in rows)
     books = Counter(row["book"] for row in rows)
+    apparatus_only = sum(1 for row in rows if row["text_changed"] == "false")
+    source_keys = {
+        (row["book"], row["chapter"], row["verse"]) for row in rows
+    }
+    derived_only = [
+        row
+        for row in derived
+        if (row["book"], row["chapter"], row["verse"]) not in source_keys
+    ]
+
     lines = [
         f"# Diff: {left_id} -> {right_id}",
         "",
         f"- **Left:** `{left_id}` ({left['status']}; {left['basis']})",
         f"- **Right:** `{right_id}` ({right['status']}; {right['basis']})",
-        f"- **Differing verses:** {len(rows)}",
+        f"- **Source-tier differing verses:** {len(rows)}",
+        f"- **Derived-text differing verses (normalised):** {len(derived)}",
+        "- **Apparatus-only changes (source differs, main text identical):** "
+        f"{apparatus_only}",
+        "- **Derived-only differences (text differs, source-tier comparison "
+        f"unchanged):** {len(derived_only)}",
         "",
-        "## Categories",
+        "## Notation",
+        "",
+        "- **Text** is the Unicode accented main text from",
+        f"  `editions/{left_id}/csv/accented/no-variants/` and",
+        f"  `editions/{right_id}/csv/accented/no-variants/`.",
+        "- **Source** is the edition's Beta-code source tier (official `.CCT`,",
+        "  historical `textonly-beta-code`, or current `source/CCAT`).",
+        "- `[-removed-]{+added+}` marks a word-level change, in the style of",
+        "  `git diff --word-diff`. Text outside the markers is unchanged",
+        "  context. Beta-code apparatus braces (`{N ... }`) are part of the",
+        "  source text and can appear next to or inside the markers.",
+        "- The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`; a",
+        "  literal `-` or `>` next to a delimiter is part of the text (for",
+        "  example, a dash-spacing change can render as",
+        "  `[-εἶπεν --]{+εἶπεν-+}`).",
+        "- Text comparison ignores paragraph markers (`\u00b6`) and normalises",
+        "  apostrophe typography (`\u2019`/`\u2018` -> `'`) and whitespace; the",
+        "  word-diff shown omits those conventions. The exact text is in",
+        "  `changes.csv` (`text_left`/`text_right`).",
+        "",
+        "## Categories (source tier)",
         "",
         "| Category | Count |",
         "| --- | ---: |",
@@ -98,52 +358,272 @@ def _report(left_id: str, right_id: str, rows: list, path: Path) -> None:
     lines.extend(
         [
             "",
-            "## Books",
+            "## Books (source tier)",
             "",
             "| Book | Differing verses |",
             "| --- | ---: |",
         ]
     )
-    for book, count in sorted(books.items()):
-        lines.append(f"| `{book}` | {count} |")
-    lines.extend(["", "## Examples", ""])
-    for category in sorted(categories):
-        examples = [row for row in rows if row["category"] == category][:3]
-        lines.append(f"### {category}")
+    for book in sorted(books, key=_book_key):
+        lines.append(f"| `{book}` | {books[book]} |")
+
+    main_text = [row for row in rows if row["text_changed"] == "true"]
+    apparatus = [row for row in rows if row["text_changed"] == "false"]
+
+    lines.extend(["", "## Main-text changes", ""])
+    if not main_text:
+        lines.extend(["None.", ""])
+    for row in main_text:
+        lines.append(
+            f"### {row['book']} {row['chapter']}:{row['verse']} "
+            f"\u00b7 `{row['category']}`"
+        )
         lines.append("")
-        for row in examples:
-            lines.append(
-                f"- `{row['book']} {row['chapter']}:{row['verse']}`"
+        lines.append("Text:")
+        lines.append("")
+        _code_block(lines, row["text_word_diff"])
+        lines.extend(["", "Source (Beta code):", ""])
+        _code_block(lines, row["source_word_diff"])
+        lines.append("")
+
+    lines.extend(["## Apparatus-only changes", ""])
+    if not apparatus:
+        lines.extend(
+            [
+                "None: every source-tier difference also changes the "
+                "normalised main text.",
+                "",
+            ]
+        )
+    for row in apparatus:
+        note = ""
+        if row["text_left"] != row["text_right"]:
+            note = (
+                " \u2014 formatting-only (normalised text identical; "
+                "see `text.diff`)"
             )
-            lines.append(f"  - left: `{row['left_text'][:160]}`")
-            lines.append(f"  - right: `{row['right_text'][:160]}`")
+        lines.append(
+            f"- `{row['book']} {row['chapter']}:{row['verse']}` \u00b7 "
+            f"`{row['category']}`{note}: `{row['source_word_diff']}`"
+        )
+    if apparatus:
         lines.append("")
+
+    lines.extend(["## Derived-only differences", ""])
+    if not derived_only:
+        lines.extend(
+            [
+                "None: every derived-text difference is also a source-tier",
+                "difference.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(derived_only_lines())
+        lines.extend(
+            [
+                "",
+                "They are listed in full in `derived.diff`.",
+                "",
+            ]
+        )
+        grouped = defaultdict(list)
+        for row in derived_only:
+            grouped[row["book"]].append(f"{row['chapter']}:{row['verse']}")
+        for book in sorted(grouped, key=_book_key):
+            lines.append(f"- `{book}`: {', '.join(grouped[book])}")
+        lines.append("")
+
     path.write_text("\n".join(lines), encoding="utf-8")
+
+
+README_TEXT = """\
+# Successive edition diffs
+
+These directories are generated by `scripts/diff_editions.py`
+(`src/byz/curate/diff.py`). Do not edit them by hand; rerun the script after a
+source or converter change.
+
+Each `<left>--<right>/` directory compares two curated editions:
+
+| Directory | Comparison |
+| --- | --- |
+| `rp2005--rp2005-2019` | official 2005 -> released 2005+2019 |
+| `rp2005-2019--rp2018` | released 2005+2019 -> official 2018 |
+| `rp2018--rp2018-2023` | official 2018 -> released 2018+2023 |
+| `rp2005--rp2018` | official 2005 -> official 2018 |
+
+## Files
+
+- `report.md` - Unicode-first human-readable report. `Main-text changes` lists
+  the verses whose normalised Unicode text changes, with the Text word diff
+  first and the Beta-code Source second. `Apparatus-only changes` compacts the
+  remaining source-tier differences into one line per verse. The Text diff is
+  normalised: paragraph markers, apostrophe typography, and whitespace are
+  omitted.
+- `changes.csv` - one row per source-tier difference, with the category, both
+  word diffs, the full left/right source and exact text, and a `text_changed`
+  flag. `text_word_diff` is normalised; `text_left`/`text_right` are exact.
+- `source.diff` - diff-style, one hunk per differing verse, for the Beta-code
+  source tier.
+- `text.diff` - diff-style, one hunk per verse, for the exact Unicode accented
+  main text. It includes every source-differing verse whose exact text differs,
+  including formatting-only changes such as a `\u00b6` edit. Paragraph markers
+  and apostrophes are shown as stored.
+- `derived.diff` - the full normalised Unicode-main-text diff for every
+  differing verse, not only the source-differing ones.
+
+The `.diff` files are diff-style (`@@ BOOK CHAPTER:VERSE [category] @@`),
+not patchable unified diffs: they have no line ranges.
+
+## Source and text
+
+**Source** is the edition's Beta-code source tier: the official `.CCT` archive
+for `rp2005`/`rp2018`, the recovered historical `textonly-beta-code` for
+`rp2005-2019`, and the current `source/CCAT` for `rp2018-2023`.
+
+**Text** is the derived Unicode accented main text in
+`editions/<id>/csv/accented/no-variants/`.
+
+## Notation
+
+- `[-removed-]{+added+}` wraps changed words; unchanged text is context. The
+  markers come from `difflib.SequenceMatcher` over words and whitespace.
+  Beta-code apparatus braces (`{N ... }`) are part of the source text and can
+  appear next to or inside the markers.
+- The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`; a
+  literal `-` or `>` next to a delimiter is part of the text (for example, a
+  dash-spacing change can render as `[-εἶπεν --]{+εἶπεν-+}`).
+- The Text word diff is normalised: `\u00b6` is removed, `\u2019`/`\u2018`
+  become `'`, and whitespace is collapsed (not removed). The exact text is in
+  `changes.csv.text_left`/`text_right` and in `text.diff`.
+- `@@ BOOK CHAPTER:VERSE [category] @@` opens a verse hunk. The category is
+  the source-tier classification and is omitted in `derived.diff` when the
+  verse is not a source-tier difference.
+
+## The `derived.diff` caveat
+
+`derived.diff` compares the normalised main text after removing paragraph
+markers (`\u00b6`), mapping curly apostrophes (`\u2019`/`\u2018`) to `'`, and
+collapsing whitespace.
+
+__DERIVED_ONLY_NOTE__
+
+Use `report.md`, `changes.csv`, `source.diff`, and `text.diff` for edition
+changes; use `derived.diff` to audit everything a reader of the Unicode text
+would see.
+
+## Blank verses
+
+LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are empty rows in the
+official/current editions and absent in `rp2005-2019`. The source-tier
+comparison ignores row presence, so these four verses are out of scope for
+these diffs.
+"""
+
+README_TEXT = README_TEXT.replace(
+    "__DERIVED_ONLY_NOTE__", textwrap.fill(DERIVED_ONLY_TEXT, width=79)
+)
+
+
+def write_readme(path=None) -> Path:
+    """Write `reports/diffs/README.md` from the same module as the diffs."""
+    if path is None:
+        path = editions.DIFFS_DIR / "README.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(README_TEXT, encoding="utf-8")
+    return path
 
 
 def diff_pair(left_id: str, right_id: str) -> Path:
     left = load_source(left_id)
     right = load_source(right_id)
-    rows = []
-    for abbr in sorted(set(left) | set(right)):
-        metrics = compare.compare_maps(left.get(abbr, {}), right.get(abbr, {}))
-        for difference in metrics["differences"]:
-            rows.append(
-                {
-                    "book": abbr,
-                    "chapter": difference["chapter"],
-                    "verse": difference["verse"],
-                    "category": difference["category"],
-                    "left_text": difference["current"],
-                    "right_text": difference["official"],
-                }
-            )
-    rows.sort(key=lambda row: (row["book"], row["chapter"], row["verse"]))
+    rows = _source_rows(left, right)
+    left_text = load_text(left_id)
+    right_text = load_text(right_id)
+    _add_text(rows, left_text, right_text)
+    categories = {
+        (row["book"], row["chapter"], row["verse"]): row["category"]
+        for row in rows
+    }
+    derived = _derived_rows(left_text, right_text, categories)
+
     out = editions.DIFFS_DIR / f"{left_id}--{right_id}"
+    out.mkdir(parents=True, exist_ok=True)
     _write_changes(out / "changes.csv", rows)
-    _report(left_id, right_id, rows, out / "report.md")
+
+    _verse_diff(
+        out / "source.diff",
+        left_id,
+        right_id,
+        "source",
+        "Beta code",
+        [
+            {
+                "book": row["book"],
+                "chapter": row["chapter"],
+                "verse": row["verse"],
+                "category": row["category"],
+                "left": row["source_left"],
+                "right": row["source_right"],
+            }
+            for row in rows
+        ],
+    )
+    _verse_diff(
+        out / "text.diff",
+        left_id,
+        right_id,
+        "text",
+        "exact Unicode accented main text",
+        [
+            {
+                "book": row["book"],
+                "chapter": row["chapter"],
+                "verse": row["verse"],
+                "category": row["category"],
+                "left": row["text_left"],
+                "right": row["text_right"],
+            }
+            for row in rows
+            if row["text_left"] != row["text_right"]
+        ],
+        preamble=(
+            "# Exact derived artifact text from csv/accented/no-variants, for",
+            "# every source-differing verse whose exact text differs (including",
+            "# formatting-only changes). Paragraph markers (\u00b6) and",
+            "# apostrophe typography are shown as stored.",
+            "# derived.diff is the normalised full view.",
+        ),
+    )
+    _verse_diff(
+        out / "derived.diff",
+        left_id,
+        right_id,
+        "text",
+        "Unicode accented main text",
+        derived,
+        preamble=(
+            "# Full normalised diff of the Unicode accented main text",
+            "# (csv/accented/no-variants), for every differing verse.",
+            "# Compared after removing paragraph markers (\u00b6), normalising "
+            "apostrophe typography (\u2019/\u2018 -> ')",
+            "# and collapsing whitespace runs; the text shown is exact.",
+            "# The source-tier comparison canonicalises dash spacing "
+            "(`-` \u2194 ` - `),",
+            "# so attached-vs-spaced dashes appear here but not in the "
+            "source tier.",
+            "# Includes typographic/converter-generation differences, not only "
+            "edition changes.",
+            "# Use report.md, changes.csv, source.diff, and text.diff for "
+            "source-tier changes.",
+        ),
+    )
+    _report(left_id, right_id, rows, derived, out / "report.md")
     return out
 
 
 def diff_all() -> list:
-    return [diff_pair(left, right) for left, right in PAIRS]
+    paths = [diff_pair(left, right) for left, right in PAIRS]
+    write_readme()
+    return paths

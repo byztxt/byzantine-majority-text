@@ -128,7 +128,9 @@ class CommittedReportTests(unittest.TestCase):
     def test_successive_diff_counts_are_stable(self):
         for name, count in EXPECTED_DIFF_COUNTS.items():
             report = (DIFFS / name / "report.md").read_text(encoding="utf-8")
-            self.assertIn(f"**Differing verses:** {count}", report, name)
+            self.assertIn(
+                f"**Source-tier differing verses:** {count}", report, name
+            )
 
 
 if __name__ == "__main__":

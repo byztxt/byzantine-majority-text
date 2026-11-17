@@ -1,0 +1,19 @@
+# Full normalised diff of the Unicode accented main text
+# (csv/accented/no-variants), for every differing verse.
+# Compared after removing paragraph markers (¶), normalising apostrophe typography (’/‘ -> ')
+# and collapsing whitespace runs; the text shown is exact.
+# The source-tier comparison canonicalises dash spacing (`-` ↔ ` - `),
+# so attached-vs-spaced dashes appear here but not in the source tier.
+# Includes typographic/converter-generation differences, not only edition changes.
+# Use report.md, changes.csv, source.diff, and text.diff for source-tier changes.
+--- rp2005-2019/text (Unicode accented main text)
++++ rp2018/text (Unicode accented main text)
+@@ MAT 1:18 [letters] @@
+-Τοῦ δὲ Ἰησοῦ χριστοῦ ἡ γέννησις οὕτως ἦν. Μνηστευθείσης γὰρ τῆς μητρὸς αὐτοῦ Μαρίας τῷ Ἰωσήφ, πρὶν ἢ συνελθεῖν αὐτούς, εὑρέθη ἐν γαστρὶ ἔχουσα ἐκ πνεύματος ἁγίου.
++¶Τοῦ δὲ Ἰησοῦ χριστοῦ ἡ γέννησις οὕτως ἦν· μνηστευθείσης γὰρ τῆς μητρὸς αὐτοῦ Μαρίας τῷ Ἰωσήφ, πρὶν ἢ συνελθεῖν αὐτούς, εὑρέθη ἐν γαστρὶ ἔχουσα ἐκ πνεύματος ἁγίου.
+@@ ACT 28:2 [accents-breathings] @@
+-Οἱ δὲ βάρβαροι παρεῖχον οὐ τὴν τυχοῦσαν φιλανθρωπίαν ἡμῖν· ἀνάψαντες γὰρ πυράν, προσελάβοντο πάντας ἡμᾶς, διὰ τὸν ὑετὸν τὸν ἐφεστῶτα, καὶ διὰ τὸ ψύχος.
++Οἱ δὲ βάρβαροι παρεῖχον οὐ τὴν τυχοῦσαν φιλανθρωπίαν ἡμῖν· ἀνάψαντες γὰρ πυράν, προσελάβοντο πάντας ἡμᾶς, διὰ τὸν ὑετὸν τὸν ἐφεστῶτα, καὶ διὰ τὸ ψῦχος.
+@@ REV 11:15 [punctuation] @@
+-Καὶ ὁ ἕβδομος ἄγγελος ἐσάλπισεν, καὶ ἐγένοντο φωναὶ μεγάλαι ἐν τῷ οὐρανῷ, λέγουσαι, Ἐγένετο ἡ βασιλεία τοῦ κόσμου, τοῦ κυρίου ἡμῶν, καὶ τοῦ χριστοῦ αὐτοῦ, καὶ βασιλεύσει εἰς τοὺς αἰῶνας τῶν αἰώνων.
++¶Καὶ ὁ ἕβδομος ἄγγελος ἐσάλπισεν, καὶ ἐγένοντο φωναὶ μεγάλαι ἐν τῷ οὐρανῷ, λέγουσαι, Ἐγένετο ἡ βασιλεία τοῦ κόσμου τοῦ κυρίου ἡμῶν καὶ τοῦ χριστοῦ αὐτοῦ, καὶ βασιλεύσει εἰς τοὺς αἰῶνας τῶν αἰώνων.

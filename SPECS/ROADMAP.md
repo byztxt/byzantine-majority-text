@@ -135,8 +135,11 @@ successive-edition diffs.
 - Official PDFs committed under `data/raw/<edition>/official-pdf/` and recorded
   in `data/provenance/pdfs.toml`; the PDFs are the ultimate source of truth.
 - Successive diffs: `rp2005--rp2005-2019`, `rp2005-2019--rp2018`,
-  `rp2018--rp2018-2023`, and `rp2005--rp2018`, each with `report.md` and
-  `changes.csv`.
+  `rp2018--rp2018-2023`, and `rp2005--rp2018`, each with a Unicode-first
+  `report.md`, a machine-readable `changes.csv`, and diff-style `source.diff`,
+  `text.diff`, and `derived.diff` views (one hunk per verse, not patchable
+  unified diffs). Diffs are word-level for both the Beta-code source tier and
+  the derived Unicode accented main text.
 - `docs/EDITIONS.md`, root README "Editions" section, per-edition READMEs, and
   updated script/folder READMEs.
 - Recovery, build, and diff scripts under `scripts/`, with tests.
@@ -149,7 +152,9 @@ successive-edition diffs.
 - Release numbers are recorded: `rp2005-2019` = `v1.0.0`-`v2.0.3`;
   `rp2018-2023` = `v3.0.0`-`v3.3.4` (and future tags).
 - Every edition has deterministic CSV/TEI and a manifest with hashes.
-- Successive diffs are categorized and deterministic.
+- Successive diffs are word-level, categorized, and deterministic for both the
+  Beta-code source tier and the derived Unicode text, with apparatus-only
+  changes distinguished.
 - The authoritative files under `source/`, `csv-unicode/`,
   `tei-xml-unicode/`, and `essay/` are unchanged. `data/raw/` is additive: this
   cycle commits the official PDFs and the extracted archive inputs under
