@@ -33,4 +33,4 @@ official codes (`MT`, `MR`, ...).
 
 ## Notes
 
-
+The source and every recovered artifact are byte-identical to git tag `v2.0.3`. That release predates the intentional blank verses, so it omits LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 entirely: the unaccented CSV has 7953 rows instead of 7957 and the TEI has no empty `<ab/>` for them. The rows are deliberately **not** added here, because the historical artifacts must stay byte-identical. The other three curated editions preserve those verses as empty rows and empty `<ab/>` elements.

@@ -1975,7 +1975,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πάντων</w>
 						<w>ἐμέρισεν</w>
 						<w>Ἀβραάμ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>πρῶτον</w>
 						<w>μὲν</w>
 						<w>ἑρμηνευόμενος</w>
@@ -2008,7 +2008,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υἱῷ</w>
 						<w>τοῦ</w>
 						<w>θεοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>μένει</w>
 						<w>ἱερεὺς</w>
 						<w>εἰς</w>
@@ -2144,14 +2144,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Λευϊτικῆς</w>
 						<w>ἱερωσύνης</w>
 						<w>ἦν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>λαὸς</w>
 						<w>γὰρ</w>
 						<w>ἐπ'</w>
 						<w>αὐτῇ</w>
 						<w>νενομοθέτητο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τίς</w>
 						<w>ἔτι</w>
 						<w>χρεία,</w>
@@ -2297,7 +2297,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐ</w>
 						<w>χωρὶς</w>
 						<w>ὁρκωμοσίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οἱ</w>
 						<w>μὲν</w>
 						<w>γὰρ</w>
@@ -2331,7 +2331,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὴν</w>
 						<w>τάξιν</w>
 						<w>Μελχισεδέκ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K7V22">
 						<w>κατὰ</w>
@@ -3444,14 +3444,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἶπον,</w>
 						<w>Ἰδού,</w>
 						<w>ἥκω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>κεφαλίδι</w>
 						<w>βιβλίου</w>
 						<w>γέγραπται</w>
 						<w>περὶ</w>
 						<w>ἐμοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τοῦ</w>
 						<w>ποιῆσαι,</w>
 						<w>ὁ</w>
@@ -3476,13 +3476,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἠθέλησας,</w>
 						<w>οὐδὲ</w>
 						<w>εὐδόκησας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>αἵτινες</w>
 						<w>κατὰ</w>
 						<w>τὸν</w>
 						<w>νόμον</w>
 						<w>προσφέρονται</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K10V9">
 						<w>τότε</w>
@@ -4657,7 +4657,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑστερούμενοι,</w>
 						<w>θλιβόμενοι,</w>
 						<w>κακουχούμενοι</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K11V38">
 						<w>ὧν</w>
@@ -4666,7 +4666,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄξιος</w>
 						<w>ὁ</w>
 						<w>κόσμος</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>ἐρημίαις</w>
 						<w>πλανώμενοι</w>

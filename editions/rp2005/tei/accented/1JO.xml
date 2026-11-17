@@ -138,7 +138,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πεπληρωμένη.</w>
 					</ab>
 					<ab n="B23K1V5">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔστιν</w>
 						<w>αὕτη</w>
 						<w>ἡ</w>
@@ -392,7 +393,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>περιπατεῖν.</w>
 					</ab>
 					<ab n="B23K2V7">
-						<w>¶Ἀδελφοί,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀδελφοί,</w>
 						<w>οὐκ</w>
 						<w>ἐντολὴν</w>
 						<w>καινὴν</w>
@@ -509,7 +511,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B23K2V12">
-						<w>¶Γράφω</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Γράφω</w>
 						<w>ὑμῖν,</w>
 						<w>τεκνία,</w>
 						<w>ὅτι</w>
@@ -652,7 +655,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αἰῶνα.</w>
 					</ab>
 					<ab n="B23K2V18">
-						<w>¶Παιδία,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Παιδία,</w>
 						<w>ἐσχάτη</w>
 						<w>ὥρα</w>
 						<w>ἐστίν·</w>
@@ -1182,7 +1186,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δίκαια.</w>
 					</ab>
 					<ab n="B23K3V13">
-						<w>¶Μὴ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Μὴ</w>
 						<w>θαυμάζετε,</w>
 						<w>ἀδελφοί</w>
 						<w>μου,</w>
@@ -1591,7 +1596,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πλάνης.</w>
 					</ab>
 					<ab n="B23K4V7">
-						<w>¶Ἀγαπητοί,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀγαπητοί,</w>
 						<w>ἀγαπῶμεν</w>
 						<w>ἀλλήλους·</w>
 						<w>ὅτι</w>
@@ -2210,7 +2216,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔχει.</w>
 					</ab>
 					<ab n="B23K5V13">
-						<w>¶Ταῦτα</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ταῦτα</w>
 						<w>ἔγραψα</w>
 						<w>ὑμῖν</w>
 						<w>τοῖς</w>
@@ -2326,7 +2333,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θάνατον.</w>
 					</ab>
 					<ab n="B23K5V18">
-						<w>¶Οἴδαμεν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Οἴδαμεν</w>
 						<w>ὅτι</w>
 						<w>πᾶς</w>
 						<w>ὁ</w>

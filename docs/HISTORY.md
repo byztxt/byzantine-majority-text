@@ -4,7 +4,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts
+`6c46590` (2026-11-16) Add curated editions, manifests, docs, and successive diffs
 
 ## Tags
 
@@ -46,7 +46,7 @@ and `parsed` tree at `v2.0.3` (commit
 | `source/Strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `b7485a3` (2026-11-11) Fix morphology tags per Dr. Robinson (issue #43, partial) |
 | `csv-unicode/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
 | `csv-unicode/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
-| `tei-xml-unicode` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
+| `tei-xml-unicode` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `6c46590` (2026-11-16) Add curated editions, manifests, docs, and successive diffs |
 | `essay` | `e8e5189` (2023-09-03) Add Robinson's Case for Byz Priority essay | `d84f8e7` (2023-09-06) Update README |
 
 ## June-September 2023 commits touching the corpus

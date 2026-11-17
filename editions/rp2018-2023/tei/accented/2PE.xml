@@ -269,7 +269,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χριστοῦ.</w>
 					</ab>
 					<ab n="B22K1V12">
-						<w>¶Διὸ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Διὸ</w>
 						<w>οὐκ</w>
 						<w>ἀμελήσω</w>
 						<w>ἀεὶ</w>
@@ -1030,7 +1031,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀνθρώπων.</w>
 					</ab>
 					<ab n="B22K3V8">
-						<w>¶Ἓν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἓν</w>
 						<w>δὲ</w>
 						<w>τοῦτο</w>
 						<w>μὴ</w>
@@ -1159,7 +1161,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κατοικεῖ.</w>
 					</ab>
 					<ab n="B22K3V14">
-						<w>¶Διό,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Διό,</w>
 						<w>ἀγαπητοί,</w>
 						<w>ταῦτα</w>
 						<w>προσδοκῶντες,</w>

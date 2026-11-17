@@ -1045,11 +1045,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>γῆς</w>
 						<w>ἁμαρτίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>λέγει</w>
 						<w>τῷ</w>
 						<w>παραλυτικῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B02K2V11">
 						<w>Σοὶ</w>
@@ -10121,11 +10121,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὅπου</w>
 						<w>οὐ</w>
 						<w>δεῖ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>ἀναγινώσκων</w>
 						<w>νοείτω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τότε</w>
 						<w>οἱ</w>
 						<w>ἐν</w>

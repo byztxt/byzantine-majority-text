@@ -73,7 +73,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πληθυνθείη.</w>
 					</ab>
 					<ab n="B26K1V3">
-						<w>¶Ἀγαπητοί,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀγαπητοί,</w>
 						<w>πᾶσαν</w>
 						<w>σπουδὴν</w>
 						<w>ποιούμενος</w>
@@ -130,7 +131,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀρνούμενοι.</w>
 					</ab>
 					<ab n="B26K1V5">
-						<w>¶Ὑπομνῆσαι</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὑπομνῆσαι</w>
 						<w>δὲ</w>
 						<w>ὑμᾶς</w>
 						<w>βούλομαι,</w>
@@ -403,7 +405,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χάριν.</w>
 					</ab>
 					<ab n="B26K1V17">
-						<w>¶Ὑμεῖς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὑμεῖς</w>
 						<w>δέ,</w>
 						<w>ἀγαπητοί,</w>
 						<w>μνήσθητε</w>
@@ -507,7 +510,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χιτῶνα.</w>
 					</ab>
 					<ab n="B26K1V24">
-						<w>¶Τῷ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Τῷ</w>
 						<w>δὲ</w>
 						<w>δυναμένῳ</w>
 						<w>φυλάξαι</w>

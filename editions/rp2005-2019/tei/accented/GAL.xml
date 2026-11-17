@@ -557,7 +557,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δοκούντων</w>
 						<w>εἶναί</w>
 						<w>τι</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁποῖοί</w>
 						<w>ποτε</w>
 						<w>ἦσαν</w>
@@ -569,7 +569,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀνθρώπου</w>
 						<w>οὐ</w>
 						<w>λαμβάνει</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐμοὶ</w>
 						<w>γὰρ</w>
 						<w>οἱ</w>
@@ -591,7 +591,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Πέτρος</w>
 						<w>τῆς</w>
 						<w>περιτομῆς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B09K2V8">
 						<w>ὁ</w>
@@ -608,7 +608,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἰς</w>
 						<w>τὰ</w>
 						<w>ἔθνη</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B09K2V9">
 						<w>καὶ</w>

@@ -2563,7 +2563,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῷ</w>
 						<w>ἀνδρὶ</w>
 						<w>καταλλαγήτω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἄνδρα</w>
 						<w>γυναῖκα</w>
@@ -7734,7 +7734,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δὲ</w>
 						<w>ὑμᾶς,</w>
 						<w>ἀδελφοί</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οἴδατε</w>
 						<w>τὴν</w>
 						<w>οἰκίαν</w>
@@ -7751,7 +7751,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἁγίοις</w>
 						<w>ἔταξαν</w>
 						<w>ἑαυτούς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B07K16V16">
 						<w>ἵνα</w>

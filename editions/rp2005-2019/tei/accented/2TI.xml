@@ -375,7 +375,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>με</w>
 						<w>καὶ</w>
 						<w>εὗρεν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B16K1V18">
 						<w>δῴη</w>
@@ -390,7 +390,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκείνῃ</w>
 						<w>τῇ</w>
 						<w>ἡμέρᾳ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ὅσα</w>
 						<w>ἐν</w>

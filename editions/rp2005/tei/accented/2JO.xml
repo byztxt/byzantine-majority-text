@@ -111,7 +111,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀγάπῃ.</w>
 					</ab>
 					<ab n="B24K1V4">
-						<w>¶Ἐχάρην</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἐχάρην</w>
 						<w>λίαν</w>
 						<w>ὅτι</w>
 						<w>εὕρηκα</w>
@@ -280,7 +281,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πονηροῖς.</w>
 					</ab>
 					<ab n="B24K1V12">
-						<w>¶Πολλὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Πολλὰ</w>
 						<w>ἔχων</w>
 						<w>ὑμῖν</w>
 						<w>γράφειν,</w>

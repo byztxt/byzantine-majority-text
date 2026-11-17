@@ -74,7 +74,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χριστοῦ.</w>
 					</ab>
 					<ab n="B13K1V2">
-						<w>¶Εὐχαριστοῦμεν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Εὐχαριστοῦμεν</w>
 						<w>τῷ</w>
 						<w>θεῷ</w>
 						<w>πάντοτε</w>
@@ -527,7 +528,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δόξαν.</w>
 					</ab>
 					<ab n="B13K2V13">
-						<w>¶Διὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Διὰ</w>
 						<w>τοῦτο</w>
 						<w>καὶ</w>
 						<w>ἡμεῖς</w>
@@ -644,7 +646,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τέλος.</w>
 					</ab>
 					<ab n="B13K2V17">
-						<w>¶Ἡμεῖς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἡμεῖς</w>
 						<w>δέ,</w>
 						<w>ἀδελφοί,</w>
 						<w>ἀπορφανισθέντες</w>
@@ -930,7 +933,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμῶν;</w>
 					</ab>
 					<ab n="B13K3V11">
-						<w>¶Αὐτὸς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Αὐτὸς</w>
 						<w>δὲ</w>
 						<w>ὁ</w>
 						<w>θεὸς</w>
@@ -1147,7 +1151,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμᾶς.</w>
 					</ab>
 					<ab n="B13K4V9">
-						<w>¶Περὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Περὶ</w>
 						<w>δὲ</w>
 						<w>τῆς</w>
 						<w>φιλαδελφίας</w>
@@ -1218,7 +1223,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔχητε.</w>
 					</ab>
 					<ab n="B13K4V13">
-						<w>¶Οὐ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Οὐ</w>
 						<w>θέλομεν</w>
 						<w>δὲ</w>
 						<w>ὑμᾶς</w>
@@ -1525,7 +1531,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ποιεῖτε.</w>
 					</ab>
 					<ab n="B13K5V12">
-						<w>¶Ἐρωτῶμεν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἐρωτῶμεν</w>
 						<w>δὲ</w>
 						<w>ὑμᾶς,</w>
 						<w>ἀδελφοί,</w>
@@ -1647,7 +1654,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπέχεσθε.</w>
 					</ab>
 					<ab n="B13K5V23">
-						<w>¶Αὐτὸς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Αὐτὸς</w>
 						<w>δὲ</w>
 						<w>ὁ</w>
 						<w>θεὸς</w>
@@ -1688,13 +1696,15 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ποιήσει.</w>
 					</ab>
 					<ab n="B13K5V25">
-						<w>¶Ἀδελφοί,</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀδελφοί,</w>
 						<w>προσεύχεσθε</w>
 						<w>περὶ</w>
 						<w>ἡμῶν.</w>
 					</ab>
 					<ab n="B13K5V26">
-						<w>¶Ἀσπάσασθε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀσπάσασθε</w>
 						<w>τοὺς</w>
 						<w>ἀδελφοὺς</w>
 						<w>πάντας</w>
@@ -1716,7 +1726,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀδελφοῖς.</w>
 					</ab>
 					<ab n="B13K5V28">
-						<w>¶Ἡ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἡ</w>
 						<w>χάρις</w>
 						<w>τοῦ</w>
 						<w>κυρίου</w>

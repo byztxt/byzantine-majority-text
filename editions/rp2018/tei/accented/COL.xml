@@ -81,7 +81,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χριστοῦ.</w>
 					</ab>
 					<ab n="B12K1V3">
-						<w>¶Εὐχαριστοῦμεν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Εὐχαριστοῦμεν</w>
 						<w>τῷ</w>
 						<w>θεῷ</w>
 						<w>καὶ</w>
@@ -197,7 +198,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πνεύματι.</w>
 					</ab>
 					<ab n="B12K1V9">
-						<w>¶Διὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Διὰ</w>
 						<w>τοῦτο</w>
 						<w>καὶ</w>
 						<w>ἡμεῖς,</w>
@@ -516,7 +518,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>διάκονος.</w>
 					</ab>
 					<ab n="B12K1V24">
-						<w>¶Νῦν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Νῦν</w>
 						<w>χαίρω</w>
 						<w>ἐν</w>
 						<w>τοῖς</w>
@@ -761,7 +764,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμῶν.</w>
 					</ab>
 					<ab n="B12K2V6">
-						<w>¶Ὡς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὡς</w>
 						<w>οὖν</w>
 						<w>παρελάβετε</w>
 						<w>τὸν</w>
@@ -793,7 +797,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εὐχαριστίᾳ.</w>
 					</ab>
 					<ab n="B12K2V8">
-						<w>¶Βλέπετε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Βλέπετε</w>
 						<w>μή</w>
 						<w>τις</w>
 						<w>ὑμᾶς</w>
@@ -957,7 +962,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτῷ.</w>
 					</ab>
 					<ab n="B12K2V16">
-						<w>¶Μὴ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Μὴ</w>
 						<w>οὖν</w>
 						<w>τις</w>
 						<w>ὑμᾶς</w>
@@ -1037,7 +1043,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεοῦ.</w>
 					</ab>
 					<ab n="B12K2V20">
-						<w>¶Εἰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Εἰ</w>
 						<w>ἀπεθάνετε</w>
 						<w>σὺν</w>
 						<w>χριστῷ,</w>
@@ -1069,7 +1076,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>φθορὰν</w>
 						<w>τῇ</w>
 						<w>ἀποχρήσει</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>κατὰ</w>
 						<w>τὰ</w>
 						<w>ἐντάλματα</w>
@@ -1165,7 +1172,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δόξῃ.</w>
 					</ab>
 					<ab n="B12K3V5">
-						<w>¶Νεκρώσατε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Νεκρώσατε</w>
 						<w>οὖν</w>
 						<w>τὰ</w>
 						<w>μέλη</w>
@@ -1282,7 +1290,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χριστός.</w>
 					</ab>
 					<ab n="B12K3V12">
-						<w>¶Ἐνδύσασθε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἐνδύσασθε</w>
 						<w>οὖν,</w>
 						<w>ὡς</w>
 						<w>ἐκλεκτοὶ</w>
@@ -1413,7 +1422,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B12K3V18">
-						<w>¶Αἱ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Αἱ</w>
 						<w>γυναῖκες,</w>
 						<w>ὑποτάσσεσθε</w>
 						<w>τοῖς</w>
@@ -1554,7 +1564,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐρανοῖς.</w>
 					</ab>
 					<ab n="B12K4V2">
-						<w>¶Τῇ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Τῇ</w>
 						<w>προσευχῇ</w>
 						<w>προσκαρτερεῖτε,</w>
 						<w>γρηγοροῦντες</w>
@@ -1625,7 +1636,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀποκρίνεσθαι.</w>
 					</ab>
 					<ab n="B12K4V7">
-						<w>¶Τὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Τὰ</w>
 						<w>κατ’</w>
 						<w>ἐμὲ</w>
 						<w>πάντα</w>
@@ -1681,7 +1693,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὧδε.</w>
 					</ab>
 					<ab n="B12K4V10">
-						<w>¶Ἀσπάζεται</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀσπάζεται</w>
 						<w>ὑμᾶς</w>
 						<w>Ἀρίσταρχος</w>
 						<w>ὁ</w>
@@ -1839,7 +1852,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πληροῖς.</w>
 					</ab>
 					<ab n="B12K4V18">
-						<w>¶Ὁ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὁ</w>
 						<w>ἀσπασμὸς</w>
 						<w>τῇ</w>
 						<w>ἐμῇ</w>

@@ -697,143 +697,143 @@
     },
     {
       "path": "tei/accented/1CO.xml",
-      "sha256": "8334d1b6a211f7fe19ebabf8162334ccbe23740560903df2f90b49651f8cd713",
-      "size": 189486
+      "sha256": "373c378d2874c876facb97ae7f76bb2061e4028ffeb763a045d95b4185fced93",
+      "size": 191131
     },
     {
       "path": "tei/accented/1JO.xml",
-      "sha256": "666a9143d8fe47559574a1e48c0f7b12dd252c0d564a26ed6b95b52950c36b27",
-      "size": 57926
+      "sha256": "5838e8ea46b91b12c4f56adcf4f19bcb075ea15e0e9800718bb9a549aebb3a45",
+      "size": 58302
     },
     {
       "path": "tei/accented/1PE.xml",
-      "sha256": "76637653a7091fe46ae87cc96e2a9f9cbe61b6c305c20203193f7b783acf0a3f",
-      "size": 50623
+      "sha256": "59dd2f10081e767d2a66659d38fb1cb06f7c66b5eb32c529f38e33577c0b7218",
+      "size": 51187
     },
     {
       "path": "tei/accented/1TH.xml",
-      "sha256": "4ec3d4b524e1ca6be5eaee531ceb014e4c4eb20e59e30661f9686a843b132dcc",
-      "size": 43305
+      "sha256": "34539ed7cbfa039e86dfb41382f6f16116f1cc86a3413f392230835f6e47a369",
+      "size": 43822
     },
     {
       "path": "tei/accented/1TI.xml",
-      "sha256": "1c04fd92c9ba7c3b4c7f69cfa4987962bafae156abaf4c3baefc7091c0655b21",
-      "size": 48801
+      "sha256": "e70796f755c24d06b1f80c751807a10fcad4ef03f1b0894ec24fbf84d44e3db0",
+      "size": 49365
     },
     {
       "path": "tei/accented/2CO.xml",
-      "sha256": "f9ac23c563a77c1bdbd5f7fef6e139bd00853f4768340c51848ee28575e67ae4",
-      "size": 125065
+      "sha256": "fdc86746cbf29cd6f3d49774d58ea05951dab96181000fc6b3659e7db2eb58e3",
+      "size": 126193
     },
     {
       "path": "tei/accented/2JO.xml",
-      "sha256": "c61952d55e658d08dc688df4e18dfce995e81b696cddbcfa3b066fa6de2b693c",
-      "size": 8842
+      "sha256": "792d291ecfbb1db2ad753cb2f37bd214a9d41122bfb6364d3e42c5958b8cd3ce",
+      "size": 8936
     },
     {
       "path": "tei/accented/2PE.xml",
-      "sha256": "bdb48e819cce9e8df3b6d0321532a2188437217330a24d1c43533cddc60ccbb2",
-      "size": 33320
+      "sha256": "e72c8a697a723c2fe65bed1e439c38117a32fa0c506450814eee392adf743002",
+      "size": 33461
     },
     {
       "path": "tei/accented/2TH.xml",
-      "sha256": "ad5f6adbfdd939ee1730245515361398465a2f82dd8e632b9208e8ffe8bc3fd8",
-      "size": 24837
+      "sha256": "bd45ea679ace69dbd6007388c3b4041b3d4203710644c6540b3ba3e3a9deb97e",
+      "size": 25119
     },
     {
       "path": "tei/accented/2TI.xml",
-      "sha256": "874862c3f622544e0c58c6edbde714ff79a8f3b96ca9a05389ba9ded33edd068",
-      "size": 37338
+      "sha256": "713e2a11086be4f9dd66ff552c9b889ee118844c96c1120b38cdcdeddba83549",
+      "size": 37620
     },
     {
       "path": "tei/accented/3JO.xml",
-      "sha256": "a296df2a138a37cb17ceda089282d44361d492404993512c14e1900823ca26bf",
-      "size": 8285
+      "sha256": "8627d899cee423f94e0cd066dc9c7900785c57497c551f4093e63c06464c32c8",
+      "size": 8473
     },
     {
       "path": "tei/accented/ACT.xml",
-      "sha256": "6df8dfc0f3f89fc427eadd493819bc8327669c1b1826f0789abb7cca1d1fb4f4",
-      "size": 514224
+      "sha256": "e0504660a4c4bfb554e94e3eeba97b728cef3a6170c8f380ef36ac80d33306b3",
+      "size": 519394
     },
     {
       "path": "tei/accented/BYZ/byz.xml",
-      "sha256": "659b7f57452142509519db13e4dd1f7e696bb2f59390489822c0e437907d46a9",
-      "size": 3797073
+      "sha256": "ce08cdfcbe2aab55654b6f329c2c0d6558b8e0fc6ed87fdf1dfff87aa4fa19f1",
+      "size": 3838997
     },
     {
       "path": "tei/accented/COL.xml",
-      "sha256": "4cb81c1572f82f8d649559f57ff10861e5b487c853f81c563ce32cf5d45f5c4d",
-      "size": 46159
+      "sha256": "339d3c7296c8a458024a8c5952d0a9e7a0aa1e6aa0e1d030cbea2dac59dc990a",
+      "size": 46817
     },
     {
       "path": "tei/accented/EPH.xml",
-      "sha256": "a478702a5690f41f192c975051adb4d4cf899594cdeeb7987255c5b2719b698f",
-      "size": 69371
+      "sha256": "1da2585997cd55cf70acfff111e0fb29a7ac6c2cdef9cc191bc508539c5b0fc6",
+      "size": 69982
     },
     {
       "path": "tei/accented/GAL.xml",
-      "sha256": "01b592a726961c341b22fdd55f517f7cc8fe31e3c935eb8096bfab2e61fd3a2d",
-      "size": 64140
+      "sha256": "1b948c35c5c862132e1d7c60023bbdc811b5b055fd753e6bf6947f077d27466f",
+      "size": 64939
     },
     {
       "path": "tei/accented/HEB.xml",
-      "sha256": "67340fd2cd83951f7efade4d130be6b37797c4e2ef58bfa772cc599df52fdd1f",
-      "size": 141707
+      "sha256": "a7085f011f239d658bc41ff8453de43239c10e0fc63287a1c2b84df575e4ff47",
+      "size": 142788
     },
     {
       "path": "tei/accented/JAM.xml",
-      "sha256": "8248947a1383281c11d1a1ddc153e2ca8567fb3732220ad043d4897556c3b658",
-      "size": 50613
+      "sha256": "46412f5ef79cd544016cec5143376a911ff600a95aa1aff971abd26f80eee7fb",
+      "size": 51224
     },
     {
       "path": "tei/accented/JOH.xml",
-      "sha256": "30434d5a1aefce45e5303a28c2d70cc2fe8843a5f6794df8f7a87e0e642c0c52",
-      "size": 420049
+      "sha256": "e59cde926b2d352d112e4043680106e755449d56226ccfda52b42e9a1bdbf123",
+      "size": 423574
     },
     {
       "path": "tei/accented/JUD.xml",
-      "sha256": "88d4882fb6f8508751c295c6b3cb6f00cb2ca2bb2c109f1ecb7dfb4329813511",
-      "size": 15028
+      "sha256": "beca3a3e5203d77b4368717368595731d9563300d1bcace2b114546a3346202b",
+      "size": 15216
     },
     {
       "path": "tei/accented/LUK.xml",
-      "sha256": "b312c624715807f4bdb9dd741a22f87c0f3194620445318c5c1719580aaa2668",
-      "size": 541003
+      "sha256": "affd8f01bface8f7eecf7a245f5eef11e7dca614605a3e14d02b1c28814b201e",
+      "size": 548006
     },
     {
       "path": "tei/accented/MAR.xml",
-      "sha256": "16433b1524f6b79b77d26b4e5f1f9e5b0f2bbf10191b28717a695ae45acc4ee5",
-      "size": 319108
+      "sha256": "e0e327a8820187d80641f9fb753c26d13ec81bc6e6a75d2f455dc66ebde85b9a",
+      "size": 323150
     },
     {
       "path": "tei/accented/MAT.xml",
-      "sha256": "fc946a9a5954746cd59331eb02d38621c156b3748661fcce0ec83a8511efe9e5",
-      "size": 509303
+      "sha256": "a5887ce17f8a0229747e171b36910a4abac3077cd2a2c91797231a4f597b5675",
+      "size": 515366
     },
     {
       "path": "tei/accented/PHM.xml",
-      "sha256": "6f4d1d7109dff9cc9fea512e308e274cd97b882dad16fdecaf0c05fee3c66b57",
-      "size": 11485
+      "sha256": "1ff9c445431e171e6c24d8dfbabf88d501827d2f07f2a6030339bee2c1ac843a",
+      "size": 11673
     },
     {
       "path": "tei/accented/PHP.xml",
-      "sha256": "68a28ba5be5b9cb7fbe3e0103cb75e6cad0a29e9178579afef7fffd269a3734b",
-      "size": 46939
+      "sha256": "256e92137ee4a6799e7c92fcc2ced09dfa5c36593fbd070a72f609fe70cae48c",
+      "size": 47456
     },
     {
       "path": "tei/accented/REV.xml",
-      "sha256": "97b7c31075e01de7b90cad037e9053904f4974c00f8aa55089a89b6b4599068f",
-      "size": 259389
+      "sha256": "a09651ad2a868b00d04a4f28bdede2bcc6eec5ffe160a7b83464d0a1e3eb8b0f",
+      "size": 263149
     },
     {
       "path": "tei/accented/ROM.xml",
-      "sha256": "4fd9403181950c0abe7f1b50333953c6e2ce06765b328af0ef6e8030a1b64a29",
-      "size": 196993
+      "sha256": "a4f4550bb8941978c1ced5237ffc219ff2ad23bf59e831e75254e855b796b550",
+      "size": 198638
     },
     {
       "path": "tei/accented/TIT.xml",
-      "sha256": "c2e1d9673358a1952d35adc6af5898438c8669a38eaffa49653988ecb4dce304",
-      "size": 21508
+      "sha256": "7dadd6ab41da29a2c419ccf983b7f00c5eff1e991d6944bf831995c83ec601c2",
+      "size": 21790
     },
     {
       "path": "tei/unaccented/1CO.xml",
@@ -984,7 +984,7 @@
   "pdf": "",
   "pdf_url": "",
   "release_range": "v3.0.0-v3.3.4",
-  "source_commit": "6c465909f286a46c229cf52a51c841819bd8389d",
+  "source_commit": "16859b22c07f7d52b573fd3eab4919b1d7ddcbc1",
   "source_files": [
     {
       "path": "source/CCAT/01_MAT.TXT",
@@ -1268,5 +1268,6 @@
     }
   ],
   "status": "released",
+  "strongs_commit": "b7485a3dc4ef2d0436be2b9c47a1e386ed27db0d",
   "title": "Robinson-Pierpont 2018 with 2023 adjustments (repo release)"
 }

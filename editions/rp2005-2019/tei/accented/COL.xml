@@ -1060,7 +1060,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γεύσῃ,</w>
 						<w>μηδὲ</w>
 						<w>θίγῃς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B12K2V22">
 						<w>ἅ</w>
@@ -1070,7 +1070,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>φθορὰν</w>
 						<w>τῇ</w>
 						<w>ἀποχρήσει</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>κατὰ</w>
 						<w>τὰ</w>
 						<w>ἐντάλματα</w>
@@ -1697,7 +1697,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὗ</w>
 						<w>ἐλάβετε</w>
 						<w>ἐντολάς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐὰν</w>
 						<w>ἔλθῃ</w>
 						<w>πρὸς</w>

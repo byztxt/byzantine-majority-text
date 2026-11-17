@@ -2561,7 +2561,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῷ</w>
 						<w>ἀνδρὶ</w>
 						<w>καταλλαγήτω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἄνδρα</w>
 						<w>γυναῖκα</w>
@@ -7732,7 +7732,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δὲ</w>
 						<w>ὑμᾶς,</w>
 						<w>ἀδελφοί</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οἴδατε</w>
 						<w>τὴν</w>
 						<w>οἰκίαν</w>
@@ -7749,7 +7749,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἁγίοις</w>
 						<w>ἔταξαν</w>
 						<w>ἑαυτούς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B07K16V16">
 						<w>ἵνα</w>
@@ -16379,11 +16379,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀλλὰ</w>
 						<w>ἀπὸ</w>
 						<w>μέρους</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>μὴ</w>
 						<w>ἐπιβαρῶ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>πάντας</w>
 						<w>ὑμᾶς.</w>
 					</ab>
@@ -17407,7 +17407,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπὸ</w>
 						<w>τοῦ</w>
 						<w>κυρίου</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K5V7">
 						<w>διὰ</w>
@@ -17417,7 +17417,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐ</w>
 						<w>διὰ</w>
 						<w>εἴδους</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K5V8">
 						<w>θαρροῦμεν</w>
@@ -17707,7 +17707,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεοῦ</w>
 						<w>δέξασθαι</w>
 						<w>ὑμᾶς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K6V2">
 						<w>λέγει</w>
@@ -17730,7 +17730,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>νῦν</w>
 						<w>ἡμέρα</w>
 						<w>σωτηρίας</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K6V3">
 						<w>μηδεμίαν</w>
@@ -17888,11 +17888,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δὲ</w>
 						<w>αὐτὴν</w>
 						<w>ἀντιμισθίαν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὡς</w>
 						<w>τέκνοις</w>
 						<w>λέγω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>πλατύνθητε</w>
 						<w>καὶ</w>
 						<w>ὑμεῖς.</w>
@@ -18906,12 +18906,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπαρασκευάστους,</w>
 						<w>καταισχυνθῶμεν</w>
 						<w>ἡμεῖς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>μὴ</w>
 						<w>λέγωμεν</w>
 						<w>ὑμεῖς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>τῇ</w>
 						<w>ὑποστάσει</w>
@@ -19206,7 +19206,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κατὰ</w>
 						<w>σάρκα</w>
 						<w>στρατευόμεθα</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K10V4">
 						<w>τὰ</w>
@@ -19224,7 +19224,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πρὸς</w>
 						<w>καθαίρεσιν</w>
 						<w>ὀχυρωμάτων</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K10V5">
 						<w>λογισμοὺς</w>
@@ -19299,7 +19299,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>ἐξουσίας</w>
 						<w>ἡμῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἧς</w>
 						<w>ἔδωκεν</w>
 						<w>ὁ</w>
@@ -19312,7 +19312,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἰς</w>
 						<w>καθαίρεσιν</w>
 						<w>ὑμῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οὐκ</w>
 						<w>αἰσχυνθήσομαι·</w>
 					</ab>
@@ -19873,11 +19873,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄν</w>
 						<w>τις</w>
 						<w>τολμᾷ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>ἀφροσύνῃ</w>
 						<w>λέγω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τολμῶ</w>
 						<w>κἀγώ.</w>
 					</ab>
@@ -19897,10 +19897,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Διάκονοι</w>
 						<w>χριστοῦ</w>
 						<w>εἰσιν;</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>παραφρονῶν</w>
 						<w>λαλῶ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Ὑπὲρ</w>
 						<w>ἐγώ.</w>
 						<w>Ἐν</w>
@@ -20099,7 +20099,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πρὸ</w>
 						<w>ἐτῶν</w>
 						<w>δεκατεσσάρων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>εἴτε</w>
 						<w>ἐν</w>
 						<w>σώματι</w>
@@ -20114,7 +20114,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὁ</w>
 						<w>θεὸς</w>
 						<w>οἶδεν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἁρπαγέντα</w>
 						<w>τὸν</w>
 						<w>τοιοῦτον</w>
@@ -20128,7 +20128,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὸν</w>
 						<w>τοιοῦτον</w>
 						<w>ἄνθρωπον</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>εἴτε</w>
 						<w>ἐν</w>
 						<w>σώματι,</w>
@@ -20141,7 +20141,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὁ</w>
 						<w>θεὸς</w>
 						<w>οἶδεν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B08K12V4">
 						<w>ὅτι</w>
@@ -23590,7 +23590,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>με</w>
 						<w>καὶ</w>
 						<w>εὗρεν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B16K1V18">
 						<w>δῴη</w>
@@ -23605,7 +23605,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκείνῃ</w>
 						<w>τῇ</w>
 						<w>ἡμέρᾳ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ὅσα</w>
 						<w>ἐν</w>
@@ -25266,7 +25266,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῶν</w>
 						<w>μαθητῶν</w>
 						<w>εἶπεν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἦν</w>
 						<w>τε</w>
 						<w>ὄχλος</w>
@@ -25277,7 +25277,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὡς</w>
 						<w>ἑκατὸν</w>
 						<w>εἴκοσι</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K1V16">
 						<w>Ἄνδρες</w>
@@ -25319,7 +25319,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>διακονίας</w>
 						<w>ταύτης</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K1V18">
 						<w>Οὗτος</w>
@@ -25365,7 +25365,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔστιν,</w>
 						<w>χωρίον</w>
 						<w>αἵματος</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K1V20">
 						<w>Γέγραπται</w>
@@ -27738,13 +27738,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπὸ</w>
 						<w>τῶν</w>
 						<w>ἀποστόλων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὅ</w>
 						<w>ἐστιν,</w>
 						<w>μεθερμηνευόμενον,</w>
 						<w>υἱὸς</w>
 						<w>παρακλήσεως</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Λευΐτης,</w>
 						<w>Κύπριος</w>
 						<w>τῷ</w>
@@ -28106,13 +28106,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οἱ</w>
 						<w>σὺν</w>
 						<w>αὐτῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἡ</w>
 						<w>οὖσα</w>
 						<w>αἵρεσις</w>
 						<w>τῶν</w>
 						<w>Σαδδουκαίων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐπλήσθησαν</w>
 						<w>ζήλου,</w>
 					</ab>
@@ -32554,12 +32554,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>διὰ</w>
 						<w>Ἰησοῦ</w>
 						<w>χριστοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οὗτός</w>
 						<w>ἐστιν</w>
 						<w>πάντων</w>
 						<w>κύριος</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K10V37">
 						<w>ὑμεῖς</w>
@@ -33450,14 +33450,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>συλλαβεῖν</w>
 						<w>καὶ</w>
 						<w>Πέτρον</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἦσαν</w>
 						<w>δὲ</w>
 						<w>αἱ</w>
 						<w>ἡμέραι</w>
 						<w>τῶν</w>
 						<w>ἀζύμων</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K12V4">
 						<w>ὃν</w>
@@ -34121,14 +34121,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἐλύμας,</w>
 						<w>ὁ</w>
 						<w>μάγος</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οὕτως</w>
 						<w>γὰρ</w>
 						<w>μεθερμηνεύεται</w>
 						<w>τὸ</w>
 						<w>ὄνομα</w>
 						<w>αὐτοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ζητῶν</w>
 						<w>διαστρέψαι</w>
 						<w>τὸν</w>
@@ -37598,7 +37598,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θέλοι</w>
 						<w>ταῦτα</w>
 						<w>εἶναι</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B05K17V21">
 						<w>Ἀθηναῖοι</w>
@@ -46705,7 +46705,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γεύσῃ,</w>
 						<w>μηδὲ</w>
 						<w>θίγῃς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B12K2V22">
 						<w>ἅ</w>
@@ -46715,7 +46715,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>φθορὰν</w>
 						<w>τῇ</w>
 						<w>ἀποχρήσει</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>κατὰ</w>
 						<w>τὰ</w>
 						<w>ἐντάλματα</w>
@@ -47342,7 +47342,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὗ</w>
 						<w>ἐλάβετε</w>
 						<w>ἐντολάς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐὰν</w>
 						<w>ἔλθῃ</w>
 						<w>πρὸς</w>
@@ -48058,11 +48058,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>συνεζῳοποίησεν</w>
 						<w>τῷ</w>
 						<w>χριστῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>χάριτί</w>
 						<w>ἐστε</w>
 						<w>σεσῳσμένοι</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B10K2V6">
 						<w>καὶ</w>
@@ -49430,7 +49430,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τέκνα</w>
 						<w>φωτὸς</w>
 						<w>περιπατεῖτε</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B10K5V9">
 						<w>ὁ</w>
@@ -49445,7 +49445,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δικαιοσύνῃ</w>
 						<w>καὶ</w>
 						<w>ἀληθείᾳ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B10K5V10">
 						<w>δοκιμάζοντες</w>
@@ -50806,7 +50806,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δοκούντων</w>
 						<w>εἶναί</w>
 						<w>τι</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁποῖοί</w>
 						<w>ποτε</w>
 						<w>ἦσαν</w>
@@ -50818,7 +50818,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀνθρώπου</w>
 						<w>οὐ</w>
 						<w>λαμβάνει</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐμοὶ</w>
 						<w>γὰρ</w>
 						<w>οἱ</w>
@@ -50840,7 +50840,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Πέτρος</w>
 						<w>τῆς</w>
 						<w>περιτομῆς</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B09K2V8">
 						<w>ὁ</w>
@@ -50857,7 +50857,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἰς</w>
 						<w>τὰ</w>
 						<w>ἔθνη</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B09K2V9">
 						<w>καὶ</w>
@@ -54792,7 +54792,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πάντων</w>
 						<w>ἐμέρισεν</w>
 						<w>Ἀβραάμ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>πρῶτον</w>
 						<w>μὲν</w>
 						<w>ἑρμηνευόμενος</w>
@@ -54825,7 +54825,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>υἱῷ</w>
 						<w>τοῦ</w>
 						<w>θεοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>μένει</w>
 						<w>ἱερεὺς</w>
 						<w>εἰς</w>
@@ -54961,14 +54961,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Λευϊτικῆς</w>
 						<w>ἱερωσύνης</w>
 						<w>ἦν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>λαὸς</w>
 						<w>γὰρ</w>
 						<w>ἐπ'</w>
 						<w>αὐτῇ</w>
 						<w>νενομοθέτητο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τίς</w>
 						<w>ἔτι</w>
 						<w>χρεία,</w>
@@ -55114,7 +55114,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐ</w>
 						<w>χωρὶς</w>
 						<w>ὁρκωμοσίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οἱ</w>
 						<w>μὲν</w>
 						<w>γὰρ</w>
@@ -55148,7 +55148,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὴν</w>
 						<w>τάξιν</w>
 						<w>Μελχισεδέκ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K7V22">
 						<w>κατὰ</w>
@@ -56261,14 +56261,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἶπον,</w>
 						<w>Ἰδού,</w>
 						<w>ἥκω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>κεφαλίδι</w>
 						<w>βιβλίου</w>
 						<w>γέγραπται</w>
 						<w>περὶ</w>
 						<w>ἐμοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τοῦ</w>
 						<w>ποιῆσαι,</w>
 						<w>ὁ</w>
@@ -56293,13 +56293,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἠθέλησας,</w>
 						<w>οὐδὲ</w>
 						<w>εὐδόκησας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>αἵτινες</w>
 						<w>κατὰ</w>
 						<w>τὸν</w>
 						<w>νόμον</w>
 						<w>προσφέρονται</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K10V9">
 						<w>τότε</w>
@@ -57474,7 +57474,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑστερούμενοι,</w>
 						<w>θλιβόμενοι,</w>
 						<w>κακουχούμενοι</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B19K11V38">
 						<w>ὧν</w>
@@ -57483,7 +57483,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄξιος</w>
 						<w>ὁ</w>
 						<w>κόσμος</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἐν</w>
 						<w>ἐρημίαις</w>
 						<w>πλανώμενοι</w>
@@ -60683,7 +60683,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐσκήνωσεν</w>
 						<w>ἐν</w>
 						<w>ἡμῖν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἐθεασάμεθα</w>
 						<w>τὴν</w>
@@ -60694,7 +60694,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μονογενοῦς</w>
 						<w>παρὰ</w>
 						<w>πατρός</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>πλήρης</w>
 						<w>χάριτος</w>
 						<w>καὶ</w>
@@ -61141,12 +61141,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἶπον</w>
 						<w>αὐτῷ,</w>
 						<w>Ῥαββί</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὃ</w>
 						<w>λέγεται</w>
 						<w>ἑρμηνευόμενον,</w>
 						<w>Διδάσκαλε</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ποῦ</w>
 						<w>μένεις;</w>
 					</ab>
@@ -61207,7 +61207,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Εὑρήκαμεν</w>
 						<w>τὸν</w>
 						<w>Μεσίαν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὅ</w>
 						<w>ἐστιν</w>
 						<w>μεθερμηνευόμενον,</w>
@@ -61234,7 +61234,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σὺ</w>
 						<w>κληθήσῃ</w>
 						<w>Κηφᾶς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὃ</w>
 						<w>ἑρμηνεύεται</w>
 						<w>Πέτρος.</w>
@@ -61574,7 +61574,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ᾔδει</w>
 						<w>πόθεν</w>
 						<w>ἐστίν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οἱ</w>
 						<w>δὲ</w>
 						<w>διάκονοι</w>
@@ -61583,7 +61583,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἠντληκότες</w>
 						<w>τὸ</w>
 						<w>ὕδωρ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>φωνεῖ</w>
 						<w>τὸν</w>
 						<w>νυμφίον</w>
@@ -62680,7 +62680,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>βαπτίζει</w>
 						<w>ἢ</w>
 						<w>Ἰωάννης</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K4V2">
 						<w>καίτοιγε</w>
@@ -62692,7 +62692,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οἱ</w>
 						<w>μαθηταὶ</w>
 						<w>αὐτοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K4V3">
 						<w>ἀφῆκεν</w>
@@ -62805,7 +62805,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὔσης</w>
 						<w>γυναικὸς</w>
 						<w>Σαμαρείτιδος;</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Οὐ</w>
 						<w>γὰρ</w>
 						<w>συγχρῶνται</w>
@@ -63143,7 +63143,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὅτι</w>
 						<w>Μεσίας</w>
 						<w>ἔρχεται</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>λεγόμενος</w>
 						<w>χριστός·</w>
@@ -65077,7 +65077,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μαθηταὶ</w>
 						<w>αὐτοῦ</w>
 						<w>ἀπῆλθον</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K6V23">
 						<w>ἄλλα</w>
@@ -65096,7 +65096,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εὐχαριστήσαντος</w>
 						<w>τοῦ</w>
 						<w>κυρίου</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K6V24">
 						<w>ὅτε</w>
@@ -66473,7 +66473,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμῖν</w>
 						<w>τὴν</w>
 						<w>περιτομήν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οὐχ</w>
 						<w>ὅτι</w>
 						<w>ἐκ</w>
@@ -66484,7 +66484,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκ</w>
 						<w>τῶν</w>
 						<w>πατέρων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἐν</w>
 						<w>σαββάτῳ</w>
@@ -66996,7 +66996,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Νικόδημος</w>
 						<w>πρὸς</w>
 						<w>αὐτούς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>ἐλθὼν</w>
 						<w>νυκτὸς</w>
@@ -67006,7 +67006,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὢν</w>
 						<w>ἐξ</w>
 						<w>αὐτῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K7V51">
 						<w>Μὴ</w>
@@ -68403,7 +68403,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κολυμβήθραν</w>
 						<w>τοῦ</w>
 						<w>Σιλωάμ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὃ</w>
 						<w>ἑρμηνεύεται,</w>
 						<w>Ἀπεσταλμένος.</w>
@@ -69736,14 +69736,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦ</w>
 						<w>θεοῦ</w>
 						<w>ἐγένετο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>οὐ</w>
 						<w>δύναται</w>
 						<w>λυθῆναι</w>
 						<w>ἡ</w>
 						<w>γραφή</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B04K10V36">
 						<w>ὃν</w>
@@ -76663,7 +76663,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπεὶ</w>
 						<w>Παρασκευὴ</w>
 						<w>ἦν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἦν</w>
 						<w>γὰρ</w>
 						<w>μεγάλη</w>
@@ -76672,7 +76672,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκείνου</w>
 						<w>τοῦ</w>
 						<w>σαββάτου</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἠρώτησαν</w>
 						<w>τὸν</w>
 						<w>Πιλάτον</w>
@@ -77219,7 +77219,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>λέγει</w>
 						<w>αὐτῷ,</w>
 						<w>Ῥαββουνί</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὃ</w>
 						<w>λέγεται,</w>
 						<w>Διδάσκαλε.</w>
@@ -77761,11 +77761,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὸν</w>
 						<w>ἐπενδύτην</w>
 						<w>διεζώσατο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἦν</w>
 						<w>γὰρ</w>
 						<w>γυμνός</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἔβαλεν</w>
 						<w>ἑαυτὸν</w>
@@ -77781,7 +77781,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῷ</w>
 						<w>πλοιαρίῳ</w>
 						<w>ἦλθον</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>οὐ</w>
 						<w>γὰρ</w>
 						<w>ἦσαν</w>
@@ -77794,7 +77794,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπὸ</w>
 						<w>πηχῶν</w>
 						<w>διακοσίων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>σύροντες</w>
 						<w>τὸ</w>
 						<w>δίκτυον</w>
@@ -79911,7 +79911,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦ</w>
 						<w>παιδὸς</w>
 						<w>αὐτοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K1V70">
 						<w>καθὼς</w>
@@ -79925,7 +79925,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αἰῶνος</w>
 						<w>προφητῶν</w>
 						<w>αὐτοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K1V71">
 						<w>σωτηρίαν</w>
@@ -80480,7 +80480,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>παραστῆσαι</w>
 						<w>τῷ</w>
 						<w>κυρίῳ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K2V23">
 						<w>καθὼς</w>
@@ -80497,7 +80497,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῷ</w>
 						<w>κυρίῳ</w>
 						<w>κληθήσεται</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K2V24">
 						<w>καὶ</w>
@@ -80724,7 +80724,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκ</w>
 						<w>φυλῆς</w>
 						<w>Ἀσήρ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>αὕτη</w>
 						<w>προβεβηκυῖα</w>
 						<w>ἐν</w>
@@ -80748,7 +80748,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐτῶν</w>
 						<w>ὀγδοήκοντα</w>
 						<w>τεσσάρων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἣ</w>
 						<w>οὐκ</w>
 						<w>ἀφίστατο</w>
@@ -81531,10 +81531,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τριάκοντα</w>
 						<w>ἀρχόμενος,</w>
 						<w>ὢν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὡς</w>
 						<w>ἐνομίζετο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>υἱὸς</w>
 						<w>Ἰωσήφ,</w>
 						<w>τοῦ</w>
@@ -83125,11 +83125,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γῆς</w>
 						<w>ἀφιέναι</w>
 						<w>ἁμαρτίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>εἶπεν</w>
 						<w>τῷ</w>
 						<w>παραλελυμένῳ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Σοὶ</w>
 						<w>λέγω,</w>
 						<w>ἔγειραι,</w>
@@ -99893,7 +99893,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀγαθὸς</w>
 						<w>καὶ</w>
 						<w>δίκαιος</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B03K23V51">
 						<w>οὗτος</w>
@@ -99906,7 +99906,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῇ</w>
 						<w>πράξει</w>
 						<w>αὐτῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἀπὸ</w>
 						<w>Ἀριμαθαίας</w>
 						<w>πόλεως</w>
@@ -101949,11 +101949,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τῆς</w>
 						<w>γῆς</w>
 						<w>ἁμαρτίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>λέγει</w>
 						<w>τῷ</w>
 						<w>παραλυτικῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B02K2V11">
 						<w>Σοὶ</w>
@@ -111025,11 +111025,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὅπου</w>
 						<w>οὐ</w>
 						<w>δεῖ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>ἀναγινώσκων</w>
 						<w>νοείτω</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τότε</w>
 						<w>οἱ</w>
 						<w>ἐν</w>
@@ -118860,12 +118860,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γῆς</w>
 						<w>ἀφιέναι</w>
 						<w>ἁμαρτίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τότε</w>
 						<w>λέγει</w>
 						<w>τῷ</w>
 						<w>παραλυτικῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Ἐγερθεὶς</w>
 						<w>ἆρόν</w>
 						<w>σου</w>
@@ -130390,11 +130390,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐν</w>
 						<w>τόπῳ</w>
 						<w>ἁγίῳ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>ἀναγινώσκων</w>
 						<w>νοείτω</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B01K24V16">
 						<w>τότε</w>
@@ -144398,7 +144398,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεοῦ</w>
 						<w>τοῦ</w>
 						<w>παντοκράτορος</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B27K16V15">
 						<w>Ἰδού,</w>
@@ -144422,7 +144422,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὴν</w>
 						<w>ἀσχημοσύνην</w>
 						<w>αὐτοῦ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B27K16V16">
 						<w>Καὶ</w>
@@ -147364,13 +147364,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μὴ</w>
 						<w>κλεισθῶσιν</w>
 						<w>ἡμέρας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>νὺξ</w>
 						<w>γὰρ</w>
 						<w>οὐκ</w>
 						<w>ἔσται</w>
 						<w>ἐκεῖ</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B27K21V26">
 						<w>καὶ</w>
@@ -148136,13 +148136,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐλθεῖν</w>
 						<w>πρὸς</w>
 						<w>ὑμᾶς</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>ἐκωλύθην</w>
 						<w>ἄχρι</w>
 						<w>τοῦ</w>
 						<w>δεῦρο</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>τινὰ</w>
 						<w>καρπὸν</w>
@@ -149135,11 +149135,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπιφέρων</w>
 						<w>τὴν</w>
 						<w>ὀργήν;</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>κατὰ</w>
 						<w>ἄνθρωπον</w>
 						<w>λέγω</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B06K3V6">
 						<w>Μὴ</w>
@@ -149178,7 +149178,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					<ab n="B06K3V8">
 						<w>Καὶ</w>
 						<w>μή</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καθὼς</w>
 						<w>βλασφημούμεθα,</w>
 						<w>καὶ</w>
@@ -149187,7 +149187,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τινες</w>
 						<w>ἡμᾶς</w>
 						<w>λέγειν</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὅτι</w>
 						<w>Ποιήσωμεν</w>
 						<w>τὰ</w>
@@ -149845,7 +149845,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πατὴρ</w>
 						<w>πάντων</w>
 						<w>ἡμῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B06K4V17">
 						<w>καθὼς</w>
@@ -149856,7 +149856,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐθνῶν</w>
 						<w>τέθεικά</w>
 						<w>σε</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>κατέναντι</w>
 						<w>οὗ</w>
 						<w>ἐπίστευσεν</w>
@@ -149909,11 +149909,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σῶμα</w>
 						<w>ἤδη</w>
 						<w>νενεκρωμένον</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἑκατονταέτης</w>
 						<w>που</w>
 						<w>ὑπάρχων</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>καὶ</w>
 						<w>τὴν</w>
 						<w>νέκρωσιν</w>
@@ -150243,7 +150243,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ᾧ</w>
 						<w>πάντες</w>
 						<w>ἥμαρτον</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B06K5V13">
 						<w>ἄχρι</w>
@@ -150907,12 +150907,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἢ</w>
 						<w>ἀγνοεῖτε,</w>
 						<w>ἀδελφοί</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>γινώσκουσιν</w>
 						<w>γὰρ</w>
 						<w>νόμον</w>
 						<w>λαλῶ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὅτι</w>
 						<w>ὁ</w>
 						<w>νόμος</w>
@@ -151188,7 +151188,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μοι</w>
 						<w>κατεργαζομένη</w>
 						<w>θάνατον</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ἵνα</w>
 						<w>γένηται</w>
 						<w>καθ'</w>
@@ -152351,7 +152351,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τοῦ</w>
 						<w>πατρὸς</w>
 						<w>ἡμῶν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B06K9V11">
 						<w>μήπω</w>
@@ -152875,12 +152875,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἰς</w>
 						<w>τὸν</w>
 						<w>οὐρανόν;</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τοῦτ'</w>
 						<w>ἔστιν</w>
 						<w>χριστὸν</w>
 						<w>καταγαγεῖν</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B06K10V7">
 						<w>ἤ,</w>
@@ -152889,7 +152889,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἰς</w>
 						<w>τὴν</w>
 						<w>ἄβυσσον;</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τοῦτ'</w>
 						<w>ἔστιν</w>
 						<w>χριστὸν</w>

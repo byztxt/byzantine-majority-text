@@ -119,7 +119,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἡμῶν.</w>
 					</ab>
 					<ab n="B17K1V5">
-						<w>¶Τούτου</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Τούτου</w>
 						<w>χάριν</w>
 						<w>κατέλιπόν</w>
 						<w>σε</w>
@@ -211,7 +212,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐλέγχειν.</w>
 					</ab>
 					<ab n="B17K1V10">
-						<w>¶Εἰσὶν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Εἰσὶν</w>
 						<w>γὰρ</w>
 						<w>πολλοὶ</w>
 						<w>καὶ</w>
@@ -537,7 +539,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔργων.</w>
 					</ab>
 					<ab n="B17K2V15">
-						<w>¶Ταῦτα</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ταῦτα</w>
 						<w>λάλει,</w>
 						<w>καὶ</w>
 						<w>παρακάλει,</w>
@@ -735,7 +738,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοκατάκριτος.</w>
 					</ab>
 					<ab n="B17K3V12">
-						<w>¶Ὅταν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὅταν</w>
 						<w>πέμψω</w>
 						<w>Ἀρτεμᾶν</w>
 						<w>πρός</w>
@@ -785,7 +789,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄκαρποι.</w>
 					</ab>
 					<ab n="B17K3V15">
-						<w>¶Ἀσπάζονταί</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀσπάζονταί</w>
 						<w>σε</w>
 						<w>οἱ</w>
 						<w>μετ’</w>
@@ -797,7 +802,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἡμᾶς</w>
 						<w>ἐν</w>
 						<w>πίστει.</w>
-						<w>¶Ἡ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἡ</w>
 						<w>χάρις</w>
 						<w>μετὰ</w>
 						<w>πάντων</w>

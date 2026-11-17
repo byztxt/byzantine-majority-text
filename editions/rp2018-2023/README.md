@@ -33,4 +33,4 @@ official codes (`MT`, `MR`, ...).
 
 ## Notes
 
-
+The manifest separates the Greek-text commit (`source_commit`, from `source/CCAT`) from the Strong's/parsing commit (`strongs_commit`, from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the Byzantine tradition and appear as empty CSV rows and empty `<ab/>` elements the same way as in the official editions.

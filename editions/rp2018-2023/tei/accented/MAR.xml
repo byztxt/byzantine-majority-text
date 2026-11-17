@@ -55,7 +55,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεοῦ.</w>
 					</ab>
 					<ab n="B02K1V2">
-						<w>¶Ὡς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὡς</w>
 						<w>γέγραπται</w>
 						<w>ἐν</w>
 						<w>τοῖς</w>
@@ -194,7 +195,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἁγίῳ.</w>
 					</ab>
 					<ab n="B02K1V9">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐγένετο</w>
 						<w>ἐν</w>
 						<w>ἐκείναις</w>
@@ -253,7 +255,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εὐδόκησα.</w>
 					</ab>
 					<ab n="B02K1V12">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εὐθὺς</w>
 						<w>τὸ</w>
 						<w>πνεῦμα</w>
@@ -288,7 +291,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτῷ.</w>
 					</ab>
 					<ab n="B02K1V14">
-						<w>¶Μετὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Μετὰ</w>
 						<w>δὲ</w>
 						<w>τὸ</w>
 						<w>παραδοθῆναι</w>
@@ -329,7 +333,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εὐαγγελίῳ.</w>
 					</ab>
 					<ab n="B02K1V16">
-						<w>¶Περιπατῶν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Περιπατῶν</w>
 						<w>δὲ</w>
 						<w>παρὰ</w>
 						<w>τὴν</w>
@@ -426,7 +431,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B02K1V21">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εἰσπορεύονται</w>
 						<w>εἰς</w>
 						<w>Καπερναούμ·</w>
@@ -570,7 +576,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Γαλιλαίας.</w>
 					</ab>
 					<ab n="B02K1V29">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εὐθέως</w>
 						<w>ἐκ</w>
 						<w>τῆς</w>
@@ -622,7 +629,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῖς.</w>
 					</ab>
 					<ab n="B02K1V32">
-						<w>¶Ὀψίας</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὀψίας</w>
 						<w>δὲ</w>
 						<w>γενομένης,</w>
 						<w>ὅτε</w>
@@ -674,7 +682,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτόν.</w>
 					</ab>
 					<ab n="B02K1V35">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>πρωῒ</w>
 						<w>ἔννυχον</w>
 						<w>λίαν</w>
@@ -746,7 +755,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκβάλλων.</w>
 					</ab>
 					<ab n="B02K1V40">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχεται</w>
 						<w>πρὸς</w>
 						<w>αὐτὸν</w>
@@ -1090,7 +1100,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>εἴδομεν.</w>
 					</ab>
 					<ab n="B02K2V13">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐξῆλθεν</w>
 						<w>πάλιν</w>
 						<w>παρὰ</w>
@@ -1216,7 +1227,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μετάνοιαν.</w>
 					</ab>
 					<ab n="B02K2V18">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἦσαν</w>
 						<w>οἱ</w>
 						<w>μαθηταὶ</w>
@@ -1359,7 +1371,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>βλητέον.</w>
 					</ab>
 					<ab n="B02K2V23">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐγένετο</w>
 						<w>παραπορεύεσθαι</w>
 						<w>αὐτὸν</w>
@@ -1710,7 +1723,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ποιήσωσιν.</w>
 					</ab>
 					<ab n="B02K3V13">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἀναβαίνει</w>
 						<w>εἰς</w>
 						<w>τὸ</w>
@@ -1812,7 +1826,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καὶ</w>
 						<w>παρέδωκεν</w>
 						<w>αὐτόν.</w>
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>εἰς</w>
 						<w>οἶκον·</w>
@@ -2001,7 +2016,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔχει.</w>
 					</ab>
 					<ab n="B02K3V31">
-						<w>¶Ἔρχονται</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἔρχονται</w>
 						<w>οὖν</w>
 						<w>οἱ</w>
 						<w>ἀδελφοὶ</w>
@@ -2267,7 +2283,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀκουέτω.</w>
 					</ab>
 					<ab n="B02K4V10">
-						<w>¶Ὅτε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὅτε</w>
 						<w>δὲ</w>
 						<w>ἐγένετο</w>
 						<w>καταμόνας,</w>
@@ -2490,7 +2507,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἑκατόν.</w>
 					</ab>
 					<ab n="B02K4V21">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔλεγεν</w>
 						<w>αὐτοῖς,</w>
 						<w>Μήτι</w>
@@ -2578,7 +2596,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B02K4V26">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔλεγεν,</w>
 						<w>Οὕτως</w>
 						<w>ἐστὶν</w>
@@ -2648,7 +2667,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θερισμός.</w>
 					</ab>
 					<ab n="B02K4V30">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔλεγεν,</w>
 						<w>Τίνι</w>
 						<w>ὁμοιώσωμεν</w>
@@ -2740,7 +2760,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πάντα.</w>
 					</ab>
 					<ab n="B02K4V35">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>λέγει</w>
 						<w>αὐτοῖς</w>
 						<w>ἐν</w>
@@ -3252,7 +3273,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐθαύμαζον.</w>
 					</ab>
 					<ab n="B02K5V21">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>διαπεράσαντος</w>
 						<w>τοῦ</w>
 						<w>Ἰησοῦ</w>
@@ -3330,7 +3352,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτόν.</w>
 					</ab>
 					<ab n="B02K5V25">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>γυνή</w>
 						<w>τις</w>
 						<w>οὖσα</w>
@@ -3504,7 +3527,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σου.</w>
 					</ab>
 					<ab n="B02K5V35">
-						<w>¶Ἔτι</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἔτι</w>
 						<w>αὐτοῦ</w>
 						<w>λαλοῦντος,</w>
 						<w>ἔρχονται</w>
@@ -3805,7 +3829,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>τὴν</w>
 						<w>ἀπιστίαν</w>
 						<w>αὐτῶν.</w>
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>περιῆγεν</w>
 						<w>τὰς</w>
 						<w>κώμας</w>
@@ -3813,7 +3838,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>διδάσκων.</w>
 					</ab>
 					<ab n="B02K6V7">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>προσκαλεῖται</w>
 						<w>τοὺς</w>
 						<w>δώδεκα,</w>
@@ -3941,7 +3967,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐθεράπευον.</w>
 					</ab>
 					<ab n="B02K6V14">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἤκουσεν</w>
 						<w>ὁ</w>
 						<w>βασιλεὺς</w>
@@ -4282,7 +4309,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μνημείῳ.</w>
 					</ab>
 					<ab n="B02K6V30">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>συνάγονται</w>
 						<w>οἱ</w>
 						<w>ἀπόστολοι</w>
@@ -4561,7 +4589,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄνδρες.</w>
 					</ab>
 					<ab n="B02K6V45">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εὐθέως</w>
 						<w>ἠνάγκασεν</w>
 						<w>τοὺς</w>
@@ -4716,7 +4745,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πεπωρωμένη.</w>
 					</ab>
 					<ab n="B02K6V53">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>διαπεράσαντες</w>
 						<w>ἦλθον</w>
 						<w>ἐπὶ</w>
@@ -5223,7 +5253,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἄνθρωπον.</w>
 					</ab>
 					<ab n="B02K7V24">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐκεῖθεν</w>
 						<w>ἀναστὰς</w>
 						<w>ἀπῆλθεν</w>
@@ -5371,7 +5402,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κλίνης.</w>
 					</ab>
 					<ab n="B02K7V31">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>πάλιν</w>
 						<w>ἐξελθὼν</w>
 						<w>ἐκ</w>
@@ -5668,7 +5700,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Δαλμανουθά.</w>
 					</ab>
 					<ab n="B02K8V11">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐξῆλθον</w>
 						<w>οἱ</w>
 						<w>Φαρισαῖοι,</w>
@@ -5723,7 +5756,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πέραν.</w>
 					</ab>
 					<ab n="B02K8V14">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐπελάθοντο</w>
 						<w>λαβεῖν</w>
 						<w>ἄρτους,</w>
@@ -5851,7 +5885,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>συνίετε;</w>
 					</ab>
 					<ab n="B02K8V22">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχεται</w>
 						<w>εἰς</w>
 						<w>Βηθσαϊδάν.</w>
@@ -5950,7 +5985,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κώμῃ.</w>
 					</ab>
 					<ab n="B02K8V27">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐξῆλθεν</w>
 						<w>ὁ</w>
 						<w>Ἰησοῦς</w>
@@ -6255,7 +6291,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δυνάμει.</w>
 					</ab>
 					<ab n="B02K9V2">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>μεθ’</w>
 						<w>ἡμέρας</w>
 						<w>ἓξ</w>
@@ -6390,7 +6427,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἑαυτῶν.</w>
 					</ab>
 					<ab n="B02K9V9">
-						<w>¶Καταβαινόντων</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καταβαινόντων</w>
 						<w>δὲ</w>
 						<w>αὐτῶν</w>
 						<w>ἀπὸ</w>
@@ -6489,7 +6527,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτόν.</w>
 					</ab>
 					<ab n="B02K9V14">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐλθὼν</w>
 						<w>πρὸς</w>
 						<w>τοὺς</w>
@@ -6800,7 +6839,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>νηστείᾳ.</w>
 					</ab>
 					<ab n="B02K9V30">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐκεῖθεν</w>
 						<w>ἐξελθόντες</w>
 						<w>παρεπορεύοντο</w>
@@ -6854,7 +6894,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπερωτῆσαι.</w>
 					</ab>
 					<ab n="B02K9V33">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἦλθεν</w>
 						<w>εἰς</w>
 						<w>Καπερναούμ·</w>
@@ -6951,7 +6992,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>με.</w>
 					</ab>
 					<ab n="B02K9V38">
-						<w>¶Ἀπεκρίθη</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀπεκρίθη</w>
 						<w>δὲ</w>
 						<w>αὐτῷ</w>
 						<w>Ἰωάννης,</w>
@@ -7421,7 +7463,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μοιχᾶται.</w>
 					</ab>
 					<ab n="B02K10V13">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>προσέφερον</w>
 						<w>αὐτῷ</w>
 						<w>παιδία,</w>
@@ -7495,7 +7538,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτά.</w>
 					</ab>
 					<ab n="B02K10V17">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐκπορευομένου</w>
 						<w>αὐτοῦ</w>
 						<w>εἰς</w>
@@ -7620,7 +7664,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πολλά.</w>
 					</ab>
 					<ab n="B02K10V23">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>περιβλεψάμενος</w>
 						<w>ὁ</w>
 						<w>Ἰησοῦς</w>
@@ -7817,7 +7862,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πρῶτοι.</w>
 					</ab>
 					<ab n="B02K10V32">
-						<w>¶Ἦσαν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἦσαν</w>
 						<w>δὲ</w>
 						<w>ἐν</w>
 						<w>τῇ</w>
@@ -7895,7 +7941,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀναστήσεται.</w>
 					</ab>
 					<ab n="B02K10V35">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>προσπορεύονται</w>
 						<w>αὐτῷ</w>
 						<w>Ἰάκωβος</w>
@@ -8106,7 +8153,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πολλῶν.</w>
 					</ab>
 					<ab n="B02K10V46">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>εἰς</w>
 						<w>Ἰεριχώ·</w>
@@ -8439,7 +8487,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑψίστοις.</w>
 					</ab>
 					<ab n="B02K11V11">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εἰσῆλθεν</w>
 						<w>εἰς</w>
 						<w>Ἱεροσόλυμα</w>
@@ -8465,7 +8514,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>δώδεκα.</w>
 					</ab>
 					<ab n="B02K11V12">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>τῇ</w>
 						<w>ἐπαύριον</w>
 						<w>ἐξελθόντων</w>
@@ -8526,7 +8576,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B02K11V15">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>εἰς</w>
 						<w>Ἱεροσόλυμα·</w>
@@ -8623,7 +8674,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτοῦ.</w>
 					</ab>
 					<ab n="B02K11V19">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὅτε</w>
 						<w>ὀψὲ</w>
 						<w>ἐγένετο,</w>
@@ -8633,7 +8685,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πόλεως.</w>
 					</ab>
 					<ab n="B02K11V20">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>πρωῒ</w>
 						<w>παραπορευόμενοι,</w>
 						<w>εἶδον</w>
@@ -8769,7 +8822,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμῶν.</w>
 					</ab>
 					<ab n="B02K11V27">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>πάλιν</w>
 						<w>εἰς</w>
@@ -9125,7 +9179,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀπῆλθον.</w>
 					</ab>
 					<ab n="B02K12V13">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἀποστέλλουσιν</w>
 						<w>πρὸς</w>
 						<w>αὐτόν</w>
@@ -9243,7 +9298,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτῷ.</w>
 					</ab>
 					<ab n="B02K12V18">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>Σαδδουκαῖοι</w>
 						<w>πρὸς</w>
@@ -9447,7 +9503,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πλανᾶσθε.</w>
 					</ab>
 					<ab n="B02K12V28">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>προσελθὼν</w>
 						<w>εἷς</w>
 						<w>τῶν</w>
@@ -9628,7 +9685,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπερωτῆσαι.</w>
 					</ab>
 					<ab n="B02K12V35">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἀποκριθεὶς</w>
 						<w>ὁ</w>
 						<w>Ἰησοῦς</w>
@@ -9698,7 +9756,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἡδέως.</w>
 					</ab>
 					<ab n="B02K12V38">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔλεγεν</w>
 						<w>αὐτοῖς</w>
 						<w>ἐν</w>
@@ -9749,7 +9808,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>κρίμα.</w>
 					</ab>
 					<ab n="B02K12V41">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>καθίσας</w>
 						<w>ὁ</w>
 						<w>Ἰησοῦς</w>
@@ -9880,7 +9940,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>καταλυθῇ.</w>
 					</ab>
 					<ab n="B02K13V3">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>καθημένου</w>
 						<w>αὐτοῦ</w>
 						<w>εἰς</w>
@@ -9992,7 +10053,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ταῦτα.</w>
 					</ab>
 					<ab n="B02K13V9">
-						<w>¶Βλέπετε</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Βλέπετε</w>
 						<w>δὲ</w>
 						<w>ὑμεῖς</w>
 						<w>ἑαυτούς·</w>
@@ -10102,7 +10164,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σωθήσεται.</w>
 					</ab>
 					<ab n="B02K13V14">
-						<w>¶Ὅταν</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὅταν</w>
 						<w>δὲ</w>
 						<w>ἴδητε</w>
 						<w>τὸ</w>
@@ -10290,7 +10353,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>πάντα.</w>
 					</ab>
 					<ab n="B02K13V24">
-						<w>¶Ἀλλ’</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀλλ’</w>
 						<w>ἐν</w>
 						<w>ἐκείναις</w>
 						<w>ταῖς</w>
@@ -10369,7 +10433,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>οὐρανοῦ.</w>
 					</ab>
 					<ab n="B02K13V28">
-						<w>¶Ἀπὸ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀπὸ</w>
 						<w>δὲ</w>
 						<w>τῆς</w>
 						<w>συκῆς</w>
@@ -10583,7 +10648,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>λαοῦ.</w>
 					</ab>
 					<ab n="B02K14V3">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὄντος</w>
 						<w>αὐτοῦ</w>
 						<w>ἐν</w>
@@ -10724,7 +10790,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτῆς.</w>
 					</ab>
 					<ab n="B02K14V10">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὁ</w>
 						<w>Ἰούδας</w>
 						<w>ὁ</w>
@@ -10759,7 +10826,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>παραδῷ.</w>
 					</ab>
 					<ab n="B02K14V12">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>τῇ</w>
 						<w>πρώτῃ</w>
 						<w>ἡμέρᾳ</w>
@@ -10867,7 +10935,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Πάσχα.</w>
 					</ab>
 					<ab n="B02K14V17">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὀψίας</w>
 						<w>γενομένης</w>
 						<w>ἔρχεται</w>
@@ -10968,7 +11037,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐκεῖνος.</w>
 					</ab>
 					<ab n="B02K14V22">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἐσθιόντων</w>
 						<w>αὐτῶν,</w>
 						<w>λαβὼν</w>
@@ -11051,7 +11121,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>θεοῦ.</w>
 					</ab>
 					<ab n="B02K14V26">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὑμνήσαντες</w>
 						<w>ἐξῆλθον</w>
 						<w>εἰς</w>
@@ -11061,7 +11132,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἐλαιῶν.</w>
 					</ab>
 					<ab n="B02K14V27">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>λέγει</w>
 						<w>αὐτοῖς</w>
 						<w>ὁ</w>
@@ -11158,7 +11230,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔλεγον.</w>
 					</ab>
 					<ab n="B02K14V32">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἔρχονται</w>
 						<w>εἰς</w>
 						<w>χωρίον</w>
@@ -11358,7 +11431,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἤγγικεν.</w>
 					</ab>
 					<ab n="B02K14V43">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εὐθέως,</w>
 						<w>ἔτι</w>
 						<w>αὐτοῦ</w>
@@ -11501,7 +11575,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔφυγον.</w>
 					</ab>
 					<ab n="B02K14V51">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>εἷς</w>
 						<w>τις</w>
 						<w>νεανίσκος</w>
@@ -11529,7 +11604,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτῶν.</w>
 					</ab>
 					<ab n="B02K14V53">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἀπήγαγον</w>
 						<w>τὸν</w>
 						<w>Ἰησοῦν</w>
@@ -11777,7 +11853,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἔβαλλον.</w>
 					</ab>
 					<ab n="B02K14V66">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ὄντος</w>
 						<w>τοῦ</w>
 						<w>Πέτρου</w>
@@ -12008,7 +12085,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Πιλάτον.</w>
 					</ab>
 					<ab n="B02K15V6">
-						<w>¶Κατὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Κατὰ</w>
 						<w>δὲ</w>
 						<w>ἑορτὴν</w>
 						<w>ἀπέλυεν</w>
@@ -12153,7 +12231,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>σταυρωθῇ.</w>
 					</ab>
 					<ab n="B02K15V16">
-						<w>¶Οἱ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Οἱ</w>
 						<w>δὲ</w>
 						<w>στρατιῶται</w>
 						<w>ἀπήγαγον</w>
@@ -12234,7 +12313,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτόν.</w>
 					</ab>
 					<ab n="B02K15V21">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἀγγαρεύουσιν</w>
 						<w>παράγοντά</w>
 						<w>τινα</w>
@@ -12422,7 +12502,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>αὐτόν.</w>
 					</ab>
 					<ab n="B02K15V33">
-						<w>¶Γενομένης</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Γενομένης</w>
 						<w>δὲ</w>
 						<w>ὥρας</w>
 						<w>ἕκτης,</w>
@@ -12596,7 +12677,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>Ἱεροσόλυμα.</w>
 					</ab>
 					<ab n="B02K15V42">
-						<w>¶Καὶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Καὶ</w>
 						<w>ἤδη</w>
 						<w>ὀψίας</w>
 						<w>γενομένης,</w>
@@ -12859,7 +12941,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γάρ.</w>
 					</ab>
 					<ab n="B02K16V9">
-						<w>¶Ἀναστὰς</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀναστὰς</w>
 						<w>δὲ</w>
 						<w>πρωῒ</w>
 						<w>πρώτῃ</w>
@@ -12899,7 +12982,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἠπίστησαν.</w>
 					</ab>
 					<ab n="B02K16V12">
-						<w>¶Μετὰ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Μετὰ</w>
 						<w>δὲ</w>
 						<w>ταῦτα</w>
 						<w>δυσὶν</w>
@@ -12925,7 +13009,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐπίστευσαν.</w>
 					</ab>
 					<ab n="B02K16V14">
-						<w>¶Ὕστερον</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὕστερον</w>
 						<w>ἀνακειμένοις</w>
 						<w>αὐτοῖς</w>
 						<w>τοῖς</w>
@@ -13010,7 +13095,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἕξουσιν.</w>
 					</ab>
 					<ab n="B02K16V19">
-						<w>¶Ὁ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ὁ</w>
 						<w>μὲν</w>
 						<w>οὖν</w>
 						<w>κύριος,</w>

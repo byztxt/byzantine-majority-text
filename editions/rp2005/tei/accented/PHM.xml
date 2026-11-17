@@ -92,7 +92,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>χριστοῦ.</w>
 					</ab>
 					<ab n="B18K1V4">
-						<w>¶Εὐχαριστῶ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Εὐχαριστῶ</w>
 						<w>τῷ</w>
 						<w>θεῷ</w>
 						<w>μου,</w>
@@ -167,7 +168,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἀδελφέ.</w>
 					</ab>
 					<ab n="B18K1V8">
-						<w>¶Διὸ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Διὸ</w>
 						<w>πολλὴν</w>
 						<w>ἐν</w>
 						<w>χριστῷ</w>
@@ -401,7 +403,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ὑμῖν.</w>
 					</ab>
 					<ab n="B18K1V23">
-						<w>¶Ἀσπάζονταί</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἀσπάζονταί</w>
 						<w>σε</w>
 						<w>Ἐπαφρᾶς</w>
 						<w>ὁ</w>
@@ -421,7 +424,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>μου.</w>
 					</ab>
 					<ab n="B18K1V25">
-						<w>¶Ἡ</w>
+						<milestone unit="paragraph" type="start"/>
+						<w>Ἡ</w>
 						<w>χάρις</w>
 						<w>τοῦ</w>
 						<w>κυρίου</w>

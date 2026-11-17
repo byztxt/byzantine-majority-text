@@ -84,6 +84,29 @@ Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and
 - `rp2018-2023`: the same views are copied or generated from the current
   working tree.
 
+## Blank verses and omitted rows
+
+LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the
+Byzantine tradition. The official `.CCT` and ASCII archives do not
+contain them, so `rp2005` and `rp2018` have no row for them at all;
+that is expected, not a conversion loss. `rp2018-2023` keeps them as
+explicit empty rows (empty CSV text and empty `<ab/>` in TEI).
+`rp2005-2019` inherits the same omission from tag `v2.0.3`: its
+unaccented CSV has 7953 rows instead of 7957 and its TEI has no empty
+`<ab/>` for those verses. Those historical artifacts must stay
+byte-identical to `v2.0.3`, so the rows are deliberately not added
+back; the edition README records the omission.
+
+## TEI punctuation
+
+Generated TEI wraps each whitespace-separated token in `<w>`. A
+standalone `-` (the official text's dash and deletion marks) is
+emitted as `<pc>-</pc>`, and a leading `¶` becomes
+`<milestone unit="paragraph" type="start"/>` instead of being glued to
+the following word. Punctuation attached to a word stays inside its
+`<w>`. Only the accented TEI contains these two markers; the unaccented
+TEI has neither, so its markup is unchanged.
+
 ## Derived artifacts by edition
 
 | Edition | Accented no-variants | Accented with-variants | Unaccented | Strong's with-parsing | Strong's no-parsing | Accented TEI | Unaccented TEI |

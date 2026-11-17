@@ -4944,12 +4944,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>γῆς</w>
 						<w>ἀφιέναι</w>
 						<w>ἁμαρτίας</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>τότε</w>
 						<w>λέγει</w>
 						<w>τῷ</w>
 						<w>παραλυτικῷ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>Ἐγερθεὶς</w>
 						<w>ἆρόν</w>
 						<w>σου</w>
@@ -16474,11 +16474,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 						<w>ἐν</w>
 						<w>τόπῳ</w>
 						<w>ἁγίῳ</w>
-						<w>-</w>
+						<pc>-</pc>
 						<w>ὁ</w>
 						<w>ἀναγινώσκων</w>
 						<w>νοείτω</w>
-						<w>-</w>
+						<pc>-</pc>
 					</ab>
 					<ab n="B01K24V16">
 						<w>τότε</w>
