@@ -25,15 +25,37 @@ class FetchTests(unittest.TestCase):
             fetch.extract(path, dest)
             self.assertTrue((dest / "MT.CCT").is_file())
 
-    def test_existing_hashes(self):
+    def test_extract_removes_stale_files(self):
         with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "rp2018.toml"
-            path.write_text(
-                'edition = "rp2018"\n\n[[archives]]\nname = "a.zip"\n'
-                'sha256 = "abc"\n',
-                encoding="utf-8",
-            )
-            self.assertEqual(fetch._existing_hashes(path), {"a.zip": "abc"})
+            path = Path(tmp) / "fixture.zip"
+            with zipfile.ZipFile(path, "w") as zf:
+                zf.writestr("MT.CCT", b"x")
+            dest = Path(tmp) / "out"
+            dest.mkdir()
+            (dest / "stale.txt").write_text("old", encoding="utf-8")
+            fetch.extract(path, dest)
+            self.assertTrue((dest / "MT.CCT").is_file())
+            self.assertFalse((dest / "stale.txt").exists())
+
+    def test_download_keeps_previous_archive_on_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "good.zip"
+            dest.write_bytes(b"last known good")
+            original = fetch.urllib.request.urlopen
+
+            def unavailable(*args, **kwargs):
+                raise OSError("network down")
+
+            fetch.urllib.request.urlopen = unavailable
+            try:
+                with self.assertRaises(OSError):
+                    fetch.download(
+                        "https://www.dropbox.com/s/abc/file.zip?dl=0", dest
+                    )
+            finally:
+                fetch.urllib.request.urlopen = original
+            self.assertEqual(dest.read_bytes(), b"last known good")
+            self.assertFalse(dest.with_name(dest.name + ".part").exists())
 
 
 class ExtractSafetyTests(unittest.TestCase):

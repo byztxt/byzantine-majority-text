@@ -33,4 +33,4 @@ official codes (`MT`, `MR`, ...).
 
 ## Notes
 
-The manifest separates the Greek-text commit (`source_commit`, from `source/CCAT`) from the Strong's/parsing commit (`strongs_commit`, from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the Byzantine tradition and appear as empty CSV rows and empty `<ab/>` elements the same way as in the official editions.
+The manifest separates the Greek-text commit (`source_commit`, from `source/CCAT`) from the Strong's/parsing commit (`strongs_commit`, from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the Byzantine tradition but are present in `source/CCAT`/`source/Strongs` as blank verse lines. This edition emits them as explicit empty records: 7972 accented CSV rows and 7957 unaccented/Strong's CSV rows, each with four empty rows, and empty `<ab/>` elements in both TEI views.

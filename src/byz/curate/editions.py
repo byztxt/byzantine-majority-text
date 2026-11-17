@@ -26,11 +26,13 @@ EDITIONS = {
         "pdf_url": "https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf",
         "note": (
             "The official `.CCT` archive is the accented source; the official "
-            "ASCII archive supplies the unaccented text. The archive does not "
-            "contain LUK 17:36, ACT 8:37, ACT 15:34, or ACT 24:7 at all, because "
-            "those verses are not part of the Byzantine tradition; this is "
-            "expected, not a conversion loss. The other three curated editions "
-            "keep those verses as empty CSV rows and empty `<ab/>` TEI elements."
+            "ASCII archive supplies the unaccented text. Both archives contain "
+            "LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 as **blank verse "
+            "lines**, because those verses are not part of the Byzantine "
+            "tradition. This edition therefore emits them as explicit empty "
+            "records: the accented CSV has 7972 rows and the unaccented CSV "
+            "7957, each with four empty rows, and both TEI views contain empty "
+            "`<ab/>` elements for the four verses."
         ),
     },
     "rp2005-2019": {
@@ -44,14 +46,18 @@ EDITIONS = {
         "pdf": "",
         "pdf_url": "",
         "note": (
-            "The source and every recovered artifact are byte-identical to git "
-            "tag `v2.0.3`. That release predates the intentional blank verses, "
-            "so it omits LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 entirely: "
-            "the unaccented CSV has 7953 rows instead of 7957 and the TEI has no "
-            "empty `<ab/>` for them. The rows are deliberately **not** added "
-            "here, because the historical artifacts must stay byte-identical. "
-            "The other three curated editions preserve those verses as empty "
-            "rows and empty `<ab/>` elements."
+            "The recovered source and artifacts are byte-identical to git tag "
+            "`v2.0.3`. That release's published accented CSV (7968 rows), "
+            "unaccented CSV (7953 rows), and TEI **omit** LUK 17:36, ACT 8:37, "
+            "ACT 15:34, and ACT 24:7: the four rows are absent and no empty "
+            "`<ab/>` exists for them, even though the `textonly-beta-code` and "
+            "`parsed` source files in that tag do contain the blank verse lines. "
+            "The generated Strong's views are built from `parsed`, so they do "
+            "include the four verses as empty rows (7957 rows). The rows are "
+            "deliberately **not** added to the recovered accented/unaccented "
+            "artifacts, because those must stay byte-identical. The other three "
+            "curated editions keep the verses as empty rows and empty `<ab/>` "
+            "elements."
         ),
     },
     "rp2018": {
@@ -68,11 +74,13 @@ EDITIONS = {
         "pdf_url": "https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf",
         "note": (
             "The official `.CCT` archive is the accented source; the official "
-            "ASCII archive supplies the unaccented text. The archive does not "
-            "contain LUK 17:36, ACT 8:37, ACT 15:34, or ACT 24:7 at all, because "
-            "those verses are not part of the Byzantine tradition; this is "
-            "expected, not a conversion loss. The other three curated editions "
-            "keep those verses as empty CSV rows and empty `<ab/>` TEI elements."
+            "ASCII archive supplies the unaccented text. Both archives contain "
+            "LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 as **blank verse "
+            "lines**, because those verses are not part of the Byzantine "
+            "tradition. This edition therefore emits them as explicit empty "
+            "records: the accented CSV has 7972 rows and the unaccented CSV "
+            "7957, each with four empty rows, and both TEI views contain empty "
+            "`<ab/>` elements for the four verses."
         ),
     },
     "rp2018-2023": {
@@ -87,10 +95,12 @@ EDITIONS = {
         "note": (
             "The manifest separates the Greek-text commit (`source_commit`, from "
             "`source/CCAT`) from the Strong's/parsing commit (`strongs_commit`, "
-            "from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 "
-            "are not part of the Byzantine tradition and appear as empty CSV "
-            "rows and empty `<ab/>` elements the same way as in the official "
-            "editions."
+            "from `source/Strongs`). LUK 17:36, ACT 8:37, ACT 15:34, and ACT "
+            "24:7 are not part of the Byzantine tradition but are present in "
+            "`source/CCAT`/`source/Strongs` as blank verse lines. This edition "
+            "emits them as explicit empty records: 7972 accented CSV rows and "
+            "7957 unaccented/Strong's CSV rows, each with four empty rows, and "
+            "empty `<ab/>` elements in both TEI views."
         ),
     },
 }

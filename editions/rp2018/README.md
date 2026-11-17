@@ -31,4 +31,4 @@ official codes (`MT`, `MR`, ...).
 
 ## Notes
 
-The official `.CCT` archive is the accented source; the official ASCII archive supplies the unaccented text. The archive does not contain LUK 17:36, ACT 8:37, ACT 15:34, or ACT 24:7 at all, because those verses are not part of the Byzantine tradition; this is expected, not a conversion loss. The other three curated editions keep those verses as empty CSV rows and empty `<ab/>` TEI elements.
+The official `.CCT` archive is the accented source; the official ASCII archive supplies the unaccented text. Both archives contain LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 as **blank verse lines**, because those verses are not part of the Byzantine tradition. This edition therefore emits them as explicit empty records: the accented CSV has 7972 rows and the unaccented CSV 7957, each with four empty rows, and both TEI views contain empty `<ab/>` elements for the four verses.

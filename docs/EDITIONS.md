@@ -87,15 +87,24 @@ Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and
 ## Blank verses and omitted rows
 
 LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the
-Byzantine tradition. The official `.CCT` and ASCII archives do not
-contain them, so `rp2005` and `rp2018` have no row for them at all;
-that is expected, not a conversion loss. `rp2018-2023` keeps them as
-explicit empty rows (empty CSV text and empty `<ab/>` in TEI).
-`rp2005-2019` inherits the same omission from tag `v2.0.3`: its
-unaccented CSV has 7953 rows instead of 7957 and its TEI has no empty
-`<ab/>` for those verses. Those historical artifacts must stay
-byte-identical to `v2.0.3`, so the rows are deliberately not added
-back; the edition README records the omission.
+Byzantine tradition. The official `.CCT` and ASCII archives contain
+them as **blank verse lines**, so they are real data, not conversion
+losses. `rp2005` and `rp2018` therefore emit explicit empty records:
+7972 accented CSV rows (four empty), 7957 unaccented CSV rows (four
+empty), and empty `<ab/>` elements in both TEI views.
+`rp2018-2023` behaves the same way (7972 / 7957 rows plus empty
+`<ab/>` elements).
+
+The byte-frozen `rp2005-2019` edition is the exception. Its `v2.0.3`
+accents and no-accents CSV and its TEI were generated before the blank
+verses were preserved, so they **omit** the four verses: the accented
+CSV has 7968 rows, the unaccented CSV 7953, and there is no empty
+`<ab/>`, even though the `textonly-beta-code` and `parsed` files in
+that tag do contain the blank verse lines. The Strong's views,
+generated here from `parsed`, do include the four verses as empty rows
+(7957 rows). The recovered artifacts must stay byte-identical to
+`v2.0.3`, so the rows are deliberately not added back; the edition
+README records the omission.
 
 ## TEI punctuation
 
@@ -106,6 +115,15 @@ emitted as `<pc>-</pc>`, and a leading `¶` becomes
 the following word. Punctuation attached to a word stays inside its
 `<w>`. Only the accented TEI contains these two markers; the unaccented
 TEI has neither, so its markup is unchanged.
+
+## Known converter quirks
+
+Apparatus text is not fully preserved. The English notes inside
+`[[ ... ]]` are transliterated by the historical converter
+(`"shorter ending"` becomes `σηορτερ ενδινγ`), and apparatus quotes use
+the converter's beta-code diaeresis rendering (`" ̈"` for `"+"`). Both
+are pre-existing converter behaviour and outside the scope of edition
+curation; the main text is unaffected.
 
 ## Derived artifacts by edition
 

@@ -85,9 +85,11 @@ def _production_token(token: str) -> str:
         word, code = token[:brace], token[brace:]
     letters = [char for char in word if char.isascii() and char.isalpha()]
     if len(letters) > 1 and all(char.isupper() for char in letters):
-        # An all-uppercase word part is an apparatus abbreviation such as
-        # `_DAD`, not a capitalised word. Beta code marks every capital
-        # separately, so the converter renders `—ΔΑΔ` instead of `—δαδ`.
+        # This branch is specific to the official archives' apparatus
+        # abbreviations (`_DAD`, `_KD`, `_IB`, `_MB`, `_RMD`, `_XC$`, `_AX`).
+        # Main-text words are mixed case: only their first letter is uppercase.
+        # Beta code marks every capital separately, so the converter renders
+        # `—ΔΑΔ` instead of `—δαδ`.
         return (
             "".join(
                 "*" + char if char.isascii() and char.isalpha() else char
@@ -105,6 +107,17 @@ def _production_token(token: str) -> str:
 def official_ccat_line(
     line: str, reorder_iota: bool = True, faithful_capitals: bool = False
 ) -> str:
+    """Normalize one official `.CCT` line.
+
+    ``reorder_iota`` moves the iota subscript after the following capital
+    letter, which is the repository's comparison convention. ``faithful_capitals``
+    switches to the production behaviour used by
+    :func:`production_ccat_line`: capitals come from the original mixed-case
+    token (so glued apparatus codes are not capitals and abbreviations are
+    starred letter by letter), and the official iota-before-accent ordering is
+    rewritten for the beta-code library. The default is the comparison
+    behaviour and is byte-stable for the committed reconciliation reports.
+    """
     line = line.strip()
     line = line.replace("{P}", "? ")
     tokens = []

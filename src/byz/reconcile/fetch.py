@@ -55,6 +55,7 @@ def download(url: str, dest: Path) -> dict:
     request = urllib.request.Request(
         _check_url(_download_url(url)), headers={"User-Agent": "byz-reconcile/1.0"}
     )
+    temp = dest.with_name(dest.name + ".part")
     try:
         with urllib.request.urlopen(request, timeout=180) as response:
             status = getattr(response, "status", None) or 200
@@ -67,7 +68,7 @@ def download(url: str, dest: Path) -> dict:
                     f"{MAX_DOWNLOAD_BYTES}-byte download cap"
                 )
             written = 0
-            with open(dest, "wb") as handle:
+            with open(temp, "wb") as handle:
                 while True:
                     chunk = response.read(1 << 20)
                     if not chunk:
@@ -79,10 +80,12 @@ def download(url: str, dest: Path) -> dict:
                             f"{MAX_DOWNLOAD_BYTES}-byte download cap"
                         )
                     handle.write(chunk)
+        os.replace(temp, dest)
     except BaseException:
-        # Never leave a truncated archive behind to be mistaken for a good one.
-        if dest.exists():
-            dest.unlink()
+        # Delete only the partial file: a pre-existing archive at `dest` is
+        # still the last known-good copy.
+        if temp.exists():
+            temp.unlink()
         raise
     return {"http_status": status, "final_url": final_url}
 
@@ -99,10 +102,18 @@ def _safe_member(dest: Path, name: str) -> Path:
 
 
 def extract(zip_path: Path, dest: Path) -> None:
-    dest.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zip_path) as archive:
-        for member in archive.infolist():
-            target = _safe_member(dest, member.filename)
+        # Validate every member before touching the destination, so a bad
+        # archive cannot leave a half-cleared tree.
+        members = [
+            (_safe_member(dest, member.filename), member)
+            for member in archive.infolist()
+        ]
+        # Clear stale files from a previous extraction of the same archive.
+        if dest.exists():
+            shutil.rmtree(dest)
+        dest.mkdir(parents=True, exist_ok=True)
+        for target, member in members:
             if member.is_dir():
                 target.mkdir(parents=True, exist_ok=True)
                 continue
@@ -135,13 +146,6 @@ def _existing_records(provenance_path: Path) -> dict:
     if current.get("name"):
         records[current["name"]] = current
     return records
-
-
-def _existing_hashes(provenance_path: Path) -> dict:
-    return {
-        name: record.get("sha256", "")
-        for name, record in _existing_records(provenance_path).items()
-    }
 
 
 def _toml_value(value) -> str:

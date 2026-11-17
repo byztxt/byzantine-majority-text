@@ -80,9 +80,18 @@ def _swap(staging: Path, final: Path) -> Path:
     retired = final.parent / f".{final.name}.old"
     if retired.exists():
         shutil.rmtree(retired)
+    moved = False
     if final.exists():
         final.rename(retired)
-    os.replace(staging, final)
+        moved = True
+    try:
+        os.replace(staging, final)
+    except BaseException:
+        # Put the previous edition back so a failed swap never leaves the
+        # edition path missing.
+        if moved and not final.exists():
+            retired.rename(final)
+        raise
     if retired.exists():
         shutil.rmtree(retired)
     return final
