@@ -114,6 +114,69 @@ class BuildTests(unittest.TestCase):
             self.assertIn("<w>λόγος</w>", text)
 
 
+@unittest.skipUnless(
+    importlib.util.find_spec("beta_code") is not None,
+    "beta_code is not installed",
+)
+class ApparatusLiteralTests(unittest.TestCase):
+    """Apparatus literals must survive the historical converter.
+
+    Quoted notes (`[[ "..." ]]`) and the exact `"+"` are natural-language
+    apparatus text, not beta code. They used to be transliterated
+    (`"shorter ending"` -> `σηορτερ ενδινγ`) and rendered as a diaeresis
+    (`"+"` -> `" ̈"`).
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.buc = build._buc()
+
+    def test_quoted_note_and_literal_plus_are_preserved(self):
+        for note in ('[[ "shorter ending" ]]', '[["SHORTER ENDING"]]'):
+            text = self.buc.convert_beta_to_unicode(
+                f'GA/R. {{N GA/R > GA/R "+" {note}}}'
+            )
+            self.assertIn(note, text)
+            self.assertIn('"+"', text)
+            self.assertNotIn("σηορτερ", text)
+            self.assertNotIn('" ̈"', text)
+
+    def test_greek_variant_brackets_still_convert(self):
+        # `[[` is also the Greek variant delimiter; only quoted notes are
+        # protected, so the variant text keeps going through beta_code.
+        text = self.buc.convert_beta_to_unicode(
+            "{N *KAI\\ > [[*KAI\\ } E)POREU/QH"
+        )
+        self.assertIn("[[Καὶ", text)
+        self.assertNotIn("[[*", text)
+
+    def test_strongs_path_preserves_apparatus_literals(self):
+        text = self.buc.convert_beta_to_unicode_strongs(
+            'biblov 976 {N-NSF} "+" [[ "shorter ending" ]]', False
+        )
+        self.assertIn('[[ "shorter ending" ]]', text)
+        self.assertIn('"+"', text)
+        self.assertNotIn("σηορτερ", text)
+
+    def test_production_parser_preserves_literal_case_and_spacing(self):
+        # `production_ccat_line` upper-cases the line and collapses the spaces
+        # around `[[ ]]`; the production parser must protect the raw literals
+        # first so their case and spacing survive.
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "MR.CCT"
+            path.write_text(
+                '     16:08 KAI\\ E)GENETO {N ga/r > ga/r "+" '
+                '[[ "shorter ending" ]]}\n',
+                encoding="utf-8",
+            )
+            text = build.parse_cct_accented(path, drop_variants=False)[(16, 8)]
+        self.assertIn('[[ "shorter ending" ]]', text)
+        self.assertIn('"+"', text)
+        self.assertNotIn("σηορτερ", text)
+        # The rest of the line still goes through the production normaliser.
+        self.assertIn("ΓΕΝΕΤΟ", text)
+
+
 class ProductionNormalizeTests(unittest.TestCase):
     """The production wrapper must keep the comparison default untouched."""
 

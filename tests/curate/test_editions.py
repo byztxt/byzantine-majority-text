@@ -136,5 +136,55 @@ class RootReadmeTests(unittest.TestCase):
         self.assertEqual(docs.render_root_readme(self.text), self.text)
 
 
+class PdfLinkTests(unittest.TestCase):
+    """The official PDFs are committed, so user-facing links are local."""
+
+    def _user_docs(self):
+        paths = [
+            editions.DOCS_DIR / "EDITIONS.md",
+            editions.ROOT / "README.md",
+        ]
+        paths += [
+            editions.edition_dir(edition_id) / "README.md"
+            for edition_id in editions.EDITIONS
+        ]
+        return paths
+
+    def test_relative_markdown_links_resolve(self):
+        for path in self._user_docs():
+            text = path.read_text(encoding="utf-8")
+            for link in re.findall(r"\]\(([^)]+)\)", text):
+                if link.startswith(("http://", "https://", "#")):
+                    continue
+                target = link.split("#", 1)[0]
+                if not target:
+                    continue
+                resolved = (path.parent / target).resolve()
+                self.assertTrue(
+                    resolved.exists(), f"{path.name}: broken link {link}"
+                )
+
+    def test_official_pdf_links_point_at_the_committed_files(self):
+        docs = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        self.assertIn("](../data/raw/rp2005/official-pdf/editions-rp2.pdf)", docs)
+        self.assertIn(
+            "](../data/raw/rp2018/official-pdf/"
+            "robinson-pierpont-2018-gnt-edition.pdf)",
+            docs,
+        )
+        for edition_id, filename in (
+            ("rp2005", "editions-rp2.pdf"),
+            ("rp2018", "robinson-pierpont-2018-gnt-edition.pdf"),
+        ):
+            readme = (
+                editions.edition_dir(edition_id) / "README.md"
+            ).read_text(encoding="utf-8")
+            expected = (
+                f"(../../data/raw/{edition_id}/official-pdf/{filename})"
+            )
+            self.assertIn(expected, readme)
+            self.assertNotIn("https://byzantinetext.com", readme)
+
+
 if __name__ == "__main__":
     unittest.main()

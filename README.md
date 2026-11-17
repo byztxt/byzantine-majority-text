@@ -14,12 +14,17 @@ tags received later minor corrections (2026). Both official print editions
 PDFs are the ultimate source of truth for the printed editions, and `source/`
 is their authoritative machine-readable companion.
 
-The 2005 edition can be freely downloaded as a PDF from The Internet Archive
-[here](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/). The
-2018 edition can be downloaded from
-[this link](https://archive.org/details/robinson-pierpont-2018-gnt-edition).
+The published PDFs are committed in the repository: the
+[2005 PDF](data/raw/rp2005/official-pdf/editions-rp2.pdf) and the
+[2018 PDF](data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf).
+Their publisher URLs and SHA-256 hashes are recorded in
+[`data/provenance/pdfs.toml`](data/provenance/pdfs.toml). The 2005 edition is
+also available from
+[The Internet Archive](https://archive.org/details/newtestamentrobinsonpierpontbyzantine/),
+and the 2018 edition from
+[its Internet Archive record](https://archive.org/details/robinson-pierpont-2018-gnt-edition).
 RP2018 is recommended over RP2005 for all practical purposes (read the details
-below). Additional resources can be downloaded from
+below). Additional resources are available at
 [https://www.byzantinetext.com](https://www.byzantinetext.com).
 
 You can read Professor Robinson's essay proposing the superiority of the
@@ -34,8 +39,8 @@ The essay can be found in a plain text format inside the `essay` folder.
 | I want to... | Start here |
 | --- | --- |
 | Read or download the current text as CSV or TEI | [`editions/rp2018-2023/`](editions/rp2018-2023/), or `csv-unicode/` and `tei-xml-unicode/` for the working-tree outputs |
-| Use the official 2018 print edition | [`editions/rp2018/`](editions/rp2018/) and the [2018 PDF](https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf) |
-| Use the official 2005 print edition | [`editions/rp2005/`](editions/rp2005/) and the [2005 PDF](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf) |
+| Use the official 2018 print edition | [`editions/rp2018/`](editions/rp2018/) and the [2018 PDF](data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf) |
+| Use the official 2005 print edition | [`editions/rp2005/`](editions/rp2005/) and the [2005 PDF](data/raw/rp2005/official-pdf/editions-rp2.pdf) |
 | Use the 2019 revision of the 2005 lineage | [`editions/rp2005-2019/`](editions/rp2005-2019/) |
 | Edit or convert the text | [`source/`](source/) and [`scripts/`](scripts/) |
 | Check provenance and checksums | [`data/provenance/`](data/provenance/) and [`docs/PROVENANCE.md`](docs/PROVENANCE.md) |
@@ -96,8 +101,8 @@ companion, and `data/raw/_archives/` holds the committed official ZIP
 archives from which the official sources were extracted. `data/provenance/*.toml`
 pin the SHA-256 of each archive and PDF, and `docs/PROVENANCE.md` records what
 was compared and how far the current corpus matches. If a PDF, an archive, and
-the curated source disagree, the PDF wins and the conflict is flagged to the
-maintainer rather than silently resolved.
+the curated source disagree, the PDF wins and the conflict is recorded for the
+maintainer instead of being resolved automatically.
 
 ## Which text should I use?
 
@@ -121,7 +126,7 @@ preserved as `rp2005-2019`.
 The two official printed editions of the Byzantine Textform are those of the
 years 2005 and 2018, both widely available as PDFs and in print. This repository
 contains data from both. Prior to 2022 the repository had no formal versioning
-system, so recuperating the exact wordings of those editions from the Git
+system, so recovering the exact wordings of those editions from the Git
 history alone is not straightforward; they are curated from the official
 archives instead.
 
@@ -130,7 +135,7 @@ ones, for at least the following reasons:
 
 * Previous to release 1.0.0 there was *no* Unicode version of the files. The source files (which were in a custom flavor of Beta code) *were* however in the repository and can be accessed by browsing the Git history.
 
-* A Unicode converter was added in release 1.0.0, but its output unfortunately produced various misspellings. The errors were successfully fixed in release 2.0.3. That tag is preserved as the curated `rp2005-2019` edition. Please do **not** use the Unicode files of releases prior to 2.0.3 as those contain conversion errors (the source Beta code files, however, did not change between releases 1.0.0 and 2.0.3 and are official as they came directly from Professor Robinson).
+* A Unicode converter was added in release 1.0.0, but its output unfortunately produced various misspellings. The errors were successfully fixed in release 2.0.3. That tag is preserved as the curated `rp2005-2019` edition. The Unicode files of releases before 2.0.3 contain conversion errors and should not be used (the source Beta code files, however, did not change between releases 1.0.0 and 2.0.3 and are official as they came directly from Professor Robinson).
 
 * Release 3.0.0 introduced the text of the RP2018 edition, with minor updates to the apparatus. By direct recommendation of professor Robinson, *the use of the RP2005 is discouraged in favor of RP2018*, as RP2005 had "numerous accent, breathing, and punctuation errors (caused by porting over an NA27 file, and then altering only where the Byz text differed)". Additionally, "the 2018 edition should be used, since those errors were corrected". The text was updated "in a very few places", and the apparatus was updated as well in order to "to reflect NA28 and ECM differences in the general epistles and Acts". Note that the *unaccented* text remained highly stable between RP2005 and RP2018.
 

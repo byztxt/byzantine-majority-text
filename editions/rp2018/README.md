@@ -3,7 +3,7 @@
 - **Status:** official
 - **Basis:** Published in print by VTR, Nuremberg
 - **Repo releases:** none (official print edition)
-- **Official PDF:** [`robinson-pierpont-2018-gnt-edition.pdf`](https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf)
+- **Official PDF:** [`robinson-pierpont-2018-gnt-edition.pdf`](../../data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf)
 
 ## Layout
 

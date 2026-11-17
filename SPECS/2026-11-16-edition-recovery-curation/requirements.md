@@ -27,8 +27,8 @@ exports.
 
 The **published PDFs are the ultimate source of truth** (see `TECH.md` §2). The
 ZIP archives are machine-readable companions. If an archive or a repository file
-disagrees with a PDF, the conflict must be flagged for the maintainer; it must
-not be resolved silently.
+disagrees with a PDF, the conflict is recorded for the maintainer instead of
+being resolved automatically.
 
 ## Editions in scope
 
@@ -108,8 +108,8 @@ reproducible diffs between each successive edition.
 - Copy the source bytes into the edition directory without editing them.
 - Record archive URL, SHA-256, extraction date, and file hashes.
 - Link the PDFs from `docs/EDITIONS.md` and each official edition's README.
-- If an archive or generated output disagrees with the PDF, flag it; do not
-  silently choose.
+- If an archive or generated output disagrees with the PDF, the conflict is
+  recorded for the maintainer instead of being resolved automatically.
 - The official editions have no repo release range; the docs must say so.
 
 ### R4 - Freeze `rp2018-2023`

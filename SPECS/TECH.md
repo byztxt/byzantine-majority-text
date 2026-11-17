@@ -38,7 +38,8 @@ companions.
 
 The PDFs are stored at `data/raw/<edition>/official-pdf/` and recorded in
 `data/provenance/pdfs.toml`. If an archive or a repository file disagrees with a
-PDF, flag the conflict and escalate to the maintainer; never silently choose.
+PDF, the conflict is recorded and escalated to the maintainer instead of being
+resolved automatically.
 
 ### Machine-readable archives
 

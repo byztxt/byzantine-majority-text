@@ -3,7 +3,7 @@
 - **Status:** official
 - **Basis:** Published in print by Chilton Book Publishing, Southborough, Massachusetts
 - **Repo releases:** none (official print edition)
-- **Official PDF:** [`editions-rp2.pdf`](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf)
+- **Official PDF:** [`editions-rp2.pdf`](../../data/raw/rp2005/official-pdf/editions-rp2.pdf)
 
 ## Layout
 

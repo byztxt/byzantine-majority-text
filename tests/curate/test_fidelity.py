@@ -2,7 +2,7 @@
 
 These guard the review findings: iota-subscript ordering, capitalisation from
 glued apparatus codes, apparatus abbreviations, orphan combining marks, dash
-spacing, manifest integrity, and the frozen historical artifacts.
+spacing, manifest integrity, and the recovered historical artifacts.
 """
 
 import csv
@@ -24,12 +24,10 @@ ROOT = editions.ROOT
 # `whitespace` followed by an orphan combining mark.
 ORPHAN_MARK_RE = re.compile(r"\s[\u0300-\u036f\u0345]")
 # Apparatus blocks. The official apparatus quotes the Greek text using beta code
-# `+` for a diaeresis (e.g. `"+"` for a quotation mark), which the historical
-# converter renders as `" ̈"`. Apparatus text is not fully preserved: the English
-# notes inside `[[ ... ]]` are transliterated by the historical converter
-# (`"shorter ending"` becomes `σηορτερ ενδινγ`). Both are pre-existing converter
-# behaviour and out of scope here; the readability invariant therefore applies
-# to the main text only.
+# `+` for a diaeresis and carries English notes in `[[ "..." ]]`. Those literals
+# are now preserved verbatim (see `ApparatusLiteralFidelityTests`), but the
+# apparatus is not normalised running text, so the readability invariants below
+# apply to the main text only.
 APPARATUS_RE = re.compile(r"\{[^{}]*\}")
 # A dash glued to the preceding word.
 ATTACHED_DASH_RE = re.compile(r"\S- ")
@@ -230,6 +228,54 @@ class ManifestIntegrityTests(unittest.TestCase):
                 )
 
 
+class ApparatusLiteralFidelityTests(unittest.TestCase):
+    """MAR 16:8 apparatus notes survive the conversion.
+
+    `[[ "shorter ending" ]]` and the literal `"+"` are apparatus text, not beta
+    code. The historical converter transliterated the note and rendered the
+    quotation mark as `" ̈"`; all curated editions now keep both verbatim.
+    """
+
+    OLD_NOTE = "σηορτερ"
+    OLD_PLUS = '" ̈"'
+
+    def test_generated_editions_preserve_the_literals(self):
+        # The official `.CCT` archives carry the note in lower case with spaces
+        # inside the brackets; the production parser must not upper-case or
+        # re-space it.
+        for edition_id in ("rp2005", "rp2018"):
+            text = _verse(edition_id, "accented/with-variants", "MAR", 16, 8)
+            self.assertIn('[[ "shorter ending" ]]', text, edition_id)
+            self.assertIn('"+"', text, edition_id)
+            self.assertNotIn(self.OLD_NOTE, text, edition_id)
+            self.assertNotIn(self.OLD_PLUS, text, edition_id)
+        # `source/CCAT` (the basis of `rp2018-2023`) is upper-case with no
+        # spaces inside the brackets, and that form is correct for it.
+        text = _verse("rp2018-2023", "accented/with-variants", "MAR", 16, 8)
+        self.assertIn('[["SHORTER ENDING"]]', text)
+        self.assertIn('"+"', text)
+        self.assertNotIn(self.OLD_NOTE, text)
+        self.assertNotIn(self.OLD_PLUS, text)
+
+    def test_legacy_csv_pipeline_preserves_the_literals(self):
+        path = ROOT / "csv-unicode" / "ccat" / "with-variants" / "MAR.csv"
+        text = _csv_verses(path)[(16, 8)]
+        self.assertIn('[["SHORTER ENDING"]]', text)
+        self.assertIn('"+"', text)
+        self.assertNotIn(self.OLD_NOTE, text)
+        self.assertNotIn(self.OLD_PLUS, text)
+
+    def test_historical_with_variants_is_corrected(self):
+        # `v2.0.3`'s with-variants copy carries the old transliteration; the
+        # recovery post-processes exactly that row so the historical view is
+        # curated too. Its source files and other views stay byte-identical.
+        text = _verse("rp2005-2019", "accented/with-variants", "MAR", 16, 8)
+        self.assertIn('[[ "shorter ending" ]]', text)
+        self.assertIn('"+"', text)
+        self.assertNotIn(self.OLD_NOTE, text)
+        self.assertNotIn(self.OLD_PLUS, text)
+
+
 class DocumentationTests(unittest.TestCase):
     def test_every_readme_has_edition_specific_notes(self):
         for edition_id in editions.EDITIONS:
@@ -266,9 +312,14 @@ class DocumentationTests(unittest.TestCase):
         self.assertIn("accented TEI", text)
         self.assertIn("<pc>", text)
 
-    def test_editions_doc_documents_converter_apparatus_quirk(self):
+    def test_editions_doc_documents_apparatus_literals(self):
         text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
-        self.assertIn("σηορτερ ενδινγ", text)
+        self.assertIn("## Apparatus literals", text)
+        self.assertIn("preserve apparatus literals verbatim", text)
+        self.assertIn('[[ "..." ]]', text)
+        self.assertIn("All curated editions now preserve the literals", text)
+        self.assertIn("one corrected row", text)
+        self.assertNotIn("by design", text)
 
 
 class TeiPunctuationTests(unittest.TestCase):
@@ -293,7 +344,7 @@ class BlankVerseTests(unittest.TestCase):
 
     The official `.CCT` and ASCII archives carry blank verse lines for
     LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7. The official editions and
-    `rp2018-2023` emit them as explicit empty records; only the byte-frozen
+    `rp2018-2023` emit them as explicit empty records; only the recovered
     `rp2005-2019` artifacts omit the rows entirely, while its generated Strong's
     views keep them.
     """
@@ -380,7 +431,12 @@ class BlankVerseTests(unittest.TestCase):
 
 
 class HistoricalArtifactTests(unittest.TestCase):
-    """`editions/rp2005-2019/` must stay byte-identical to tag `v2.0.3`."""
+    """`editions/rp2005-2019/` must match tag `v2.0.3`.
+
+    The recovered source files, accented no-variants, unaccented CSV, and
+    unaccented TEI stay byte-identical. The copied with-variants view has
+    exactly one corrected row: the apparatus literal at MAR 16:8.
+    """
 
     MAPPING = {
         "csv-unicode/accents/no-variants": "csv/accented/no-variants",
@@ -440,6 +496,9 @@ class HistoricalArtifactTests(unittest.TestCase):
     def test_bytes_match(self):
         root = editions.edition_dir("rp2005-2019")
         for name, expected in self.files.items():
+            if "csv-unicode/accents/with-variants/" in name:
+                # Covered by `test_with_variants_differs_only_at_mar_16_8`.
+                continue
             path = root / self._target(name)
             self.assertTrue(path.is_file(), f"missing {path}")
             self.assertEqual(
@@ -447,6 +506,43 @@ class HistoricalArtifactTests(unittest.TestCase):
                 hashlib.sha256(expected).hexdigest(),
                 f"{path} differs from v2.0.3",
             )
+
+    def test_with_variants_differs_only_at_mar_16_8(self):
+        root = editions.edition_dir("rp2005-2019")
+        differing = []
+        for name, expected in self.files.items():
+            if "csv-unicode/accents/with-variants/" not in name:
+                continue
+            path = root / self._target(name)
+            actual = path.read_bytes()
+            if actual != expected:
+                differing.append((path.name, expected, actual))
+        self.assertEqual([name for name, _, _ in differing], ["MAR.csv"])
+        _, expected, actual = differing[0]
+        # Only the literal substrings changed; line endings and row count stay.
+        self.assertEqual(expected.count(b"\r\n"), actual.count(b"\r\n"))
+        self.assertEqual(expected.count(b"\n"), actual.count(b"\n"))
+        old_lines = expected.decode("utf-8").splitlines()
+        new_lines = actual.decode("utf-8").splitlines()
+        self.assertEqual(len(old_lines), len(new_lines))
+        changed = [
+            (old_line, new_line)
+            for old_line, new_line in zip(old_lines, new_lines)
+            if old_line != new_line
+        ]
+        self.assertEqual(len(changed), 1)
+        old_line, new_line = changed[0]
+        self.assertTrue(old_line.startswith("16,8,"))
+        self.assertTrue(new_line.startswith("16,8,"))
+        # Decode the CSV quoting so the assertions see the text field.
+        old_text = next(csv.reader([old_line]))[2]
+        new_text = next(csv.reader([new_line]))[2]
+        self.assertIn("σηορτερ", old_text)
+        self.assertIn('" ̈"', old_text)
+        self.assertIn('[[ "shorter ending" ]]', new_text)
+        self.assertIn('"+"', new_text)
+        self.assertNotIn("σηορτερ", new_text)
+        self.assertNotIn('" ̈"', new_text)
 
     def test_no_empty_rows_for_omitted_verses(self):
         # v2.0.3 predates the intentional blank verses; they are absent, not

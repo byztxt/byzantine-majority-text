@@ -145,7 +145,13 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
     for line in path.read_text().splitlines():
         if not line.strip() or line.lstrip().startswith("#"):
             continue
-        normalized = normalize.production_ccat_line(line)
+        # The official `.CCT` line carries the quoted apparatus notes in the
+        # source's own case and spacing (for example `[[ "shorter ending" ]]`),
+        # but `production_ccat_line` upper-cases the line and collapses the
+        # spaces around `[[ ]]`. Protect those literals before normalisation so
+        # the generated editions reproduce the archive exactly.
+        protected, literals = buc.protect_literals(line)
+        normalized = normalize.production_ccat_line(protected)
         match = CCT_RE.match(normalized)
         if not match:
             raise ValueError(
@@ -162,8 +168,9 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
         # sigma (`σ-`), never `ς-`. So every `ς-` followed by whitespace or the
         # end of the verse came from a spaced source dash. Restore it here only,
         # in the production path, so the legacy pipeline and the recovered
-        # `v2.0.3` artifacts stay byte-identical.
+        # `v2.0.3` views are not touched.
         text = re.sub(r"ς-(?=\s|$)", "ς -", text)
+        text = buc.restore_literals(text, literals)
         verses[key] = text.replace("? ", "¶")
     return verses
 
@@ -554,9 +561,11 @@ def _readme(edition: dict) -> str:
     else:
         lines.append("- **Repo releases:** none (official print edition)")
     if edition["pdf"]:
+        # This README lives at editions/<id>/README.md, two levels below the
+        # repository root, so the committed PDF is linked relative to it.
         lines.append(
             f"- **Official PDF:** [`{Path(edition['pdf']).name}`]"
-            f"({edition['pdf_url']})"
+            f"(../../{edition['pdf']})"
         )
     lines.extend(
         [

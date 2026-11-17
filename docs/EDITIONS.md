@@ -15,11 +15,11 @@ the [root README](../README.md#repository-layout).
 
 ## The four editions
 
-| Edition | Status | Basis | Repo releases | PDF |
+| Edition | Status | Basis | Repo releases | PDF (committed) |
 | --- | --- | --- | --- | --- |
-| `rp2005` | official | Published in print by Chilton Book Publishing, Southborough, Massachusetts | none | [`rp2005 PDF`](https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf) (`ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce`) |
+| `rp2005` | official | Published in print by Chilton Book Publishing, Southborough, Massachusetts | none | [`rp2005 PDF`](../data/raw/rp2005/official-pdf/editions-rp2.pdf) (`ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce`) |
 | `rp2005-2019` | released | Recovered from git tag v2.0.3 (textonly-beta-code + parsed) | `v1.0.0`-`v2.0.3` | none |
-| `rp2018` | official | Published in print by VTR, Nuremberg | none | [`rp2018 PDF`](https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf) (`00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c`) |
+| `rp2018` | official | Published in print by VTR, Nuremberg | none | [`rp2018 PDF`](../data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf) (`00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c`) |
 | `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | `v3.0.0`-`v3.3.4` | none |
 
 ## Source feature matrix
@@ -99,19 +99,20 @@ empty), and empty `<ab/>` elements in both TEI views.
 `rp2018-2023` behaves the same way (7972 / 7957 rows plus empty
 `<ab/>` elements).
 
-The byte-frozen `rp2005-2019` edition is the exception. Its
-`textonly-beta-code`, `parsed`, accented CSV (both views), unaccented
+The recovered `rp2005-2019` edition is the exception. Its
+`textonly-beta-code`, `parsed`, accented no-variants CSV, unaccented
 CSV, and unaccented TEI are recovered byte-identically from `v2.0.3`.
-The accented TEI (from the recovered accented CSV) and the Strong's
+The accented with-variants derivative differs from `v2.0.3` only at
+MAR 16:8, where the apparatus literal is corrected. The accented TEI
+(from the recovered accented CSV) and the Strong's
 views (from `parsed`) are generated here, and `v2.0.3` itself has no
 accented TEI. The accented CSV (7968 rows), unaccented CSV (7953
 rows), and unaccented TEI **omit** the four verses: the rows are
 absent and there is no empty `<ab/>`, even though the source files in
 that tag do contain the blank verse lines. The generated accented TEI
 inherits the omission; the generated Strong's views include the four
-verses as empty rows (7957 rows). The recovered artifacts must stay
-byte-identical, so the rows are deliberately not added back; the
-edition README records the omission.
+verses as empty rows (7957 rows). The recovered rows are deliberately
+not added back; the edition README records the omission.
 
 ## TEI punctuation
 
@@ -123,14 +124,24 @@ the following word. Punctuation attached to a word stays inside its
 `<w>`. Only the accented TEI contains these two markers; the unaccented
 TEI has neither, so its markup is unchanged.
 
-## Known converter quirks
+## Apparatus literals
 
-Apparatus text is not fully preserved. The English notes inside
-`[[ ... ]]` are transliterated by the historical converter
-(`"shorter ending"` becomes `σηορτερ ενδινγ`), and apparatus quotes use
-the converter's beta-code diaeresis rendering (`" ̈"` for `"+"`). Both
-are pre-existing converter behaviour and outside the scope of edition
-curation; the main text is unaffected.
+Generated editions preserve apparatus literals verbatim: the quoted
+English notes in `[[ "..." ]]` (for example
+`[[ "shorter ending" ]]` in MAR 16:8) and the exact `"+"`
+quotation mark keep the source's case and spacing. `rp2005` and
+`rp2018` therefore show `[[ "shorter ending" ]]` from the official
+`.CCT` archives, while `rp2018-2023` shows `[["SHORTER ENDING"]]`
+because `source/CCAT` is upper-case with no spaces inside the
+brackets. Before this fix the historical converter transliterated the
+notes (`σηορτερ ενδινγ`) and rendered `"+"` as `" ̈"`.
+
+All curated editions now preserve the literals. The recovered
+`rp2005-2019` with-variants view is the `v2.0.3` artifact with exactly
+one corrected row: MAR 16:8, where `[[ "σηορτερ ενδινγ" ]]` and
+`" ̈"` are restored to `[[ "shorter ending" ]]` and `"+"`. The
+recovered source files and the other historical views remain
+byte-identical to `v2.0.3`.
 
 ## Derived artifacts by edition
 
@@ -146,10 +157,18 @@ edition provides the corresponding derived view. Official editions
 have no Strong's/parsing view because those data are not in the official
 URL files.
 
-Accented CSV also includes the `PA` and `ACT24` section files where the
-source provides them. TEI is the 27-book main text.
+### Rebuilding the curated editions
+
+The official `.CCT` archives also contain the `PA` (Pericope Adulterae)
+and `ACT24` (Acts 24 appendix) sections, which are exported as separate
+accented CSV files; the TEI exports are the 27-book main text.
+
+To rebuild every curated edition from the committed archives,
+`source/`, and git tag `v2.0.3`, run these from the repository root
+(no network is needed):
 
 ```bash
+python3 scripts/fetch_official.py --verify
 python3 scripts/recover_editions.py
 python3 scripts/build_editions.py
 python3 scripts/diff_editions.py
@@ -169,4 +188,5 @@ generated CSV/TEI views.
 ## Source of truth
 
 If a PDF, an archive, and the curated source disagree, the PDF wins and
-the conflict must be flagged to the maintainer. Do not silently choose.
+the conflict is recorded for the maintainer instead of being resolved
+automatically.

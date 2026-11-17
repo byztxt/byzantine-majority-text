@@ -159,6 +159,16 @@ successive-edition diffs.
 **Risks:** the historical converter may not reproduce old artifacts exactly; the
 official `.CCT` parser is new; curated artifacts increase repo size.
 
+**Follow-ups**
+
+- [x] Fixed (2026-11-17): apparatus literals in the generated editions. The
+  converter now protects quoted notes (`[[ "..." ]]`) and the exact `"+"`, so
+  `rp2005`, `rp2018`, `rp2018-2023`, and `csv-unicode/ccat/with-variants` keep
+  them verbatim instead of transliterating them. The recovered `rp2005-2019`
+  with-variants derivative was corrected at MAR 16:8 (the only change to that
+  view), while its source files and the other views remain byte-identical to
+  `v2.0.3`.
+
 ---
 
 ## Cycle 4 - Pipeline skeleton & test harness

@@ -252,8 +252,8 @@
     },
     {
       "path": "csv/accented/with-variants/MAR.csv",
-      "sha256": "44d52730066f3a7536834e7ba63f0dacd8a676a66efd38428eb024dfce5569d4",
-      "size": 196859
+      "sha256": "b1adfaa1ed30c915a432ea9694212cd6698f0447be4706c327fb56eec01e9590",
+      "size": 196846
     },
     {
       "path": "csv/accented/with-variants/MAT.csv",
