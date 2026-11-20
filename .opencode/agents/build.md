@@ -54,17 +54,22 @@ request from "approved" to "merged-ready". You do not implement changes yourself
   were produced and are maintained by Dr. Robinson. Do not casually edit their
   content; changes must reflect the official edition, and the user must approve
   any change to source text.
-- **Generated files are derivatives.** Everything under `csv-unicode/` and
-  `tei-xml-unicode/` is produced by the scripts in `scripts/`. Never hand-edit
-  them; change the script and regenerate.
-- **Scripts run from `scripts/`.** They use relative paths such as
-  `../source` and `../csv-unicode`. Dependencies are pinned in
-  `scripts/requirements.txt` (Python 3.10, `pandas==1.4.2`, `beta-code==1.0.0`).
+- **Generated files are derivatives.** Everything under `editions/<edition>/`
+  (`source/`, `csv/`, `tei/`, `manifest.json`, `README.md`) is produced by
+  `scripts/recover_editions.py` and `scripts/build_editions.py`. Never hand-edit
+  them; change the source or the build and regenerate.
+- **The pipeline is sources -> editions.** `source/` and the committed archives
+  under `data/raw/` are the inputs; `editions/rp2018-2023/` is the only home of
+  the current text's CSV and TEI. There is no working-tree mirror.
+- **Build from the repository root.** `build_editions.py` reads each edition's
+  own `source/` snapshot; the shared converter module lives in
+  `scripts/beta_to_unicode_custom/`. Dependencies are pinned in
+  `scripts/requirements.txt` (Python 3.10, `beta-code==1.0.0`).
 - **Docs are scattered.** `README.md` plus a README in `source/`, `scripts/`,
-  `csv-unicode/`, `tei-xml-unicode/`, and `essay/` each document their own
+  and `essay/`, and the pages under `docs/`, each document their own
   conventions (Beta code, variant codes N/B/C/M/S/E, parsing codes, Strong's).
-- There is no automated test suite, linter, or build system in this repo. Do not
-  invent commands; verify by regenerating outputs and checking the results.
+- There is no linter or build system. Verify by regenerating the affected
+  outputs and running the `unittest` suites under `tests/`.
 
 ## Your workflow
 

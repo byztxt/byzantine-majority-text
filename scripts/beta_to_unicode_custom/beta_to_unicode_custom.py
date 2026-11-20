@@ -4,6 +4,47 @@
 import beta_code
 import re
 
+# Apparatus literals that the historical converter would otherwise mangle.
+#
+# `[[ "..." ]]` is an English note in the apparatus (for example
+# `[[ "shorter ending" ]]` in MAR 16:8). The same `[[ ... ]]` brackets are also
+# a Greek variant delimiter (for example `{N Ὁ > [[Ὁ } ... ποιοῦσιν]]`), so only
+# the *quoted* notes are protected: the Greek variant text must keep going
+# through `beta_code` unchanged.
+#
+# The exact literal `"+"` is an apparatus quotation mark. Without protection,
+# the converter reads `+` as a beta-code diaeresis and emits `" ̈"`.
+_QUOTED_NOTE_RE = re.compile(r'\[\[\s*"[^"]*"\s*\]\]')
+_LITERAL_PLUS_RE = re.compile(r'"\+"')
+_PLACEHOLDER_RE = re.compile("\ue000(\\d+)\ue001")
+
+
+def protect_literals(text):
+    """Swap the quoted apparatus notes and `"+"` for placeholders.
+
+    The official `.CCT` pipeline normalises the whole line (upper-casing it and
+    collapsing the spacing around `[[ ]]`) before the beta-code conversion, so
+    the caller protects the *raw* line first. `beta_code` passes the private-use
+    characters through untouched, and they also survive the normalisation, so
+    the literals can be restored with their original case and spacing.
+    """
+    literals = []
+
+    def stash(match):
+        literals.append(match.group(0))
+        return f"\ue000{len(literals) - 1}\ue001"
+
+    text = _QUOTED_NOTE_RE.sub(stash, text)
+    text = _LITERAL_PLUS_RE.sub(stash, text)
+    return text, literals
+
+
+def restore_literals(text, literals):
+    """Put the protected apparatus literals back with their original form."""
+    if not literals:
+        return text
+    return _PLACEHOLDER_RE.sub(lambda match: literals[int(match.group(1))], text)
+
 
 def standardise_beta_code(text, drop_variants=True):
     """
@@ -54,7 +95,12 @@ def convert_beta_to_unicode(beta):
 
     This function makes use of the beta_code_to_greek()
     function from the beta-code package.
+
+    Quoted apparatus notes (`[[ "..." ]]`) and the literal `"+"` are protected
+    from the converter, because they are natural-language apparatus text rather
+    than beta code; see `protect_literals`.
     """
+    beta, apparatus_literals = protect_literals(beta)
     beta = beta.replace(
         " = ", " ♦ "
     )  # This is to avoid the equals sign being converted to an accent, see issue #33
@@ -77,7 +123,7 @@ def convert_beta_to_unicode(beta):
     )  # Removing the extra space between final sigmas and dashes/brackets that was added by the standardise_beta_code() function
     unicode_line = unicode_line.replace("ς ]", "ς]")
     unicode_line = unicode_line.replace(" ♦ ", " = ")  # Placing the equals sign back
-    return unicode_line
+    return restore_literals(unicode_line, apparatus_literals)
 
 
 def convert_beta_to_unicode_strongs(beta, drop_parsing):
@@ -86,7 +132,12 @@ def convert_beta_to_unicode_strongs(beta, drop_parsing):
 
     This function makes use of the beta_code_to_greek()
     function from the beta-code package.
+
+    Apparatus literals are protected here too, for symmetry with
+    `convert_beta_to_unicode`, even though the Strong's files carry no
+    apparatus.
     """
+    beta, apparatus_literals = protect_literals(beta)
     word_tokenised_beta = beta.split(" ")
 
     unicode_word_list = []
@@ -108,4 +159,4 @@ def convert_beta_to_unicode_strongs(beta, drop_parsing):
             unicode_word_list.append(beta_code.beta_code_to_greek(word))
 
     unicode_line = " ".join(unicode_word_list)
-    return unicode_line
+    return restore_literals(unicode_line, apparatus_literals)

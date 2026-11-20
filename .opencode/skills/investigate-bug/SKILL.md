@@ -34,11 +34,12 @@ explicit finding - even "nothing found" is a finding.
 
 1. **Reproduce.** Reproduce with the smallest possible input: the affected verse
    or book, the exact source line from `source/CCAT/*.TXT` or
-   `source/Strongs/*.BP5`, and the failing output in `csv-unicode/` or
-   `tei-xml-unicode/`. Run the relevant converter from `scripts/`
-   (`python3 csv_converter.py` or `python3 tei_xml_converter.py`) after
-   `pip install -r requirements.txt`. Confirm the failure is about the bug, not a
-   typo or a stale generated file.
+   `source/Strongs/*.BP5`, and the failing output under
+   `editions/rp2018-2023/`. Regenerate from the repository root with
+   `python3 scripts/recover_editions.py` and
+   `python3 scripts/build_editions.py` after
+   `pip install -r requirements.txt` (from `scripts/`). Confirm the failure is
+   about the bug, not a typo or a stale generated file.
 2. **Mechanism.** Explain _why_ it fails - the data shape, Beta-code variant,
    regex overreach, ordering, unhandled parsing alternative, or a mismatch
    between Prof. Robinson's Beta code and the `beta-code` library - not just
@@ -94,9 +95,10 @@ The same root cause across books, scripts, and outputs.
 2. **Codify the signature.** Write down the searchable signature of the class:
    function name, regex, operator, literal shape, or field you are sweeping for.
 3. **Sweep the codebase.** Repeat the systematic search across all of
-   `source/CCAT/`, `source/Strongs/`, `scripts/`, `csv-unicode/`, and
-   `tei-xml-unicode/`. Check every book (including `04a_PA` and `05a_ACT24`) and
-   every output variant (with/without variants, with/without parsing).
+   `source/CCAT/`, `source/Strongs/`, `src/byz/curate/`, `scripts/`,
+   `editions/*/csv/`, and `editions/*/tei/`. Check every book (including
+   `04a_PA` and `05a_ACT24`) and every output variant (with/without variants,
+   with/without parsing).
 4. **Report.** Produce a second table - same columns as H1 but for H2. Include
    false positives you eliminated and why. "No codebase-wide siblings found
    after sweeping Y" is a valid result, but you must state what you swept.

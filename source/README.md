@@ -1,6 +1,8 @@
 # Source files
 
-This folder contains the source files of the Byzantine Texform as created and maintained by Dr. Maurice A. Robinson. These files are the ultimate source of truth should any question arise regarding the derivative Unicode files provided in this repository.
+> **Curated editions:** `source/` is the current working tree (2018+2023). The official 2005, released 2005+2019, official 2018, and released 2018+2023 editions are curated under [`editions/`](../editions); see [`docs/EDITIONS.md`](../docs/EDITIONS.md). The published PDFs are the ultimate source of truth.
+
+This folder contains the source files of the Byzantine Texform as created and maintained by Dr. Maurice A. Robinson. They are the authoritative machine-readable source for the derivative Unicode files provided in this repository; the published PDFs are the ultimate source of truth for the printed editions.
 
 These files are written in Beta code. The Beta code of the files differs from the standard used by the `beta-code` library (which is used for the conversion to Unicode) as explained in the docstring and code of the `standardise_beta_code()` function in the `scripts/beta_to_unicode_custom/beta_to_unicode_custom.py` script.
 
@@ -113,7 +115,7 @@ For example, in James 4:5 the text reads:
 
 Both "to" and "pneuma" are neuter, so their nominative and accusative forms are spelled identically and neither parsing can be excluded on morphological grounds alone. The text therefore gives both possibilities: "to" may be parsed as `T-NSN` or `T-ASN`, and "pneuma" as `N-NSN` or `N-ASN`.
 
-Each alternative parsing is accompanied by its own Strong's number. Most of the time the number is the same for both alternatives (as in the example above), but it may differ when the alternatives belong to different lexical roots (for example 2 Timothy 2:6: `prwton 4412 {ADV-S} 4413 {A-ASN-S}`). The convention is preserved in the Unicode `.csv` files that keep the parsing (`csv-unicode/strongs/with-parsing`), where the word is likewise followed by two sets of Strong's number and parsing code; the `.csv` files without parsing and the TEI-XML files list each word only once.
+Each alternative parsing is accompanied by its own Strong's number. Most of the time the number is the same for both alternatives (as in the example above), but it may differ when the alternatives belong to different lexical roots (for example 2 Timothy 2:6: `prwton 4412 {ADV-S} 4413 {A-ASN-S}`). The convention is preserved in the Unicode `.csv` files that keep the parsing (`editions/rp2018-2023/csv/strongs/with-parsing`), where the word is likewise followed by two sets of Strong's number and parsing code; the `.csv` files without parsing and the TEI-XML files list each word only once.
 
 ### Strong's numbers
 

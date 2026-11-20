@@ -70,7 +70,7 @@ redistribution.
 
 - A user can check out a tag or release for each edition and get the exact files.
 - A user can read a diff between any two editions and understand *what* changed
-  and *why category* of change it is.
+  and *what category* of change it is.
 - A clean machine can rebuild every committed artifact and get no diff.
 - Every artifact carries a checksum and a provenance record.
 - The test suite passes in CI, and every change is backed by a spec.

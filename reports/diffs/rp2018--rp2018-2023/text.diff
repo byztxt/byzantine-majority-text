@@ -1,0 +1,16 @@
+# Exact derived artifact text from csv/accented/no-variants, for
+# every source-differing verse whose exact text differs (including
+# formatting-only changes). Paragraph markers (¶) and
+# apostrophe typography are shown as stored.
+# derived.diff is the normalised full view.
+# Word diff: rp2018 -> rp2018-2023 (exact Unicode accented main text)
+@@ LUK 11:18 [punctuation] @@
+Εἰ δὲ καὶ ὁ Σατανᾶς ἐφ’ ἑαυτὸν διεμερίσθη, πῶς σταθήσεται ἡ βασιλεία αὐτοῦ; Ὅτι [-λέγετε,-]{+λέγετε+} [-Ἐν-]{+ἐν+} Βεελζεβοὺλ ἐκβάλλειν με τὰ δαιμόνια.
+@@ ACT 1:15 [variant-code] @@
+¶Καὶ ἐν ταῖς ἡμέραις ταύταις ἀναστὰς Πέτρος ἐν μέσῳ τῶν μαθητῶν [-εἶπεν --]{+εἶπεν-+} ἦν τε ὄχλος ὀνομάτων ἐπὶ τὸ αὐτὸ ὡς ἑκατὸν [-εἴκοσι --]{+εἴκοσι-+}
+@@ ROM 11:22 [accents-breathings] @@
+Ἴδε οὖν χρηστότητα καὶ ἀποτομίαν θεοῦ· ἐπὶ μὲν τοὺς πεσόντας, ἀποτομίαν· ἐπὶ [-δὲ-]{+δέ+} [-σὲ,-]{+σε,+} χρηστότητα, ἐὰν ἐπιμείνῃς τῇ χρηστότητι· ἐπεὶ καὶ σὺ ἐκκοπήσῃ.
+@@ 1CO 14:7 [accents-breathings] @@
+Ὅμως τὰ ἄψυχα φωνὴν διδόντα, εἴτε αὐλός, εἴτε κιθάρα, ἐὰν διαστολὴν τοῖς φθόγγοις μὴ [-διδῶ,-]{+διδῷ,+} πῶς γνωσθήσεται τὸ αὐλούμενον ἢ τὸ κιθαριζόμενον;
+@@ REV 21:18 [punctuation] @@
+Καὶ ἦν ἡ ἐνδόμησις τοῦ τείχους [-αὐτῆς,-]{+αὐτῆς+} ἴασπις· καὶ ἡ πόλις χρυσίον καθαρόν, ὅμοιον ὑέλῳ καθαρῷ.

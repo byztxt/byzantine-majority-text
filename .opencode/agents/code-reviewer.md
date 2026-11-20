@@ -60,21 +60,24 @@ act on.
      Dr. Robinson's authoritative files. Any change to their content must be
      justified by the official edition and approved by the user. Flag unexplained
      edits to Greek text, parsing codes, Strong's numbers, or variant markers.
-   - **Generated files:** everything under `csv-unicode/` and
-     `tei-xml-unicode/` must come from the scripts. Flag hand-edits and any case
-     where the committed output does not match what the scripts produce.
+   - **Generated files:** everything under `editions/` must come from
+     `scripts/recover_editions.py` and `scripts/build_editions.py`. Flag
+     hand-edits and any case where the committed output does not match what the
+     build produces.
    - **Scripts:** review `scripts/*.py` for correctness, Python 3.10
-     compatibility, pinned-dependency assumptions, relative paths (they run from
-     inside `scripts/`), encoding, and handling of Beta code, variants, parsing,
+     compatibility, pinned-dependency assumptions, relative paths (the pipeline
+     runs from the repository root and scripts resolve paths from there),
+     encoding, and handling of Beta code, variants, parsing,
      and multi-parsing words. Prefer early returns and simple structure; flag
      dead code and silent failures.
    - **Data consistency:** check verse/chapter numbering, book ids, variant and
      parsing conventions (see `source/README.md`), CSV column shape, and TEI-XML
      well-formedness. A changed converter must not silently drop or duplicate
      verses, variants, or parsing alternatives.
-   - **Regeneration:** run the affected scripts from `scripts/` when possible and
-     confirm the diff matches the intended output. There is no test suite or
-     linter in this repo; do not invent ones.
+   - **Regeneration:** run the affected scripts from the repository root when
+     possible and confirm the diff matches the intended output. There is no
+     linter in this repo; run the `unittest` suites (`tests/contract`,
+     `tests/curate`, `tests/reconciliation`) and do not invent new ones.
    - **Docs:** the README for the affected folder (and the root README) must be
      updated when behaviour or the workflow changes.
    - **Bug-category review:** if the diff is a bug fix, check that the author

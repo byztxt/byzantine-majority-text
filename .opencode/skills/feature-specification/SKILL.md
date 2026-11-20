@@ -25,19 +25,17 @@ Create:
   Dr. Maurice A. Robinson. Do not plan content changes to them unless the user
   has approved a correction to the official edition. Preserve Beta code, variant
   markers (N/B/C/M/S/E), parsing codes, and Strong's numbers exactly.
-- **Generated files are derivatives.** `csv-unicode/` and `tei-xml-unicode/` are
-  produced by `scripts/csv_converter.py` and `scripts/tei_xml_converter.py`. Plan
-  to regenerate them, never to hand-edit them.
-- **Scripts are Python 3.10** with pinned dependencies in
-  `scripts/requirements.txt` (`pandas==1.4.2`, `beta-code==1.0.0`). They use
-  relative paths (`../source`, `../csv-unicode`, `../tei-xml-unicode`) and must be
-  run from inside `scripts/`.
+- **Generated files are derivatives.** Every CSV/TEI view under
+  `editions/<edition>/` is produced by `scripts/recover_editions.py` and
+  `scripts/build_editions.py` from that edition's own `source/` snapshot. Plan to
+  regenerate them, never to hand-edit them.
+- **Scripts are Python 3.10** with the single pinned dependency in
+  `scripts/requirements.txt` (`beta-code==1.0.0`). Run them from the repository
+  root; the shared converter module lives in `scripts/beta_to_unicode_custom/`.
 - **Everything is public domain.** Do not introduce license-incompatible content
   or dependencies.
-- **No tests, linter, or build system exist.** Plan verification around
-  regeneration, diffs, and explicit data checks (verse counts, CSV parsing,
-  XML well-formedness, no Beta-code remnants). Do not invent tooling. If you
-  propose adding tests or checks, ask first and keep them dependency-light.
+- **Verification is the `unittest` suites** under `tests/`, plus regenerating the
+  affected outputs and comparing them. Do not invent tooling.
 
 # Requirements
 

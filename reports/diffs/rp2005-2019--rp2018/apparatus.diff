@@ -1,0 +1,7 @@
+# Unicode accented text with apparatus (csv/accented/with-variants),
+# for every apparatus-only change that has a Unicode difference. A row
+# whose difference exists only in the Beta-code encoding converts to the
+# same Unicode and is named in report.md instead. Variant readings stay
+# inside {...} braces, and those braces are literal text inside the diff
+# markers. source.diff is the Beta-code view of the same verses.
+# Word diff: rp2005-2019 -> rp2018 (Unicode accented text with apparatus)

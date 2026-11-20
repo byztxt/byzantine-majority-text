@@ -1,10 +1,17 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Baseline corpus summary
 
 Inventory and validation of the corpus as it currently exists. No external archive was fetched. The generated CSV/TEI were regenerated from source for D8 and the stale parsing artifacts were corrected.
 
 - Datasets: 8
 - Files: 196 validated; see `files.csv`
+- `files.csv` records, for each file, the last commit that touched it. Because the working tree has not been committed yet, that column lags by one commit until the next commit lands.
 - Invariant findings: 0 (0 unresolved, 0 known exception)
+- `invariants.csv` always carries its header: a header with no data rows is the clean result, not a broken run.
 - Missing derived files: 0
 - Cross-dataset coverage mismatches: 0
 
@@ -20,14 +27,14 @@ Inventory and validation of the corpus as it currently exists. No external archi
 
 | Dataset | Files | Books | Records | Unique verses |
 | --- | ---: | ---: | ---: | ---: |
-| `csv-unicode/ccat/no-variants` | 29 | 29 | 7972 | 7972 |
-| `csv-unicode/ccat/with-variants` | 29 | 29 | 7972 | 7972 |
-| `csv-unicode/strongs/no-parsing` | 27 | 27 | 7957 | 7957 |
-| `csv-unicode/strongs/with-parsing` | 27 | 27 | 7957 | 7957 |
+| `editions/rp2018-2023/csv/accented/no-variants` | 29 | 29 | 7972 | 7972 |
+| `editions/rp2018-2023/csv/accented/with-variants` | 29 | 29 | 7972 | 7972 |
+| `editions/rp2018-2023/csv/strongs/no-parsing` | 27 | 27 | 7957 | 7957 |
+| `editions/rp2018-2023/csv/strongs/with-parsing` | 27 | 27 | 7957 | 7957 |
+| `editions/rp2018-2023/tei/unaccented` | 27 | 27 | 7957 | 7957 |
+| `editions/rp2018-2023/tei/unaccented/BYZ` | 1 | 27 | 7957 | 7957 |
 | `source/CCAT` | 29 | 29 | 7972 | 7972 |
 | `source/Strongs` | 27 | 27 | 7957 | 7957 |
-| `tei-xml-unicode/BYZ` | 1 | 27 | 7957 | 7957 |
-| `tei-xml-unicode/no-accents` | 27 | 27 | 7957 | 7957 |
 
 ## Invariant findings by category
 

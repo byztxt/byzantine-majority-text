@@ -22,9 +22,34 @@ the current state of `master`. Editions may have a `revision` (date) and a
 `source_url`; both are recorded in provenance. Git tags freeze each edition
 (`rp2005`, `rp2018`, `rp2026`).
 
-## 2. Official source archives (for the record)
+## 2. Official sources: PDFs and archives
 
-The official files are published by the Byzantine Text website. Known archives:
+The official files are published by the Byzantine Text website. The **published
+PDFs are the ultimate source of truth**; the ZIP archives are machine-readable
+companions.
+
+### Official published PDFs
+
+- 2005: `editions-rp2.pdf` (Chilton Book Publishing, Southborough,
+  Massachusetts) -
+  <https://byzantinetext.com/wp-content/uploads/2016/11/editions-rp2.pdf>
+- 2018: `robinson-pierpont-2018-gnt-edition.pdf` (VTR, Nuremberg) -
+  <https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf>
+
+The PDFs are stored at `data/raw/<edition>/official-pdf/` and recorded in
+`data/provenance/pdfs.toml`. If an archive or a repository file disagrees with a
+PDF, the conflict is recorded and escalated to the maintainer instead of being
+resolved automatically.
+
+### Machine-readable archives
+
+The six archives were listed on and retrieved from the Byzantine Text editions
+listing page
+<https://byzantinetext.com/study/editions/robinson-pierpont/> in November 2026.
+The Dropbox URLs below are the per-file download targets.
+`data/provenance/rp2005.toml` and `data/provenance/rp2018.toml` record the
+listing page as `source_page` on every archive record;
+`data/provenance/pdfs.toml` is hand-maintained and has no such field.
 
 **2005**
 
@@ -46,9 +71,16 @@ The official files are published by the Byzantine Text website. Known archives:
 
 **2026** - to be supplied when the edition is published (see `ROADMAP.md`).
 
-The provenance of the existing `source/Strongs/*.BP5` (parsing and Strong's
-numbers) must be established separately during the reconciliation cycle; it is
-not assumed to come from the archives listed above.
+The six archives are committed under `data/raw/_archives/<edition>/`, so a clone
+carries the exact published files for posterity and offline reproducibility.
+`data/provenance/*.toml` pins each SHA-256, and
+`scripts/fetch_official.py --verify` re-checks the committed copies without
+network access.
+
+`source/Strongs/*.BP5` are Dr Robinson's official parsed files (see
+`source/README.md`); none of the six archives listed above contains a
+parsed/Strong's file, so the delivery route for the parsed files is not
+recorded.
 
 ## 3. Provenance
 
@@ -94,6 +126,7 @@ SPECS/                      # constitution + one folder per change
     validation.md
 
 data/
+  raw/_archives/<edition>/  # immutable original official zips (committed)
   raw/<edition>/            # immutable extracted official inputs (committed)
   provenance/<edition>.toml # urls, sha256, dates, decisions
 
@@ -113,9 +146,14 @@ scripts/                    # thin wrappers: test, lint, build, verify, diff
 docs/                       # provenance, history, release notes
 ```
 
-The migration from the current `source/`, `csv-unicode/`, and `tei-xml-unicode/`
-layout is a spec of its own. Path compatibility is best-effort, not obligatory;
-any move must be documented in the README and release notes.
+The finished layout is **sources -> pipeline -> editions**. `source/` and the
+committed archives under `data/raw/` are the inputs, `scripts/recover_editions.py`
+freezes each edition's `source/` snapshot, and `scripts/build_editions.py` is the
+only producer of `editions/<edition>/csv/` and `editions/<edition>/tei/`. There
+is no working-tree mirror: the legacy `csv-unicode/` and `tei-xml-unicode/` trees
+were removed on 2026-11-19 (see
+`SPECS/2026-11-19-retire-legacy-unicode-trees/`), and every old path is
+documented in `docs/EDITIONS.md`.
 
 ## 6. Pipeline
 

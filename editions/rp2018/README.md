@@ -1,0 +1,42 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
+# rp2018 - Robinson-Pierpont 2018, official print edition
+
+- **Status:** official
+- **Basis:** Published in print by VTR, Nuremberg
+- **Repo releases:** none (official print edition)
+- **Official PDF:** [`robinson-pierpont-2018-gnt-edition.pdf`](../../data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf)
+
+## Layout
+
+- `source/` - frozen source files
+- `csv/` - generated Unicode CSV
+- `tei/` - generated TEI-XML
+- `manifest.json` - provenance and hashes
+
+Accented CSV (with/without variants) and accented TEI are generated from the official `.CCT` source. Unaccented CSV and TEI are generated from the official ASCII. Strong's and parsing are not included because the official archives do not contain them.
+
+Curated CSV/TEI filenames use the current book abbreviations
+(`MAT`, `MAR`, ...). Historical source files may use the older
+official codes (`MT`, `MR`, ...).
+
+`source/` is a frozen copy of the edition's inputs, so the edition
+can be downloaded and verified on its own.
+
+## Derived artifacts
+
+- `csv/accented`
+- `csv/accented/no-variants`
+- `csv/accented/with-variants`
+- `csv/unaccented`
+- `tei/accented`
+- `tei/accented/BYZ`
+- `tei/unaccented`
+- `tei/unaccented/BYZ`
+
+## Notes
+
+The official `.CCT` archive is the accented source; the official ASCII archive supplies the unaccented text. Both archives contain LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 as **blank verse lines**, because those verses are not part of the Byzantine tradition. This edition therefore emits them as explicit empty records: the accented CSV has 7972 rows and the unaccented CSV 7957, each with four empty rows, and both TEI views contain empty `<ab/>` elements for the four verses.
