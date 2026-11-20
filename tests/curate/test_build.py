@@ -30,6 +30,52 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(parsed[(1, 1)], "βιβλος 976 {N-NSF} γενεσεως 1078 {N-GSF}")
             self.assertEqual(text_only[(1, 1)], "βιβλος γενεσεως")
 
+    def test_parse_bp5_strongs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "01_MAT.BP5"
+            path.write_text(
+                "01.01 biblos 976 {N-NSF} genesews 1078 {N-GSF}\n"
+                "01.02\n",
+                encoding="utf-8",
+            )
+            with_parsing, without_parsing = build.parse_bp5_strongs(path)
+            self.assertEqual(
+                with_parsing[(1, 1)],
+                "βιβλος 976 {N-NSF} γενεσεως 1078 {N-GSF}",
+            )
+            self.assertEqual(without_parsing[(1, 1)], "βιβλος γενεσεως")
+            self.assertEqual(with_parsing[(1, 2)], "")
+            self.assertEqual(without_parsing[(1, 2)], "")
+
+    def test_abbr_for_rejects_an_unknown_book(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "99_XXX.BP5"
+            path.write_text("01.01 biblos 976 {N-NSF}\n", encoding="utf-8")
+            with self.assertRaises(ValueError) as caught:
+                build._abbr_for(path)
+            self.assertIn("99_XXX.BP5", str(caught.exception))
+
+    def test_abbr_for_rejects_mismatched_prefix(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "02_MAT.BP5"
+            path.write_text("01.01 biblos 976 {N-NSF}\n", encoding="utf-8")
+            with self.assertRaises(ValueError) as caught:
+                build._abbr_for(path)
+            self.assertIn("02_MAT.BP5", str(caught.exception))
+
+    def test_check_source_books_names_the_edition_and_missing_book(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            present = Path(tmp) / "01_MAT.TXT"
+            present.write_text("", encoding="utf-8")
+            with self.assertRaises(ValueError) as caught:
+                build._check_source_books(
+                    [present], ["MAT", "MAR"], "source/CCAT", "rp2018-2023"
+                )
+            message = str(caught.exception)
+            self.assertIn("rp2018-2023", message)
+            self.assertIn("source/CCAT", message)
+            self.assertIn("MAR", message)
+
     def test_parse_parsed_ub5_handles_tvm_multiparse_and_apparatus(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "MT.UB5"
@@ -112,6 +158,56 @@ class BuildTests(unittest.TestCase):
             self.assertIn("<pc>-</pc>", text)
             self.assertNotIn("<w>-</w>", text)
             self.assertIn("<w>λόγος</w>", text)
+
+
+@unittest.skipUnless(
+    importlib.util.find_spec("beta_code") is not None,
+    "beta_code is not installed",
+)
+class CurrentCctReaderTests(unittest.TestCase):
+    """`parse_cct_current` reads the all-lowercase `source/CCAT` dialect.
+
+    It is deliberately separate from `parse_cct_accented`, which serves the
+    mixed-case official `.CCT` archives and therefore capitalises the text.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.ccat = build.editions.ROOT / "source" / "CCAT"
+
+    def test_matches_mat_1_1(self):
+        verses = build.parse_cct_current(self.ccat / "01_MAT.TXT", drop_variants=True)
+        self.assertEqual(
+            verses[(1, 1)],
+            "Βίβλος γενέσεως Ἰησοῦ χριστοῦ, υἱοῦ Δαυίδ, υἱοῦ Ἀβραάμ.",
+        )
+
+    def test_blank_verse_stays_an_empty_record(self):
+        # LUK 17:36 is intentionally blank in the Byzantine tradition and the
+        # source carries an empty verse line, not a missing one.
+        verses = build.parse_cct_current(self.ccat / "03_LUK.TXT", drop_variants=True)
+        self.assertIn((17, 36), verses)
+        self.assertEqual(verses[(17, 36)], "")
+
+    def test_paragraph_line_becomes_a_paragraph_marker(self):
+        # The source writes a paragraph start as a leading `? ` on the verse
+        # line (MAT 1:2).
+        verses = build.parse_cct_current(self.ccat / "01_MAT.TXT", drop_variants=True)
+        self.assertTrue(verses[(1, 2)].startswith("¶"))
+        self.assertNotIn("? ", verses[(1, 2)])
+
+    def test_two_references_in_one_line_name_the_file_and_line(self):
+        # `CURRENT_VERSE_RE` is unanchored, so a second `NN:NN` in the verse
+        # text would make the reader truncate it. The guard must fail loudly
+        # and name the file and line instead of guessing.
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "01_MAT.TXT"
+            path.write_text("1:1 biblov 2:3 genesewv\n", encoding="utf-8")
+            with self.assertRaises(ValueError) as caught:
+                build.parse_cct_current(path, drop_variants=True)
+        message = str(caught.exception)
+        self.assertIn("01_MAT.TXT:1", message)
+        self.assertIn("found 2", message)
 
 
 @unittest.skipUnless(

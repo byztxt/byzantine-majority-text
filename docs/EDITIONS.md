@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Editions
 
 This repository curates four Robinson-Pierpont texts. Two are **official**
@@ -85,8 +90,40 @@ Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and
 - `rp2005-2019`: accented with/without variants, unaccented, Strong's
   with/no parsing, and accented/unaccented TEI are recovered or generated
   from `v2.0.3`.
-- `rp2018-2023`: the same views are copied or generated from the current
-  working tree.
+- `rp2018-2023`: every view is generated from the edition's own
+  `source/` snapshot.
+
+`rp2018-2023` also has a frozen `source/` snapshot, which intentionally
+duplicates the repository `source/` so the edition can be downloaded and
+verified on its own.
+
+See [`COLLATEX.md`](COLLATEX.md) for using the unaccented TEI with
+CollateX.
+
+## Where the old working-tree paths went
+
+`csv-unicode/` and `tei-xml-unicode/` were removed on 2026-11-19. The
+current text is `editions/rp2018-2023/`; the retired paths return 404 by
+design, with no redirects and no stubs.
+
+| Retired path | Now |
+| --- | --- |
+| `csv-unicode/ccat/no-variants` | `editions/rp2018-2023/csv/accented/no-variants` |
+| `csv-unicode/ccat/with-variants` | `editions/rp2018-2023/csv/accented/with-variants` |
+| `csv-unicode/strongs/with-parsing` | `editions/rp2018-2023/csv/strongs/with-parsing` |
+| `csv-unicode/strongs/no-parsing` | `editions/rp2018-2023/csv/strongs/no-parsing` |
+| csv-unicode/strongs/no-parsing (second view) | `editions/rp2018-2023/csv/unaccented` |
+| `tei-xml-unicode/no-accents` | `editions/rp2018-2023/tei/unaccented` |
+| `tei-xml-unicode/no-accents/BYZ/byz.xml` | `editions/rp2018-2023/tei/unaccented/BYZ/byz.xml` |
+| `tei-xml-unicode/assets/coll.png` | `docs/assets/coll.png` |
+| `tei-xml-unicode/assets/demo_collation.xlsx` | `docs/assets/demo_collation.xlsx` |
+| `tei-xml-unicode/assets/demo_john_1.xml` | `docs/assets/demo_john_1.xml` |
+| tei-xml-unicode/README.md (CollateX walkthrough) | `docs/COLLATEX.md` |
+| csv-unicode/README.md (multi-parsing note) | `docs/EDITIONS.md` and `source/README.md` |
+
+The bytes did not change: the files moved, and the edition's
+`manifest.json` records the same hashes as before the change. See
+[`RELEASE-NOTES.md`](RELEASE-NOTES.md) for the breaking-change note.
 
 ## Blank verses and omitted rows
 
@@ -156,6 +193,30 @@ Where a source carries accents, Strong's, apparatus, or parsing, the
 edition provides the corresponding derived view. Official editions
 have no Strong's/parsing view because those data are not in the official
 URL files.
+
+In `rp2018-2023`, `csv/unaccented/` and `csv/strongs/no-parsing/` hold
+the same bytes: they are two names for one text (the plain Unicode
+text and the Strong's view with parsing dropped). The duplication is
+intentional, and a test asserts the identity.
+
+### Inherited title quirks
+
+The unaccented TEI for `2TI` and `PHP` in `rp2018-2023` and
+`rp2005-2019` titles the books `Second Timoty` and `Phillipians`.
+Both spellings are inherited, not introduced here: `rp2018-2023`
+copies the retired `tei-xml-unicode/` convenience tree, and
+`rp2005-2019` recovers the same titles from the `v2.0.3` artifacts
+that tree held. They are preserved deliberately so the editions'
+TEI bytes stay unchanged. Every other title, and the whole
+accented TEI (in both editions), uses the corrected spellings.
+Do not "fix" them without a new edition release.
+
+In the `csv/strongs/with-parsing/` view a word may be followed by two
+sets of Strong's number and parsing code. These are alternative
+parsings of the same word (for example, a neuter form that can be
+either nominative or accusative), not two separate words; either
+parsing is applicable. The convention is explained in
+`source/README.md`.
 
 ### Rebuilding the curated editions
 

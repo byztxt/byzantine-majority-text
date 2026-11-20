@@ -2,13 +2,12 @@ import hashlib
 import re
 import unittest
 
+from byz import generated
 from byz.curate import docs, editions
 
 ROOT_ITEMS = (
     "editions",
     "source",
-    "csv-unicode",
-    "tei-xml-unicode",
     "data",
     "docs",
     "reports",
@@ -135,6 +134,28 @@ class RootReadmeTests(unittest.TestCase):
     def test_generated_block_matches_the_generator(self):
         self.assertEqual(docs.render_root_readme(self.text), self.text)
 
+    def test_generated_block_is_marked_and_says_the_rest_is_hand_written(self):
+        block = self.text[
+            self.text.index(docs.BEGIN) : self.text.index(docs.END)
+        ]
+        self.assertIn(generated.BLOCK_MARKER, block)
+        self.assertIn("hand-written", block)
+        self.assertIn("python3 scripts/build_editions.py", block)
+
+    def test_lists_generated_files_and_commands(self):
+        block = self.text[
+            self.text.index(docs.BEGIN) : self.text.index(docs.END)
+        ]
+        self.assertIn("## Generated files", block)
+        for row in generated.GENERATED_FILES:
+            self.assertIn(row["label"], block)
+            self.assertIn(row["command"], block)
+        # `pdfs.toml` is hand-maintained: it may only appear in the sentence
+        # that says so, never as a generated table row.
+        for line in block.splitlines():
+            if "pdfs.toml" in line:
+                self.assertIn("hand-maintained", line, line)
+
 
 class PdfLinkTests(unittest.TestCase):
     """The official PDFs are committed, so user-facing links are local."""
@@ -142,6 +163,8 @@ class PdfLinkTests(unittest.TestCase):
     def _user_docs(self):
         paths = [
             editions.DOCS_DIR / "EDITIONS.md",
+            editions.DOCS_DIR / "COLLATEX.md",
+            editions.DOCS_DIR / "RELEASE-NOTES.md",
             editions.ROOT / "README.md",
         ]
         paths += [
@@ -184,6 +207,72 @@ class PdfLinkTests(unittest.TestCase):
             )
             self.assertIn(expected, readme)
             self.assertNotIn("https://byzantinetext.com", readme)
+
+
+class DocsTests(unittest.TestCase):
+    """The reader-facing docs survive the removal of the convenience trees."""
+
+    def test_collatex_doc_and_assets_exist(self):
+        self.assertTrue(
+            (editions.DOCS_DIR / "COLLATEX.md").is_file(), "COLLATEX.md"
+        )
+        for name in ("coll.png", "demo_collation.xlsx", "demo_john_1.xml"):
+            self.assertTrue((editions.DOCS_DIR / "assets" / name).is_file(), name)
+
+    def test_collatex_doc_keeps_the_walkthrough(self):
+        text = (editions.DOCS_DIR / "COLLATEX.md").read_text(encoding="utf-8")
+        self.assertIn("https://collatex.net/download/", text)
+        self.assertIn(
+            "https://ntvmr.uni-muenster.de/community/vmr/api/transcript/get/"
+            "?docID=10066",
+            text,
+        )
+        self.assertIn("java -jar collatex-tools-1.7.1.jar -xp '//w'", text)
+        self.assertIn("demo_john_1.xml", text)
+        self.assertIn("assets/coll.png", text)
+        self.assertIn("assets/demo_collation.xlsx", text)
+        self.assertIn("hand-prepared", text)
+        self.assertIn("not a pipeline output", text)
+
+    def test_release_notes_document_the_removal(self):
+        text = (editions.DOCS_DIR / "RELEASE-NOTES.md").read_text(encoding="utf-8")
+        self.assertIn("404", text)
+        self.assertIn("EDITIONS.md", text)
+        for old, _ in docs.RETIRED_PATHS:
+            # The release note repeats the six data paths; the synthetic
+            # "(second view)" row and the two removed READMEs point at the
+            # canonical table in EDITIONS.md instead.
+            if "(" in old:
+                continue
+            self.assertIn(old, text)
+
+    def test_editions_doc_maps_every_retired_path(self):
+        text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        self.assertIn("## Where the old working-tree paths went", text)
+        self.assertIn("| Retired path | Now |", text)
+        for old, new in docs.RETIRED_PATHS:
+            self.assertIn(old, text)
+            for target in new.split(";"):
+                self.assertIn(target.strip(), text)
+        self.assertIn("The bytes did not change", text)
+
+    def test_editions_doc_points_at_the_release_note(self):
+        text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        self.assertIn("RELEASE-NOTES.md", text)
+        self.assertIn("COLLATEX.md", text)
+
+    def test_root_readme_has_no_retired_tree(self):
+        text = (editions.ROOT / "README.md").read_text(encoding="utf-8")
+        prefixes = {
+            old.split("/", 1)[0] + "/" for old, _ in docs.RETIRED_PATHS
+        }
+        for prefix in prefixes:
+            self.assertNotIn(prefix, text)
+
+    def test_scripts_readme_has_no_retired_converter(self):
+        text = (editions.ROOT / "scripts" / "README.md").read_text(encoding="utf-8")
+        for name in ("csv_converter", "tei_xml_converter", "Csv converter"):
+            self.assertNotIn(name, text)
 
 
 if __name__ == "__main__":

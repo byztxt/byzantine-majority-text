@@ -70,14 +70,15 @@ class ProductionTextTests(unittest.TestCase):
 
     def test_apparatus_abbreviation_is_greek_capitals(self):
         # `_DAD` is an apparatus abbreviation, not a capitalised word. The
-        # correct rendering matches `csv-unicode/ccat/with-variants/REV.csv`.
+        # correct rendering matches
+        # `editions/rp2018-2023/csv/accented/with-variants/REV.csv`.
         text = _verse("rp2018", "accented/with-variants", "REV", 3, 7)
         self.assertIn("—ΔΑΔ", text)
         self.assertNotIn("δαδ", text)
-        # The repo's 2023 `csv-unicode/ccat/with-variants/REV.csv` renders this
-        # as `—ΧΞ*$` (digit marker), while the official archive's `_XC$` is
-        # `—ΧΞ$` with no marker. The curated official edition follows the
-        # archive, as it must.
+        # The repo's 2023 `editions/rp2018-2023/csv/accented/with-variants/REV.csv`
+        # renders this as `—ΧΞ*$` (digit marker), while the official archive's
+        # `_XC$` is `—ΧΞ$` with no marker. The curated official edition follows
+        # the archive, as it must.
         text = _verse("rp2018", "accented/with-variants", "REV", 13, 18)
         self.assertIn("—ΧΞ$", text)
         self.assertNotIn("—ΧΞ*$", text)
@@ -252,14 +253,6 @@ class ApparatusLiteralFidelityTests(unittest.TestCase):
         # `source/CCAT` (the basis of `rp2018-2023`) is upper-case with no
         # spaces inside the brackets, and that form is correct for it.
         text = _verse("rp2018-2023", "accented/with-variants", "MAR", 16, 8)
-        self.assertIn('[["SHORTER ENDING"]]', text)
-        self.assertIn('"+"', text)
-        self.assertNotIn(self.OLD_NOTE, text)
-        self.assertNotIn(self.OLD_PLUS, text)
-
-    def test_legacy_csv_pipeline_preserves_the_literals(self):
-        path = ROOT / "csv-unicode" / "ccat" / "with-variants" / "MAR.csv"
-        text = _csv_verses(path)[(16, 8)]
         self.assertIn('[["SHORTER ENDING"]]', text)
         self.assertIn('"+"', text)
         self.assertNotIn(self.OLD_NOTE, text)

@@ -1,29 +1,31 @@
 """Book/verse coverage matrix and cross-dataset key comparison."""
 
+from . import paths
+
 COMPARISONS = [
     (
         "source/CCAT",
-        "csv-unicode/ccat/no-variants",
+        paths.dataset_name("csv/accented/no-variants"),
         "CCAT source vs CSV no-variants",
     ),
     (
         "source/CCAT",
-        "csv-unicode/ccat/with-variants",
+        paths.dataset_name("csv/accented/with-variants"),
         "CCAT source vs CSV with-variants",
     ),
     (
         "source/Strongs",
-        "csv-unicode/strongs/no-parsing",
+        paths.dataset_name("csv/strongs/no-parsing"),
         "Strong's source vs CSV no-parsing",
     ),
     (
         "source/Strongs",
-        "csv-unicode/strongs/with-parsing",
+        paths.dataset_name("csv/strongs/with-parsing"),
         "Strong's source vs CSV with-parsing",
     ),
     (
-        "csv-unicode/strongs/no-parsing",
-        "tei-xml-unicode/no-accents",
+        paths.dataset_name("csv/strongs/no-parsing"),
+        paths.TEI_DATASET,
         "CSV no-parsing vs TEI",
     ),
 ]

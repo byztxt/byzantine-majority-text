@@ -17,6 +17,9 @@ SOURCE_PREFIXES = [
     "textonly-beta-code/",
     "parsed/",
 ]
+# These paths live inside git tag `v2.0.3`, not in the working tree. They are
+# git-archive prefixes for the historical recovery and must not be "cleaned up"
+# to the curated `editions/` layout: the tag is immutable history.
 ARTIFACT_PREFIXES = [
     "csv-unicode/accents/no-variants/",
     "csv-unicode/accents/with-variants/",
@@ -128,12 +131,27 @@ def _write_files(dest: Path, files: dict) -> None:
         path.write_bytes(data)
 
 
-def _copy_tree(src: Path, dest: Path) -> None:
-    if not src.exists():
+def _copy_data_files(src: Path, dest: Path, pattern: str) -> None:
+    """Copy only the `pattern` data files from `src` into `dest`.
+
+    `source/CCAT`, `source/Strongs`, and the extracted official archive
+    directories are working-tree directories a contributor can accidentally
+    pollute (an editor backup, a scratch note, a `.BAK` file). Every edition
+    snapshot must contain only the authoritative data files, so it is built
+    from the same globs the build reads, never from a whole-tree copy. That
+    keeps the committed `source/` and `manifest.json` reproducible from a
+    clean checkout.
+    """
+    if not src.is_dir():
         raise SystemExit(f"missing source directory: {src}")
+    files = sorted(path for path in src.glob(pattern) if path.is_file())
+    if not files:
+        raise SystemExit(f"no {pattern} files in {src}")
     if dest.exists():
         shutil.rmtree(dest)
-    shutil.copytree(src, dest)
+    dest.mkdir(parents=True)
+    for file in files:
+        shutil.copy2(file, dest / file.name)
 
 
 def _staging(edition_id: str) -> tuple:
@@ -236,11 +254,15 @@ def recover_historical(edition: dict) -> Path:
 
 def recover_official(edition: dict) -> Path:
     def populate(dest: Path) -> None:
-        # The official .CCT source is authoritative; the ASCII/preformatted
+        # The official `.CCT` source is authoritative; the ASCII/preformatted
         # archives remain in data/raw and are referenced by the manifest/build
-        # step.
-        _copy_tree(
-            editions.ROOT / edition["source_dir"], dest / "source" / "ccat"
+        # step. Only the `.CCT` data files are copied, so a stray local file in
+        # the extracted archive directory cannot enter the snapshot or its
+        # manifest hash list.
+        _copy_data_files(
+            editions.ROOT / edition["source_dir"],
+            dest / "source" / "ccat",
+            "*.CCT",
         )
 
     return _recover(edition["id"], populate)
@@ -248,33 +270,20 @@ def recover_official(edition: dict) -> Path:
 
 def recover_current(edition: dict) -> Path:
     def populate(dest: Path) -> None:
-        _copy_tree(editions.ROOT / "source" / "CCAT", dest / "source" / "CCAT")
-        _copy_tree(
-            editions.ROOT / "source" / "Strongs", dest / "source" / "Strongs"
+        # Only the inputs are frozen here. Every CSV/TEI view is generated from
+        # this snapshot by `build.build_current()`; nothing is copied out of a
+        # working-tree convenience tree. The copy is deliberately limited to
+        # the data globs (`*.TXT` / `*.BP5`), so a stray local file cannot enter
+        # the snapshot or its manifest hash list.
+        _copy_data_files(
+            editions.ROOT / "source" / "CCAT",
+            dest / "source" / "CCAT",
+            "*.TXT",
         )
-        _copy_tree(
-            editions.ROOT / "csv-unicode" / "ccat" / "no-variants",
-            dest / "csv" / "accented" / "no-variants",
-        )
-        _copy_tree(
-            editions.ROOT / "csv-unicode" / "ccat" / "with-variants",
-            dest / "csv" / "accented" / "with-variants",
-        )
-        _copy_tree(
-            editions.ROOT / "csv-unicode" / "strongs" / "with-parsing",
-            dest / "csv" / "strongs" / "with-parsing",
-        )
-        _copy_tree(
-            editions.ROOT / "csv-unicode" / "strongs" / "no-parsing",
-            dest / "csv" / "strongs" / "no-parsing",
-        )
-        _copy_tree(
-            editions.ROOT / "csv-unicode" / "strongs" / "no-parsing",
-            dest / "csv" / "unaccented",
-        )
-        _copy_tree(
-            editions.ROOT / "tei-xml-unicode" / "no-accents",
-            dest / "tei" / "unaccented",
+        _copy_data_files(
+            editions.ROOT / "source" / "Strongs",
+            dest / "source" / "Strongs",
+            "*.BP5",
         )
 
     return _recover(edition["id"], populate)

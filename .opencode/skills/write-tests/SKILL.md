@@ -10,11 +10,11 @@ repository of the Robinson-Pierpont Byzantine Textform Greek New Testament.
 **Invoke it every time you write, extend, or modify a test or a validation
 check.**
 
-This repository currently has **no test suite, no linter, and no build system**.
-The source files under `source/CCAT/` and `source/Strongs/` are authoritative, and
-the scripts in `scripts/` generate the Unicode CSV and TEI-XML derivatives. Tests
-here should protect that pipeline: correct conversion, complete book coverage, and
-stable, well-formed output.
+This repository has **no linter and no build system**; verification is the
+`unittest` suites under `tests/`. The source files under `source/CCAT/` and
+`source/Strongs/` are authoritative, and the scripts in `scripts/` generate the
+Unicode CSV and TEI-XML derivatives. Tests here should protect that pipeline:
+correct conversion, complete book coverage, and stable, well-formed output.
 
 Before adding a test framework or dependency, ask the user. Prefer checks that run
 with the standard library (`python3 -m unittest`) or a small script over new
@@ -85,7 +85,7 @@ private helper was called. This keeps checks stable across refactors.
   its parsing/Strong's data.
 - Prefer asserting the generated file set and counts over internal data
   structures.
-- Do not depend on `pandas` internals or on dict ordering.
+- Do not depend on third-party library internals or on dict ordering.
 
 ---
 
@@ -93,17 +93,19 @@ private helper was called. This keeps checks stable across refactors.
 
 - Name checks for the behaviour: `test_final_sigma_before_dash_is_not_medial`,
   `test_multiparsing_word_keeps_both_strongs_numbers`.
-- Group related checks by converter (`test_csv_converter`,
-  `test_tei_xml_converter`, `test_beta_standardisation`).
+- Group related checks by build stage (`test_parse_bp5_strongs`,
+  `test_parse_cct_accented`, `test_beta_standardisation`).
 - Keep each check focused on one behaviour.
 - Do not delete existing checks unless replaced by a stronger one.
 
-Suggested layout if a suite is added (ask the user first):
+The suites already exist; add to the matching one instead of creating a new test
+framework:
 
-- `tests/test_beta_standardisation.py` - the Beta-code helpers.
-- `tests/test_csv_converter.py` - CSV fields, variants, parsing.
-- `tests/test_tei_xml_converter.py` - XML well-formedness and structure.
-- `tests/test_output_coverage.py` - every book present, counts stable.
+- `tests/curate/test_build.py` - Beta-code helpers and the parsers.
+- `tests/curate/test_current_pipeline.py` - the byte-identity gate for
+  `rp2018-2023` and the identity/deletion locks.
+- `tests/curate/test_fidelity.py` - CSV/TEI content and well-formedness.
+- `tests/contract/` - inventory, dataset names, and coverage.
 
 ---
 

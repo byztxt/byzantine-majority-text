@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # rp2005-2019 - Robinson-Pierpont 2005 lineage, 2019 repo revision
 
 - **Status:** released
@@ -16,6 +21,9 @@ Accented with/without variants, unaccented, Strong's with/no parsing, and accent
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
 official codes (`MT`, `MR`, ...).
+
+`source/` is a frozen copy of the edition's inputs, so the edition
+can be downloaded and verified on its own.
 
 ## Derived artifacts
 

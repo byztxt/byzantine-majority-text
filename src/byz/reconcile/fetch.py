@@ -11,6 +11,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .. import generated
 from . import sources
 
 # Refuse to download anything larger than this. The official archives are all
@@ -138,6 +139,10 @@ def _existing_records(provenance_path: Path) -> dict:
     current = {}
     for line in provenance_path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
+        # Skip blank lines and comments before looking for `=`, so a banner or
+        # a future `# key = value` note cannot be mistaken for a record field.
+        if not line or line.startswith("#"):
+            continue
         if line == "[[archives]]":
             if current.get("name"):
                 records[current["name"]] = current
@@ -163,24 +168,36 @@ def _toml_value(value) -> str:
     return json.dumps(str(value))
 
 
+# Fixed record key order. `source_page` sits after `format` so the origin of
+# an archive is next to what kind of file it is.
+PROVENANCE_KEYS = (
+    "name",
+    "format",
+    "source_page",
+    "requested_url",
+    "download_url",
+    "final_url",
+    "http_status",
+    "downloaded",
+    "size",
+    "sha256",
+    "extracted",
+)
+
+
 def _write_provenance(edition: str, records: list) -> Path:
     path = sources.PROVENANCE_DIR / f"{edition}.toml"
     path.parent.mkdir(parents=True, exist_ok=True)
-    lines = [f"edition = {_toml_value(edition)}", ""]
+    lines = generated.toml_header() + [""]
+    lines.extend([f"edition = {_toml_value(edition)}", ""])
     for record in records:
         lines.append("[[archives]]")
-        for key in (
-            "name",
-            "format",
-            "requested_url",
-            "download_url",
-            "final_url",
-            "http_status",
-            "downloaded",
-            "size",
-            "sha256",
-            "extracted",
-        ):
+        for key in PROVENANCE_KEYS:
+            if key not in record:
+                raise KeyError(
+                    f"provenance record for {record.get('name')!r} is missing "
+                    f"{key!r}"
+                )
             lines.append(f"{key} = {_toml_value(record[key])}")
         lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8")
@@ -259,6 +276,7 @@ def run(verify: bool = False, force: bool = False) -> list:
         record = {
             "name": spec["name"],
             "format": spec["format"],
+            "source_page": spec.get("source_page", sources.SOURCE_PAGE),
             "requested_url": spec["url"],
             "download_url": _download_url(spec["url"]),
             "final_url": meta["final_url"],

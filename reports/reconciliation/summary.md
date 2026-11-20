@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Official archive reconciliation
 
 Read-only comparison of the current corpus against the six official
@@ -44,14 +49,14 @@ Current `source/CCAT` is closest to `rp2018`. For `rp2018`, 0 verses differ in m
 
 | Edition | Reference | Dataset | Verses matching |
 | --- | --- | --- | ---: |
-| `rp2005` | `ascii-one-line` | `csv-unicode/strongs/no-parsing` | 7951/7957 (99.92%) |
-| `rp2005` | `ascii-one-line` | `tei-xml-unicode/no-accents` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `csv-unicode/strongs/no-parsing` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `tei-xml-unicode/no-accents` | 7951/7957 (99.92%) |
-| `rp2018` | `ascii-one-line` | `csv-unicode/strongs/no-parsing` | 7953/7957 (99.95%) |
-| `rp2018` | `ascii-one-line` | `tei-xml-unicode/no-accents` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `csv-unicode/strongs/no-parsing` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `tei-xml-unicode/no-accents` | 7953/7957 (99.95%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
 
 ## Mapping coverage
 

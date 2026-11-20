@@ -5,6 +5,7 @@ import re
 import subprocess
 import unittest
 
+from byz import generated
 from byz.curate import diff, editions
 
 
@@ -393,7 +394,10 @@ class CurateIntegrationTests(unittest.TestCase):
     def test_readme_is_generated_from_the_module_constant(self):
         path = editions.DIFFS_DIR / "README.md"
         self.assertTrue(path.is_file())
-        self.assertEqual(path.read_text(encoding="utf-8"), diff.README_TEXT)
+        self.assertEqual(
+            path.read_text(encoding="utf-8"),
+            generated.markdown(diff.README_TEXT),
+        )
         self.assertIn("canonicalises dash spacing", diff.README_TEXT)
         self.assertIn("attached-vs-spaced dashes", diff.README_TEXT)
         self.assertIn("empty rows", diff.README_TEXT)
@@ -531,6 +535,7 @@ class CurateIntegrationTests(unittest.TestCase):
 
     def test_docs_cover_all_editions(self):
         text = (editions.DOCS_DIR / "EDITIONS.md").read_text()
+        self.assertTrue(text.startswith(generated.MARKDOWN_MARKER + "\n"))
         for edition_id in editions.EDITIONS:
             self.assertIn(edition_id, text)
         self.assertIn("official", text)

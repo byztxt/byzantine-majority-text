@@ -38,7 +38,7 @@ The essay can be found in a plain text format inside the `essay` folder.
 
 | I want to... | Start here |
 | --- | --- |
-| Read or download the current text as CSV or TEI | [`editions/rp2018-2023/`](editions/rp2018-2023/), or `csv-unicode/` and `tei-xml-unicode/` for the working-tree outputs |
+| Read or download the current text as CSV or TEI | [`editions/rp2018-2023/`](editions/rp2018-2023/) |
 | Use the official 2018 print edition | [`editions/rp2018/`](editions/rp2018/) and the [2018 PDF](data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf) |
 | Use the official 2005 print edition | [`editions/rp2005/`](editions/rp2005/) and the [2005 PDF](data/raw/rp2005/official-pdf/editions-rp2.pdf) |
 | Use the 2019 revision of the 2005 lineage | [`editions/rp2005-2019/`](editions/rp2005-2019/) |
@@ -55,6 +55,11 @@ The essay can be found in a plain text format inside the `essay` folder.
 `rp2018-2023` are released editions.
 
 <!-- editions:begin -->
+<!-- generated-block: do not edit by hand -->
+> **Generated section. Do not edit by hand.**
+> This block is produced by `python3 scripts/build_editions.py`; the rest of
+> this README is hand-written.
+
 ## Curated editions
 
 Four editions are curated under [`editions/`](editions/), each with its
@@ -73,6 +78,29 @@ print editions, and `rp2005-2019` is the historical 2019 revision of the
 See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the
 [`editions/`](editions/) directory for the full explanation, PDF
 links, provenance, manifests, and checksums.
+
+## Generated files
+
+| Generated path | Regenerate with |
+| --- | --- |
+| `docs/EDITIONS.md` | `python3 scripts/build_editions.py` |
+| `editions/<edition>/source/` | `python3 scripts/recover_editions.py` (`build_editions.py` re-runs it) |
+| `editions/<edition>/README.md` | `python3 scripts/build_editions.py` |
+| `editions/<edition>/manifest.json`, `csv/`, `tei/` | `python3 scripts/build_editions.py` |
+| this README's generated editions block | `python3 scripts/build_editions.py` |
+| `reports/diffs/README.md`, `reports/diffs/<left>--<right>/report.md` | `python3 scripts/diff_editions.py` |
+| `docs/HISTORY.md` | `PYTHONPATH=src python3 -m byz.contract`, then `PYTHONPATH=src python3 -m byz.reconcile` |
+| `docs/DATA_CONTRACT.md` | `PYTHONPATH=src python3 -m byz.contract` |
+| `docs/contract/*.json`, `reports/baseline/summary.md`, `reports/baseline/decision-log.md`, `reports/baseline/*.csv` | `PYTHONPATH=src python3 -m byz.contract` |
+| `docs/PROVENANCE.md` | `PYTHONPATH=src python3 -m byz.reconcile` |
+| `reports/reconciliation/summary.md`, `reports/reconciliation/decision-log.md`, `reports/reconciliation/*.csv` | `PYTHONPATH=src python3 -m byz.reconcile` |
+| `data/provenance/rp2005.toml`, `data/provenance/rp2018.toml` | `python3 scripts/fetch_official.py` (offline re-record) or `--force` (re-download and re-extract) |
+
+Do not edit any file in this table by hand; the next run overwrites
+it. The rest of this README is hand-written.
+`data/provenance/pdfs.toml` is hand-maintained and is **not**
+generated.
+
 <!-- editions:end -->
 
 ## Repository layout
@@ -81,11 +109,10 @@ links, provenance, manifests, and checksums.
 | --- | --- |
 | `editions/` | The four curated editions, each self-contained (source, CSV, TEI, manifest, README). Start here for a complete text. |
 | `source/` | The official Beta-code source files for the current text: accented `CCAT/` and parsed `Strongs/`. |
-| `csv-unicode/`, `tei-xml-unicode/` | Generated Unicode CSV and TEI-XML for the current text. |
 | `data/` | Official ZIP archives (`raw/_archives/`, committed), extracted archive trees (`raw/<edition>/`), the published PDFs, and `provenance/` hashes and URLs. |
-| `docs/` | `EDITIONS.md`, `PROVENANCE.md`, `HISTORY.md`, `DATA_CONTRACT.md`, and `contract/`. |
+| `docs/` | `EDITIONS.md`, `PROVENANCE.md`, `HISTORY.md`, `DATA_CONTRACT.md`, `COLLATEX.md`, `RELEASE-NOTES.md`, `assets/`, and `contract/`. |
 | `reports/` | `baseline/` (contract snapshot), `reconciliation/` (official-archive comparison), and `diffs/` (successive edition diffs). |
-| `scripts/` | Converters and the build, recovery, diff, and report entry points. |
+| `scripts/` | The build, recovery, diff, and fetch entry points, plus the shared Beta-code converter module. |
 | `src/` | The `byz/` Python package used by the scripts and tests (`contract/`, `curate/`, `reconcile/`). |
 | `tests/` | The `contract/`, `curate/`, and `reconciliation/` suites. |
 | `essay/` | Robinson's essay on Byzantine priority, in plain text and translations. |
@@ -106,8 +133,8 @@ maintainer instead of being resolved automatically.
 
 ## Which text should I use?
 
-- `rp2018-2023` for current work. It is also the text described by `source/`,
-  `csv-unicode/`, and `tei-xml-unicode/`.
+- `rp2018-2023` for current work. It is the current text described by
+  `source/` and exported under `editions/rp2018-2023/`.
 - `rp2018` to cite or check the official 2018 print edition.
 - `rp2005` to cite or check the official 2005 print edition.
 - `rp2005-2019` for the repository's 2019 revision of the 2005 lineage (the
@@ -143,19 +170,32 @@ ones, for at least the following reasons:
 
 Run the generators from the repository root; they need no network access (only
 `--force` downloads). The recovery and the tests also need the full git history
-and tags, at least `v2.0.3`, so they fail in a shallow clone.
+and tags, at least `v2.0.3`, so they fail in a shallow clone. `byz.contract`
+additionally requires a git checkout: it inventories only tracked files, so
+`git` must be installed and `git ls-files` must work.
 
 ```bash
 python3 scripts/fetch_official.py --verify   # validate the committed archives; no network, no writes
-python3 scripts/recover_editions.py          # rebuild editions/ from data/raw/, git v2.0.3, and source/
+python3 scripts/fetch_official.py            # re-record provenance from the committed archives; offline after --verify
+python3 scripts/recover_editions.py          # freeze edition inputs only; build_editions.py writes the views
 python3 scripts/build_editions.py            # CSV, TEI, manifests, per-edition READMEs, docs/EDITIONS.md, this README
 python3 scripts/diff_editions.py             # reports/diffs/
 PYTHONPATH=src python3 -m byz.contract       # reports/baseline/
 PYTHONPATH=src python3 -m byz.reconcile      # reports/reconciliation/ and docs/PROVENANCE.md
 ```
 
-`python3 scripts/fetch_official.py --force` re-downloads the six archives,
-re-extracts them, and rewrites `data/provenance/*.toml`.
+`recover_editions.py` only freezes the inputs (the current edition's `source/`
+snapshot and the historical artifacts recovered from git); it does not write the
+CSV/TEI views. Running it alone leaves every `editions/<edition>/csv/` and
+`tei/` empty, so always follow it with `build_editions.py`, which also re-runs
+the recovery before building.
+
+Record mode (`python3 scripts/fetch_official.py`, no flag) reuses the committed
+archives and preserves the recorded `downloaded`, `final_url`, and
+`http_status` values; it downloads only if an archive is missing or fails its
+digest. `python3 scripts/fetch_official.py --force` always re-downloads the six
+archives, re-extracts them, and rewrites `data/provenance/*.toml`, replacing the
+recorded timestamps and final Dropbox URLs.
 
 Tests:
 
@@ -165,7 +205,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests/curate
 PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation
 ```
 
-See [`scripts/README.md`](scripts/README.md) for the converter details.
+See [`scripts/README.md`](scripts/README.md) for the build details.
 
 ## Archiving
 

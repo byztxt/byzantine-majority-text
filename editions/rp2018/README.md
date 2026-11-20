@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # rp2018 - Robinson-Pierpont 2018, official print edition
 
 - **Status:** official
@@ -17,6 +22,9 @@ Accented CSV (with/without variants) and accented TEI are generated from the off
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
 official codes (`MT`, `MR`, ...).
+
+`source/` is a frozen copy of the edition's inputs, so the edition
+can be downloaded and verified on its own.
 
 ## Derived artifacts
 

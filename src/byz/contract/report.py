@@ -4,6 +4,7 @@ import csv
 import json
 from collections import Counter
 
+from .. import generated
 from . import contracts, coverage, derivation, history, invariants, paths
 
 # The reconciliation cycle appends its evidence to `docs/HISTORY.md` between
@@ -166,7 +167,7 @@ Adopted by the maintainer on 2026-11-16. The pipeline flags; the maintainer deci
 | ID | Question | Decision | Next step |
 | --- | --- | --- | --- |
 | D1 | What are `PA` and `ACT24`? | Keep them as separate pseudo-books linked to John 7:53-8:11 and Acts 24:6-8. | Revisit the TEI representation in Cycle 6. |
-| D2 | Is the TEI intentionally unaccented? | Yes. `tei-xml-unicode/no-accents` is the main-text export from `strongs/no-parsing`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
+| D2 | Is the TEI intentionally unaccented? | Yes. `editions/rp2018-2023/tei/unaccented` is the main-text export from `csv/strongs/no-parsing`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
 | D3 | How is the current text labelled? | `rp2018` with a `2023-07-20` revision, not a separate edition. | Confirm against the official archive in Cycle 2. |
 | D4 | Are the generated CSV/TEI trustworthy? | The source files are authoritative. The generated artifacts were stale in 2TI 2:22 and ACT 4:9 and have been regenerated. | Full byte-for-byte pipeline check in Cycle 3. |
 | D5 | Which view wins on disagreement? | The source files win; divergence is a bug to flag. | Enforce in the validators and the pipeline. |
@@ -292,7 +293,9 @@ def _render_history(root, docs) -> str:
     text = history.render(root)
     if preserved:
         text = text.rstrip() + "\n\n" + preserved + "\n"
-    return text
+    # The reconciliation writer applies the same idempotent banner, so either
+    # run order leaves exactly one banner above the H1.
+    return generated.markdown(text)
 
 
 def write_all(results, root=paths.ROOT):
@@ -332,15 +335,18 @@ def write_all(results, root=paths.ROOT):
         safe = name.replace("/", "__")
         write_json(contract_dir / f"{safe}.json", contract)
 
+    # `_render_history` already carries the banner; write it as-is so it is not
+    # applied twice.
     (docs / "HISTORY.md").write_text(_render_history(root, docs), encoding="utf-8")
-    (docs / "DATA_CONTRACT.md").write_text(
-        _contract_doc(derivation_rows, dataset_rows, inv_rows), encoding="utf-8"
+    generated.write_markdown(
+        docs / "DATA_CONTRACT.md",
+        _contract_doc(derivation_rows, dataset_rows, inv_rows),
     )
-    (reports / "summary.md").write_text(
+    generated.write_markdown(
+        reports / "summary.md",
         _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows),
-        encoding="utf-8",
     )
-    (reports / "decision-log.md").write_text(_decision_log(), encoding="utf-8")
+    generated.write_markdown(reports / "decision-log.md", _decision_log())
 
     return {
         "reports": reports,

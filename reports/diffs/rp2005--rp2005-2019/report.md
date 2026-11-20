@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Diff: rp2005 -> rp2005-2019
 
 - **Left:** `rp2005` (official; Published in print by Chilton Book Publishing, Southborough, Massachusetts)

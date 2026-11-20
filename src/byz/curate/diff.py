@@ -12,6 +12,7 @@ import textwrap
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from byz import generated
 from byz.contract import paths
 from byz.reconcile import compare, normalize, sources
 
@@ -438,7 +439,7 @@ def _report(
             lines.append(f"- `{book}`: {', '.join(grouped[book])}")
         lines.append("")
 
-    path.write_text("\n".join(lines), encoding="utf-8")
+    generated.write_markdown(path, "\n".join(lines))
 
 
 README_TEXT = """\
@@ -536,9 +537,7 @@ def write_readme(path=None) -> Path:
     """Write `reports/diffs/README.md` from the same module as the diffs."""
     if path is None:
         path = editions.DIFFS_DIR / "README.md"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(README_TEXT, encoding="utf-8")
-    return path
+    return generated.write_markdown(path, README_TEXT)
 
 
 def diff_pair(left_id: str, right_id: str) -> Path:

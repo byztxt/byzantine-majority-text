@@ -7,8 +7,10 @@ run in a normal checkout and need no network access or extra fetch step.
 import shutil
 import subprocess
 import unittest
+from datetime import datetime
 from pathlib import Path
 
+from byz import generated
 from byz.reconcile import fetch, sources
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -98,6 +100,73 @@ class CommittedArchiveTests(unittest.TestCase):
             self.assertEqual(
                 result.returncode, 1, f"committed archive is git-ignored: {path}"
             )
+
+
+def _retrieval_month():
+    """The month the generated provenance doc should name.
+
+    Derived from the recorded `downloaded` timestamps exactly as
+    `report._retrieval_window()` does, so a future `--force` re-record does not
+    break this test even though the generator follows the new timestamps.
+    """
+    stamps = []
+    for edition in sorted({spec["edition"] for spec in sources.ARCHIVES}):
+        path = sources.PROVENANCE_DIR / f"{edition}.toml"
+        for record in fetch._existing_records(path).values():
+            stamp = record.get("downloaded", "")
+            if stamp:
+                stamps.append(stamp)
+    first = min(stamps)
+    return datetime.strptime(first, "%Y-%m-%dT%H:%M:%SZ").strftime("%B %Y")
+
+
+class SourcePageTests(unittest.TestCase):
+    """The listing page is recorded once and written on every record."""
+
+    def test_source_page_is_the_listing_page(self):
+        self.assertEqual(
+            sources.SOURCE_PAGE,
+            "https://byzantinetext.com/study/editions/robinson-pierpont/",
+        )
+
+    def test_every_archive_record_has_the_source_page(self):
+        for edition in ("rp2005", "rp2018"):
+            path = sources.PROVENANCE_DIR / f"{edition}.toml"
+            records = fetch._existing_records(path)
+            self.assertEqual(len(records), 3, edition)
+            for record in records.values():
+                self.assertEqual(record["source_page"], sources.SOURCE_PAGE)
+
+    def test_generated_provenance_starts_with_the_banner(self):
+        for edition in ("rp2005", "rp2018"):
+            path = sources.PROVENANCE_DIR / f"{edition}.toml"
+            lines = path.read_text(encoding="utf-8").splitlines()
+            self.assertEqual(lines[:3], generated.toml_header(), edition)
+            self.assertEqual(lines[3], "", edition)
+            self.assertEqual(lines[4], f'edition = "{edition}"', edition)
+
+    def test_pdfs_toml_is_hand_maintained(self):
+        text = (sources.PROVENANCE_DIR / "pdfs.toml").read_text(
+            encoding="utf-8"
+        )
+        self.assertFalse(text.startswith(generated.TOML_MARKER))
+        self.assertNotIn("source_page", text)
+
+    def test_provenance_doc_names_the_listing_page(self):
+        text = (ROOT / "docs" / "PROVENANCE.md").read_text(encoding="utf-8")
+        self.assertIn(sources.SOURCE_PAGE, text)
+        self.assertIn(_retrieval_month(), text)
+        self.assertIn("source_page", text)
+
+    def test_reconciliation_markdown_starts_with_the_banner(self):
+        for rel in (
+            "docs/PROVENANCE.md",
+            "reports/reconciliation/summary.md",
+            "reports/reconciliation/decision-log.md",
+        ):
+            lines = (ROOT / rel).read_text(encoding="utf-8").splitlines()
+            self.assertEqual(lines[0], generated.MARKDOWN_MARKER, rel)
+            self.assertEqual(lines[1], "> **Generated file. Do not edit by hand.**")
 
 
 class CommittedReportTests(unittest.TestCase):

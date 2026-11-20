@@ -6,7 +6,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from byz.contract import coverage, derivation, invariants
+from byz import generated
+from byz.contract import contracts, coverage, derivation, invariants, paths
 
 
 class IntegrationTests(unittest.TestCase):
@@ -22,21 +23,42 @@ class IntegrationTests(unittest.TestCase):
             {
                 "source/CCAT",
                 "source/Strongs",
-                "csv-unicode/ccat/no-variants",
-                "csv-unicode/ccat/with-variants",
-                "csv-unicode/strongs/no-parsing",
-                "csv-unicode/strongs/with-parsing",
-                "tei-xml-unicode/no-accents",
-                "tei-xml-unicode/BYZ",
+                paths.dataset_name("csv/accented/no-variants"),
+                paths.dataset_name("csv/accented/with-variants"),
+                paths.dataset_name("csv/strongs/no-parsing"),
+                paths.dataset_name("csv/strongs/with-parsing"),
+                paths.TEI_DATASET,
+                paths.TEI_BYZ_DATASET,
             },
         )
+
+    def test_dataset_names_live_in_the_current_edition(self):
+        for dataset in self.results:
+            if dataset.startswith("source/"):
+                continue
+            self.assertTrue(
+                dataset.startswith(f"{paths.CURRENT_PREFIX}/")
+                or dataset == paths.ASSETS_DATASET,
+                dataset,
+            )
+
+    def test_contract_json_matches_the_dataset_names(self):
+        directory = paths.CONTRACT_DIR
+        expected = {"contracts.json"} | {
+            f"{name.replace('/', '__')}.json" for name in contracts.DATASET_CONTRACTS
+        }
+        self.assertEqual({path.name for path in directory.glob("*.json")}, expected)
 
     def test_source_file_counts(self):
         self.assertEqual(len(self.results["source/CCAT"]), 29)
         self.assertEqual(len(self.results["source/Strongs"]), 27)
-        self.assertEqual(len(self.results["csv-unicode/ccat/no-variants"]), 29)
-        self.assertEqual(len(self.results["csv-unicode/strongs/no-parsing"]), 27)
-        self.assertEqual(len(self.results["tei-xml-unicode/no-accents"]), 27)
+        self.assertEqual(
+            len(self.results[paths.dataset_name("csv/accented/no-variants")]), 29
+        )
+        self.assertEqual(
+            len(self.results[paths.dataset_name("csv/strongs/no-parsing")]), 27
+        )
+        self.assertEqual(len(self.results[paths.TEI_DATASET]), 27)
 
     def _record(self, dataset, book, chapter, verse):
         for result in self.results[dataset]:
@@ -74,15 +96,15 @@ class IntegrationTests(unittest.TestCase):
             for dataset in (
                 "source/CCAT",
                 "source/Strongs",
-                "csv-unicode/strongs/no-parsing",
-                "tei-xml-unicode/no-accents",
+                paths.dataset_name("csv/strongs/no-parsing"),
+                paths.TEI_DATASET,
             ):
                 self.assertIsNotNone(
                     self._record(dataset, book, chapter, verse),
                     f"{dataset} is missing {book} {chapter}:{verse}",
                 )
             csv_record = self._record(
-                "csv-unicode/strongs/no-parsing", book, chapter, verse
+                paths.dataset_name("csv/strongs/no-parsing"), book, chapter, verse
             )
             self.assertEqual(csv_record["text"], "")
 
@@ -226,6 +248,8 @@ class ContractWorktreeTests(unittest.TestCase):
         self.assertEqual(text.count("## External archive evidence"), 1)
         self.assertEqual(text.count("<!-- cycle2:begin -->"), 1)
         self.assertEqual(text.count("<!-- cycle2:end -->"), 1)
+        self.assertEqual(text.count(generated.MARKDOWN_MARKER), 1)
+        self.assertTrue(text.startswith(generated.MARKDOWN_MARKER + "\n"))
         self.assertIn("v2016-07-28", text)
 
     def test_summary_documents_commit_column_lag(self):

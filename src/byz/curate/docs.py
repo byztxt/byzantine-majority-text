@@ -2,10 +2,52 @@
 
 import json
 
+from .. import generated
 from . import diff, editions
 
 BEGIN = "<!-- editions:begin -->"
 END = "<!-- editions:end -->"
+
+# Retired working-tree convenience trees (removed 2026-11-19). This is the one
+# authoritative old -> new mapping; docs/EDITIONS.md renders it and the release
+# note repeats the data rows. Nothing else may name these paths except
+# `recover.py`/`history.py` (git pathspecs for tag `v2.0.3` history) and the
+# tests that lock the deletion.
+RETIRED_PATHS = (
+    ("csv-unicode/ccat/no-variants", "editions/rp2018-2023/csv/accented/no-variants"),
+    ("csv-unicode/ccat/with-variants", "editions/rp2018-2023/csv/accented/with-variants"),
+    ("csv-unicode/strongs/with-parsing", "editions/rp2018-2023/csv/strongs/with-parsing"),
+    ("csv-unicode/strongs/no-parsing", "editions/rp2018-2023/csv/strongs/no-parsing"),
+    ("csv-unicode/strongs/no-parsing (second view)", "editions/rp2018-2023/csv/unaccented"),
+    ("tei-xml-unicode/no-accents", "editions/rp2018-2023/tei/unaccented"),
+    ("tei-xml-unicode/no-accents/BYZ/byz.xml", "editions/rp2018-2023/tei/unaccented/BYZ/byz.xml"),
+    ("tei-xml-unicode/assets/coll.png", "docs/assets/coll.png"),
+    ("tei-xml-unicode/assets/demo_collation.xlsx", "docs/assets/demo_collation.xlsx"),
+    ("tei-xml-unicode/assets/demo_john_1.xml", "docs/assets/demo_john_1.xml"),
+    ("tei-xml-unicode/README.md (CollateX walkthrough)", "docs/COLLATEX.md"),
+    ("csv-unicode/README.md (multi-parsing note)", "docs/EDITIONS.md; source/README.md"),
+)
+
+# Rows whose left-hand side is a note about a retired path rather than a path
+# itself. They render as plain text so no reader mistakes the parenthetical for
+# part of a real path.
+RETIRED_NON_PATHS = frozenset(
+    {
+        "csv-unicode/strongs/no-parsing (second view)",
+        "tei-xml-unicode/README.md (CollateX walkthrough)",
+        "csv-unicode/README.md (multi-parsing note)",
+    }
+)
+
+
+def _now_cell(new: str) -> str:
+    """Render one or more `;`-separated targets as separate code spans."""
+    return " and ".join(f"`{target.strip()}`" for target in new.split(";"))
+
+
+def _retired_cell(old: str) -> str:
+    """Render a retired path as a code span, or a note as plain text."""
+    return old if old in RETIRED_NON_PATHS else f"`{old}`"
 
 
 def _manifests() -> list:
@@ -71,6 +113,33 @@ def write_editions_doc() -> str:
         if cur.get("release_range")
         else "none"
     )
+    retired_section = [
+        "`rp2018-2023` also has a frozen `source/` snapshot, which intentionally",
+        "duplicates the repository `source/` so the edition can be downloaded and",
+        "verified on its own.",
+        "",
+        "See [`COLLATEX.md`](COLLATEX.md) for using the unaccented TEI with",
+        "CollateX.",
+        "",
+        "## Where the old working-tree paths went",
+        "",
+        "`csv-unicode/` and `tei-xml-unicode/` were removed on 2026-11-19. The",
+        "current text is `editions/rp2018-2023/`; the retired paths return 404 by",
+        "design, with no redirects and no stubs.",
+        "",
+        "| Retired path | Now |",
+        "| --- | --- |",
+    ]
+    retired_section += [
+        f"| {_retired_cell(old)} | {_now_cell(new)} |"
+        for old, new in RETIRED_PATHS
+    ]
+    retired_section += [
+        "",
+        "The bytes did not change: the files moved, and the edition's",
+        "`manifest.json` records the same hashes as before the change. See",
+        "[`RELEASE-NOTES.md`](RELEASE-NOTES.md) for the breaking-change note.",
+    ]
     lines.extend(
         [
             "",
@@ -137,8 +206,10 @@ def write_editions_doc() -> str:
             "- `rp2005-2019`: accented with/without variants, unaccented, Strong's",
             "  with/no parsing, and accented/unaccented TEI are recovered or generated",
             "  from `v2.0.3`.",
-            "- `rp2018-2023`: the same views are copied or generated from the current",
-            "  working tree.",
+            "- `rp2018-2023`: every view is generated from the edition's own",
+            "  `source/` snapshot.",
+            "",
+            *retired_section,
             "",
             "## Blank verses and omitted rows",
             "",
@@ -222,6 +293,30 @@ def write_editions_doc() -> str:
             "edition provides the corresponding derived view. Official editions",
             "have no Strong's/parsing view because those data are not in the official",
             "URL files.",
+            "",
+            "In `rp2018-2023`, `csv/unaccented/` and `csv/strongs/no-parsing/` hold",
+            "the same bytes: they are two names for one text (the plain Unicode",
+            "text and the Strong's view with parsing dropped). The duplication is",
+            "intentional, and a test asserts the identity.",
+            "",
+            "### Inherited title quirks",
+            "",
+            "The unaccented TEI for `2TI` and `PHP` in `rp2018-2023` and",
+            "`rp2005-2019` titles the books `Second Timoty` and `Phillipians`.",
+            "Both spellings are inherited, not introduced here: `rp2018-2023`",
+            "copies the retired `tei-xml-unicode/` convenience tree, and",
+            "`rp2005-2019` recovers the same titles from the `v2.0.3` artifacts",
+            "that tree held. They are preserved deliberately so the editions'",
+            "TEI bytes stay unchanged. Every other title, and the whole",
+            "accented TEI (in both editions), uses the corrected spellings.",
+            "Do not \"fix\" them without a new edition release.",
+            "",
+            "In the `csv/strongs/with-parsing/` view a word may be followed by two",
+            "sets of Strong's number and parsing code. These are alternative",
+            "parsings of the same word (for example, a neuter form that can be",
+            "either nominative or accusative), not two separate words; either",
+            "parsing is applicable. The convention is explained in",
+            "`source/README.md`.",
             "",
             "### Rebuilding the curated editions",
             "",
@@ -322,7 +417,7 @@ def write_editions_doc() -> str:
         ]
     )
     path = editions.DOCS_DIR / "EDITIONS.md"
-    path.write_text("\n".join(lines), encoding="utf-8")
+    generated.write_markdown(path, "\n".join(lines))
     return str(path)
 
 
@@ -335,19 +430,23 @@ def _release_cell(row: dict) -> str:
 def root_readme_block() -> list:
     """The generated `<!-- editions:begin -->` block for the root README."""
     manifests = {row["edition"]: row for row in _manifests()}
-    block = [
-        BEGIN,
-        "## Curated editions",
-        "",
-        "Four editions are curated under [`editions/`](editions/), each with its",
-        "own `source/`, `csv/`, `tei/`, `manifest.json`, and `README.md`.",
-        "`rp2018-2023` is the current text, `rp2018` and `rp2005` are the official",
-        "print editions, and `rp2005-2019` is the historical 2019 revision of the",
-        "2005 lineage.",
-        "",
-        "| Edition | Status | Repo releases |",
-        "| --- | --- | --- |",
-    ]
+    block = [BEGIN]
+    block.extend(generated.block_banner("python3 scripts/build_editions.py"))
+    block.extend(
+        [
+            "",
+            "## Curated editions",
+            "",
+            "Four editions are curated under [`editions/`](editions/), each with its",
+            "own `source/`, `csv/`, `tei/`, `manifest.json`, and `README.md`.",
+            "`rp2018-2023` is the current text, `rp2018` and `rp2005` are the official",
+            "print editions, and `rp2005-2019` is the historical 2019 revision of the",
+            "2005 lineage.",
+            "",
+            "| Edition | Status | Repo releases |",
+            "| --- | --- | --- |",
+        ]
+    )
     for edition_id in editions.EDITIONS:
         row = manifests.get(edition_id, {})
         block.append(
@@ -359,6 +458,23 @@ def root_readme_block() -> list:
             "See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the",
             "[`editions/`](editions/) directory for the full explanation, PDF",
             "links, provenance, manifests, and checksums.",
+            "",
+            "## Generated files",
+            "",
+            "| Generated path | Regenerate with |",
+            "| --- | --- |",
+        ]
+    )
+    for row in generated.GENERATED_FILES:
+        block.append(f"| {row['label']} | {row['command']} |")
+    block.extend(
+        [
+            "",
+            "Do not edit any file in this table by hand; the next run overwrites",
+            "it. The rest of this README is hand-written.",
+            "`data/provenance/pdfs.toml` is hand-maintained and is **not**",
+            "generated.",
+            "",
             END,
         ]
     )

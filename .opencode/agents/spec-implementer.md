@@ -44,13 +44,13 @@ contract in mind:
 - `source/CCAT/*.TXT` and `source/Strongs/*.BP5` are the authoritative files from
   Dr. Robinson. Do not change their content unless the request is an approved
   correction to the official edition.
-- `csv-unicode/` and `tei-xml-unicode/` are generated. Change the scripts and
+- `editions/<edition>/` is generated. Change the source or the build and
   regenerate; never hand-edit the output.
-- The scripts target Python 3.10 and depend on the pinned packages in
-  `scripts/requirements.txt`. They use relative paths (`../source`, etc.) and must
-  be run from inside `scripts/`.
-- There is no automated test suite, linter, or build system. Verify by
-  regenerating the affected outputs and inspecting them.
+- The scripts target Python 3.10 and depend on the pinned package in
+  `scripts/requirements.txt` (`beta-code==1.0.0`). Run them from the repository
+  root.
+- Verification is the `unittest` suites under `tests/` plus regenerating the
+  affected outputs.
 
 The plan includes three documents when present: requirements.md, plan.md and
 validation.md.
@@ -87,10 +87,11 @@ When given a plan or request, you will:
       sibling books, scripts, and outputs found in the investigate-bug sweeps, and
       add a check that the prevention mechanism actually fires where the repo
       allows one.
-- [ ] To verify your work, install the pinned dependencies
-      (`pip install -r requirements.txt` from `scripts/`) and run the affected
-      converter(s) from `scripts/` (for example `python3 csv_converter.py` and
-      `python3 tei_xml_converter.py`). Do not invent custom runners.
+- [ ] To verify your work, install the pinned dependency
+      (`pip install -r requirements.txt` from `scripts/`), regenerate with
+      `python3 scripts/recover_editions.py` and `python3 scripts/build_editions.py`
+      from the repository root, and run the `unittest` suites. Do not invent
+      custom runners.
 - [ ] Write clean, readable, maintainable code with appropriate comments.
 - [ ] Do not commit or push your changes - the build agent handles the branch,
       commits, and PR.

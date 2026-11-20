@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Provenance
 
 External evidence gathered in Cycle 2. The published PDFs are the
@@ -7,6 +12,13 @@ describe the official archives and how far the current corpus matches
 them.
 
 ## Archives
+
+All six archives were initially obtained from the Byzantine Text editions
+listing page <https://byzantinetext.com/study/editions/robinson-pierpont/> in November 2026.
+The recorded download timestamps are `2026-11-16T18:37:00Z` through `2026-11-16T18:37:10Z`.
+Each `[[archives]]` record in `data/provenance/rp2005.toml` and
+`data/provenance/rp2018.toml` carries the listing page as `source_page`,
+alongside the per-file Dropbox URL and SHA-256.
 
 | Edition | Archive | SHA-256 | Size (bytes) |
 | --- | --- | --- | ---: |
@@ -31,14 +43,14 @@ separately hashed in the provenance files.
 
 | Edition | Reference | Dataset | Verses matching |
 | --- | --- | --- | ---: |
-| `rp2005` | `ascii-one-line` | `csv-unicode/strongs/no-parsing` | 7951/7957 (99.92%) |
-| `rp2005` | `ascii-one-line` | `tei-xml-unicode/no-accents` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `csv-unicode/strongs/no-parsing` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `tei-xml-unicode/no-accents` | 7951/7957 (99.92%) |
-| `rp2018` | `ascii-one-line` | `csv-unicode/strongs/no-parsing` | 7953/7957 (99.95%) |
-| `rp2018` | `ascii-one-line` | `tei-xml-unicode/no-accents` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `csv-unicode/strongs/no-parsing` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `tei-xml-unicode/no-accents` | 7953/7957 (99.95%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
 
 ## Historical lineage
 

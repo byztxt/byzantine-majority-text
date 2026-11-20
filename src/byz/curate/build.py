@@ -8,6 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from byz import generated
 from byz.contract import paths
 from byz.reconcile import normalize, sources
 
@@ -47,12 +48,74 @@ UB5_TO_GREEK["y"] = "ψ"
 
 VERSE_RE = re.compile(r"^\s*(\d+):(\d+)\s?(.*)$")
 CCT_RE = re.compile(r"^(\d{2}):(\d{2})(?:\s(.*))?$")
+# The parsed Strong's source line format is `NN.NN` (dot, not the CCAT colon).
+BP5_RE = re.compile(r"^(\d{2})\.(\d{2})(?:\s(.*))?$")
+
+# The retired convenience pipeline rendered two book titles with typos in the
+# unaccented TEI ("Second Timoty", "Phillipians"). The committed
+# `editions/rp2018-2023/tei/unaccented/` files carry them, and byte identity is
+# the hard gate for this edition, so the build keeps them for that view only.
+# The accented TEI (and every other edition) uses `editions.BOOK_NAMES`.
+LEGACY_UNACCENTED_BOOK_NAMES = {
+    **editions.BOOK_NAMES,
+    "2TI": "Second Timoty",
+    "PHP": "Phillipians",
+}
+
+# The current `source/CCAT` reader is a port of the retired CSV converter:
+# `NN:NN` is stripped and the rest goes through `standardise_beta_code` and
+# `convert_beta_to_unicode` (no production normalisation, which is for the
+# mixed-case official `.CCT` archives).
+CURRENT_VERSE_RE = re.compile(r"[0-9]+:[0-9]+")
+
+
+def parse_cct_current(path: Path, drop_variants: bool) -> dict:
+    """Convert one all-lowercase `source/CCAT` file to Unicode text.
+
+    This reader serves only the current `source/CCAT` dialect. The official
+    mixed-case `.CCT` archives need `parse_cct_accented`, which normalises case
+    and apparatus markup; the two readers are not interchangeable.
+
+    The legacy converter's reader and conversion calls are reproduced exactly,
+    including the `? ` -> paragraph-marker rewrite, because the committed
+    `csv/accented/` views must stay byte-identical.
+    """
+    buc = _buc()
+    verses = {}
+    for number, raw_line in enumerate(
+        path.read_text(encoding="utf-8").splitlines(), 1
+    ):
+        line = raw_line.strip()
+        if not line:
+            continue
+        # `CURRENT_VERSE_RE` is unanchored, so an in-text `1:1` would make the
+        # `sub()` below truncate the verse. Demand exactly one reference and
+        # name the file and line otherwise; every current source line has one.
+        matches = list(CURRENT_VERSE_RE.finditer(line))
+        if len(matches) != 1:
+            raise ValueError(
+                f"expected exactly one chapter:verse reference in "
+                f"{path.name}:{number}: {line[:80]!r} "
+                f"(found {len(matches)})"
+            )
+        match = matches[0]
+        chapter, verse = (int(part) for part in match.group(0).split(":"))
+        body = CURRENT_VERSE_RE.sub("", line).strip()
+        beta = buc.standardise_beta_code(body, drop_variants)
+        text = buc.convert_beta_to_unicode(beta)
+        verses[(chapter, verse)] = text.replace("? ", "¶")
+    return verses
+
+
+# Source filenames carry the number prefix and the current book abbreviation:
+# `01_MAT.TXT` or `04a_PA.TXT`.
+SOURCE_NAME_RE = re.compile(r"^(\d{2}a?)_([A-Z0-9]+)\.(?:TXT|BP5)$")
 PAREN_REF_RE = re.compile(r"\((\d+):(\d+)\)")
 
 EXPORT_NOTES = {
     "official": "Accented CSV (with/without variants) and accented TEI are generated from the official `.CCT` source. Unaccented CSV and TEI are generated from the official ASCII. Strong's and parsing are not included because the official archives do not contain them.",
     "historical": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are recovered or generated from `v2.0.3`. The historical `parsed` source includes apparatus markup; the Strong's views use the main text only.",
-    "current": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are copied or generated from the current working tree.",
+    "current": "Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are generated from the edition's own `source/` snapshot.",
 }
 
 
@@ -139,7 +202,61 @@ def _buc():
     return buc
 
 
+def _abbr_for(path: Path) -> str:
+    """Return the current book abbreviation for a source file name.
+
+    A source file is named `NN_ABBR.TXT` or `NNx_ABBR.BP5`; the prefix and the
+    abbreviation must agree with `paths.NUM_TO_ABBR`. Anything else is a loud
+    failure, never a silent skip, so a new book cannot be dropped from a view.
+    """
+    match = SOURCE_NAME_RE.match(path.name)
+    if not match:
+        raise ValueError(f"unknown source filename: {path}")
+    num, abbr = match.groups()
+    if paths.NUM_TO_ABBR.get(num) != abbr:
+        raise ValueError(
+            f"unknown book in {path}: abbreviation {abbr!r} does not match "
+            f"number prefix {num!r}"
+        )
+    return abbr
+
+
+def _check_source_books(files, expected, source_label: str, edition_id: str) -> None:
+    """Fail loudly unless `files` holds exactly the expected book set.
+
+    A missing source file would otherwise shrink a view silently. The error
+    names the edition, the source directory, and every missing/unexpected book.
+    """
+    found = {}
+    for path in files:
+        abbr = _abbr_for(path)
+        if abbr in found:
+            raise ValueError(
+                f"{edition_id} {source_label} contains book {abbr} twice: "
+                f"{found[abbr].name} and {path.name}"
+            )
+        found[abbr] = path
+    missing = sorted(set(expected) - set(found))
+    unexpected = sorted(set(found) - set(expected))
+    if missing or unexpected:
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            f"{edition_id} {source_label} does not contain the canonical book "
+            f"set: {'; '.join(details)}"
+        )
+
+
 def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
+    """Convert one official mixed-case `.CCT` archive file.
+
+    This reader serves the official 2005/2018 archives (`data/raw/<edition>/`).
+    It is not the current-source reader: `production_ccat_line` upper-cases the
+    line, so `source/CCAT` must go through `parse_cct_current` instead.
+    """
     buc = _buc()
     verses = {}
     for line in path.read_text().splitlines():
@@ -162,17 +279,46 @@ def parse_cct_accented(path: Path, drop_variants: bool) -> dict:
         body = buc.standardise_beta_code(body, drop_variants=drop_variants)
         text = buc.convert_beta_to_unicode(body)
         # The inherited historical converter unconditionally rewrites `ς -` to
-        # `ς-`, which is right for the legacy csv-unicode pipeline but wrong for
+        # `ς-`, which is right for the historical converter output but wrong for
         # the official `.CCT` text: its main text contains no attached dashes at
         # all, and a genuinely attached source dash renders with a *medial*
         # sigma (`σ-`), never `ς-`. So every `ς-` followed by whitespace or the
         # end of the verse came from a spaced source dash. Restore it here only,
-        # in the production path, so the legacy pipeline and the recovered
+        # in the production path, so the historical pipeline and the recovered
         # `v2.0.3` views are not touched.
         text = re.sub(r"ς-(?=\s|$)", "ς -", text)
         text = buc.restore_literals(text, literals)
         verses[key] = text.replace("? ", "¶")
     return verses
+
+
+def parse_bp5_strongs(path: Path) -> tuple:
+    """Return (with_parsing, without_parsing) for one `source/Strongs` file.
+
+    This is the port of the `.BP5` reader that used to live in the retired CSV
+    converter; the conversion rules stay in the shared
+    `beta_to_unicode_custom` module. `drop_parsing=True` keeps the Strong's
+    numbers and drops the morphology, which is the `strongs/no-parsing` and
+    `csv/unaccented` view.
+    """
+    buc = _buc()
+    with_parsing = {}
+    without_parsing = {}
+    for lineno, line in enumerate(
+        path.read_text(encoding="utf-8").splitlines(), 1
+    ):
+        if not line.strip():
+            continue
+        match = BP5_RE.match(line)
+        if not match:
+            raise ValueError(
+                f"unmatched .BP5 line in {path.name}:{lineno}: {line[:80]}"
+            )
+        key = (int(match.group(1)), int(match.group(2)))
+        body = (match.group(3) or "").strip()
+        with_parsing[key] = buc.convert_beta_to_unicode_strongs(body, False)
+        without_parsing[key] = buc.convert_beta_to_unicode_strongs(body, True)
+    return with_parsing, without_parsing
 
 
 def ub5_to_greek(text: str) -> str:
@@ -373,10 +519,15 @@ def _header_template() -> str:
 
 
 def write_tei(
-    path: Path, books: list, combined: bool = False, edition_label: str = ""
+    path: Path,
+    books: list,
+    combined: bool = False,
+    edition_label: str = "",
+    book_names: dict | None = None,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     template = _header_template()
+    names = book_names or editions.BOOK_NAMES
     if edition_label:
         template = re.sub(
             r'<edition n="[^"]*">.*?</edition>',
@@ -388,13 +539,19 @@ def write_tei(
         _tei_book(abbr, book_id, verses) for abbr, book_id, verses in books
     )
     if combined:
+        # `book_names` only feeds the per-book `<title>` metadata below. The
+        # combined file has no per-book title block, so a caller-supplied
+        # spelling must not leak into it; assert that so a template change
+        # cannot reintroduce mixed spellings.
         prefix = template.replace("BOOK_METADATA_PLACEHOLDER", "")
+        if '<title type="work"' in prefix or '<title type="short"' in prefix:
+            raise ValueError("combined TEI header must not carry per-book titles")
     else:
         abbr, book_id, _ = books[0]
         num = paths.ABBR_TO_NUM[abbr]
         metadata = (
             f'\n\t\t\t\t<title type="work" level="m" xml:lang="en" n="{num}">'
-            f"{editions.BOOK_NAMES[abbr]}</title>\n"
+            f"{names[abbr]}</title>\n"
             f'\t\t\t\t<title type="short" level="m" xml:lang="en" n="{num}">'
             f"{abbr}</title>"
         )
@@ -420,8 +577,8 @@ def _edition_label(edition: dict) -> str:
     return "2018 (2023 revision)"
 
 
-def write_accented_tei(edition: dict) -> None:
-    edition_dir = editions.edition_dir(edition["id"])
+def write_accented_tei(edition: dict, edition_dir: Path | None = None) -> None:
+    edition_dir = edition_dir or editions.edition_dir(edition["id"])
     csv_dir = edition_dir / "csv" / "accented" / "no-variants"
     books = []
     for path in sorted(csv_dir.glob("*.csv")):
@@ -532,8 +689,81 @@ def build_historical(edition: dict) -> None:
     write_accented_tei(edition)
 
 
-def build_current(edition: dict) -> None:
-    write_accented_tei(edition)
+def build_current(edition: dict, edition_dir: Path | None = None) -> None:
+    """Generate every `rp2018-2023` view from the edition's `source/` snapshot.
+
+    The edition owns its inputs (`editions/<id>/source/`), so this function
+    reads nothing from the working-tree `source/` and nothing from a retired
+    convenience tree. The write order and the two book orders are load-bearing:
+    the unaccented TEI is written without an edition label and in canonical
+    order, while ``write_accented_tei`` keeps its alphabetical order and its
+    curated label. Changing either would change committed edition bytes.
+    """
+    edition_dir = edition_dir or editions.edition_dir(edition["id"])
+    source = edition_dir / "source"
+    ccat_source = source / "CCAT"
+    strongs_source = source / "Strongs"
+    if not ccat_source.is_dir():
+        raise ValueError(f"missing CCAT source directory: {ccat_source}")
+    if not strongs_source.is_dir():
+        raise ValueError(f"missing Strong's source directory: {strongs_source}")
+
+    ccat_files = sorted(ccat_source.glob("*.TXT"))
+    _check_source_books(
+        ccat_files,
+        paths.CANONICAL_BOOKS + paths.SECTION_ABBRS,
+        "source/CCAT",
+        edition["id"],
+    )
+    bp5_files = sorted(strongs_source.glob("*.BP5"))
+    _check_source_books(
+        bp5_files,
+        paths.CANONICAL_BOOKS,
+        "source/Strongs",
+        edition["id"],
+    )
+
+    for cct_file in ccat_files:
+        abbr = _abbr_for(cct_file)
+        write_csv(
+            edition_dir / "csv" / "accented" / "no-variants" / f"{abbr}.csv",
+            parse_cct_current(cct_file, drop_variants=True),
+        )
+        write_csv(
+            edition_dir / "csv" / "accented" / "with-variants" / f"{abbr}.csv",
+            parse_cct_current(cct_file, drop_variants=False),
+        )
+
+    books = []
+    for bp5_file in bp5_files:
+        abbr = _abbr_for(bp5_file)
+        with_parsing, no_parsing = parse_bp5_strongs(bp5_file)
+        write_csv(
+            edition_dir / "csv" / "strongs" / "with-parsing" / f"{abbr}.csv",
+            with_parsing,
+        )
+        write_csv(
+            edition_dir / "csv" / "strongs" / "no-parsing" / f"{abbr}.csv",
+            no_parsing,
+        )
+        # `csv/unaccented` is the same dict, not a second conversion: the two
+        # views are two names for one text (locked by a test).
+        write_csv(edition_dir / "csv" / "unaccented" / f"{abbr}.csv", no_parsing)
+        books.append((abbr, paths.ABBR_TO_BOOK_ID[abbr], no_parsing))
+
+    books.sort(key=lambda item: editions.BOOK_ORDER.index(item[0]))
+    for abbr, book_id, verses in books:
+        write_tei(
+            edition_dir / "tei" / "unaccented" / f"{abbr}.xml",
+            [(abbr, book_id, verses)],
+            book_names=LEGACY_UNACCENTED_BOOK_NAMES,
+        )
+    write_tei(
+        edition_dir / "tei" / "unaccented" / "BYZ" / "byz.xml",
+        books,
+        combined=True,
+    )
+    write_accented_tei(edition, edition_dir=edition_dir)
 
 
 def _artifact_dirs(root: Path) -> list:
@@ -582,6 +812,26 @@ def _readme(edition: dict) -> str:
             "Curated CSV/TEI filenames use the current book abbreviations",
             "(`MAT`, `MAR`, ...). Historical source files may use the older",
             "official codes (`MT`, `MR`, ...).",
+            "",
+            "`source/` is a frozen copy of the edition's inputs, so the edition",
+            "can be downloaded and verified on its own.",
+        ]
+    )
+    if edition["source_kind"] == "current":
+        lines.extend(
+            [
+                "",
+                "For `rp2018-2023` this `source/` snapshot intentionally",
+                "duplicates the repository `source/`.",
+                "",
+                "`csv/unaccented/` and `csv/strongs/no-parsing/` hold the same",
+                "bytes because they are two names for one text: the plain",
+                "Unicode text and the Strong's view with parsing dropped. The",
+                "duplication is intentional, and a test asserts the identity.",
+            ]
+        )
+    lines.extend(
+        [
             "",
             "## Derived artifacts",
             "",
@@ -632,7 +882,7 @@ def write_manifest(edition: dict) -> dict:
     (root / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    (root / "README.md").write_text(_readme(edition), encoding="utf-8")
+    generated.write_markdown(root / "README.md", _readme(edition))
     return manifest
 
 

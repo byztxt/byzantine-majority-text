@@ -43,24 +43,26 @@ def check(root=paths.ROOT):
             )
 
     tei_dir = root / paths.TEI_DIR.relative_to(paths.ROOT)
-    no_parsing = root / paths.CSV_STRONGS["strongs/no-parsing"].relative_to(paths.ROOT)
+    no_parsing = root / paths.CSV_STRONGS["csv/strongs/no-parsing"].relative_to(
+        paths.ROOT
+    )
     for path in sorted(no_parsing.glob("*.csv")):
         target = tei_dir / f"{path.stem}.xml"
         add(str(path.relative_to(root)), target, paths.DERIVATION_EVIDENCE["tei"])
 
     add(
-        "csv-unicode/strongs/no-parsing/*.csv",
+        f"{paths.dataset_name('csv/strongs/no-parsing')}/*.csv",
         root / paths.TEI_BYZ.relative_to(paths.ROOT),
         paths.DERIVATION_EVIDENCE["tei"],
     )
 
-    demo = root / paths.TEI_ASSETS.relative_to(paths.ROOT) / "demo_john_1.xml"
+    demo = root / paths.ASSETS_DIR.relative_to(paths.ROOT) / "demo_john_1.xml"
     if demo.is_file():
         rows.append(
             {
                 "source": "n/a",
                 "derived": str(demo.relative_to(root)),
-                "evidence": "hand-prepared demo asset (see tei-xml-unicode/README.md)",
+                "evidence": "hand-prepared demo asset (see docs/COLLATEX.md)",
                 "status": "auxiliary",
             }
         )

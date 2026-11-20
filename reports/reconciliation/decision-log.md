@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Decision log - official archive reconciliation
 
 The pipeline flags; the maintainer decides. No source file was changed.

@@ -1,8 +1,13 @@
+# generated-file: do not edit by hand
+# See the "Generated files" section of the repository README for the command
+# that regenerates it.
+
 edition = "rp2018"
 
 [[archives]]
 name = "rp2018-ascii.zip"
 format = "preformatted"
+source_page = "https://byzantinetext.com/study/editions/robinson-pierpont/"
 requested_url = "https://www.dropbox.com/s/ug3i36zsvtg39x0/rp2018-ascii.zip?dl=0"
 download_url = "https://www.dropbox.com/s/ug3i36zsvtg39x0/rp2018-ascii.zip?dl=1"
 final_url = "https://ucea5471c5cddc785e55b5be81d9.dl.dropboxusercontent.com/cd/0/get/DMD-2VqV1CbBTIHWHRFR7PBh0Nl7zbacrNNvygroxgTcuNdeOr1cdIbAneFM7sTxelmSBPfq_OC7dHLyAWWe8s8FNLXw52L92ZkG-9Dt6TkkvP6TedmN9EYIbsq3_oj32fDk2-qm6ta7A80tGyYmuUuy/file?dl=1"
@@ -15,6 +20,7 @@ extracted = "data/raw/rp2018/rp2018-ascii"
 [[archives]]
 name = "rp2018-ascii-one-line-per-verse.zip"
 format = "ascii-one-line"
+source_page = "https://byzantinetext.com/study/editions/robinson-pierpont/"
 requested_url = "https://www.dropbox.com/s/cr592513g0v2imc/rp2018-ascii-one-line-per-verse.zip?dl=0"
 download_url = "https://www.dropbox.com/s/cr592513g0v2imc/rp2018-ascii-one-line-per-verse.zip?dl=1"
 final_url = "https://ucaf236b6922ae063b0dbacab8ff.dl.dropboxusercontent.com/cd/0/get/DMCT1flIUY4gO4b1Ct_FR-CQZyQl9CPIhNxQLzoNIlSL05JJEutJPScpflVrMhTqrqdzaAE2JGAn8jcrPf1mvXhjRclKdW9iox17BH1wl6HShr3-LfkcOZzweaJ8z00G_YobycHA5rTci16d89aXoRSl/file?dl=1"
@@ -27,6 +33,7 @@ extracted = "data/raw/rp2018/rp2018-ascii-one-line-per-verse"
 [[archives]]
 name = "rp2018-ccat.ZIP"
 format = "ccat"
+source_page = "https://byzantinetext.com/study/editions/robinson-pierpont/"
 requested_url = "https://www.dropbox.com/s/u47y6wedewv4mv9/rp2018-ccat.ZIP?dl=0"
 download_url = "https://www.dropbox.com/s/u47y6wedewv4mv9/rp2018-ccat.ZIP?dl=1"
 final_url = "https://ucb4ba03581cb7b83e5ef70e1023.dl.dropboxusercontent.com/cd/0/get/DMDbemMjOtx9SIRP2zdh-7JAdpxmy4p-4vgs-bo4mofGCyNTLWocRkiuBOP6JW5wi6gP857mqr77-lgLU57kN7No7gNr19zo6XjHTX3-tiMIGYyWKCgZe71QIJRJqHCtU1tthKaZPxiwxLiZkH0KU2Ik/file?dl=1"

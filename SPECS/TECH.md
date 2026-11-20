@@ -43,6 +43,14 @@ resolved automatically.
 
 ### Machine-readable archives
 
+The six archives were listed on and retrieved from the Byzantine Text editions
+listing page
+<https://byzantinetext.com/study/editions/robinson-pierpont/> in November 2026.
+The Dropbox URLs below are the per-file download targets.
+`data/provenance/rp2005.toml` and `data/provenance/rp2018.toml` record the
+listing page as `source_page` on every archive record;
+`data/provenance/pdfs.toml` is hand-maintained and has no such field.
+
 **2005**
 
 - `editions-rp2-preformatted.zip` -
@@ -137,9 +145,14 @@ scripts/                    # thin wrappers: test, lint, build, verify, diff
 docs/                       # provenance, history, release notes
 ```
 
-The migration from the current `source/`, `csv-unicode/`, and `tei-xml-unicode/`
-layout is a spec of its own. Path compatibility is best-effort, not obligatory;
-any move must be documented in the README and release notes.
+The finished layout is **sources -> pipeline -> editions**. `source/` and the
+committed archives under `data/raw/` are the inputs, `scripts/recover_editions.py`
+freezes each edition's `source/` snapshot, and `scripts/build_editions.py` is the
+only producer of `editions/<edition>/csv/` and `editions/<edition>/tei/`. There
+is no working-tree mirror: the legacy `csv-unicode/` and `tei-xml-unicode/` trees
+were removed on 2026-11-19 (see
+`SPECS/2026-11-19-retire-legacy-unicode-trees/`), and every old path is
+documented in `docs/EDITIONS.md`.
 
 ## 6. Pipeline
 

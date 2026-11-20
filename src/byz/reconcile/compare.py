@@ -1,10 +1,8 @@
 """Compare the official archives with the current corpus."""
 
 import csv
-import io
 import re
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
 from byz.contract import paths
 from byz.contract.ccat import book_num
@@ -227,8 +225,8 @@ def source_rows() -> tuple[list, list, list]:
 
 def _load_current_csv(abbr: str) -> dict:
     path = (
-        sources.ROOT
-        / "csv-unicode"
+        paths.CURRENT_DIR
+        / "csv"
         / "strongs"
         / "no-parsing"
         / f"{abbr}.csv"
@@ -242,9 +240,7 @@ def _load_current_csv(abbr: str) -> dict:
 
 
 def _load_current_tei(abbr: str) -> dict:
-    path = (
-        sources.ROOT / "tei-xml-unicode" / "no-accents" / f"{abbr}.xml"
-    )
+    path = paths.TEI_DIR / f"{abbr}.xml"
     tree = ET.parse(path)
     verses = {}
     for ab_element in tree.getroot().iter(f"{{{TEI_NS}}}ab"):
@@ -276,8 +272,11 @@ def derived_rows() -> tuple[list, list]:
                     continue
                 official = normalize.parse_ascii(members[member])
                 for dataset, loader in (
-                    ("csv-unicode/strongs/no-parsing", _load_current_csv),
-                    ("tei-xml-unicode/no-accents", _load_current_tei),
+                    (
+                        paths.dataset_name("csv/strongs/no-parsing"),
+                        _load_current_csv,
+                    ),
+                    (paths.TEI_DATASET, _load_current_tei),
                 ):
                     current = loader(abbr)
                     metrics = compare_maps(current, official)
@@ -352,12 +351,13 @@ def mapping_rows() -> list:
             }
         )
     for view in ("no-variants", "with-variants"):
-        for path in sorted((sources.ROOT / "csv-unicode" / "ccat" / view).glob("*.csv")):
+        view_dir = paths.CURRENT_DIR / "csv" / "accented" / view
+        for path in sorted(view_dir.glob("*.csv")):
             rows.append(
                 {
                     "tier": "mapping",
                     "edition": "unknown",
-                    "dataset": f"csv-unicode/ccat/{view}",
+                    "dataset": paths.dataset_name(f"csv/accented/{view}"),
                     "current": str(path.relative_to(sources.ROOT)),
                     "archive_member": "",
                     "class": "incomparable-pending-pipeline",
@@ -367,24 +367,25 @@ def mapping_rows() -> list:
                     "note": "accented CCAT CSV; exact comparison needs the Cycle 3 parser",
                 }
             )
-    for rel, note in (
+    for path, dataset, note in (
         (
-            "tei-xml-unicode/no-accents/BYZ/byz.xml",
+            paths.TEI_BYZ,
+            paths.TEI_BYZ_DATASET,
             "combined file; the per-book TEI files are compared",
         ),
         (
-            "tei-xml-unicode/assets/demo_john_1.xml",
+            paths.ASSETS_DIR / "demo_john_1.xml",
+            paths.ASSETS_DATASET,
             "hand-prepared demo asset",
         ),
     ):
-        path = sources.ROOT / rel
         if path.is_file():
             rows.append(
                 {
                     "tier": "mapping",
                     "edition": "unknown",
-                    "dataset": str(path.parent.relative_to(sources.ROOT)),
-                    "current": rel,
+                    "dataset": dataset,
+                    "current": str(path.relative_to(sources.ROOT)),
                     "archive_member": "",
                     "class": "auxiliary",
                     "verses": 0,

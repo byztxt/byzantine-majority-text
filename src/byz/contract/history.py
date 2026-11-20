@@ -4,14 +4,38 @@ import subprocess
 
 from . import paths
 
+# Each row is (label, git pathspecs). The retired `csv-unicode` and
+# `tei-xml-unicode` pathspecs are git history selectors, not working-tree
+# paths: they keep the pre-2026 evidence (2022 TEI, 2023 CSV) visible after the
+# curated edition became the only home of those bytes. See
+# `SPECS/2026-11-19-retire-legacy-unicode-trees/` decision 9.
 DATASETS = [
-    ("source/CCAT", "source/CCAT"),
-    ("source/Strongs", "source/Strongs"),
-    ("csv-unicode/ccat", "csv-unicode/ccat"),
-    ("csv-unicode/strongs", "csv-unicode/strongs"),
-    ("tei-xml-unicode", "tei-xml-unicode"),
-    ("essay", "essay"),
+    ("source/CCAT", ("source/CCAT",)),
+    ("source/Strongs", ("source/Strongs",)),
+    (
+        "editions/rp2018-2023/csv",
+        (
+            "csv-unicode/ccat",
+            "csv-unicode/strongs",
+            "editions/rp2018-2023/csv",
+        ),
+    ),
+    (
+        "editions/rp2018-2023/tei",
+        ("tei-xml-unicode", "editions/rp2018-2023/tei"),
+    ),
+    ("essay", ("essay",)),
 ]
+
+# Repository history selectors for the corpus-wide rows. The retired paths are
+# included so the June-September 2023 evidence does not disappear.
+CORPUS_PATHSPECS = (
+    "source",
+    "csv-unicode",
+    "tei-xml-unicode",
+    "editions",
+    "essay",
+)
 
 
 def _fmt(value):
@@ -33,26 +57,29 @@ def _git(root, args):
     return result.stdout.strip()
 
 
-def _first_add(root, path):
+def _first_add(root, *pathspecs):
     out = _git(
-        root, ["log", "--diff-filter=A", "--format=%h|%cs|%s", "--", path]
+        root,
+        ["log", "--diff-filter=A", "--format=%h|%cs|%s", "--", *pathspecs],
     )
     lines = out.splitlines()
     return lines[-1] if lines else ""
 
 
-def _last_change(root, path):
-    return _git(root, ["log", "-1", "--format=%h|%cs|%s", "--", path])
+def _last_change(root, *pathspecs):
+    return _git(
+        root, ["log", "-1", "--format=%h|%cs|%s", "--", *pathspecs]
+    )
 
 
 def collect(root=paths.ROOT):
     rows = []
-    for label, path in DATASETS:
+    for label, pathspecs in DATASETS:
         rows.append(
             {
                 "dataset": label,
-                "first_added": _first_add(root, path),
-                "last_changed": _last_change(root, path),
+                "first_added": _first_add(root, *pathspecs),
+                "last_changed": _last_change(root, *pathspecs),
             }
         )
     return {
@@ -63,10 +90,7 @@ def collect(root=paths.ROOT):
                 "-1",
                 "--format=%h|%cs|%s",
                 "--",
-                "source",
-                "csv-unicode",
-                "tei-xml-unicode",
-                "essay",
+                *CORPUS_PATHSPECS,
             ],
         ),
         "tags": _git(root, ["tag", "--list"]).splitlines(),
@@ -79,10 +103,7 @@ def collect(root=paths.ROOT):
                 "--until=2023-10-01",
                 "--format=%h|%cs|%s",
                 "--",
-                "source",
-                "csv-unicode",
-                "tei-xml-unicode",
-                "essay",
+                *CORPUS_PATHSPECS,
             ],
         ).splitlines(),
     }

@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Data contract
 
 This document describes the corpus as it exists today. It is generated from `src/byz/contract/contracts.py` and the baseline run. The machine-readable copy lives in `docs/contract/`.
@@ -8,23 +13,23 @@ No external archive is involved in this contract; that is the next cycle.
 
 | Dataset | Files | Books | Records |
 | --- | ---: | ---: | ---: |
-| `csv-unicode/ccat/no-variants` | 29 | 29 | 7972 |
-| `csv-unicode/ccat/with-variants` | 29 | 29 | 7972 |
-| `csv-unicode/strongs/no-parsing` | 27 | 27 | 7957 |
-| `csv-unicode/strongs/with-parsing` | 27 | 27 | 7957 |
+| `editions/rp2018-2023/csv/accented/no-variants` | 29 | 29 | 7972 |
+| `editions/rp2018-2023/csv/accented/with-variants` | 29 | 29 | 7972 |
+| `editions/rp2018-2023/csv/strongs/no-parsing` | 27 | 27 | 7957 |
+| `editions/rp2018-2023/csv/strongs/with-parsing` | 27 | 27 | 7957 |
+| `editions/rp2018-2023/tei/unaccented` | 27 | 27 | 7957 |
+| `editions/rp2018-2023/tei/unaccented/BYZ` | 1 | 27 | 7957 |
 | `source/CCAT` | 29 | 29 | 7972 |
 | `source/Strongs` | 27 | 27 | 7957 |
-| `tei-xml-unicode/BYZ` | 1 | 27 | 7957 |
-| `tei-xml-unicode/no-accents` | 27 | 27 | 7957 |
 
 ## Derivation map
 
 | Input | Output | Evidence | Status |
 | --- | --- | --- | --- |
-| `n/a` (+0 more) | `tei-xml-unicode/assets/demo_john_1.xml` | hand-prepared demo asset (see tei-xml-unicode/README.md) | 0 ok, 1 auxiliary |
-| `source/CCAT/01_MAT.TXT` (+57 more) | `csv-unicode/ccat/no-variants/MAT.csv` | scripts/csv_converter.py: path_ccat_no_variants / path_ccat_with_variants, convert_book(drop_variants=...) | 58 ok |
-| `source/Strongs/01_MAT.BP5` (+53 more) | `csv-unicode/strongs/no-parsing/MAT.csv` | scripts/csv_converter.py: path_strongs_with_parsing / path_strongs_no_parsing, convert_book(drop_parsing=...) | 54 ok |
-| `csv-unicode/strongs/no-parsing/*.csv` (+27 more) | `tei-xml-unicode/no-accents/BYZ/byz.xml` | scripts/tei_xml_converter.py: path_no_accents_csv = '../csv-unicode/strongs/no-parsing'; convert_byz()/convert_book() | 28 ok |
+| `n/a` (+0 more) | `docs/assets/demo_john_1.xml` | hand-prepared demo asset (see docs/COLLATEX.md) | 0 ok, 1 auxiliary |
+| `source/CCAT/01_MAT.TXT` (+57 more) | `editions/rp2018-2023/csv/accented/no-variants/MAT.csv` | src/byz/curate/build.py: build_all -> recover.recover_all copies source/CCAT into the editions/rp2018-2023/source snapshot, then build_current -> parse_cct_current(drop_variants=...) -> write_csv | 58 ok |
+| `source/Strongs/01_MAT.BP5` (+53 more) | `editions/rp2018-2023/csv/strongs/no-parsing/MAT.csv` | src/byz/curate/build.py: build_all -> recover.recover_all copies source/Strongs into the editions/rp2018-2023/source snapshot, then build_current -> parse_bp5_strongs -> write_csv | 54 ok |
+| `editions/rp2018-2023/csv/strongs/no-parsing/*.csv` (+27 more) | `editions/rp2018-2023/tei/unaccented/BYZ/byz.xml` | src/byz/curate/build.py: build_current -> write_tei() from csv/strongs/no-parsing | 28 ok |
 
 ## Section files
 
@@ -89,7 +94,7 @@ Invariants:
 - multi-parsing alternatives are allowed after the first pair
 - blank records are allowed only for the intentional blank verses
 
-### csv-unicode/ccat/no-variants
+### editions/rp2018-2023/csv/accented/no-variants
 
 Unicode CSV of CCAT with variants removed.
 
@@ -103,7 +108,7 @@ Invariants:
 - no duplicate (chapter, verse) keys
 - no Beta-code backslashes
 
-### csv-unicode/ccat/with-variants
+### editions/rp2018-2023/csv/accented/with-variants
 
 Unicode CSV of CCAT with variants retained.
 
@@ -117,7 +122,7 @@ Invariants:
 - no duplicate (chapter, verse) keys
 - no Beta-code backslashes
 
-### csv-unicode/strongs/no-parsing
+### editions/rp2018-2023/csv/strongs/no-parsing
 
 Unicode CSV of the Strong's text with parsing dropped.
 
@@ -130,7 +135,7 @@ Invariants:
 - text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 
-### csv-unicode/strongs/with-parsing
+### editions/rp2018-2023/csv/strongs/with-parsing
 
 Unicode CSV of the Strong's text with parsing retained.
 
@@ -143,7 +148,7 @@ Invariants:
 - text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 
-### tei-xml-unicode/no-accents
+### editions/rp2018-2023/tei/unaccented
 
 Unaccented TEI-XML export generated from strongs/no-parsing.
 
@@ -158,7 +163,7 @@ Invariants:
 - no empty <w> elements
 - intentional blank verses are empty <ab> elements
 
-### tei-xml-unicode/BYZ
+### editions/rp2018-2023/tei/unaccented/BYZ
 
 Combined TEI-XML of all 27 books.
 

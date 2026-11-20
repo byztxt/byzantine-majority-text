@@ -10,15 +10,15 @@ Best practices for fixing typing and linting issues in this repo:
   unless strictly necessary, and explain why when you do.
 - Do not bypass or delete checks to make them pass.
 - Do not upgrade or add dependencies to work around a checker. The scripts pin
-  `pandas==1.4.2` and `beta-code==1.0.0` in `scripts/requirements.txt`; ask the
-  user before changing that file.
+  `beta-code==1.0.0` in `scripts/requirements.txt`; ask the user before changing
+  that file.
 - Keep Python 3.10 compatibility.
 
-There is no configured linter or type-checker in this repository. To confirm a
-script is at least syntactically valid, run:
+There is no configured linter or type-checker in this repository. To confirm the
+scripts are at least syntactically valid, run:
 
 ```bash
-python3 -m py_compile scripts/csv_converter.py scripts/tei_xml_converter.py scripts/beta_to_unicode_custom/*.py
+python3 -m py_compile scripts/*.py scripts/beta_to_unicode_custom/*.py
 ```
 
 If you introduce a checker (ruff, mypy, etc.), get the user's agreement, add it

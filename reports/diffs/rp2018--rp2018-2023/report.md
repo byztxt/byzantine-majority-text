@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Diff: rp2018 -> rp2018-2023
 
 - **Left:** `rp2018` (official; Published in print by VTR, Nuremberg)

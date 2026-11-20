@@ -1,3 +1,8 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # rp2018-2023 - Robinson-Pierpont 2018 with 2023 adjustments (repo release)
 
 - **Status:** released
@@ -11,11 +16,22 @@
 - `tei/` - generated TEI-XML
 - `manifest.json` - provenance and hashes
 
-Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are copied or generated from the current working tree.
+Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are generated from the edition's own `source/` snapshot.
 
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
 official codes (`MT`, `MR`, ...).
+
+`source/` is a frozen copy of the edition's inputs, so the edition
+can be downloaded and verified on its own.
+
+For `rp2018-2023` this `source/` snapshot intentionally
+duplicates the repository `source/`.
+
+`csv/unaccented/` and `csv/strongs/no-parsing/` hold the same
+bytes because they are two names for one text: the plain
+Unicode text and the Strong's view with parsing dropped. The
+duplication is intentional, and a test asserts the identity.
 
 ## Derived artifacts
 

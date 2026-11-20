@@ -2,8 +2,9 @@
 
 import csv
 from collections import Counter, defaultdict
-from pathlib import Path
+from datetime import datetime
 
+from .. import generated
 from . import archive, historical, sources
 
 CYCLE2_BEGIN = "<!-- cycle2:begin -->"
@@ -123,7 +124,42 @@ def _archive_records():
     return rows
 
 
+def _retrieval_window() -> tuple:
+    """Return (month, first_stamp, last_stamp) from the provenance files.
+
+    Derived from the `downloaded` fields, never hard-coded: a later `--force`
+    rewrites those timestamps, and the generated prose must follow them rather
+    than go stale.
+    """
+    from . import fetch
+
+    stamps = []
+    for edition in sorted({spec["edition"] for spec in sources.ARCHIVES}):
+        path = sources.PROVENANCE_DIR / f"{edition}.toml"
+        for record in fetch._existing_records(path).values():
+            stamp = record.get("downloaded", "")
+            if stamp:
+                stamps.append(stamp)
+    if not stamps:
+        return "", "", ""
+    first, last = min(stamps), max(stamps)
+    month = datetime.strptime(first, "%Y-%m-%dT%H:%M:%SZ").strftime("%B %Y")
+    return month, first, last
+
+
 def _provenance_doc(results, source_stats, derived_stats, history_rows):
+    month, first, last = _retrieval_window()
+    if first:
+        obtained = f"in {month}."
+        stamps = (
+            f"The recorded download timestamp is `{first}`."
+            if first == last
+            else f"The recorded download timestamps are `{first}` through "
+            f"`{last}`."
+        )
+    else:
+        obtained = "at the recorded download time."
+        stamps = ""
     lines = [
         "# Provenance",
         "",
@@ -135,9 +171,21 @@ def _provenance_doc(results, source_stats, derived_stats, history_rows):
         "",
         "## Archives",
         "",
-        "| Edition | Archive | SHA-256 | Size (bytes) |",
-        "| --- | --- | --- | ---: |",
+        "All six archives were initially obtained from the Byzantine Text editions",
+        f"listing page <{sources.SOURCE_PAGE}> {obtained}",
     ]
+    if stamps:
+        lines.append(stamps)
+    lines.extend(
+        [
+            "Each `[[archives]]` record in `data/provenance/rp2005.toml` and",
+            "`data/provenance/rp2018.toml` carries the listing page as `source_page`,",
+            "alongside the per-file Dropbox URL and SHA-256.",
+            "",
+            "| Edition | Archive | SHA-256 | Size (bytes) |",
+            "| --- | --- | --- | ---: |",
+        ]
+    )
     for row in _archive_records():
         lines.append(
             f"| `{row['edition']}` | `{row['archive']}` | `{row['sha256']}` | {row['size']} |"
@@ -441,7 +489,7 @@ def _update_history(stats, best, history_rows):
         ]
     )
     text = text.rstrip() + "\n\n" + "\n".join(block)
-    path.write_text(text, encoding="utf-8")
+    path.write_text(generated.markdown(text), encoding="utf-8")
 
 
 def write_all(results):
@@ -484,14 +532,16 @@ def write_all(results):
     write_csv(reports / "verses.csv", verses)
     write_csv(reports / "categories.csv", category_rows)
     write_csv(reports / "history.csv", history_rows)
-    (reports / "summary.md").write_text(
+    generated.write_markdown(
+        reports / "summary.md",
         _summary(results, source_stats, derived_stats, category_rows, history_rows),
-        encoding="utf-8",
     )
-    (reports / "decision-log.md").write_text(_decision_log(results), encoding="utf-8")
-    (sources.DOCS_DIR / "PROVENANCE.md").write_text(
+    generated.write_markdown(
+        reports / "decision-log.md", _decision_log(results)
+    )
+    generated.write_markdown(
+        sources.DOCS_DIR / "PROVENANCE.md",
         _provenance_doc(results, source_stats, derived_stats, history_rows),
-        encoding="utf-8",
     )
     _update_history(source_stats, best, history_rows)
 

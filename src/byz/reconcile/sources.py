@@ -10,6 +10,11 @@ PROVENANCE_DIR = ROOT / "data" / "provenance"
 REPORTS_DIR = ROOT / "reports" / "reconciliation"
 DOCS_DIR = ROOT / "docs"
 
+# The Byzantine Text editions listing page from which the six archives were
+# retrieved in November 2026. Recorded per archive as `source_page` and used
+# for the generated prose in `docs/PROVENANCE.md`.
+SOURCE_PAGE = "https://byzantinetext.com/study/editions/robinson-pierpont/"
+
 # The pinned SHA-256 of each official archive. These values also appear in
 # `data/provenance/*.toml`; `fetch.run()` refuses to record or extract an
 # archive whose digest does not match. The archives themselves are committed

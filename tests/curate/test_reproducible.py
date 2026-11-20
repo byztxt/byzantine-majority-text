@@ -21,6 +21,7 @@ GENERATORS = [
     ("scripts/build_editions.py", []),
     ("scripts/diff_editions.py", []),
     ("-m", ["byz.contract"]),
+    ("-m", ["byz.reconcile"]),
 ]
 SKIP_MESSAGE = (
     "`git worktree` is unavailable, so the hermetic regeneration checks cannot "
@@ -101,6 +102,7 @@ def snapshot(worktree):
         worktree / "editions",
         worktree / "reports" / "diffs",
         worktree / "reports" / "baseline",
+        worktree / "reports" / "reconciliation",
         worktree / "docs" / "contract",
     ):
         for path in sorted(base.rglob("*")):
@@ -108,7 +110,15 @@ def snapshot(worktree):
                 hashes[str(path.relative_to(worktree))] = hashlib.sha256(
                     path.read_bytes()
                 ).hexdigest()
-    for rel in ("docs/EDITIONS.md", "docs/HISTORY.md", "README.md"):
+    for rel in (
+        "docs/EDITIONS.md",
+        "docs/HISTORY.md",
+        "docs/DATA_CONTRACT.md",
+        "docs/PROVENANCE.md",
+        "data/provenance/rp2005.toml",
+        "data/provenance/rp2018.toml",
+        "README.md",
+    ):
         path = worktree / rel
         hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
     return hashes
