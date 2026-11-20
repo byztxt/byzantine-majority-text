@@ -119,6 +119,7 @@ class CurateIntegrationTests(unittest.TestCase):
                 "changes.csv",
                 "source.diff",
                 "text.diff",
+                "apparatus.diff",
                 "derived.diff",
             ):
                 self.assertTrue(
@@ -167,6 +168,8 @@ class CurateIntegrationTests(unittest.TestCase):
             "text_left",
             "text_right",
             "text_changed",
+            "apparatus_word_diff",
+            "apparatus_changed",
         ]
         for name in (
             "rp2005--rp2005-2019",
@@ -184,6 +187,16 @@ class CurateIntegrationTests(unittest.TestCase):
             self.assertTrue(rows, name)
             for row in rows:
                 self.assertIn(row["text_changed"], ("true", "false"), name)
+                self.assertIn(row["apparatus_changed"], ("true", "false"), name)
+                self.assertEqual(
+                    row["apparatus_changed"] == "true",
+                    bool(
+                        "[-" in row["apparatus_word_diff"]
+                        or "{+" in row["apparatus_word_diff"]
+                    ),
+                    f"{name}: {row['book']} "
+                    f"{row['chapter']}:{row['verse']}: apparatus flag",
+                )
                 # A pure-whitespace source change is intentionally unmarked.
                 if row["category"] != "whitespace":
                     self.assertTrue(
@@ -209,6 +222,9 @@ class CurateIntegrationTests(unittest.TestCase):
             derived_diff = (directory / "derived.diff").read_text(
                 encoding="utf-8"
             )
+            apparatus_diff = (directory / "apparatus.diff").read_text(
+                encoding="utf-8"
+            )
             self.assertEqual(
                 sum(1 for line in source_diff.splitlines() if line.startswith("@@ ")),
                 len(rows),
@@ -222,6 +238,20 @@ class CurateIntegrationTests(unittest.TestCase):
             self.assertEqual(
                 sum(1 for line in derived_diff.splitlines() if line.startswith("@@ ")),
                 derived_count,
+                name,
+            )
+            self.assertEqual(
+                sum(
+                    1
+                    for line in apparatus_diff.splitlines()
+                    if line.startswith("@@ ")
+                ),
+                sum(
+                    1
+                    for row in rows
+                    if row["text_changed"] == "false"
+                    and row["apparatus_changed"] == "true"
+                ),
                 name,
             )
             left, right = name.split("--")
@@ -239,11 +269,17 @@ class CurateIntegrationTests(unittest.TestCase):
                 "(normalised Unicode accented main text)",
                 derived_diff,
             )
+            self.assertIn(
+                f"# Word diff: {left} -> {right} "
+                "(Unicode accented text with apparatus)",
+                apparatus_diff,
+            )
             # Word-diff style: every hunk carries `[-removed-]{+added+}`, and
             # verse lines never use `-`/`+` prefixes.
             for kind, text in (
                 ("source", source_diff),
                 ("text", text_diff),
+                ("apparatus", apparatus_diff),
                 ("derived", derived_diff),
             ):
                 for line in text.splitlines():
@@ -288,6 +324,24 @@ class CurateIntegrationTests(unittest.TestCase):
         # Apparatus-only changes are compact bullets, not full verse blocks.
         self.assertIn("- `1CO 3:14` · `variant`", official)
         self.assertIn("{+{N ME/NEI > MENEI= }+}", official)
+        # The Unicode apparatus line comes first, the Beta code second.
+        self.assertIn(
+            "- `1CO 3:14` · `variant`\n"
+            "  - Apparatus (Unicode): ",
+            official,
+        )
+        self.assertIn("  - Apparatus (Beta code): `", official)
+        self.assertIn("Apparatus (Unicode): `", official)
+        # The Unicode line is Greek, not Beta code.
+        entry = official.split("- `1CO 3:14` · `variant`", 1)[1].split("\n- ", 1)[0]
+        self.assertRegex(entry, r"[\u0370-\u03ff]")
+        app = (editions.DIFFS_DIR / "rp2005--rp2018" / "apparatus.diff").read_text(
+            encoding="utf-8"
+        )
+        start = app.index("@@ 1CO 3:14")
+        block = app[start : app.find("\n@@ ", start + 1)]
+        self.assertRegex(block, r"[\u0370-\u03ff]")
+        self.assertIn("{+{NA μένει > μενεῖ }+}", block)
 
     def test_diff_csv_rows_flag_apparatus_only(self):
         with (
@@ -308,6 +362,85 @@ class CurateIntegrationTests(unittest.TestCase):
         self.assertIn("[-μή τι-]{+μήτι+}", changed["text_word_diff"])
         self.assertIn("[-MH/", changed["source_word_diff"])
         self.assertIn("MH/TI", changed["source_word_diff"])
+
+    def test_encoding_only_rows_say_so(self):
+        # 36 rows in rp2018 -> rp2018-2023 have no Unicode apparatus difference;
+        # they are Beta-code encoding-order differences. The report must name
+        # them, not render an empty code span.
+        report = (
+            editions.DIFFS_DIR / "rp2018--rp2018-2023" / "report.md"
+        ).read_text(encoding="utf-8")
+        sentence = (
+            "no difference after conversion to Unicode (Beta-code encoding only)"
+        )
+        self.assertGreaterEqual(report.count(sentence), 36)
+        marker = "- `MAT 11:23` · `accents-breathings`"
+        self.assertIn(marker, report)
+        entry = report.split(marker, 1)[1].split("\n- ", 1)[0]
+        self.assertIn(sentence, entry)
+        self.assertIn("Apparatus (Beta code): `", entry)
+        # The sibling pair with a single encoding-only row names it too.
+        official = (
+            editions.DIFFS_DIR / "rp2005--rp2018" / "report.md"
+        ).read_text(encoding="utf-8")
+        marker = "- `2PE 1:12` · `accents-breathings`"
+        self.assertIn(marker, official)
+        entry = official.split(marker, 1)[1].split("\n- ", 1)[0]
+        self.assertIn(sentence, entry)
+
+    def test_apparatus_counters_add_up(self):
+        for name, total in (
+            ("rp2005--rp2005-2019", 8),
+            ("rp2018--rp2018-2023", 156),
+            ("rp2005--rp2018", 8),
+        ):
+            report = (editions.DIFFS_DIR / name / "report.md").read_text(
+                encoding="utf-8"
+            )
+            counts = {}
+            for label in (
+                "Apparatus-only changes shown in Unicode",
+                "Apparatus-only changes with no Unicode difference "
+                "(Beta-code encoding only)",
+            ):
+                match = re.search(re.escape(label) + r":\*\* (\d+)", report)
+                self.assertIsNotNone(match, f"{name}: {label}")
+                counts[label] = int(match.group(1))
+            self.assertEqual(
+                counts["Apparatus-only changes shown in Unicode"]
+                + counts[
+                    "Apparatus-only changes with no Unicode difference "
+                    "(Beta-code encoding only)"
+                ],
+                total,
+                name,
+            )
+
+    def test_readme_documents_apparatus_diff(self):
+        self.assertIn("apparatus.diff", diff.README_TEXT)
+        self.assertIn("Apparatus", diff.README_TEXT)
+        self.assertIn("apparatus_word_diff", diff.README_TEXT)
+        self.assertIn("apparatus_changed", diff.README_TEXT)
+        self.assertIn("{+{Byz τε > δε }+}", diff.README_TEXT)
+        readme = re.sub(r"\s+", " ", diff.README_TEXT)
+        self.assertIn("one entry per verse", readme)
+        self.assertIn(
+            "every apparatus-only change that has a Unicode difference "
+            "(encoding-only rows are named in `report.md`)",
+            readme,
+        )
+
+    def test_editions_doc_lists_apparatus_diff(self):
+        text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        self.assertIn("apparatus.diff", text)
+        self.assertIn("Unicode apparatus", text)
+        prose = re.sub(r"\s+", " ", text)
+        self.assertIn("one entry per verse", prose)
+        self.assertIn(
+            "every apparatus-only change that has a Unicode difference "
+            "(encoding-only rows are named in `report.md`)",
+            prose,
+        )
 
     def test_text_word_diff_is_normalised_but_text_columns_are_exact(self):
         with (
@@ -431,9 +564,13 @@ class CurateIntegrationTests(unittest.TestCase):
             "rp2018--rp2018-2023",
             "rp2005--rp2018",
         ):
-            with (
-                editions.DIFFS_DIR / name / "changes.csv"
-            ).open(newline="", encoding="utf-8") as handle:
+            directory = editions.DIFFS_DIR / name
+            left_id, right_id = name.split("--")
+            left_variants = diff.load_text(left_id, "with-variants")
+            right_variants = diff.load_text(right_id, "with-variants")
+            with (directory / "changes.csv").open(
+                newline="", encoding="utf-8"
+            ) as handle:
                 rows = list(csv.DictReader(handle))
             for row in rows:
                 label = f"{name}: {row['book']} {row['chapter']}:{row['verse']}"
@@ -452,6 +589,23 @@ class CurateIntegrationTests(unittest.TestCase):
                     rebuilt = apply_markers(row["text_word_diff"], side)
                     expected = diff.normalize_text(row[column])
                     self.assertEqual(words(rebuilt), words(expected), label)
+                if row["apparatus_changed"] == "false":
+                    # The Unicode line is prose, not a marked word diff.
+                    continue
+                key = (
+                    row["book"],
+                    int(row["chapter"]),
+                    int(row["verse"]),
+                )
+                for side, source in (
+                    ("left", left_variants),
+                    ("right", right_variants),
+                ):
+                    rebuilt = apply_markers(row["apparatus_word_diff"], side)
+                    expected = diff.normalize_text(source.get(key, ""))
+                    self.assertEqual(
+                        words(rebuilt), words(expected), f"{label} apparatus"
+                    )
 
     def test_official_artifact_views(self):
         for edition_id in ("rp2005", "rp2018"):

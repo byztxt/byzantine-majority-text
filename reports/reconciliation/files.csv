@@ -276,33 +276,33 @@ mapping,unknown,editions/rp2018-2023/csv/accented/with-variants,editions/rp2018-
 mapping,unknown,editions/rp2018-2023/csv/accented/with-variants,editions/rp2018-2023/csv/accented/with-variants/ROM.csv,,incomparable-pending-pipeline,0,0,0,accented CCAT CSV; exact comparison needs the Cycle 3 parser
 mapping,unknown,editions/rp2018-2023/csv/accented/with-variants,editions/rp2018-2023/csv/accented/with-variants/TIT.csv,,incomparable-pending-pipeline,0,0,0,accented CCAT CSV; exact comparison needs the Cycle 3 parser
 mapping,unknown,editions/rp2018-2023/tei/unaccented/BYZ,editions/rp2018-2023/tei/unaccented/BYZ/byz.xml,,auxiliary,0,0,0,combined file; the per-book TEI files are compared
-mapping,unknown,source/Strongs,source/Strongs/01_MAT.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/02_MAR.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/03_LUK.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/04_JOH.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/05_ACT.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/06_ROM.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/07_1CO.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/08_2CO.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/09_GAL.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/10_EPH.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/11_PHP.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/12_COL.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/13_1TH.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/14_2TH.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/15_1TI.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/16_2TI.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/17_TIT.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/18_PHM.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/19_HEB.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/20_JAM.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/21_1PE.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/22_2PE.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/23_1JO.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/24_2JO.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/25_3JO.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/26_JUD.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
-mapping,unknown,source/Strongs,source/Strongs/27_REV.BP5,,provenance-unknown,0,0,0,no parsed/Strong's file in the official archives
+mapping,unknown,source/Strongs,source/Strongs/01_MAT.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/02_MAR.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/03_LUK.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/04_JOH.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/05_ACT.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/06_ROM.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/07_1CO.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/08_2CO.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/09_GAL.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/10_EPH.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/11_PHP.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/12_COL.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/13_1TH.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/14_2TH.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/15_1TI.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/16_2TI.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/17_TIT.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/18_PHM.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/19_HEB.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/20_JAM.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/21_1PE.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/22_2PE.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/23_1JO.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/24_2JO.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/25_3JO.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/26_JUD.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
+mapping,unknown,source/Strongs,source/Strongs/27_REV.BP5,,official-source,0,0,0,Dr Robinson's parsed/Strong's files; not in the six ZIPs
 source,rp2005,source/CCAT,source/CCAT/01_MAT.TXT,rp2005/MT.CCT,textual,1071,1055,16,
 source,rp2005,source/CCAT,source/CCAT/02_MAR.TXT,rp2005/MR.CCT,textual,678,662,16,
 source,rp2005,source/CCAT,source/CCAT/03_LUK.TXT,rp2005/LU.CCT,textual,1151,1138,13,

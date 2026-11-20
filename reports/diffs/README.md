@@ -23,18 +23,28 @@ Each `<left>--<right>/` directory compares two curated editions:
 - `report.md` - Unicode-first human-readable report. `Main-text changes` lists
   the verses whose normalised Unicode text changes, with the Text word diff
   first and the Beta-code Source second. `Apparatus-only changes` compacts the
-  remaining source-tier differences into one line per verse. The Text diff is
-  normalised: paragraph markers, apostrophe typography, and whitespace are
-  omitted.
-- `changes.csv` - one row per source-tier difference, with the category, both
-  word diffs, the full left/right source and exact text, and a `text_changed`
-  flag. `text_word_diff` is normalised; `text_left`/`text_right` are exact.
+  remaining source-tier differences into one entry per verse, showing the
+  Unicode Apparatus word diff first and the Beta-code diff second; an entry
+  whose only change is Beta-code encoding says so instead of printing an empty
+  diff. The Text diff is normalised: paragraph markers, apostrophe typography,
+  and whitespace are omitted.
+- `changes.csv` - one row per source-tier difference, with the category, the
+  Beta-code source word diff, the Unicode Text word diff (`text_word_diff`),
+  the Unicode Apparatus word diff (`apparatus_word_diff`), the full left/right
+  source and exact text, and the `text_changed` and `apparatus_changed` flags.
+  The word diffs are normalised; `text_left`/`text_right` are exact.
 - `source.diff` - word-diff style, one line per verse, for the Beta-code
   source tier.
 - `text.diff` - word-diff style, one line per verse, for the exact Unicode
   accented main text. It includes every source-differing verse whose exact text
   differs, including formatting-only changes such as a `¶` edit.
   Paragraph markers and apostrophes are shown as stored.
+- `apparatus.diff` - the word diff of the normalised Unicode accented text with
+  variants (`csv/accented/with-variants`) for every apparatus-only change that
+  has a Unicode difference (encoding-only rows are named in `report.md`).
+  Variant readings stay inside `{...}` braces, and the braces are literal text
+  inside the diff markers. `source.diff` is the Beta-code view of the same
+  verses.
 - `derived.diff` - the word diff of the normalised Unicode main text for every
   differing verse, not only the source-differing ones.
 
@@ -52,6 +62,10 @@ for `rp2005`/`rp2018`, the recovered historical `textonly-beta-code` for
 **Text** is the derived Unicode accented main text in
 `editions/<id>/csv/accented/no-variants/`.
 
+**Apparatus** is the Unicode accented text with variants in
+`editions/<id>/csv/accented/with-variants/`. The variant readings stay inside
+literal `{...}` braces; the main text drops them.
+
 ## Notation
 
 - `[-removed-]{+added+}` wraps changed words; unchanged text is context. The
@@ -61,6 +75,10 @@ for `rp2005`/`rp2018`, the recovered historical `textonly-beta-code` for
 - The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`; a
   literal `-` or `>` next to a delimiter is part of the text (for example, a
   dash-spacing change can render as `[-εἶπεν --]{+εἶπεν-+}`).
+- The Unicode Apparatus diff doubles the braces: the outer `{+`/`+}` are the
+  diff markers and the inner `{...}` is the reading, so an added variant
+  renders as `{+{Byz τε > δε }+}`. That is why the main text can be identical
+  while the apparatus changes.
 - The Text word diff is normalised: `¶` is removed, `’`/`‘`
   become `'`, and whitespace is collapsed (not removed). The exact text is in
   `changes.csv.text_left`/`text_right` and in `text.diff`.

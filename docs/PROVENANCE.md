@@ -72,8 +72,13 @@ separately hashed in the provenance files.
 
 ## Strong's / BP5 provenance
 
-Status: `provenance-unknown`.
-None of the six official archives contains a parsed/Strong's file, so `source/Strongs/*.BP5` remains provenance-unknown.
+Status: `official-source-files` (delivery route: `not-recorded`).
+
+`source/Strongs/*.BP5` are Dr. Maurice A. Robinson's parsed files,
+the same official material as `source/CCAT` (see `source/README.md`).
+None of the six published ZIP archives contains a parsed/Strong's
+file, so the file-level delivery route is not recorded. That is a gap
+in the archive evidence, not a doubt about the files' origin.
 
 ## Intentional blanks (D7)
 

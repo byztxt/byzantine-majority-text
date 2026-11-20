@@ -180,6 +180,59 @@ class ProseTests(unittest.TestCase):
         self.assertIn("November 2026", section)
         self.assertIn("source_page", section)
 
+    def test_tech_doc_calls_strongs_official(self):
+        # R7.5: the parsed files are Dr Robinson's official material; only the
+        # delivery route through the published archives is unrecorded.
+        tech = (ROOT / "SPECS" / "TECH.md").read_text(encoding="utf-8")
+        section = tech.split("## 2.", 1)[1].split("## 3.", 1)[0]
+        self.assertIn("official parsed files", section)
+        self.assertIn("delivery route", section)
+        self.assertNotIn("must be established separately", section)
+
+
+def _section(text, heading, stop="\n## "):
+    """Return the body of `heading` up to the next level-2 heading."""
+    start = text.index(heading) + len(heading)
+    end = text.find(stop, start)
+    return text[start : end if end != -1 else len(text)]
+
+
+class ReportingDocsTests(unittest.TestCase):
+    """R2/R3: the hand-written prose a first-time reader meets."""
+
+    def setUp(self):
+        self.readme = (ROOT / "scripts" / "README.md").read_text(encoding="utf-8")
+        self.section = _section(
+            self.readme, "### Report generation order"
+        )
+
+    def test_report_order_section_explains_the_shared_file(self):
+        self.assertIn("docs/HISTORY.md", self.section)
+        self.assertIn("cycle2:begin", self.section)
+        self.assertIn("cycle2:end", self.section)
+        self.assertIn("byz.contract", self.section)
+        self.assertIn("byz.reconcile", self.section)
+        self.assertIn("stale", self.section)
+        self.assertIn("no diff", self.section)
+        # The supported order leaves the banner, the H1, and the evidence block
+        # exactly once each.
+        self.assertIn("generated-file banner", self.section)
+        self.assertIn("# Internal history map", self.section)
+
+    def test_report_order_section_explains_what_a_wrong_order_produces(self):
+        # The reason for the order and the failure modes, not just the steps.
+        self.assertIn("previous numbers", self.section)
+        self.assertIn("drop", self.section)
+
+    def test_report_order_section_drops_implementation_jargon(self):
+        self.assertNotIn("owns the baseline document", self.section)
+        self.assertNotIn("leaves exactly one block and one heading", self.section)
+
+    def test_mission_states_what_category_of_change(self):
+        mission = (ROOT / "SPECS" / "MISSION.md").read_text(encoding="utf-8")
+        self.assertIn("*what category* of change", mission)
+        self.assertNotIn("*why category*", mission)
+
 
 if __name__ == "__main__":
     unittest.main()

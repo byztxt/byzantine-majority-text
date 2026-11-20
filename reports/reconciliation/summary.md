@@ -66,17 +66,18 @@ Current `source/CCAT` is closest to `rp2018`. For `rp2018`, 0 verses differ in m
 | `exact-transliteration` | 196 |
 | `incomparable-pending-pipeline` | 58 |
 | `normalized` | 18 |
-| `provenance-unknown` | 27 |
+| `official-source` | 27 |
 | `textual` | 60 |
 
 `files.csv` lists every mapped file, including the 27 Strong's files
-with `provenance-unknown` and the accented CCAT CSV views marked
+marked `official-source` and the accented CCAT CSV views marked
 `incomparable-pending-pipeline`.
 
 ## Strong's / BP5
 
-Status: `provenance-unknown`. The official archives do not
-include a parsed/Strong's file, so its provenance remains unknown.
+Status: `official-source-files`. `source/Strongs/*.BP5` are
+Dr Robinson's official parsed files; none of the six archives contains
+a parsed/Strong's file, so only the delivery route is unrecorded.
 
 ## Intentional blanks
 

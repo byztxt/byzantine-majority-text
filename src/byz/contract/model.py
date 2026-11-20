@@ -2,6 +2,21 @@
 
 from dataclasses import dataclass
 
+# The columns of `reports/baseline/files.csv`. Declared once so the header
+# written for an empty result and the row dicts cannot drift apart.
+FILE_FIELDS = (
+    "dataset",
+    "path",
+    "size",
+    "sha256",
+    "lines",
+    "encoding",
+    "eol",
+    "format_class",
+    "git_blob",
+    "last_commit",
+)
+
 
 @dataclass(frozen=True)
 class FileRecord:
@@ -17,18 +32,20 @@ class FileRecord:
     last_commit: str = ""
 
     def as_row(self) -> dict:
-        return {
-            "dataset": self.dataset,
-            "path": self.path,
-            "size": self.size,
-            "sha256": self.sha256,
-            "lines": self.lines,
-            "encoding": self.encoding,
-            "eol": self.eol,
-            "format_class": self.format_class,
-            "git_blob": self.git_blob,
-            "last_commit": self.last_commit,
-        }
+        return {name: getattr(self, name) for name in FILE_FIELDS}
+
+
+# The columns of `reports/baseline/invariants.csv`. Declared once so the header
+# written for an empty result and the row dicts cannot drift apart.
+VIOLATION_FIELDS = (
+    "dataset",
+    "path",
+    "line",
+    "category",
+    "message",
+    "key",
+    "known_exception",
+)
 
 
 @dataclass(frozen=True)
@@ -42,15 +59,7 @@ class Violation:
     known_exception: str = ""
 
     def as_row(self) -> dict:
-        return {
-            "dataset": self.dataset,
-            "path": self.path,
-            "line": self.line,
-            "category": self.category,
-            "message": self.message,
-            "key": self.key,
-            "known_exception": self.known_exception,
-        }
+        return {name: getattr(self, name) for name in VIOLATION_FIELDS}
 
 
 @dataclass

@@ -1,6 +1,7 @@
 import unittest
+from unittest import mock
 
-from byz.reconcile import compare, fetch, historical, sources
+from byz.reconcile import compare, fetch, historical, report, sources
 
 
 def _archive_path(spec):
@@ -45,8 +46,63 @@ class IntegrationTests(unittest.TestCase):
         source = [row for row in self.results["files"] if row["tier"] == "source"]
         self.assertEqual(len(source), 58)
 
-    def test_strongs_provenance_unknown(self):
-        self.assertEqual(self.results["strongs"]["status"], "provenance-unknown")
+    def test_strongs_provenance_is_official_source(self):
+        # R7: `source/Strongs/*.BP5` are Dr Robinson's official parsed files.
+        # The only gap is the delivery route: no published ZIP contains one.
+        strongs = self.results["strongs"]
+        self.assertEqual(strongs["status"], "official-source-files")
+        self.assertEqual(
+            strongs["delivery"],
+            "recorded" if strongs["hits"] else "not-recorded",
+        )
+
+    def test_strongs_delivery_follows_the_hits(self):
+        # The delivery status is derived from the scan, not hardcoded: if an
+        # archive ever carries a parsed file, the report must stop saying the
+        # route is unrecorded.
+        with mock.patch.object(
+            compare.archive, "load_members", return_value=["PARSED.BP5"]
+        ):
+            strongs = compare.strongs_provenance()
+        self.assertTrue(strongs["hits"])
+        self.assertEqual(strongs["delivery"], "recorded")
+
+    def test_strongs_report_prose_follows_the_hits(self):
+        # The same simulated hit must remove the "None of the six ..." wording
+        # from every generated document, not just change the status field.
+        results = dict(self.results)
+        results["strongs"] = {
+            "status": "official-source-files",
+            "delivery": "recorded",
+            "hits": ["rp2005/PARSED.BP5"],
+        }
+        source_stats = report._source_stats(results["files"])
+        derived_stats = report._derived_stats(results["files"])
+        history_rows = historical.evidence()
+        provenance = report._provenance_doc(
+            results, source_stats, derived_stats, history_rows
+        )
+        summary = report._summary(
+            results, source_stats, derived_stats, [], history_rows
+        )
+        decision_log = report._decision_log(results)
+        for text in (provenance, summary, decision_log):
+            self.assertNotIn("None of the six", text)
+            self.assertIn("delivery route is recorded", text)
+            self.assertIn("PARSED.BP5", text)
+        self.assertIn("resolved (2026-11-19)", decision_log)
+
+    def test_strongs_rows_are_not_unknown(self):
+        rows = [
+            row
+            for row in self.results["files"]
+            if row["dataset"] == "source/Strongs"
+        ]
+        self.assertEqual(len(rows), 27)
+        for row in rows:
+            self.assertEqual(row["class"], "official-source", row["current"])
+            self.assertIn("Dr Robinson", row["note"])
+            self.assertNotIn("unknown", row["class"])
 
     def test_intentional_blanks_confirmed(self):
         blanks = self.results["blanks"]
@@ -56,9 +112,10 @@ class IntegrationTests(unittest.TestCase):
 
     def test_mapping_classes_present(self):
         classes = {row["class"] for row in self.results["files"]}
-        self.assertIn("provenance-unknown", classes)
+        self.assertIn("official-source", classes)
         self.assertIn("incomparable-pending-pipeline", classes)
         self.assertIn("auxiliary", classes)
+        self.assertNotIn("provenance-unknown", classes)
 
     def test_history_lineage(self):
         rows = {

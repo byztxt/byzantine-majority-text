@@ -1,8 +1,9 @@
 """Successive edition diffs.
 
-Each pair produces a Unicode-first report, a machine-readable CSV, and three
-word-diff views: the Beta-code source tier, the exact Unicode main text for
-the source-differing verses, and the full normalised Unicode main text.
+Each pair produces a Unicode-first report, a machine-readable CSV, and four
+word-diff views: the Beta-code source tier, the exact Unicode main text for the
+source-differing verses, the Unicode apparatus (with variants), and the full
+normalised Unicode main text.
 """
 
 import csv
@@ -45,6 +46,8 @@ CSV_FIELDS = [
     "text_left",
     "text_right",
     "text_changed",
+    "apparatus_word_diff",
+    "apparatus_changed",
 ]
 
 # Shared with docs/EDITIONS.md so the explanation cannot drift.  The
@@ -102,11 +105,28 @@ def load_source(edition_id: str) -> dict:
     return _load_current(edition_id)
 
 
-def load_text(edition_id: str) -> dict:
-    """Load the Unicode accented main text keyed by (book, chapter, verse)."""
+VIEWS = ("no-variants", "with-variants")
+
+
+def load_text(edition_id: str, view: str = "no-variants") -> dict:
+    """Load the Unicode accented text keyed by (book, chapter, verse).
+
+    `view` is `no-variants` (the main text) or `with-variants` (the apparatus,
+    where variant readings stay inside `{...}` braces). An unknown view is a
+    programming error, not an empty file set, so it raises instead of returning
+    `{}`; a missing edition or view raises `FileNotFoundError` naming the path.
+    """
+    if view not in VIEWS:
+        raise ValueError(
+            f"unknown view {view!r}; expected one of {', '.join(VIEWS)}"
+        )
     directory = (
-        editions.edition_dir(edition_id) / "csv" / "accented" / "no-variants"
+        editions.edition_dir(edition_id) / "csv" / "accented" / view
     )
+    if not directory.is_dir():
+        raise FileNotFoundError(
+            f"no {view} CSV view for {edition_id}: {directory}"
+        )
     verses = {}
     for path in sorted(directory.glob("*.csv")):
         with path.open(newline="", encoding="utf-8") as handle:
@@ -209,8 +229,14 @@ def _source_rows(left: dict, right: dict) -> list:
     return rows
 
 
-def _add_text(rows: list, left_text: dict, right_text: dict) -> None:
-    """Add the derived-text view and word diffs to each source-tier row."""
+def _add_text(
+    rows: list,
+    left_text: dict,
+    right_text: dict,
+    left_variants: dict,
+    right_variants: dict,
+) -> None:
+    """Add the derived-text and apparatus views to each source-tier row."""
     for row in rows:
         key = (row["book"], row["chapter"], row["verse"])
         text_left = left_text.get(key, "")
@@ -229,6 +255,16 @@ def _add_text(rows: list, left_text: dict, right_text: dict) -> None:
             "true"
             if normalize_text(text_left) != normalize_text(text_right)
             else "false"
+        )
+        # The apparatus view keeps the variant readings, so a change that the
+        # main text drops still has a Unicode rendering here. Some Beta-code
+        # encoding-order differences convert to the same Unicode; those rows
+        # carry an empty marker set and the report names them explicitly.
+        apparatus_left = normalize_text(left_variants.get(key, ""))
+        apparatus_right = normalize_text(right_variants.get(key, ""))
+        row["apparatus_word_diff"] = word_diff(apparatus_left, apparatus_right)
+        row["apparatus_changed"] = (
+            "true" if apparatus_left != apparatus_right else "false"
         )
 
 
@@ -312,6 +348,12 @@ def _report(
     categories = Counter(row["category"] for row in rows)
     books = Counter(row["book"] for row in rows)
     apparatus_only = sum(1 for row in rows if row["text_changed"] == "false")
+    apparatus_unicode = sum(
+        1
+        for row in rows
+        if row["text_changed"] == "false" and row["apparatus_changed"] == "true"
+    )
+    apparatus_encoding_only = apparatus_only - apparatus_unicode
     source_keys = {
         (row["book"], row["chapter"], row["verse"]) for row in rows
     }
@@ -330,6 +372,9 @@ def _report(
         f"- **Derived-text differing verses (normalised):** {len(derived)}",
         "- **Apparatus-only changes (source differs, main text identical):** "
         f"{apparatus_only}",
+        f"- **Apparatus-only changes shown in Unicode:** {apparatus_unicode}",
+        "- **Apparatus-only changes with no Unicode difference (Beta-code "
+        f"encoding only):** {apparatus_encoding_only}",
         "- **Derived-only differences (text differs, source-tier comparison "
         f"unchanged):** {len(derived_only)}",
         "",
@@ -352,6 +397,28 @@ def _report(
         "  apostrophe typography (`\u2019`/`\u2018` -> `'`) and whitespace; the",
         "  word-diff shown omits those conventions. The exact text is in",
         "  `changes.csv` (`text_left`/`text_right`).",
+        "- **Apparatus** is the Unicode accented text with variants, from",
+        f"  `editions/{left_id}/csv/accented/with-variants/` and",
+        f"  `editions/{right_id}/csv/accented/with-variants/`.",
+        "",
+        "### Why the main text can be unchanged while the apparatus changes",
+        "",
+        "A variant reading lives inside literal `{...}` braces in the",
+        "with-variants view; the main text drops the braces together with the",
+        "note. When an edition adds or rewrites an apparatus note and the main",
+        "reading does not move, the source tier and the apparatus differ while",
+        "the main text stays identical. The rendered apparatus change therefore",
+        "doubles the braces: the outer `{+` and `+}` are the diff markers, and",
+        "the inner `{Byz ... }` is the reading itself, so an added variant",
+        "renders as `{+{Byz \u03c4\u03b5 > \u03b4\u03b5 }+}`.",
+        "",
+        "An apparatus-only entry can take any of these shapes (they can",
+        "combine): it has a Unicode difference and appears in `apparatus.diff`;",
+        "it differs only in the Beta-code encoding and converts to the same",
+        "Unicode, in which case the report names it as encoding-only and",
+        "`apparatus.diff` omits it; or the exact main text changed without a",
+        "normalised change, in which case the entry is also marked",
+        "`see text.diff`.",
         "",
         "## Categories (source tier)",
         "",
@@ -409,7 +476,19 @@ def _report(
             )
         lines.append(
             f"- `{row['book']} {row['chapter']}:{row['verse']}` \u00b7 "
-            f"`{row['category']}`{note}: `{row['source_word_diff']}`"
+            f"`{row['category']}`{note}"
+        )
+        if row["apparatus_changed"] == "true":
+            lines.append(
+                f"  - Apparatus (Unicode): `{row['apparatus_word_diff']}`"
+            )
+        else:
+            lines.append(
+                "  - Apparatus (Unicode): no difference after conversion to "
+                "Unicode (Beta-code encoding only)"
+            )
+        lines.append(
+            f"  - Apparatus (Beta code): `{row['source_word_diff']}`"
         )
     if apparatus:
         lines.append("")
@@ -463,18 +542,28 @@ Each `<left>--<right>/` directory compares two curated editions:
 - `report.md` - Unicode-first human-readable report. `Main-text changes` lists
   the verses whose normalised Unicode text changes, with the Text word diff
   first and the Beta-code Source second. `Apparatus-only changes` compacts the
-  remaining source-tier differences into one line per verse. The Text diff is
-  normalised: paragraph markers, apostrophe typography, and whitespace are
-  omitted.
-- `changes.csv` - one row per source-tier difference, with the category, both
-  word diffs, the full left/right source and exact text, and a `text_changed`
-  flag. `text_word_diff` is normalised; `text_left`/`text_right` are exact.
+  remaining source-tier differences into one entry per verse, showing the
+  Unicode Apparatus word diff first and the Beta-code diff second; an entry
+  whose only change is Beta-code encoding says so instead of printing an empty
+  diff. The Text diff is normalised: paragraph markers, apostrophe typography,
+  and whitespace are omitted.
+- `changes.csv` - one row per source-tier difference, with the category, the
+  Beta-code source word diff, the Unicode Text word diff (`text_word_diff`),
+  the Unicode Apparatus word diff (`apparatus_word_diff`), the full left/right
+  source and exact text, and the `text_changed` and `apparatus_changed` flags.
+  The word diffs are normalised; `text_left`/`text_right` are exact.
 - `source.diff` - word-diff style, one line per verse, for the Beta-code
   source tier.
 - `text.diff` - word-diff style, one line per verse, for the exact Unicode
   accented main text. It includes every source-differing verse whose exact text
   differs, including formatting-only changes such as a `\u00b6` edit.
   Paragraph markers and apostrophes are shown as stored.
+- `apparatus.diff` - the word diff of the normalised Unicode accented text with
+  variants (`csv/accented/with-variants`) for every apparatus-only change that
+  has a Unicode difference (encoding-only rows are named in `report.md`).
+  Variant readings stay inside `{...}` braces, and the braces are literal text
+  inside the diff markers. `source.diff` is the Beta-code view of the same
+  verses.
 - `derived.diff` - the word diff of the normalised Unicode main text for every
   differing verse, not only the source-differing ones.
 
@@ -492,6 +581,10 @@ for `rp2005`/`rp2018`, the recovered historical `textonly-beta-code` for
 **Text** is the derived Unicode accented main text in
 `editions/<id>/csv/accented/no-variants/`.
 
+**Apparatus** is the Unicode accented text with variants in
+`editions/<id>/csv/accented/with-variants/`. The variant readings stay inside
+literal `{...}` braces; the main text drops them.
+
 ## Notation
 
 - `[-removed-]{+added+}` wraps changed words; unchanged text is context. The
@@ -501,6 +594,10 @@ for `rp2005`/`rp2018`, the recovered historical `textonly-beta-code` for
 - The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`; a
   literal `-` or `>` next to a delimiter is part of the text (for example, a
   dash-spacing change can render as `[-εἶπεν --]{+εἶπεν-+}`).
+- The Unicode Apparatus diff doubles the braces: the outer `{+`/`+}` are the
+  diff markers and the inner `{...}` is the reading, so an added variant
+  renders as `{+{Byz τε > δε }+}`. That is why the main text can be identical
+  while the apparatus changes.
 - The Text word diff is normalised: `\u00b6` is removed, `\u2019`/`\u2018`
   become `'`, and whitespace is collapsed (not removed). The exact text is in
   `changes.csv.text_left`/`text_right` and in `text.diff`.
@@ -546,7 +643,9 @@ def diff_pair(left_id: str, right_id: str) -> Path:
     rows = _source_rows(left, right)
     left_text = load_text(left_id)
     right_text = load_text(right_id)
-    _add_text(rows, left_text, right_text)
+    left_variants = load_text(left_id, "with-variants")
+    right_variants = load_text(right_id, "with-variants")
+    _add_text(rows, left_text, right_text, left_variants, right_variants)
     categories = {
         (row["book"], row["chapter"], row["verse"]): row["category"]
         for row in rows
@@ -597,6 +696,41 @@ def diff_pair(left_id: str, right_id: str) -> Path:
             "# formatting-only changes). Paragraph markers (\u00b6) and",
             "# apostrophe typography are shown as stored.",
             "# derived.diff is the normalised full view.",
+        ),
+    )
+    _verse_diff(
+        out / "apparatus.diff",
+        left_id,
+        right_id,
+        "Unicode accented text with apparatus",
+        [
+            {
+                "book": row["book"],
+                "chapter": row["chapter"],
+                "verse": row["verse"],
+                "category": row["category"],
+                "left": left_variants.get(
+                    (row["book"], row["chapter"], row["verse"]), ""
+                ),
+                "right": right_variants.get(
+                    (row["book"], row["chapter"], row["verse"]), ""
+                ),
+            }
+            for row in rows
+            if row["text_changed"] == "false"
+            and row["apparatus_changed"] == "true"
+        ],
+        transform=lambda left, right: word_diff(
+            normalize_text(left), normalize_text(right)
+        ),
+        preamble=(
+            "# Unicode accented text with apparatus "
+            "(csv/accented/with-variants),",
+            "# for every apparatus-only change that has a Unicode difference. A row",
+            "# whose difference exists only in the Beta-code encoding converts to the",
+            "# same Unicode and is named in report.md instead. Variant readings stay",
+            "# inside {...} braces, and those braces are literal text inside the diff",
+            "# markers. source.diff is the Beta-code view of the same verses.",
         ),
     )
     _verse_diff(

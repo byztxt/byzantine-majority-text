@@ -223,20 +223,37 @@ def _provenance_doc(results, source_stats, derived_stats, history_rows):
         )
     lines.extend(_lineage_lines(history_rows))
     strongs = results["strongs"]
+    hits = strongs["hits"]
     lines.extend(
         [
             "",
             "## Strong's / BP5 provenance",
             "",
-            f"Status: `{strongs['status']}`.",
+            (
+                f"Status: `{strongs['status']}` "
+                f"(delivery route: `{strongs['delivery']}`)."
+            ),
+            "",
+            "`source/Strongs/*.BP5` are Dr. Maurice A. Robinson's parsed files,",
+            "the same official material as `source/CCAT` (see `source/README.md`).",
         ]
     )
-    if strongs["hits"]:
-        lines.append("Hits: " + ", ".join(f"`{hit}`" for hit in strongs["hits"]))
+    if hits:
+        lines.extend(
+            [
+                "The archive scan found a parsed/Strong's file, so the file-level",
+                "delivery route is recorded: "
+                + ", ".join(f"`{hit}`" for hit in hits)
+                + ".",
+            ]
+        )
     else:
-        lines.append(
-            "None of the six official archives contains a parsed/Strong's file, "
-            "so `source/Strongs/*.BP5` remains provenance-unknown."
+        lines.extend(
+            [
+                "None of the six published ZIP archives contains a parsed/Strong's",
+                "file, so the file-level delivery route is not recorded. That is a gap",
+                "in the archive evidence, not a doubt about the files' origin.",
+            ]
         )
     lines.extend(
         [
@@ -311,6 +328,18 @@ def _summary(results, source_stats, derived_stats, categories, history_rows):
             source_stats[edition]["match"] / max(source_stats[edition]["verses"], 1)
         ),
     )
+    strongs = results["strongs"]
+    if strongs["hits"]:
+        strongs_body = [
+            "Dr Robinson's official parsed files; the archive scan found "
+            + ", ".join(f"`{hit}`" for hit in strongs["hits"])
+            + ", so the delivery route is recorded."
+        ]
+    else:
+        strongs_body = [
+            "Dr Robinson's official parsed files; none of the six archives contains",
+            "a parsed/Strong's file, so only the delivery route is unrecorded.",
+        ]
     lines = [
         "# Official archive reconciliation",
         "",
@@ -388,13 +417,13 @@ def _summary(results, source_stats, derived_stats, categories, history_rows):
         [
             "",
             "`files.csv` lists every mapped file, including the 27 Strong's files",
-            "with `provenance-unknown` and the accented CCAT CSV views marked",
+            "marked `official-source` and the accented CCAT CSV views marked",
             "`incomparable-pending-pipeline`.",
             "",
             "## Strong's / BP5",
             "",
-            f"Status: `{results['strongs']['status']}`. The official archives do not",
-            "include a parsed/Strong's file, so its provenance remains unknown.",
+            f"Status: `{strongs['status']}`. `source/Strongs/*.BP5` are",
+            *strongs_body,
             "",
             "## Intentional blanks",
             "",
@@ -425,7 +454,26 @@ def _summary(results, source_stats, derived_stats, categories, history_rows):
 
 
 def _decision_log(results):
-    strongs = results["strongs"]["status"]
+    hits = results["strongs"]["hits"]
+    if hits:
+        route = (
+            "the archive scan found "
+            + ", ".join(f"`{hit}`" for hit in hits)
+            + ", so the delivery route is recorded"
+        )
+        outcome = (
+            "the files are official Robinson material, and the archive scan "
+            "records their delivery route"
+        )
+    else:
+        route = (
+            "no parsed archive is among the six ZIPs, so the delivery route is "
+            "not recorded"
+        )
+        outcome = (
+            "the files are official Robinson material; only the delivery route "
+            "for the parsed files is unrecorded"
+        )
     return f"""# Decision log - official archive reconciliation
 
 The pipeline flags; the maintainer decides. No source file was changed.
@@ -435,7 +483,7 @@ The pipeline flags; the maintainer decides. No source file was changed.
 | R1 | Which archive is canonical for each edition? | Current `source/CCAT` is closest to 2018; 2005 differs in more verses. | (a) `rp2018` canonical. (b) 2005 canonical. (c) per-file. | pending |
 | R2 | Apparatus codes differ from official 2018 (e.g. `C` vs `N` in Acts). | `reports/reconciliation/verses.csv` (category `variant-code`). | (a) Keep current 2023 codes. (b) Adopt official 2018 codes. (c) per-book. | pending |
 | R3 | Word segmentation differs (`mhti` vs `mh ti` in 1CO/2CO). | `verses.csv` (category `word-segmentation`). | (a) Keep current. (b) Adopt archive. | pending |
-| R4 | Strong's/BP5 provenance. | Status `{strongs}`; no parsed archive in the six zips. | (a) Find an official parsed archive. (b) Keep provenance-unknown. | pending |
+| R4 | Strong's/BP5 provenance. | `source/Strongs/*.BP5` are Dr Robinson's official parsed files (`source/README.md`); {route}. | (a) Find an official parsed archive. (b) Leave the files labelled unknown. | resolved (2026-11-19): {outcome}. |
 | R5 | `GREEK.CCT` is documentation, not text. | Inventory shows it is a transliteration key. | (a) Auxiliary. (b) Map elsewhere. | pending |
 | R6 | Formatting-only differences (`*[` vs `[*`, dash/ellipsis spacing). | Treated as normalization-only. | (a) Accept as equivalent. (b) Preserve exactly. | pending |
 | R7 | Should official 2018 files replace current `source/`? | Current includes post-2018 changes (e.g. apparatus codes). | (a) Keep current. (b) Adopt official. (c) merge per decision R1/R2. | pending |

@@ -47,18 +47,35 @@ See `docs/EDITIONS.md` for the edition model and release numbers.
 
 ### Report generation order
 
-`docs/HISTORY.md` is written by two steps. Regenerate them in this order:
+`docs/HISTORY.md` is written by two commands, so run them in this order:
 
 ```bash
 PYTHONPATH=src python3 -m byz.contract
 PYTHONPATH=src python3 -m byz.reconcile   # reads data/raw/_archives/
 ```
 
-`byz.contract` owns the baseline document but preserves the
-`<!-- cycle2:begin -->` ... `<!-- cycle2:end -->` evidence block if it exists,
-and `byz.reconcile` rebuilds that block from the archives. Running the contract
-first and the reconciliation second leaves exactly one block and one heading,
-and a second run of either step produces no diff.
+`byz.contract` rebuilds the whole history document from git. Before it writes,
+it takes a copy of the "External archive evidence (Cycle 2)" section if that
+section is present, and puts it back at the end afterwards; it finds the section
+by the `<!-- cycle2:begin -->` and `<!-- cycle2:end -->` markers.
+`byz.reconcile` rebuilds that section from the archives committed under
+`data/raw/_archives/`.
+
+Running the contract first and the reconciliation second means the archive
+section is written last, so the finished document carries both the current
+history and the current archive numbers. After the supported order the file has
+exactly one generated-file banner, one `# Internal history map` heading, and
+one evidence section.
+
+If the order or the run goes wrong, this is what you see:
+
+- contract only: the archive section keeps its previous numbers, or disappears
+  entirely if its markers were removed by hand;
+- reconciliation only: the rest of `docs/HISTORY.md` is stale relative to git;
+- a hand-edited or deleted marker: the next contract run drops the section
+  silently. Run the reconciliation to put it back.
+
+Both commands are safe to re-run: a second run of either produces no diff.
 
 `byz.contract` requires a git checkout: it inventories only tracked files, so
 `git` must be installed and `git ls-files` must work under the repository root.

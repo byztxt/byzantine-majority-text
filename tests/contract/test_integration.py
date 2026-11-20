@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -7,7 +8,15 @@ import unittest
 from pathlib import Path
 
 from byz import generated
-from byz.contract import contracts, coverage, derivation, invariants, paths
+from byz.contract import (
+    contracts,
+    coverage,
+    derivation,
+    invariants,
+    model,
+    paths,
+    report,
+)
 
 
 class IntegrationTests(unittest.TestCase):
@@ -299,6 +308,169 @@ class ContractWorktreeTests(unittest.TestCase):
             "",
             "re-running the reconciliation history update changed the tree",
         )
+
+
+BASELINE_HEADERS = {
+    "files.csv": (
+        "dataset,path,size,sha256,lines,encoding,eol,format_class,"
+        "git_blob,last_commit"
+    ),
+    "books.csv": (
+        "dataset,book,file,chapters,verses,min_chapter,max_chapter,"
+        "min_verse,max_verse,blank"
+    ),
+    "differences.csv": (
+        "comparison,left,right,book,left_verses,right_verses,only_left,"
+        "only_right,examples_only_left,examples_only_right"
+    ),
+    "derivations.csv": "source,derived,evidence,status",
+    "invariants.csv": ",".join(model.VIOLATION_FIELDS),
+}
+
+# The declared field tuples that `report.write_all` passes to `write_csv`; the
+# five tests below prove each one matches the committed header.
+HEADER_FIELDS = {
+    "files.csv": model.FILE_FIELDS,
+    "books.csv": coverage.BOOK_FIELDS,
+    "differences.csv": coverage.DIFFERENCE_FIELDS,
+    "derivations.csv": derivation.DERIVATION_FIELDS,
+    "invariants.csv": model.VIOLATION_FIELDS,
+}
+
+
+class BaselineCsvTests(unittest.TestCase):
+    """R5: every baseline CSV declares its columns, even when it has no rows."""
+
+    def setUp(self):
+        self.reports = ROOT / "reports" / "baseline"
+
+    def test_every_baseline_csv_has_a_header(self):
+        for name, header in BASELINE_HEADERS.items():
+            path = self.reports / name
+            self.assertTrue(path.is_file(), name)
+            text = path.read_text(encoding="utf-8")
+            self.assertTrue(text, f"{name} is empty")
+            self.assertEqual(text.splitlines()[0], header, name)
+
+    def test_every_header_uses_its_declared_fields(self):
+        for name, fields in HEADER_FIELDS.items():
+            self.assertEqual(BASELINE_HEADERS[name], ",".join(fields), name)
+
+    def test_every_baseline_csv_writes_a_header_with_no_rows(self):
+        # The "header is always written" rule must not depend on which CSV has
+        # data today. `fields` is the mechanism; this proves it for all five.
+        for name, fields in HEADER_FIELDS.items():
+            with tempfile.TemporaryDirectory() as tmp:
+                path = Path(tmp) / name
+                report.write_csv(path, [], fields=fields)
+                self.assertEqual(
+                    path.read_text(encoding="utf-8"),
+                    ",".join(fields) + "\n",
+                    name,
+                )
+
+    def test_invariants_csv_is_header_only_when_clean(self):
+        path = self.reports / "invariants.csv"
+        text = path.read_text(encoding="utf-8")
+        self.assertEqual(text, ",".join(model.VIOLATION_FIELDS) + "\n")
+        self.assertEqual(len(text.splitlines()), 1)
+
+    def test_invariant_header_matches_the_row_schema(self):
+        violation = model.Violation(
+            dataset="d",
+            path="p",
+            line=1,
+            category="c",
+            message="m",
+            key="k",
+            known_exception="",
+        )
+        self.assertEqual(tuple(violation.as_row()), model.VIOLATION_FIELDS)
+
+    def test_invariants_csv_keeps_the_header_when_it_has_rows(self):
+        violation = model.Violation(
+            dataset="d",
+            path="p",
+            line=1,
+            category="c",
+            message="m",
+            key="k",
+            known_exception="",
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "invariants.csv"
+            report.write_csv(
+                path,
+                [violation.as_row()],
+                fields=model.VIOLATION_FIELDS,
+            )
+            lines = path.read_text(encoding="utf-8").splitlines()
+        self.assertEqual(lines[0], ",".join(model.VIOLATION_FIELDS))
+        self.assertEqual(
+            lines[1], ",".join(str(value) for value in violation.as_row().values())
+        )
+
+
+class DataContractDocTests(unittest.TestCase):
+    """R5: the contract document explains itself without prior context."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.text = (ROOT / "docs" / "DATA_CONTRACT.md").read_text(
+            encoding="utf-8"
+        )
+
+    def test_doc_explains_itself(self):
+        for needle in (
+            "How to read this document",
+            "## Terms",
+            "Dataset",
+            "invariant",
+            "derivation",
+            "PYTHONPATH=src python3 -m byz.contract",
+        ):
+            self.assertIn(needle, self.text)
+
+    def test_doc_documents_invariants_csv(self):
+        self.assertIn("reports/baseline/invariants.csv", self.text)
+        self.assertIn(",".join(model.VIOLATION_FIELDS), self.text)
+        self.assertIn("no data rows", self.text)
+
+    def test_doc_documents_every_baseline_csv(self):
+        for name in BASELINE_HEADERS:
+            self.assertIn(f"reports/baseline/{name}", self.text, name)
+
+    def test_doc_has_no_stale_cycle_sentence(self):
+        self.assertNotIn("that is the next cycle", self.text)
+        self.assertIn("docs/PROVENANCE.md", self.text)
+        self.assertIn("Cycle 2", self.text)
+
+    def test_doc_has_no_known_exception_placeholder(self):
+        # A clean run renders a table with no data rows; a fake `-` row would
+        # contradict "an empty table means none".
+        self.assertNotIn("| - | - | None |", self.text)
+        self.assertIn("KNOWN_EXCEPTIONS", self.text)
+        self.assertIn("src/byz/contract/invariants.py", self.text)
+
+    def test_doc_qualifies_the_coverage_row_count(self):
+        prose = re.sub(r"\s+", " ", self.text)
+        self.assertIn("one row per validated corpus dataset", prose)
+        self.assertIn("asset files appear only", prose)
+
+    def test_doc_names_the_official_unaccented_source(self):
+        self.assertIn("data/raw/<edition>/", self.text)
+        self.assertIn("unaccented CSV and TEI", self.text)
+
+    def test_coverage_table_describes_each_dataset(self):
+        section = self.text.split("## Coverage", 1)[1].split("## ", 1)[0]
+        coverage_rows = {
+            line.split("|")[1].strip().strip("`"): line
+            for line in section.splitlines()
+            if line.startswith("| `")
+        }
+        for dataset, contract in contracts.DATASET_CONTRACTS.items():
+            self.assertIn(dataset, coverage_rows, dataset)
+            self.assertIn(contract["purpose"], coverage_rows[dataset], dataset)
 
 
 if __name__ == "__main__":

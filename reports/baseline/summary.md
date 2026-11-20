@@ -11,6 +11,7 @@ Inventory and validation of the corpus as it currently exists. No external archi
 - Files: 196 validated; see `files.csv`
 - `files.csv` records, for each file, the last commit that touched it. Because the working tree has not been committed yet, that column lags by one commit until the next commit lands.
 - Invariant findings: 0 (0 unresolved, 0 known exception)
+- `invariants.csv` always carries its header: a header with no data rows is the clean result, not a broken run.
 - Missing derived files: 0
 - Cross-dataset coverage mismatches: 0
 

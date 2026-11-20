@@ -182,6 +182,21 @@ class CommittedReportTests(unittest.TestCase):
         ):
             self.assertTrue((REPORTS / name).is_file(), name)
 
+    def test_provenance_doc_does_not_call_strongs_unknown(self):
+        text = (ROOT / "docs" / "PROVENANCE.md").read_text(encoding="utf-8")
+        self.assertIn("official-source-files", text)
+        self.assertIn("Dr. Maurice A. Robinson", text)
+        self.assertIn("delivery route", text)
+        self.assertNotIn("provenance-unknown", text)
+
+    def test_decision_log_row_r4_is_resolved(self):
+        text = (REPORTS / "decision-log.md").read_text(encoding="utf-8")
+        row = next(
+            line for line in text.splitlines() if line.startswith("| R4 |")
+        )
+        self.assertIn("resolved (2026-11-19)", row)
+        self.assertFalse(row.rstrip().endswith("| pending |"))
+
     def test_headline_totals_are_stable(self):
         summary = (REPORTS / "summary.md").read_text(encoding="utf-8")
         self.assertIn("7769/7972", summary)

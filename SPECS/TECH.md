@@ -77,9 +77,10 @@ carries the exact published files for posterity and offline reproducibility.
 `scripts/fetch_official.py --verify` re-checks the committed copies without
 network access.
 
-The provenance of the existing `source/Strongs/*.BP5` (parsing and Strong's
-numbers) must be established separately during the reconciliation cycle; it is
-not assumed to come from the archives listed above.
+`source/Strongs/*.BP5` are Dr Robinson's official parsed files (see
+`source/README.md`); none of the six archives listed above contains a
+parsed/Strong's file, so the delivery route for the parsed files is not
+recorded.
 
 ## 3. Provenance
 

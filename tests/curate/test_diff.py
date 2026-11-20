@@ -69,6 +69,48 @@ class WordDiffTests(unittest.TestCase):
         self.assertEqual(result, "EI) [-MH/ TI-]{+MH/TI+} A)\\N")
 
 
+class ApparatusWordDiffTests(unittest.TestCase):
+    """R6: the with-variants view renders the apparatus in Unicode."""
+
+    def test_word_diff_marks_a_variant_reading(self):
+        left = diff.load_text("rp2005", "with-variants")[("ROM", 1, 27)]
+        right = diff.load_text("rp2018", "with-variants")[("ROM", 1, 27)]
+        self.assertIn("{Byz", right)
+        self.assertNotIn("{Byz", left)
+        result = diff.word_diff(
+            diff.normalize_text(left), diff.normalize_text(right)
+        )
+        self.assertIn("{+{Byz τε > δε }+}", result)
+        self.assertIn("ὁμοίως τε", result)
+
+    def test_word_diff_of_identical_variant_text_has_no_markers(self):
+        left = diff.load_text("rp2018", "with-variants")[("MAT", 11, 23)]
+        right = diff.load_text("rp2018-2023", "with-variants")[("MAT", 11, 23)]
+        left = diff.normalize_text(left)
+        right = diff.normalize_text(right)
+        self.assertEqual(left, right)
+        self.assertEqual(diff.word_diff(left, right), left)
+        self.assertNotIn("[-", diff.word_diff(left, right))
+
+    def test_load_text_can_read_the_variants_view(self):
+        variants = diff.load_text("rp2018", "with-variants")[("ROM", 1, 27)]
+        main = diff.load_text("rp2018")[("ROM", 1, 27)]
+        self.assertIn("{Byz", variants)
+        self.assertNotIn("{", main)
+        self.assertEqual(
+            main, diff.load_text("rp2018", "no-variants")[("ROM", 1, 27)]
+        )
+
+    def test_load_text_rejects_an_unknown_view(self):
+        # A typo must not look like an empty edition.
+        with self.assertRaises(ValueError):
+            diff.load_text("rp2018", "with-variant")
+
+    def test_load_text_reports_a_missing_view_directory(self):
+        with self.assertRaises(FileNotFoundError):
+            diff.load_text("no-such-edition")
+
+
 class NormalizeTextTests(unittest.TestCase):
     def test_paragraph_marker_is_ignored(self):
         self.assertEqual(

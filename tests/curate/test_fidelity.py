@@ -16,7 +16,7 @@ import unittest
 from pathlib import Path
 
 from byz.contract import paths
-from byz.curate import editions
+from byz.curate import docs, editions
 from byz.reconcile import sources
 
 ROOT = editions.ROOT
@@ -301,7 +301,7 @@ class DocumentationTests(unittest.TestCase):
             self.assertIn(count, text, f"missing row count {count}")
         self.assertIn("four empty", text)
         self.assertIn("<ab/>", text)
-        self.assertIn("`v2.0.3` itself has no", text)
+        self.assertIn(f"{docs._tag('v2.0.3')} itself has no", text)
         self.assertIn("accented TEI", text)
         self.assertIn("<pc>", text)
 

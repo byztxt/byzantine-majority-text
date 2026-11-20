@@ -10,6 +10,8 @@
 - **Source-tier differing verses:** 55
 - **Derived-text differing verses (normalised):** 47
 - **Apparatus-only changes (source differs, main text identical):** 8
+- **Apparatus-only changes shown in Unicode:** 7
+- **Apparatus-only changes with no Unicode difference (Beta-code encoding only):** 1
 - **Derived-only differences (text differs, source-tier comparison unchanged):** 0
 
 ## Notation
@@ -31,6 +33,28 @@
   apostrophe typography (`’`/`‘` -> `'`) and whitespace; the
   word-diff shown omits those conventions. The exact text is in
   `changes.csv` (`text_left`/`text_right`).
+- **Apparatus** is the Unicode accented text with variants, from
+  `editions/rp2005/csv/accented/with-variants/` and
+  `editions/rp2018/csv/accented/with-variants/`.
+
+### Why the main text can be unchanged while the apparatus changes
+
+A variant reading lives inside literal `{...}` braces in the
+with-variants view; the main text drops the braces together with the
+note. When an edition adds or rewrites an apparatus note and the main
+reading does not move, the source tier and the apparatus differ while
+the main text stays identical. The rendered apparatus change therefore
+doubles the braces: the outer `{+` and `+}` are the diff markers, and
+the inner `{Byz ... }` is the reading itself, so an added variant
+renders as `{+{Byz τε > δε }+}`.
+
+An apparatus-only entry can take any of these shapes (they can
+combine): it has a Unicode difference and appears in `apparatus.diff`;
+it differs only in the Beta-code encoding and converts to the same
+Unicode, in which case the report names it as encoding-only and
+`apparatus.diff` omits it; or the exact main text changed without a
+normalised change, in which case the entry is also marked
+`see text.diff`.
 
 ## Categories (source tier)
 
@@ -726,14 +750,30 @@ Source (Beta code):
 
 ## Apparatus-only changes
 
-- `ROM 1:27` · `variant`: `O(MOI/WS TE {+{B TE > DE }+} KAI\ OI( A)/RRENES, {N A)/RRENES > A)/RSENES } A)FE/NTES TH\N FUSIKH\N XRH=SIN TH=S QHLEI/AS, E)CEKAU/QHSAN E)N TH=| O)RE/CEI AU)TW=N EI)S A)LLH/LOUS, A)/RSENES E)N A)/RSESIN TH\N A)SXHMOSU/NHN KATERGAZO/MENOI, KAI\ TH\N A)NTIMISQI/AN H(\N E)/DEI TH=S PLA/NHS AU)TW=N E)N E(AUTOI=S A)POLAMBA/NONTES.`
-- `ROM 2:16` · `variant`: `E)N H(ME/RA| O(/TE KRINEI= {+{N KRINEI= > KRI/NEI)}+} O( QEO\S TA\ KRUPTA\ TW=N A)NQRW/PWN, KATA\ TO\ EU)AGGE/LIO/N MOU, DIA\ *)IHSOU= {N *)IHSOU= XRISTOU= > XRISTOU= *)IHSOU= } XRISTOU=.`
-- `ROM 4:12` · `variant`: `KAI\ PATE/RA PERITOMH=S TOI=S OU)K E)K PERITOMH=S MO/NON, A)LLA\ KAI\ TOI=S STOIXOU=SIN TOI=S I)/XNESIN TH=S PI/STEWS {N PI/STEWS TH=S E)N TH=| A)KROBUSTI/A| > E)N A)KROBUSTI/A| PI/STEWS } TH=S E)N TH=| {+{B TH=| > - - }+} A)KROBUSTI/A| TOU= PATRO\S H(MW=N *)ABRAA/M.`
-- `ROM 16:7` · `variant`: `*)ASPA/SASQE *)ANDRO/NIKON KAI\ *)IOUNI/AN {+{N *)IOUNI/AN > *)IOUNIA=N }+} TOU\S SUGGENEI=S MOU KAI\ SUNAIXMALW/TOUS MOU, OI(/TINE/S EI)SIN E)PI/SHMOI E)N TOI=S A)POSTO/LOIS, OI(\ KAI\ PRO\ E)MOU= GEGO/NASIN {N GEGO/NASIN > GE/GONAN } E)N XRISTW=|.`
-- `1CO 3:14` · `variant`: `*EI)/ TINOS TO\ E)/RGON ME/NEI {+{N ME/NEI > MENEI= }+} O(\ E)POIKODO/MHSEN, MISQO\N LH/YETAI. {N LH/YETAI > LH/MYETAI }`
-- `EPH 1:17` · `variant`: `I(/NA O( QEO\S TOU= KURI/OU H(MW=N *)IHSOU= XRISTOU=, O( PATH\R TH=S DO/CHS, DW/H| {+{N DW/H| > DW/H| }+} U(MI=N PNEU=MA SOFI/AS KAI\ A)POKALU/YEWS, E)N E)PIGNW/SEI AU)TOU=:`
-- `PHP 3:5` · `variant`: `PERITOMH\ {+{N PERITOMH\ > PERITOMH=| }+} O)KTAH/MEROS, E)K GE/NOUS *)ISRAH/L, FULH=S *BENIAMI/N, *(EBRAI=OS E)C *(EBRAI/WN, KATA\ NO/MON *FARISAI=OS,`
-- `2PE 1:12` · `accents-breathings`: `? *DIO\ OU)K {N OU)K A)MELH/SW > MELLH/SW } A)MELH/SW A)EI\ U(MA=S [-U(POMIMNH/S|KEIN-]{+U(POMIMNH|/SKEIN+} PERI\ TOU/TWN, KAI/PER EI)DO/TAS, KAI\ E)STHRIGME/NOUS E)N TH=| PAROU/SH| A)LHQEI/A|.`
+- `ROM 1:27` · `variant`
+  - Apparatus (Unicode): `ὁμοίως τε {+{Byz τε > δε }+} καὶ οἱ ἄρρενες, {NA ἄρρενες > ἄρσενες } ἀφέντες τὴν φυσικὴν χρῆσιν τῆς θηλείας, ἐξεκαύθησαν ἐν τῇ ὀρέξει αὐτῶν εἰς ἀλλήλους, ἄρσενες ἐν ἄρσεσιν τὴν ἀσχημοσύνην κατεργαζόμενοι, καὶ τὴν ἀντιμισθίαν ἣν ἔδει τῆς πλάνης αὐτῶν ἐν ἑαυτοῖς ἀπολαμβάνοντες.`
+  - Apparatus (Beta code): `O(MOI/WS TE {+{B TE > DE }+} KAI\ OI( A)/RRENES, {N A)/RRENES > A)/RSENES } A)FE/NTES TH\N FUSIKH\N XRH=SIN TH=S QHLEI/AS, E)CEKAU/QHSAN E)N TH=| O)RE/CEI AU)TW=N EI)S A)LLH/LOUS, A)/RSENES E)N A)/RSESIN TH\N A)SXHMOSU/NHN KATERGAZO/MENOI, KAI\ TH\N A)NTIMISQI/AN H(\N E)/DEI TH=S PLA/NHS AU)TW=N E)N E(AUTOI=S A)POLAMBA/NONTES.`
+- `ROM 2:16` · `variant`
+  - Apparatus (Unicode): `ἐν ἡμέρᾳ ὅτε κρινεῖ {+{NA κρινεῖ > κρίνεἰ}+} ὁ θεὸς τὰ κρυπτὰ τῶν ἀνθρώπων, κατὰ τὸ εὐαγγέλιόν μου, διὰ Ἰησοῦ {NA Ἰησοῦ χριστοῦ > χριστοῦ Ἰησοῦ } χριστοῦ.`
+  - Apparatus (Beta code): `E)N H(ME/RA| O(/TE KRINEI= {+{N KRINEI= > KRI/NEI)}+} O( QEO\S TA\ KRUPTA\ TW=N A)NQRW/PWN, KATA\ TO\ EU)AGGE/LIO/N MOU, DIA\ *)IHSOU= {N *)IHSOU= XRISTOU= > XRISTOU= *)IHSOU= } XRISTOU=.`
+- `ROM 4:12` · `variant`
+  - Apparatus (Unicode): `καὶ πατέρα περιτομῆς τοῖς οὐκ ἐκ περιτομῆς μόνον, ἀλλὰ καὶ τοῖς στοιχοῦσιν τοῖς ἴχνεσιν τῆς πίστεως {NA πίστεως τῆς ἐν τῇ ἀκροβυστίᾳ > ἐν ἀκροβυστίᾳ πίστεως } τῆς ἐν τῇ {+{Byz τῇ > - - }+} ἀκροβυστίᾳ τοῦ πατρὸς ἡμῶν Ἀβραάμ.`
+  - Apparatus (Beta code): `KAI\ PATE/RA PERITOMH=S TOI=S OU)K E)K PERITOMH=S MO/NON, A)LLA\ KAI\ TOI=S STOIXOU=SIN TOI=S I)/XNESIN TH=S PI/STEWS {N PI/STEWS TH=S E)N TH=| A)KROBUSTI/A| > E)N A)KROBUSTI/A| PI/STEWS } TH=S E)N TH=| {+{B TH=| > - - }+} A)KROBUSTI/A| TOU= PATRO\S H(MW=N *)ABRAA/M.`
+- `ROM 16:7` · `variant`
+  - Apparatus (Unicode): `Ἀσπάσασθε Ἀνδρόνικον καὶ Ἰουνίαν {+{NA Ἰουνίαν > Ἰουνιᾶν }+} τοὺς συγγενεῖς μου καὶ συναιχμαλώτους μου, οἵτινές εἰσιν ἐπίσημοι ἐν τοῖς ἀποστόλοις, οἳ καὶ πρὸ ἐμοῦ γεγόνασιν {NA γεγόνασιν > γέγοναν } ἐν χριστῷ.`
+  - Apparatus (Beta code): `*)ASPA/SASQE *)ANDRO/NIKON KAI\ *)IOUNI/AN {+{N *)IOUNI/AN > *)IOUNIA=N }+} TOU\S SUGGENEI=S MOU KAI\ SUNAIXMALW/TOUS MOU, OI(/TINE/S EI)SIN E)PI/SHMOI E)N TOI=S A)POSTO/LOIS, OI(\ KAI\ PRO\ E)MOU= GEGO/NASIN {N GEGO/NASIN > GE/GONAN } E)N XRISTW=|.`
+- `1CO 3:14` · `variant`
+  - Apparatus (Unicode): `Εἴ τινος τὸ ἔργον μένει {+{NA μένει > μενεῖ }+} ὃ ἐποικοδόμησεν, μισθὸν λήψεται. {NA λήψεται > λήμψεται }`
+  - Apparatus (Beta code): `*EI)/ TINOS TO\ E)/RGON ME/NEI {+{N ME/NEI > MENEI= }+} O(\ E)POIKODO/MHSEN, MISQO\N LH/YETAI. {N LH/YETAI > LH/MYETAI }`
+- `EPH 1:17` · `variant`
+  - Apparatus (Unicode): `ἵνα ὁ θεὸς τοῦ κυρίου ἡμῶν Ἰησοῦ χριστοῦ, ὁ πατὴρ τῆς δόξης, δῴη {+{NA δῴη > δώῃ }+} ὑμῖν πνεῦμα σοφίας καὶ ἀποκαλύψεως, ἐν ἐπιγνώσει αὐτοῦ·`
+  - Apparatus (Beta code): `I(/NA O( QEO\S TOU= KURI/OU H(MW=N *)IHSOU= XRISTOU=, O( PATH\R TH=S DO/CHS, DW/H| {+{N DW/H| > DW/H| }+} U(MI=N PNEU=MA SOFI/AS KAI\ A)POKALU/YEWS, E)N E)PIGNW/SEI AU)TOU=:`
+- `PHP 3:5` · `variant`
+  - Apparatus (Unicode): `περιτομὴ {+{NA περιτομὴ > περιτομῇ }+} ὀκταήμερος, ἐκ γένους Ἰσραήλ, φυλῆς Βενιαμίν, Ἑβραῖος ἐξ Ἑβραίων, κατὰ νόμον Φαρισαῖος,`
+  - Apparatus (Beta code): `PERITOMH\ {+{N PERITOMH\ > PERITOMH=| }+} O)KTAH/MEROS, E)K GE/NOUS *)ISRAH/L, FULH=S *BENIAMI/N, *(EBRAI=OS E)C *(EBRAI/WN, KATA\ NO/MON *FARISAI=OS,`
+- `2PE 1:12` · `accents-breathings`
+  - Apparatus (Unicode): no difference after conversion to Unicode (Beta-code encoding only)
+  - Apparatus (Beta code): `? *DIO\ OU)K {N OU)K A)MELH/SW > MELLH/SW } A)MELH/SW A)EI\ U(MA=S [-U(POMIMNH/S|KEIN-]{+U(POMIMNH|/SKEIN+} PERI\ TOU/TWN, KAI/PER EI)DO/TAS, KAI\ E)STHRIGME/NOUS E)N TH=| PAROU/SH| A)LHQEI/A|.`
 
 ## Derived-only differences
 

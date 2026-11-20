@@ -30,6 +30,35 @@ COMPARISONS = [
     ),
 ]
 
+# The columns of `reports/baseline/books.csv` and `differences.csv`. Declared
+# once so the header written for an empty result and the row dicts cannot drift
+# apart.
+BOOK_FIELDS = (
+    "dataset",
+    "book",
+    "file",
+    "chapters",
+    "verses",
+    "min_chapter",
+    "max_chapter",
+    "min_verse",
+    "max_verse",
+    "blank",
+)
+
+DIFFERENCE_FIELDS = (
+    "comparison",
+    "left",
+    "right",
+    "book",
+    "left_verses",
+    "right_verses",
+    "only_left",
+    "only_right",
+    "examples_only_left",
+    "examples_only_right",
+)
+
 
 def _books(results):
     books = {}

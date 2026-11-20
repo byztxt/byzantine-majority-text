@@ -1,12 +1,59 @@
 """Generate docs/EDITIONS.md and the root README editions section."""
 
 import json
+import re
 
 from .. import generated
 from . import diff, editions
 
 BEGIN = "<!-- editions:begin -->"
 END = "<!-- editions:end -->"
+
+# The canonical repository. `docs/` is one level below the root, so in-repo
+# links from that file start with `../`. Keep this the only copy of the URL:
+# `tests/curate/test_editions.py` asserts the literal appears once.
+REPO_URL = "https://github.com/byztxt/byzantine-majority-text"
+
+
+def _tag(tag: str) -> str:
+    """Link one release tag; a tag range is two of these with a plain hyphen."""
+    return f"[`{tag}`]({REPO_URL}/releases/tag/{tag})"
+
+
+def _tag_range(first: str, last: str) -> str:
+    # A range has no single canonical URL, so link both endpoints and leave the
+    # hyphen as text rather than sending a click to the newest tag.
+    return f"{_tag(first)}-{_tag(last)}"
+
+
+def _commit(sha: str) -> str:
+    return f"[`{sha}`]({REPO_URL}/commit/{sha})"
+
+
+# A bare release tag in prose (the manifest's `basis` value, for example). A
+# tag that is itself the entire inline-code span (`` `v1.2.3` ``) is skipped, so
+# this helper is safe to apply to generated prose that has been through `_tag`
+# first. It does not parse Markdown: a tag inside a longer code span, a link
+# label, or a URL would be rewritten, so only apply it to plain prose.
+_BARE_TAG_RE = re.compile(r"(?<![\w`])v\d+\.\d+\.\d+(?![\w`])")
+
+
+def _link_bare_tags(text: str) -> str:
+    """Link bare release tags that are not already an inline-code span.
+
+    A tag counts as linked when it is delimited by a backtick or a word
+    character on either side. This guarantees the output of `_tag` is not
+    re-linked and that `` `v1.2.3` `` is left alone; it does not understand
+    Markdown code spans or URLs in general.
+    """
+    return _BARE_TAG_RE.sub(lambda match: _tag(match.group(0)), text)
+
+
+def _diff_dir(left: str, right: str) -> str:
+    # Relative to `docs/`: the target is one level up, at the repository root.
+    path = f"reports/diffs/{left}--{right}/"
+    return f"[`{path}`](../{path})"
+
 
 # Retired working-tree convenience trees (removed 2026-11-19). This is the one
 # authoritative old -> new mapping; docs/EDITIONS.md renders it and the release
@@ -85,7 +132,7 @@ def write_editions_doc() -> str:
     for edition_id in editions.EDITIONS:
         row = manifests.get(edition_id, {})
         release = (
-            f"`{row.get('first_release')}`-`{row.get('latest_release')}`"
+            _tag_range(row.get("first_release"), row.get("latest_release"))
             if row.get("release_range")
             else "none"
         )
@@ -99,17 +146,17 @@ def write_editions_doc() -> str:
             )
         lines.append(
             f"| `{edition_id}` | {row.get('status', '')} | "
-            f"{row.get('basis', '')} | {release} | {pdf} |"
+            f"{_link_bare_tags(row.get('basis', ''))} | {release} | {pdf} |"
         )
     hist = manifests.get("rp2005-2019", {})
     cur = manifests.get("rp2018-2023", {})
     hist_range = (
-        f"`{hist.get('first_release')}`-`{hist.get('latest_release')}`"
+        _tag_range(hist.get("first_release"), hist.get("latest_release"))
         if hist.get("release_range")
         else "none"
     )
     cur_range = (
-        f"`{cur.get('first_release')}`-`{cur.get('latest_release')}`"
+        _tag_range(cur.get("first_release"), cur.get("latest_release"))
         if cur.get("release_range")
         else "none"
     )
@@ -151,10 +198,10 @@ def write_editions_doc() -> str:
             "| Official 2005/2018 ASCII / preformatted | official archive | no | no | no | no |",
             "| Official 2005/2018 PDFs | published print | yes | no | yes | no |",
             "| `source/CCAT` | repo 2018+2023 | yes | no | yes | no |",
-            "| `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |",
-            "| `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |",
-            "| `parsed` (v2.0.3) | repo parsed lineage | no | yes | yes | yes |",
-            "| `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |",
+            "| `source/Strongs` | official files, not in the six ZIPs | no | yes | no | yes |",
+            f"| `textonly-beta-code` ({_tag('v2.0.3')}) | repo 2005 lineage, 2019 | yes | no | yes | no |",
+            f"| `parsed` ({_tag('v2.0.3')}) | repo parsed lineage | no | yes | yes | yes |",
+            f"| `textonly-online-bible` ({_tag('v2.0.3')}) | repo 2005 lineage | no | no | no | no |",
             "",
             "## What each edition is",
             "",
@@ -167,7 +214,7 @@ def write_editions_doc() -> str:
             "",
             "### `rp2005-2019` - released 2019 revision of the 2005 lineage",
             "",
-            "The repo's last pre-2023 text, recovered from tag `v2.0.3`",
+            f"The repo's last pre-2023 text, recovered from tag {_tag('v2.0.3')}",
             "(`textonly-beta-code` and `parsed`). It was updated in 2019 and is not",
             "the official 2005 print edition. It matches the official 2018 archive in",
             "99.96% of verses and the official 2005 archive in 99.32%, which is why",
@@ -182,14 +229,14 @@ def write_editions_doc() -> str:
             "### `rp2018-2023` - released 2018 with 2023 adjustments",
             "",
             "The current maintained text: the 2018 edition plus the 2023 adjustments",
-            "and later minor fixes. It was first released in `v3.0.0` and continues",
+            f"and later minor fixes. It was first released in {_tag('v3.0.0')} and continues",
             f"to receive releases. Repo releases: {cur_range} (and later tags).",
             "",
             "## Why the history looks messy",
             "",
             "- The 2005 lineage lived in `textonly-beta-code`, `parsed`, and",
             "  `csv-unicode` until 2023. It was last updated in 2019.",
-            "- Commit `97371d7` (2023-05-30), merged as `v3.0.0`, switched the repo to",
+            f"- Commit {_commit('97371d7')} (2023-05-30), merged as {_tag('v3.0.0')}, switched the repo to",
             "  the 2018 edition with 2023 adjustments and introduced `source/`.",
             "- The current tree therefore contains only the 2018+2023 text. The 2005",
             "  lineage is curated here so that nobody has to use `git show` to find it.",
@@ -205,7 +252,7 @@ def write_editions_doc() -> str:
             "  the official URL files do not contain them.",
             "- `rp2005-2019`: accented with/without variants, unaccented, Strong's",
             "  with/no parsing, and accented/unaccented TEI are recovered or generated",
-            "  from `v2.0.3`.",
+            f"  from {_tag('v2.0.3')}.",
             "- `rp2018-2023`: every view is generated from the edition's own",
             "  `source/` snapshot.",
             "",
@@ -224,11 +271,11 @@ def write_editions_doc() -> str:
             "",
             "The recovered `rp2005-2019` edition is the exception. Its",
             "`textonly-beta-code`, `parsed`, accented no-variants CSV, unaccented",
-            "CSV, and unaccented TEI are recovered byte-identically from `v2.0.3`.",
-            "The accented with-variants derivative differs from `v2.0.3` only at",
+            f"CSV, and unaccented TEI are recovered byte-identically from {_tag('v2.0.3')}.",
+            f"The accented with-variants derivative differs from {_tag('v2.0.3')} only at",
             "MAR 16:8, where the apparatus literal is corrected. The accented TEI",
             "(from the recovered accented CSV) and the Strong's",
-            "views (from `parsed`) are generated here, and `v2.0.3` itself has no",
+            f"views (from `parsed`) are generated here, and {_tag('v2.0.3')} itself has no",
             "accented TEI. The accented CSV (7968 rows), unaccented CSV (7953",
             "rows), and unaccented TEI **omit** the four verses: the rows are",
             "absent and there is no empty `<ab/>`, even though the source files in",
@@ -260,11 +307,11 @@ def write_editions_doc() -> str:
             "notes (`σηορτερ ενδινγ`) and rendered `\"+\"` as `\" ̈\"`.",
             "",
             "All curated editions now preserve the literals. The recovered",
-            "`rp2005-2019` with-variants view is the `v2.0.3` artifact with exactly",
+            f"`rp2005-2019` with-variants view is the {_tag('v2.0.3')} artifact with exactly",
             "one corrected row: MAR 16:8, where `[[ \"σηορτερ ενδινγ\" ]]` and",
             "`\" ̈\"` are restored to `[[ \"shorter ending\" ]]` and `\"+\"`. The",
             "recovered source files and the other historical views remain",
-            "byte-identical to `v2.0.3`.",
+            f"byte-identical to {_tag('v2.0.3')}.",
             "",
             "## Derived artifacts by edition",
             "",
@@ -305,7 +352,7 @@ def write_editions_doc() -> str:
             "`rp2005-2019` titles the books `Second Timoty` and `Phillipians`.",
             "Both spellings are inherited, not introduced here: `rp2018-2023`",
             "copies the retired `tei-xml-unicode/` convenience tree, and",
-            "`rp2005-2019` recovers the same titles from the `v2.0.3` artifacts",
+            f"`rp2005-2019` recovers the same titles from the {_tag('v2.0.3')} artifacts",
             "that tree held. They are preserved deliberately so the editions'",
             "TEI bytes stay unchanged. Every other title, and the whole",
             "accented TEI (in both editions), uses the corrected spellings.",
@@ -325,7 +372,7 @@ def write_editions_doc() -> str:
             "accented CSV files; the TEI exports are the 27-book main text.",
             "",
             "To rebuild every curated edition from the committed archives,",
-            "`source/`, and git tag `v2.0.3`, run these from the repository root",
+            f"`source/`, and git tag {_tag('v2.0.3')}, run these from the repository root",
             "(no network is needed):",
             "",
             "```bash",
@@ -346,8 +393,7 @@ def write_editions_doc() -> str:
         ("rp2005", "rp2018"),
     ):
         lines.append(
-            f"- `{left}` -> `{right}` "
-            f"(`reports/diffs/{left}--{right}/`)"
+            f"- `{left}` -> `{right}` ({_diff_dir(left, right)})"
         )
     lines.extend(
         [
@@ -359,19 +405,30 @@ def write_editions_doc() -> str:
             "  changes, with the Text word diff (`[-removed-]{+added+}`, in the",
             "  style of `git diff --word-diff`) first and the Beta-code Source",
             "  second. `Apparatus-only changes` compacts the remaining",
-            "  source-tier differences into one line per verse. The Text diff is",
+            "  source-tier differences into one entry per verse, showing the",
+            "  Unicode apparatus word diff first and the Beta-code diff second;",
+            "  an entry whose only change is Beta-code encoding says so instead of",
+            "  printing an empty diff. The Text diff is",
             "  normalised: paragraph markers (`\u00b6`), apostrophe typography,",
             "  and whitespace are omitted.",
-            "- `changes.csv` - machine-readable rows with the category, both word",
-            "  diffs, the full source/text left and right, and a `text_changed`",
-            "  flag. `text_word_diff` is normalised; `text_left`/`text_right` are",
-            "  exact.",
+            "- `changes.csv` - machine-readable rows with the category, the",
+            "  Beta-code source word diff, the Unicode Text and Apparatus word",
+            "  diffs, the full source/text left and right, and the",
+            "  `text_changed` and `apparatus_changed` flags. The word diffs are",
+            "  normalised; `text_left`/`text_right` are exact.",
             "- `source.diff` - word-diff style, one line per verse, for the",
             "  Beta-code source tier.",
             "- `text.diff` - the same word-diff view for the exact derived",
             "  Unicode accented main text (`csv/accented/no-variants`). It",
             "  includes formatting-only changes such as a `\u00b6` edit;",
             "  paragraph markers and apostrophes are shown as stored.",
+            "- `apparatus.diff` - the word diff of the normalised Unicode",
+            "  accented text with variants (`csv/accented/with-variants`) for",
+            "  every apparatus-only change that has a Unicode difference",
+            "  (encoding-only rows are named in `report.md`). Variant readings",
+            "  stay inside `{...}` braces, and the braces are literal text",
+            "  inside the diff markers. `source.diff` is the Beta-code view of",
+            "  the same verses.",
             "- `derived.diff` - the word diff of the normalised Unicode main",
             "  text for every differing verse.",
             "",
@@ -390,10 +447,15 @@ def write_editions_doc() -> str:
             "`.CCT` archive for `rp2005`/`rp2018`, the recovered",
             "`textonly-beta-code` for `rp2005-2019`, and `source/CCAT` for",
             "`rp2018-2023`. **Text** is the derived Unicode accented main text.",
+            "**Apparatus** is the Unicode accented text with variants, from",
+            "`editions/<id>/csv/accented/with-variants/`.",
             "",
             "`[-removed-]{+added+}` wraps changed words; unchanged text is",
             "context. Beta-code apparatus braces (`{N ... }`) remain part of the",
-            "source text.",
+            "source text. In the Unicode apparatus the same reading sits inside",
+            "literal `{...}` braces, so an added variant renders as",
+            "`{+{Byz \u03c4\u03b5 > \u03b4\u03b5 }+}`: the outer markers are the diff and the inner",
+            "braces are the reading.",
             "",
             "The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`;",
             "a literal `-` or `>` next to a delimiter is part of the text (for",
@@ -422,6 +484,7 @@ def write_editions_doc() -> str:
 
 
 def _release_cell(row: dict) -> str:
+    # The root README keeps plain tags: docs/EDITIONS.md is the linked reference.
     if row.get("release_range"):
         return f"`{row.get('first_release')}`-`{row.get('latest_release')}`"
     return "none"

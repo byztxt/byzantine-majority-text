@@ -23,9 +23,9 @@ the [root README](../README.md#repository-layout).
 | Edition | Status | Basis | Repo releases | PDF (committed) |
 | --- | --- | --- | --- | --- |
 | `rp2005` | official | Published in print by Chilton Book Publishing, Southborough, Massachusetts | none | [`rp2005 PDF`](../data/raw/rp2005/official-pdf/editions-rp2.pdf) (`ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce`) |
-| `rp2005-2019` | released | Recovered from git tag v2.0.3 (textonly-beta-code + parsed) | `v1.0.0`-`v2.0.3` | none |
+| `rp2005-2019` | released | Recovered from git tag [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) (textonly-beta-code + parsed) | [`v1.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v1.0.0)-[`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) | none |
 | `rp2018` | official | Published in print by VTR, Nuremberg | none | [`rp2018 PDF`](../data/raw/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf) (`00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c`) |
-| `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | `v3.0.0`-`v3.3.4` | none |
+| `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v3.3.4`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.3.4) | none |
 
 ## Source feature matrix
 
@@ -35,10 +35,10 @@ the [root README](../README.md#repository-layout).
 | Official 2005/2018 ASCII / preformatted | official archive | no | no | no | no |
 | Official 2005/2018 PDFs | published print | yes | no | yes | no |
 | `source/CCAT` | repo 2018+2023 | yes | no | yes | no |
-| `source/Strongs` | repo lineage, not in the six ZIPs | no | yes | no | yes |
-| `textonly-beta-code` (v2.0.3) | repo 2005 lineage, 2019 | yes | no | yes | no |
-| `parsed` (v2.0.3) | repo parsed lineage | no | yes | yes | yes |
-| `textonly-online-bible` (v2.0.3) | repo 2005 lineage | no | no | no | no |
+| `source/Strongs` | official files, not in the six ZIPs | no | yes | no | yes |
+| `textonly-beta-code` ([`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3)) | repo 2005 lineage, 2019 | yes | no | yes | no |
+| `parsed` ([`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3)) | repo parsed lineage | no | yes | yes | yes |
+| `textonly-online-bible` ([`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3)) | repo 2005 lineage | no | no | no | no |
 
 ## What each edition is
 
@@ -51,11 +51,11 @@ number.
 
 ### `rp2005-2019` - released 2019 revision of the 2005 lineage
 
-The repo's last pre-2023 text, recovered from tag `v2.0.3`
+The repo's last pre-2023 text, recovered from tag [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3)
 (`textonly-beta-code` and `parsed`). It was updated in 2019 and is not
 the official 2005 print edition. It matches the official 2018 archive in
 99.96% of verses and the official 2005 archive in 99.32%, which is why
-calling it simply "2005" is misleading. Repo releases: `v1.0.0`-`v2.0.3`.
+calling it simply "2005" is misleading. Repo releases: [`v1.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v1.0.0)-[`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3).
 
 ### `rp2018` - official 2018
 
@@ -66,14 +66,14 @@ ultimate source of truth. The machine-readable source is the official
 ### `rp2018-2023` - released 2018 with 2023 adjustments
 
 The current maintained text: the 2018 edition plus the 2023 adjustments
-and later minor fixes. It was first released in `v3.0.0` and continues
-to receive releases. Repo releases: `v3.0.0`-`v3.3.4` (and later tags).
+and later minor fixes. It was first released in [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0) and continues
+to receive releases. Repo releases: [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v3.3.4`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.3.4) (and later tags).
 
 ## Why the history looks messy
 
 - The 2005 lineage lived in `textonly-beta-code`, `parsed`, and
   `csv-unicode` until 2023. It was last updated in 2019.
-- Commit `97371d7` (2023-05-30), merged as `v3.0.0`, switched the repo to
+- Commit [`97371d7`](https://github.com/byztxt/byzantine-majority-text/commit/97371d7) (2023-05-30), merged as [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0), switched the repo to
   the 2018 edition with 2023 adjustments and introduced `source/`.
 - The current tree therefore contains only the 2018+2023 text. The 2005
   lineage is curated here so that nobody has to use `git show` to find it.
@@ -89,7 +89,7 @@ Each edition has `source/`, `csv/`, `tei/`, `manifest.json`, and
   the official URL files do not contain them.
 - `rp2005-2019`: accented with/without variants, unaccented, Strong's
   with/no parsing, and accented/unaccented TEI are recovered or generated
-  from `v2.0.3`.
+  from [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3).
 - `rp2018-2023`: every view is generated from the edition's own
   `source/` snapshot.
 
@@ -138,11 +138,11 @@ empty), and empty `<ab/>` elements in both TEI views.
 
 The recovered `rp2005-2019` edition is the exception. Its
 `textonly-beta-code`, `parsed`, accented no-variants CSV, unaccented
-CSV, and unaccented TEI are recovered byte-identically from `v2.0.3`.
-The accented with-variants derivative differs from `v2.0.3` only at
+CSV, and unaccented TEI are recovered byte-identically from [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3).
+The accented with-variants derivative differs from [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) only at
 MAR 16:8, where the apparatus literal is corrected. The accented TEI
 (from the recovered accented CSV) and the Strong's
-views (from `parsed`) are generated here, and `v2.0.3` itself has no
+views (from `parsed`) are generated here, and [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) itself has no
 accented TEI. The accented CSV (7968 rows), unaccented CSV (7953
 rows), and unaccented TEI **omit** the four verses: the rows are
 absent and there is no empty `<ab/>`, even though the source files in
@@ -174,11 +174,11 @@ brackets. Before this fix the historical converter transliterated the
 notes (`σηορτερ ενδινγ`) and rendered `"+"` as `" ̈"`.
 
 All curated editions now preserve the literals. The recovered
-`rp2005-2019` with-variants view is the `v2.0.3` artifact with exactly
+`rp2005-2019` with-variants view is the [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) artifact with exactly
 one corrected row: MAR 16:8, where `[[ "σηορτερ ενδινγ" ]]` and
 `" ̈"` are restored to `[[ "shorter ending" ]]` and `"+"`. The
 recovered source files and the other historical views remain
-byte-identical to `v2.0.3`.
+byte-identical to [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3).
 
 ## Derived artifacts by edition
 
@@ -205,7 +205,7 @@ The unaccented TEI for `2TI` and `PHP` in `rp2018-2023` and
 `rp2005-2019` titles the books `Second Timoty` and `Phillipians`.
 Both spellings are inherited, not introduced here: `rp2018-2023`
 copies the retired `tei-xml-unicode/` convenience tree, and
-`rp2005-2019` recovers the same titles from the `v2.0.3` artifacts
+`rp2005-2019` recovers the same titles from the [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) artifacts
 that tree held. They are preserved deliberately so the editions'
 TEI bytes stay unchanged. Every other title, and the whole
 accented TEI (in both editions), uses the corrected spellings.
@@ -225,7 +225,7 @@ and `ACT24` (Acts 24 appendix) sections, which are exported as separate
 accented CSV files; the TEI exports are the 27-book main text.
 
 To rebuild every curated edition from the committed archives,
-`source/`, and git tag `v2.0.3`, run these from the repository root
+`source/`, and git tag [`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3), run these from the repository root
 (no network is needed):
 
 ```bash
@@ -237,10 +237,10 @@ python3 scripts/diff_editions.py
 
 ## Successive diffs
 
-- `rp2005` -> `rp2005-2019` (`reports/diffs/rp2005--rp2005-2019/`)
-- `rp2005-2019` -> `rp2018` (`reports/diffs/rp2005-2019--rp2018/`)
-- `rp2018` -> `rp2018-2023` (`reports/diffs/rp2018--rp2018-2023/`)
-- `rp2005` -> `rp2018` (`reports/diffs/rp2005--rp2018/`)
+- `rp2005` -> `rp2005-2019` ([`reports/diffs/rp2005--rp2005-2019/`](../reports/diffs/rp2005--rp2005-2019/))
+- `rp2005-2019` -> `rp2018` ([`reports/diffs/rp2005-2019--rp2018/`](../reports/diffs/rp2005-2019--rp2018/))
+- `rp2018` -> `rp2018-2023` ([`reports/diffs/rp2018--rp2018-2023/`](../reports/diffs/rp2018--rp2018-2023/))
+- `rp2005` -> `rp2018` ([`reports/diffs/rp2005--rp2018/`](../reports/diffs/rp2005--rp2018/))
 
 Each directory contains:
 
@@ -249,19 +249,30 @@ Each directory contains:
   changes, with the Text word diff (`[-removed-]{+added+}`, in the
   style of `git diff --word-diff`) first and the Beta-code Source
   second. `Apparatus-only changes` compacts the remaining
-  source-tier differences into one line per verse. The Text diff is
+  source-tier differences into one entry per verse, showing the
+  Unicode apparatus word diff first and the Beta-code diff second;
+  an entry whose only change is Beta-code encoding says so instead of
+  printing an empty diff. The Text diff is
   normalised: paragraph markers (`¶`), apostrophe typography,
   and whitespace are omitted.
-- `changes.csv` - machine-readable rows with the category, both word
-  diffs, the full source/text left and right, and a `text_changed`
-  flag. `text_word_diff` is normalised; `text_left`/`text_right` are
-  exact.
+- `changes.csv` - machine-readable rows with the category, the
+  Beta-code source word diff, the Unicode Text and Apparatus word
+  diffs, the full source/text left and right, and the
+  `text_changed` and `apparatus_changed` flags. The word diffs are
+  normalised; `text_left`/`text_right` are exact.
 - `source.diff` - word-diff style, one line per verse, for the
   Beta-code source tier.
 - `text.diff` - the same word-diff view for the exact derived
   Unicode accented main text (`csv/accented/no-variants`). It
   includes formatting-only changes such as a `¶` edit;
   paragraph markers and apostrophes are shown as stored.
+- `apparatus.diff` - the word diff of the normalised Unicode
+  accented text with variants (`csv/accented/with-variants`) for
+  every apparatus-only change that has a Unicode difference
+  (encoding-only rows are named in `report.md`). Variant readings
+  stay inside `{...}` braces, and the braces are literal text
+  inside the diff markers. `source.diff` is the Beta-code view of
+  the same verses.
 - `derived.diff` - the word diff of the normalised Unicode main
   text for every differing verse.
 
@@ -278,10 +289,15 @@ no `-`/`+` whole-verse lines.
 `.CCT` archive for `rp2005`/`rp2018`, the recovered
 `textonly-beta-code` for `rp2005-2019`, and `source/CCAT` for
 `rp2018-2023`. **Text** is the derived Unicode accented main text.
+**Apparatus** is the Unicode accented text with variants, from
+`editions/<id>/csv/accented/with-variants/`.
 
 `[-removed-]{+added+}` wraps changed words; unchanged text is
 context. Beta-code apparatus braces (`{N ... }`) remain part of the
-source text.
+source text. In the Unicode apparatus the same reading sits inside
+literal `{...}` braces, so an added variant renders as
+`{+{Byz τε > δε }+}`: the outer markers are the diff and the inner
+braces are the reading.
 
 The marker delimiters are the fixed strings `[-`, `-]`, `{+`, `+}`;
 a literal `-` or `>` next to a delimiter is part of the text (for

@@ -328,7 +328,12 @@ def strongs_provenance() -> dict:
             if name.lower().endswith((".bp5", ".b5", ".parse", ".strongs")):
                 hits.append(f"{spec['edition']}/{name}")
     return {
-        "status": "found" if hits else "provenance-unknown",
+        # The parsed files are Dr Robinson's official material (source/README.md).
+        # No published ZIP contains a parsed/Strong's file today, so the
+        # file-level delivery route is not recorded. If a future archive does
+        # carry one, `hits` names it and the delivery route is recorded.
+        "status": "official-source-files",
+        "delivery": "recorded" if hits else "not-recorded",
         "hits": hits,
     }
 
@@ -343,11 +348,11 @@ def mapping_rows() -> list:
                 "dataset": "source/Strongs",
                 "current": str(path.relative_to(sources.ROOT)),
                 "archive_member": "",
-                "class": "provenance-unknown",
+                "class": "official-source",
                 "verses": 0,
                 "verses_match": 0,
                 "verses_diff": 0,
-                "note": "no parsed/Strong's file in the official archives",
+                "note": "Dr Robinson's parsed/Strong's files; not in the six ZIPs",
             }
         )
     for view in ("no-variants", "with-variants"):

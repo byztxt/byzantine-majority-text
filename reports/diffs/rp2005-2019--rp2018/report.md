@@ -10,6 +10,8 @@
 - **Source-tier differing verses:** 3
 - **Derived-text differing verses (normalised):** 3
 - **Apparatus-only changes (source differs, main text identical):** 0
+- **Apparatus-only changes shown in Unicode:** 0
+- **Apparatus-only changes with no Unicode difference (Beta-code encoding only):** 0
 - **Derived-only differences (text differs, source-tier comparison unchanged):** 0
 
 ## Notation
@@ -31,6 +33,28 @@
   apostrophe typography (`’`/`‘` -> `'`) and whitespace; the
   word-diff shown omits those conventions. The exact text is in
   `changes.csv` (`text_left`/`text_right`).
+- **Apparatus** is the Unicode accented text with variants, from
+  `editions/rp2005-2019/csv/accented/with-variants/` and
+  `editions/rp2018/csv/accented/with-variants/`.
+
+### Why the main text can be unchanged while the apparatus changes
+
+A variant reading lives inside literal `{...}` braces in the
+with-variants view; the main text drops the braces together with the
+note. When an edition adds or rewrites an apparatus note and the main
+reading does not move, the source tier and the apparatus differ while
+the main text stays identical. The rendered apparatus change therefore
+doubles the braces: the outer `{+` and `+}` are the diff markers, and
+the inner `{Byz ... }` is the reading itself, so an added variant
+renders as `{+{Byz τε > δε }+}`.
+
+An apparatus-only entry can take any of these shapes (they can
+combine): it has a Unicode difference and appears in `apparatus.diff`;
+it differs only in the Beta-code encoding and converts to the same
+Unicode, in which case the report names it as encoding-only and
+`apparatus.diff` omits it; or the exact main text changed without a
+normalised change, in which case the entry is also marked
+`see text.diff`.
 
 ## Categories (source tier)
 

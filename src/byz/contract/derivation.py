@@ -2,6 +2,10 @@
 
 from . import bp5, ccat, paths
 
+# The columns of `reports/baseline/derivations.csv`. Declared once so the header
+# written for an empty result and the row dicts cannot drift apart.
+DERIVATION_FIELDS = ("source", "derived", "evidence", "status")
+
 
 def check(root=paths.ROOT):
     rows = []

@@ -12,7 +12,7 @@ The pipeline flags; the maintainer decides. No source file was changed.
 | R1 | Which archive is canonical for each edition? | Current `source/CCAT` is closest to 2018; 2005 differs in more verses. | (a) `rp2018` canonical. (b) 2005 canonical. (c) per-file. | pending |
 | R2 | Apparatus codes differ from official 2018 (e.g. `C` vs `N` in Acts). | `reports/reconciliation/verses.csv` (category `variant-code`). | (a) Keep current 2023 codes. (b) Adopt official 2018 codes. (c) per-book. | pending |
 | R3 | Word segmentation differs (`mhti` vs `mh ti` in 1CO/2CO). | `verses.csv` (category `word-segmentation`). | (a) Keep current. (b) Adopt archive. | pending |
-| R4 | Strong's/BP5 provenance. | Status `provenance-unknown`; no parsed archive in the six zips. | (a) Find an official parsed archive. (b) Keep provenance-unknown. | pending |
+| R4 | Strong's/BP5 provenance. | `source/Strongs/*.BP5` are Dr Robinson's official parsed files (`source/README.md`); no parsed archive is among the six ZIPs, so the delivery route is not recorded. | (a) Find an official parsed archive. (b) Leave the files labelled unknown. | resolved (2026-11-19): the files are official Robinson material; only the delivery route for the parsed files is unrecorded. |
 | R5 | `GREEK.CCT` is documentation, not text. | Inventory shows it is a transliteration key. | (a) Auxiliary. (b) Map elsewhere. | pending |
 | R6 | Formatting-only differences (`*[` vs `[*`, dash/ellipsis spacing). | Treated as normalization-only. | (a) Accept as equivalent. (b) Preserve exactly. | pending |
 | R7 | Should official 2018 files replace current `source/`? | Current includes post-2018 changes (e.g. apparatus codes). | (a) Keep current. (b) Adopt official. (c) merge per decision R1/R2. | pending |

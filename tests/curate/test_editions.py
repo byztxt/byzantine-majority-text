@@ -1,9 +1,10 @@
 import hashlib
 import re
 import unittest
+from pathlib import Path
 
 from byz import generated
-from byz.curate import docs, editions
+from byz.curate import diff, docs, editions
 
 ROOT_ITEMS = (
     "editions",
@@ -155,6 +156,76 @@ class RootReadmeTests(unittest.TestCase):
         for line in block.splitlines():
             if "pdfs.toml" in line:
                 self.assertIn("hand-maintained", line, line)
+
+
+class EditionsDocLinkTests(unittest.TestCase):
+    """R1: every reference a reader would want to follow is a link."""
+
+    REPO = "https://github.com/byztxt/byzantine-majority-text"
+    TAG_PREFIX = f"{REPO}/releases/tag/"
+    COMMIT_PREFIX = f"{REPO}/commit/"
+
+    def setUp(self):
+        self.path = editions.DOCS_DIR / "EDITIONS.md"
+        self.text = self.path.read_text(encoding="utf-8")
+
+    def test_repo_url_is_defined_once(self):
+        self.assertEqual(docs.REPO_URL, self.REPO)
+        source = (
+            Path(__file__).resolve().parents[2]
+            / "src"
+            / "byz"
+            / "curate"
+            / "docs.py"
+        ).read_text(encoding="utf-8")
+        self.assertEqual(source.count(docs.REPO_URL), 1)
+
+    def test_every_release_tag_is_a_link(self):
+        tags = re.findall(r"`v\d+\.\d+\.\d+`", self.text)
+        self.assertTrue(tags)
+        self.assertEqual(
+            len(tags), self.text.count(f"]({self.TAG_PREFIX}")
+        )
+        # A tag must not survive anywhere outside a link, with or without
+        # backticks. The manifest's `Basis` prose is the case this catches.
+        without_links = re.sub(r"\[[^\]]*\]\([^)]*\)", "", self.text)
+        self.assertIsNone(
+            re.search(r"v\d+\.\d+\.\d+", without_links),
+            "unlinked release tag in docs/EDITIONS.md",
+        )
+
+    def test_commit_hash_is_a_link(self):
+        self.assertIn(f"]({self.COMMIT_PREFIX}97371d7)", self.text)
+        stripped = re.sub(r"\[`97371d7`\]\([^)]+\)", "", self.text)
+        self.assertNotIn("97371d7", stripped)
+
+    def test_tag_range_links_both_endpoints(self):
+        for first, last in (("v1.0.0", "v2.0.3"), ("v3.0.0", "v3.3.4")):
+            self.assertIn(
+                f"[`{first}`]({self.TAG_PREFIX}{first})-"
+                f"[`{last}`]({self.TAG_PREFIX}{last})",
+                self.text,
+            )
+
+    def test_each_diff_directory_is_a_relative_link(self):
+        for left, right in diff.PAIRS:
+            href = f"../reports/diffs/{left}--{right}/"
+            self.assertIn(f"({href})", self.text)
+        self.assertIn(
+            "[`RELEASE-NOTES.md`](RELEASE-NOTES.md)", self.text
+        )
+
+    def test_official_editions_keep_plain_none(self):
+        # The two official editions have no repo release; that cell stays plain
+        # text (only tags, commits, and diff directories are linkified).
+        for edition_id in ("rp2005", "rp2018"):
+            line = next(
+                row
+                for row in self.text.splitlines()
+                if row.startswith(f"| `{edition_id}` |")
+            )
+            self.assertIn("| none |", line)
+            self.assertNotIn("[`none`]", line)
 
 
 class PdfLinkTests(unittest.TestCase):
