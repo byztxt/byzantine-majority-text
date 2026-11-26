@@ -30,8 +30,8 @@ editions. The files follow the repository conventions in
 - Folder: `data/raw/repo/rp2018-2023/`.
 - Edition: `editions/rp2018-2023/` (Robinson-Pierpont 2018 with 2023 adjustments (repo release)).
 - Revision: `2023-07-20`.
-- `ccat_commit`: `e7d19f40a9efb175b95a77d6697faa7062102a17`.
-- `strongs_commit`: `e7d19f40a9efb175b95a77d6697faa7062102a17`.
+- `ccat_commit`: `636160f7a579ac6955cd8b9714aa6a2bc797ca2f`.
+- `strongs_commit`: `636160f7a579ac6955cd8b9714aa6a2bc797ca2f`.
 
 ## Provenance
 

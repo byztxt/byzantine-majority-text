@@ -7,8 +7,8 @@ revision = "2023-07-20"
 method = "working-tree snapshot"
 extracted = "data/raw/repo/rp2018-2023"
 generated_by = "PYTHONPATH=src python3 -m byz.build"
-ccat_commit = "e7d19f40a9efb175b95a77d6697faa7062102a17"
-strongs_commit = "e7d19f40a9efb175b95a77d6697faa7062102a17"
+ccat_commit = "636160f7a579ac6955cd8b9714aa6a2bc797ca2f"
+strongs_commit = "636160f7a579ac6955cd8b9714aa6a2bc797ca2f"
 
 [[prefixes]]
 path = "ccat/"
