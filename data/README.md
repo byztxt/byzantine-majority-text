@@ -12,9 +12,12 @@ under `data/raw/`: `print/` for the published print editions
 and `repo/` for this repository's own lineage. `data/provenance/`
 records where each input came from and what its files hash to.
 
-Nothing here is a build output: the curated editions live under
-`editions/` and contain outputs only. The Beta-code, variant, parsing,
-and Strong's conventions are in `data/raw/repo/CONVENTIONS.md`.
+Most files here are source material, not build outputs. `byz.build`
+writes the eight input-tree READMEs, the current-text provenance record
+`provenance/rp2018-2023.toml`, and the root `README.md`. The curated
+edition CSV/TEI live under `editions/` and contain outputs only. The
+Beta-code, variant, parsing, and Strong's conventions are in
+`data/raw/repo/CONVENTIONS.md`.
 
 ## Contents
 

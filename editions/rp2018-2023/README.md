@@ -15,7 +15,7 @@
 - `tei/` - generated TEI-XML
 - `manifest.json` - provenance and hashes
 
-Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are generated from the committed `data/raw/repo/rp2018-2023/` inputs.
+Accented with/without variants, unaccented, Strong's with/no parsing, and accented/unaccented TEI are generated from the committed `data/raw/repo/rp2018-2023/` inputs. `csv/strongs/with-parsing` keeps the Strong's numbers and morphology, `csv/strongs/no-parsing` keeps the numbers and drops the morphology (collapsing consecutive identical numbers for one word), and `csv/unaccented` is plain text with neither.
 
 Curated CSV/TEI filenames use the current book abbreviations
 (`MAT`, `MAR`, ...). Historical source files may use the older
@@ -26,10 +26,14 @@ input under `data/` by repository-relative path and SHA-256, and
 `PYTHONPATH=src python3 -m byz.verify` checks both the inputs and
 these artifacts.
 
-`csv/unaccented/` and `csv/strongs/no-parsing/` hold the same
-bytes because they are two names for one text: the plain
-Unicode text and the Strong's view with parsing dropped. The
-duplication is intentional, and a test asserts the identity.
+`csv/unaccented/` is the plain unaccented text with no
+Strong's numbers and no parsing. `csv/strongs/no-parsing/`
+keeps the Strong's numbers and drops the `{...}` morphology;
+consecutive identical numbers for one word collapse to one,
+while distinct alternative numbers stay. `csv/strongs/with-
+parsing/` keeps both. The unaccented TEI is generated from
+`csv/unaccented/`. The plain-text view and the numbers-only
+view were one alias before 2026-11-26; they are now distinct.
 
 ## Derived artifacts
 

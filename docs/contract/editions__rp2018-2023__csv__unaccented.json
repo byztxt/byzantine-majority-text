@@ -1,0 +1,15 @@
+{
+  "header": [
+    "chapter",
+    "verse",
+    "text"
+  ],
+  "invariants": [
+    "header is chapter,verse,text",
+    "chapter and verse are integers",
+    "text is non-empty except for the intentional blank verses",
+    "no duplicate (chapter, verse) keys",
+    "no Strong's numbers or morphology braces"
+  ],
+  "purpose": "Plain unaccented Unicode text with no Strong's numbers or parsing."
+}

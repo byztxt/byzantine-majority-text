@@ -49,17 +49,27 @@ def check(root=paths.ROOT):
                 target,
                 paths.DERIVATION_EVIDENCE["strongs"],
             )
+        target = (
+            root
+            / paths.CSV_UNACCENTED["csv/unaccented"].relative_to(paths.ROOT)
+            / f"{abbr}.csv"
+        )
+        add(
+            str(path.relative_to(root)),
+            target,
+            paths.DERIVATION_EVIDENCE["unaccented"],
+        )
 
     tei_dir = root / paths.TEI_DIR.relative_to(paths.ROOT)
-    no_parsing = root / paths.CSV_STRONGS["csv/strongs/no-parsing"].relative_to(
+    unaccented = root / paths.CSV_UNACCENTED["csv/unaccented"].relative_to(
         paths.ROOT
     )
-    for path in sorted(no_parsing.glob("*.csv")):
+    for path in sorted(unaccented.glob("*.csv")):
         target = tei_dir / f"{path.stem}.xml"
         add(str(path.relative_to(root)), target, paths.DERIVATION_EVIDENCE["tei"])
 
     add(
-        f"{paths.dataset_name('csv/strongs/no-parsing')}/*.csv",
+        f"{paths.dataset_name('csv/unaccented')}/*.csv",
         root / paths.TEI_BYZ.relative_to(paths.ROOT),
         paths.DERIVATION_EVIDENCE["tei"],
     )

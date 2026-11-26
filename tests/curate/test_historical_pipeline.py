@@ -130,6 +130,29 @@ class BuildHistoricalTests(unittest.TestCase):
             self.assertTrue((root / view / "BYZ" / "byz.xml").is_file(), view)
 
 
+class StrongsViewShapeTests(unittest.TestCase):
+    """The 2019 views have the same three distinct shapes as the current text."""
+
+    def _row(self, view, chapter=1, verse=1):
+        return _csv_verses(
+            editions.edition_dir(EDITION_ID) / "csv" / view / "MAT.csv"
+        )[(chapter, verse)]
+
+    def test_three_shapes(self):
+        with_parsing = self._row("strongs/with-parsing")
+        numbers_only = self._row("strongs/no-parsing")
+        plain_text = self._row("unaccented")
+        self.assertIn("976", with_parsing)
+        self.assertIn("{N-NSF}", with_parsing)
+        self.assertIn("976", numbers_only)
+        self.assertNotIn("{", numbers_only)
+        self.assertNotRegex(plain_text, r"[\d{}]")
+        self.assertEqual(
+            plain_text,
+            "βιβλος γενεσεως ιησου χριστου υιου δαυιδ υιου αβρααμ",
+        )
+
+
 class ApparatusCodeTests(unittest.TestCase):
     """The regenerated with-variants view uses the documented Latin initials."""
 
@@ -177,8 +200,8 @@ class ApparatusCodeTests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
             total_na += text.count("{NA")
             total_byz += text.count("{Byz")
-        self.assertGreater(total_na, 0)
-        self.assertGreater(total_byz, 0)
+        self.assertEqual(total_na, 6816)
+        self.assertEqual(total_byz, 666)
 
 
 class ReleasedWordsRegressionTests(unittest.TestCase):

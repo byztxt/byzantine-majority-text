@@ -63,7 +63,9 @@ This project's real edge cases:
   preserved and rendered correctly.
 - **Parsing and Strong's** - words with two parsings and two Strong's numbers
   (e.g. James 4:5, 2 Timothy 2:6) must keep both in `with-parsing` and appear once
-  in `no-parsing`/TEI.
+  in `no-parsing`/TEI. In `no-parsing`, distinct alternative numbers stay
+  (2TI 2:6 `4412 4413`), while consecutive identical numbers for one word
+  collapse to one (`3588 3588` -> `3588`, 2026-11-26).
 - **Book coverage** - every book in `book_dict` is produced exactly once,
   including `04a_PA` and `05a_ACT24`, which have no Strong's equivalent.
 - **Format integrity** - CSVs parse, have the expected `chapter,verse,text`

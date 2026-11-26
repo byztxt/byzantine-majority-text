@@ -158,6 +158,12 @@ files into `data/`, and the build reads `data/` only. (`byz.reconcile` reads the
 tag with `git show` for historical comparison, and `byz.build` lists tags for the
 release ranges, but neither uses the tag's files as build inputs.)
 
+`byz.build` needs a git checkout with the release tags (it lists them for the
+release ranges) and it embeds each input's last commit in the manifests, the
+current-text provenance record, the input-tree READMEs, and the baseline history.
+A squash or rebase changes that metadata even when no input byte changes: rerun
+the generators and commit the result.
+
 Record mode (`PYTHONPATH=src python3 -m byz.fetch`, no flag) reuses the committed
 archives and preserves the recorded `downloaded`, `final_url`, and
 `http_status` values; it downloads only if an archive is missing or fails its

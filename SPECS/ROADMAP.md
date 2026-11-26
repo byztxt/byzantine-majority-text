@@ -70,9 +70,9 @@ semantics may be ambiguous; git history may not establish provenance.
 ## Cycle 2 - Official archive reconciliation
 
 **Spec:** `SPECS/2026-11-16-official-archive-reconciliation/`.
-**Status:** Implementation complete on
-`feature/2026-11-16-official-archive-reconciliation`; maintainer decisions
-R1-R8 pending.
+**Status:** Implementation complete; the decision log has moved past "R1-R8
+pending": R4 is resolved (2026-11-19), R8 is adopted (2026-11-17), and R9 was
+added. R1-R3, R5-R7, and R9 remain open for the maintainer.
 
 **Goal:** add the official archives and determine, quantitatively, to what extent
 the current corpus matches them.
@@ -83,7 +83,7 @@ ascii, ccat; 2018: ascii, ascii-one-line-per-verse, ccat).
 **Deliverables**
 
 - Fetch and checksum every archive; store immutable inputs under
-  `data/raw/<edition>/`; write `data/provenance/<edition>.toml`.
+  `data/raw/print/<edition>/`; write `data/provenance/<edition>.toml`.
 - Determine the provenance of `source/Strongs/*.BP5` (none of the listed archives
   is obviously a parsed/Strong's archive).
 - A match matrix per edition and format: exact / normalized-only / textual /
@@ -113,9 +113,12 @@ expire.
 ## Cycle 3 - Edition recovery, curation & successive diffs
 
 **Spec:** `SPECS/2026-11-16-edition-recovery-curation/`.
-**Status:** Complete (2026-11-16). Review fixes implemented on
-`feature/2026-11-16-edition-recovery-curation` (PR #46). Verification is
-recorded in `validation.md`.
+**Status:** Complete (2026-11-16). Review fixes from PR #46 were implemented and
+verified on 2026-11-25; the 2026-11-26 review round is recorded in
+`SPECS/2026-11-26-pr46-review-fixes/` (robust book-set guards, atomic edition
+swap, unaccented-TEI title corrections, and a real numbers-only
+`csv/strongs/no-parsing` view). Verification is recorded in the two validation
+documents.
 **Note:** moved ahead of the pipeline skeleton because users need stable editions
 now. The pipeline refactor follows in Cycle 4.
 
@@ -126,14 +129,15 @@ successive-edition diffs.
 
 **Deliverables**
 
-- `editions/{rp2005,rp2005-2019,rp2018,rp2018-2023}/` with `source/`, `csv/`,
-  `tei/`, `manifest.json`, and `README.md`.
+- `editions/{rp2005,rp2005-2019,rp2018,rp2018-2023}/` with `csv/`, `tei/`,
+  `manifest.json`, and `README.md` (outputs only; inputs live under `data/`).
 - `rp2005-2019` recovered from `v2.0.3` (`textonly-beta-code` + `parsed`),
   labelled as the 2019 repo revision of the 2005 lineage.
 - Official `rp2005` and `rp2018` frozen from the official PDFs and archives;
   official `rp2018` distinguished from released `rp2018-2023`.
-- Official PDFs committed under `data/raw/<edition>/official-pdf/` and recorded
-  in `data/provenance/pdfs.toml`; the PDFs are the ultimate source of truth.
+- Official PDFs committed under `data/raw/print/<edition>/official-pdf/` and
+  recorded in `data/provenance/pdfs.toml`; the PDFs are the ultimate source of
+  truth.
 - Successive diffs: `rp2005--rp2005-2019`, `rp2005-2019--rp2018`,
   `rp2018--rp2018-2023`, and `rp2005--rp2018`, each with a Unicode-first
   `report.md`, a machine-readable `changes.csv`, and diff-style `source.diff`,
@@ -142,7 +146,7 @@ successive-edition diffs.
   the derived Unicode accented main text.
 - `docs/EDITIONS.md`, root README "Editions" section, per-edition READMEs, and
   updated script/folder READMEs.
-- Recovery, build, and diff scripts under `scripts/`, with tests.
+- Recovery, build, and diff modules in the `byz` package, with tests.
 
 **Acceptance**
 
@@ -158,8 +162,9 @@ successive-edition diffs.
 - The authoritative files under `source/`, `csv-unicode/`,
   `tei-xml-unicode/`, and `essay/` are unchanged. `data/raw/` is additive: this
   cycle commits the official PDFs and the extracted archive inputs under
-  `data/raw/<edition>/` (the Cycle 2 deliverables), without modifying the
-  existing corpus datasets.
+  `data/raw/print/<edition>/` (the Cycle 2 deliverables) and the repository
+  lineage under `data/raw/repo/`, without modifying the existing corpus
+  datasets.
 
 **Risks:** the historical converter may not reproduce old artifacts exactly; the
 official `.CCT` parser is new; curated artifacts increase repo size.
@@ -254,9 +259,9 @@ or extrapolate 2026 data before the files exist.
 
 **Deliverables**
 
-- `data/raw/rp2026/` + provenance record.
+- `data/raw/print/rp2026/` + provenance record.
 - Committed CSV/TEI artifacts and a `rp2026` tag.
-- `reports/diff/rp2018--rp2026/` deltas.
+- `reports/diffs/rp2018--rp2026/` deltas.
 - A note in the release history describing what is known about the edition.
 
 **Acceptance**

@@ -416,6 +416,11 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation
    are fixed. `.opencode/agents/code-reviewer.md` and
    `.opencode/skills/write-tests/SKILL.md` were updated accordingly.
 
+> **Superseded 2026-11-26:** `docs/EDITIONS.md` no longer documents the
+> inherited `Second Timoty`/`Phillipians` titles. Those spellings were corrected
+> in the unaccented TEI on 2026-11-26; every title now uses
+> `editions.BOOK_NAMES`. See `SPECS/2026-11-26-pr46-review-fixes/`.
+
 8. **Independent verification pass (2026-11-20).** The full sequence ran twice
    with byte-identical `git diff --binary` and status. The edition artifacts are
    unchanged (`git status --porcelain editions/` shows only the four

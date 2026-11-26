@@ -520,6 +520,13 @@ they hold the same bytes because they are two names for one text (the plain
 Unicode text and the Strong's view with parsing dropped), that the duplication
 is intentional, and that a test asserts the identity.
 
+> **Superseded 2026-11-26:** the two directories are still separate, but they
+> are no longer byte-identical. `csv/unaccented/` is plain text;
+> `csv/strongs/no-parsing/` is the numbers-only view (Strong's numbers kept,
+> morphology dropped, consecutive identical numbers collapsed). The identity
+> test was replaced by shape and word-for-word TEI tests. See
+> `SPECS/2026-11-26-pr46-review-fixes/`.
+
 R8.2 `editions/<id>/source/` stays a self-contained snapshot. The edition
 README's Layout section states that it is a frozen copy of the inputs so the
 edition can be downloaded and verified on its own, and that for `rp2018-2023`

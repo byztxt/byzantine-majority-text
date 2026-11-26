@@ -46,13 +46,13 @@ not separately hashed in the provenance files.
 
 | Edition | Reference | Dataset | Verses matching |
 | --- | --- | --- | ---: |
-| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/unaccented` | 7951/7957 (99.92%) |
 | `rp2005` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/unaccented` | 7951/7957 (99.92%) |
 | `rp2005` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
-| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/unaccented` | 7953/7957 (99.95%) |
 | `rp2018` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/unaccented` | 7953/7957 (99.95%) |
 | `rp2018` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
 
 ## Historical lineage

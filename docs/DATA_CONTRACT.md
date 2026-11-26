@@ -103,9 +103,10 @@ model and release history are in `docs/EDITIONS.md` and
 | `data/raw/repo/rp2018-2023/strongs` | Official unaccented text with Strong's numbers and parsing. | 27 | 27 | 7957 |
 | `editions/rp2018-2023/csv/accented/no-variants` | Unicode CSV of CCAT with variants removed. | 29 | 29 | 7972 |
 | `editions/rp2018-2023/csv/accented/with-variants` | Unicode CSV of CCAT with variants retained. | 29 | 29 | 7972 |
-| `editions/rp2018-2023/csv/strongs/no-parsing` | Unicode CSV of the Strong's text with parsing dropped. | 27 | 27 | 7957 |
+| `editions/rp2018-2023/csv/strongs/no-parsing` | Unicode CSV of the unaccented text with Strong's numbers retained and morphology (`{...}`) dropped; consecutive identical numbers for one word collapse. | 27 | 27 | 7957 |
 | `editions/rp2018-2023/csv/strongs/with-parsing` | Unicode CSV of the Strong's text with parsing retained. | 27 | 27 | 7957 |
-| `editions/rp2018-2023/tei/unaccented` | Unaccented TEI-XML export generated from strongs/no-parsing. | 27 | 27 | 7957 |
+| `editions/rp2018-2023/csv/unaccented` | Plain unaccented Unicode text with no Strong's numbers or parsing. | 27 | 27 | 7957 |
+| `editions/rp2018-2023/tei/unaccented` | Unaccented TEI-XML export generated from csv/unaccented. | 27 | 27 | 7957 |
 | `editions/rp2018-2023/tei/unaccented/BYZ` | Combined TEI-XML of all 27 books. | 1 | 27 | 7957 |
 
 ## Derivation map
@@ -124,7 +125,8 @@ should exist but does not, and `auxiliary` is not a pipeline output.
 | `n/a` (+0 more) | `docs/assets/demo_john_1.xml` | hand-prepared demo asset (see docs/COLLATEX.md) | 0 ok, 1 auxiliary |
 | `data/raw/repo/rp2018-2023/ccat/01_MAT.TXT` (+57 more) | `editions/rp2018-2023/csv/accented/no-variants/MAT.csv` | src/byz/curate/build.py: build_all -> build_current reads data/raw/repo/rp2018-2023/ccat -> parse_cct_current(drop_variants=...) -> write_csv | 58 ok |
 | `data/raw/repo/rp2018-2023/strongs/01_MAT.BP5` (+53 more) | `editions/rp2018-2023/csv/strongs/no-parsing/MAT.csv` | src/byz/curate/build.py: build_all -> build_current reads data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs -> write_csv | 54 ok |
-| `editions/rp2018-2023/csv/strongs/no-parsing/*.csv` (+27 more) | `editions/rp2018-2023/tei/unaccented/BYZ/byz.xml` | src/byz/curate/build.py: build_current -> write_tei() from csv/strongs/no-parsing | 28 ok |
+| `data/raw/repo/rp2018-2023/strongs/01_MAT.BP5` (+26 more) | `editions/rp2018-2023/csv/unaccented/MAT.csv` | src/byz/curate/build.py: build_all -> build_current reads data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs(plain-text) -> write_csv | 27 ok |
+| `editions/rp2018-2023/csv/unaccented/*.csv` (+27 more) | `editions/rp2018-2023/tei/unaccented/BYZ/byz.xml` | src/byz/curate/build.py: build_current -> write_tei() from csv/unaccented | 28 ok |
 
 ## Section files
 
@@ -272,7 +274,7 @@ Invariants:
 
 ### editions/rp2018-2023/csv/strongs/no-parsing
 
-Unicode CSV of the Strong's text with parsing dropped.
+Unicode CSV of the unaccented text with Strong's numbers retained and morphology (`{...}`) dropped; consecutive identical numbers for one word collapse.
 
 - **header**: `['chapter', 'verse', 'text']`
 
@@ -282,6 +284,8 @@ Invariants:
 - chapter and verse are integers
 - text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
+- Strong's numbers are present and morphology braces are absent
+- consecutive identical Strong's numbers for one word are collapsed
 
 ### editions/rp2018-2023/csv/strongs/with-parsing
 
@@ -296,9 +300,23 @@ Invariants:
 - text is non-empty except for the intentional blank verses
 - no duplicate (chapter, verse) keys
 
+### editions/rp2018-2023/csv/unaccented
+
+Plain unaccented Unicode text with no Strong's numbers or parsing.
+
+- **header**: `['chapter', 'verse', 'text']`
+
+Invariants:
+
+- header is chapter,verse,text
+- chapter and verse are integers
+- text is non-empty except for the intentional blank verses
+- no duplicate (chapter, verse) keys
+- no Strong's numbers or morphology braces
+
 ### editions/rp2018-2023/tei/unaccented
 
-Unaccented TEI-XML export generated from strongs/no-parsing.
+Unaccented TEI-XML export generated from csv/unaccented.
 
 - **structure**: `TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w`
 - **anchor**: `^B(\d{2})K(\d+)V(\d+)$`

@@ -37,6 +37,12 @@ def _specs():
             "*.csv",
             "csv",
         ),
+        (
+            paths.dataset_name("csv/unaccented"),
+            paths.CSV_UNACCENTED["csv/unaccented"],
+            "*.csv",
+            "csv",
+        ),
         (paths.TEI_DATASET, paths.TEI_DIR, "*.xml", "tei"),
         (paths.TEI_BYZ_DATASET, paths.TEI_DIR / "BYZ", "*.xml", "tei-combined"),
         (paths.ASSETS_DATASET, paths.ASSETS_DIR, "*", "asset"),

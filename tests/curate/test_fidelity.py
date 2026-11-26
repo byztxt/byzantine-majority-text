@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from byz.contract import paths
@@ -29,6 +30,8 @@ APPARATUS_RE = re.compile(r"\{[^{}]*\}")
 ATTACHED_DASH_RE = re.compile(r"\S- ")
 # A dash glued to the preceding word, at end of text too.
 ATTACHED_MAIN_DASH_RE = re.compile(r"\S-(?=\s|$)")
+
+TEI_NS = "{http://www.tei-c.org/ns/1.0}"
 
 
 def _csv_verses(path):
@@ -355,10 +358,8 @@ class BlankVerseTests(unittest.TestCase):
     """The four intentional blanks are data, not omitted conversions.
 
     The official `.CCT` and ASCII archives carry blank verse lines for
-    LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7. The official editions and
-    `rp2018-2023` emit them as explicit empty records; only the recovered
-    `rp2005-2019` artifacts omit the rows entirely, while its generated Strong's
-    views keep them.
+    LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7. Every curated edition,
+    including `rp2005-2019`, emits them as explicit empty records.
     """
 
     REFS = {
@@ -424,6 +425,107 @@ class BlankVerseTests(unittest.TestCase):
             self.assertEqual(total, 7957, view)
             for ref in self.REFS:
                 self.assertEqual(values.get(ref), "", f"{view}/{ref}")
+
+
+class TitleFixTests(unittest.TestCase):
+    """The inherited unaccented-TEI title typos are corrected."""
+
+    def test_book_names_are_corrected(self):
+        self.assertEqual(editions.BOOK_NAMES["2TI"], "Second Timothy")
+        self.assertEqual(editions.BOOK_NAMES["PHP"], "Philippians")
+
+    def test_committed_tei_uses_the_corrected_titles(self):
+        root = editions.edition_dir("rp2018-2023") / "tei" / "unaccented"
+        for abbr, num, name in (
+            ("2TI", 16, "Second Timothy"),
+            ("PHP", 11, "Philippians"),
+        ):
+            text = (root / f"{abbr}.xml").read_text(encoding="utf-8")
+            self.assertIn(
+                f'<title type="work" level="m" xml:lang="en" n="{num}">'
+                f"{name}</title>",
+                text,
+                abbr,
+            )
+            self.assertNotIn("Timoty", text, abbr)
+            self.assertNotIn("Phillipians", text, abbr)
+
+
+class NumbersOnlyShapeTests(unittest.TestCase):
+    """The numbers-only view keeps distinct numbers and drops duplicates."""
+
+    def test_no_consecutive_duplicate_numbers_in_either_release(self):
+        for edition_id in ("rp2005-2019", "rp2018-2023"):
+            for path in sorted(
+                (
+                    editions.edition_dir(edition_id)
+                    / "csv"
+                    / "strongs"
+                    / "no-parsing"
+                ).glob("*.csv")
+            ):
+                for (chapter, verse), text in _csv_verses(path).items():
+                    self.assertIsNone(
+                        re.search(r"\b(\d+)\s+\1\b", text),
+                        f"{edition_id}/{path.name} {chapter}:{verse}",
+                    )
+
+    def test_distinct_alternatives_are_preserved(self):
+        for edition_id in ("rp2005-2019", "rp2018-2023"):
+            text = _csv_verses(
+                editions.edition_dir(edition_id)
+                / "csv"
+                / "strongs"
+                / "no-parsing"
+                / "2TI.csv"
+            )[(2, 6)]
+            self.assertIn("πρωτον 4412 4413", text, edition_id)
+
+    def test_unaccented_has_no_numbers_or_parsing(self):
+        for edition_id in ("rp2005-2019", "rp2018-2023"):
+            for path in sorted(
+                (
+                    editions.edition_dir(edition_id) / "csv" / "unaccented"
+                ).glob("*.csv")
+            ):
+                for (chapter, verse), text in _csv_verses(path).items():
+                    self.assertNotRegex(
+                        text,
+                        r"[\d{}]",
+                        f"{edition_id}/{path.name} {chapter}:{verse}",
+                    )
+
+
+class UnaccentedTeiMatchesCsvTests(unittest.TestCase):
+    """The unaccented TEI is the plain `csv/unaccented` text, word for word."""
+
+    def _tei_verses(self, path):
+        root = ET.parse(path).getroot()
+        verses = {}
+        for ab in root.iter(f"{TEI_NS}ab"):
+            words = [word.text or "" for word in ab.findall(f"{TEI_NS}w")]
+            verses[ab.get("n")] = " ".join(words)
+        return verses
+
+    def test_word_for_word_equality_in_both_releases(self):
+        for edition_id in ("rp2005-2019", "rp2018-2023"):
+            root = editions.edition_dir(edition_id)
+            total = 0
+            for csv_path in sorted((root / "csv" / "unaccented").glob("*.csv")):
+                abbr = csv_path.stem
+                tei = self._tei_verses(
+                    root / "tei" / "unaccented" / f"{abbr}.xml"
+                )
+                book_id = paths.ABBR_TO_BOOK_ID[abbr]
+                for (chapter, verse), text in _csv_verses(csv_path).items():
+                    anchor = f"{book_id}K{chapter}V{verse}"
+                    self.assertEqual(
+                        tei.get(anchor, ""),
+                        text,
+                        f"{edition_id}/{abbr} {chapter}:{verse}",
+                    )
+                    total += 1
+            self.assertEqual(total, 7957, edition_id)
 
 
 if __name__ == "__main__":

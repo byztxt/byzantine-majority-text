@@ -23,6 +23,11 @@ not asserted for them.
 | `preformatted/` | 27 `.ASC` | The publisher's preformatted ASCII; not a build input | Archived reference |
 | `official-pdf/` | 1 PDF | The published print edition | Source of truth |
 
+`GREEK.CCT`, when the archive publishes it, is Dr Robinson's
+alphabet/transliteration key, not a book. The manifest pins it
+as part of the source snapshot, but `byz.build` skips it: the
+exports are the 27 books plus the PA and ACT24 sections.
+
 ## Edition
 
 - Folder: `data/raw/print/rp2018/`.

@@ -217,6 +217,17 @@ class ManifestShapeTests(unittest.TestCase):
             self.assertEqual(errors[0].kind, "invalid")
             self.assertIn("pdf must be a relative POSIX path", errors[0].message)
 
+    def test_pdf_without_a_hash_is_invalid(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = TempEdition(Path(tmp))
+            fixture.manifest["pdf"] = "data/raw/print/rp2005/official-pdf/x.pdf"
+            _write_manifest(fixture.edition_dir, fixture.manifest)
+            errors = verify.verify_pdf(
+                fixture.manifest, "rp2005", fixture.root
+            )
+            self.assertEqual(errors[0].kind, "invalid")
+            self.assertIn("pdf_sha256", errors[0].message)
+
     def test_parent_traversal_path_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             fixture = TempEdition(Path(tmp))

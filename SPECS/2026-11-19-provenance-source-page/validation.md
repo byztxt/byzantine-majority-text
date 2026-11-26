@@ -365,6 +365,11 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation
    and the root README document the recovery/build split; `.opencode` and the
    test nits from the review are updated.
 
+> **Superseded 2026-11-26:** the inherited `Second Timoty`/`Phillipians` titles
+> were corrected in the unaccented TEI on 2026-11-26; `docs/EDITIONS.md` now
+> documents the corrected `Second Timothy`/`Philippians` titles. See
+> `SPECS/2026-11-26-pr46-review-fixes/`.
+
 10. **Independent verification pass (2026-11-20).** Re-ran the full sequence
     twice; `git diff --binary` and `git status --porcelain` from run 1 and run 2
     were byte-identical. All 448 edition CSV files parse and all 224 TEI files

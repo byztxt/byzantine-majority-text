@@ -7,6 +7,15 @@ fidelity, manifest, and test-suite check; its one blocking fidelity finding
 (dash spacing after final sigma in the two official editions) was fixed and is
 recorded as resolved below. Two non-blocking maintainer-review items remain.
 
+> **Superseded 2026-11-26 (PR #46 review fixes).** Sections dated before this
+> note describe the branch before the final review round. Where they say
+> `rp2005-2019` omits the four blank verses, the current tree emits them as
+> explicit empty rows in every view; where they claim the historical views are
+> byte-identical to `v2.0.3`, the current tree also differs in the accented
+> view's typography (curly apostrophes and `¶` markers). The current record is
+> `SPECS/2026-11-26-pr46-review-fixes/validation.md`. The older text is kept
+> below unchanged as history, with inline superseded notes at the stale claims.
+
 ## 1. Terminology and metadata
 
 - [x] `docs/EDITIONS.md` defines **official** (print by Dr. Robinson) and
@@ -323,6 +332,10 @@ the TEI token split (`<w>πατρός</w>`, `<pc>-</pc>`, `<w>πλήρης</w>`)
 - `reports/baseline/files.csv` was stale and has been regenerated; a second run
   produces no diff. `reports/baseline/summary.md` now states that the commit
   column lags by one commit.
+- **Superseded 2026-11-26:** the final branch regenerates every view, so the
+  historical views are not byte-identical to `v2.0.3`. The accented view also
+  normalises apostrophes and `¶`; see
+  `SPECS/2026-11-26-pr46-review-fixes/validation.md`.
 - The historical artifacts remain byte-identical to tag `v2.0.3`: 30 `.CCT`,
   27 `.UB5`, 29+29 accented CSV, 27 unaccented CSV, and 27 unaccented TEI all
   match the tag (checked in `tests/curate/test_fidelity.py`). The 54 generated
@@ -330,6 +343,8 @@ the TEI token split (`<w>πατρός</w>`, `<pc>-</pc>`, `<w>πλήρης</w>`)
 - `rp2005-2019` still omits LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7
   (7953 unaccented rows vs 7957), matching `v2.0.3`; this is now documented in
   `docs/EDITIONS.md` and the edition README rather than "fixed" by adding rows.
+  **Superseded 2026-11-26:** the current tree emits all four as explicit empty
+  rows in every view (7972 accented / 7957 unaccented rows), not omitted.
 - `manifest.json` hashes and sizes were checked against every listed file for
   all four editions.
 
@@ -400,6 +415,10 @@ PYTHONPATH=src python -m unittest discover -s tests/reconciliation
   byte-identical to `v2.0.3`. The accented TEI and the Strong's views are
   generated here (`v2.0.3` has no accented TEI). The generated Strong's views
   have 7957 rows, no `0` placeholder, and include the four blank verses.
+  **Superseded 2026-11-26:** every view now includes the four blank rows, and
+  the accented view's typography differs from `v2.0.3`; the numbers-only
+  `strongs/no-parsing` view now retains the Strong's numbers. See
+  `SPECS/2026-11-26-pr46-review-fixes/validation.md`.
 - `rp2005/source/ccat` and `rp2018/source/ccat` are byte-identical to their
   `data/raw/` archives; `rp2018-2023/source/` is byte-identical to the current
   `source/CCAT` and `source/Strongs`. PDF SHA-256 values match

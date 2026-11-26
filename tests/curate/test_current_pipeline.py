@@ -4,10 +4,12 @@
 `tei-xml-unicode/` trees, then built from a per-edition snapshot. This module
 locks the final pipeline: `data/raw/repo/rp2018-2023/` is the only input,
 `build.build_current()` writes all five CSV views and both TEI views, and the
-result is byte-identical to the committed edition. The identity test also locks
-the intentional `csv/unaccented` == `csv/strongs/no-parsing` duplication.
+result is byte-identical to the committed edition. The shape tests prove the
+three Strong's/unaccented views are distinct: with parsing, numbers-only, and
+plain text.
 """
 
+import csv
 import hashlib
 import re
 import subprocess
@@ -87,14 +89,46 @@ class ViewCountTests(unittest.TestCase):
             self.assertTrue((root / view / "BYZ" / "byz.xml").is_file(), view)
 
 
-class IdentityTests(unittest.TestCase):
-    """Lock the intentional duplications documented in docs/EDITIONS.md."""
+class ViewShapeTests(unittest.TestCase):
+    """The Strong's and unaccented views have three distinct shapes."""
 
-    def test_unaccented_csv_equals_strongs_no_parsing(self):
-        root = editions.edition_dir(EDITION_ID)
-        unaccented = root / "csv" / "unaccented"
-        no_parsing = root / "csv" / "strongs" / "no-parsing"
-        self.assertEqual(_rel_hashes(unaccented), _rel_hashes(no_parsing))
+    def _row(self, view, book="MAT", chapter=1, verse=1):
+        path = editions.edition_dir(EDITION_ID) / "csv" / view / f"{book}.csv"
+        with path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                if (int(row["chapter"]), int(row["verse"])) == (
+                    chapter,
+                    verse,
+                ):
+                    return row["text"]
+        self.fail(f"{view}/{book} {chapter}:{verse} is missing")
+
+    def test_with_parsing_keeps_numbers_and_morphology(self):
+        text = self._row("strongs/with-parsing")
+        self.assertIn("976", text)
+        self.assertIn("{N-NSF}", text)
+
+    def test_numbers_only_keeps_numbers_and_drops_morphology(self):
+        text = self._row("strongs/no-parsing")
+        self.assertIn("976", text)
+        self.assertNotIn("{", text)
+        self.assertNotIn("}", text)
+        self.assertEqual(
+            text.split(),
+            ["βιβλος", "976", "γενεσεως", "1078", "ιησου", "2424", "χριστου",
+             "5547", "υιου", "5207", "δαυιδ", "1138", "υιου", "5207",
+             "αβρααμ", "11"],
+        )
+
+    def test_unaccented_is_plain_text_without_numbers_or_parsing(self):
+        text = self._row("unaccented")
+        self.assertNotRegex(text, r"\d")
+        self.assertNotIn("{", text)
+        self.assertNotIn("}", text)
+        self.assertEqual(
+            text,
+            "βιβλος γενεσεως ιησου χριστου υιου δαυιδ υιου αβρααμ",
+        )
 
     def test_unaccented_tei_is_not_accented_and_keeps_the_source_header(self):
         text = (

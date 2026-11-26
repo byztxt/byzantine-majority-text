@@ -9,9 +9,7 @@ KNOWN_EXCEPTIONS = {}
 
 def _csv_results(root):
     results = {}
-    for key, directory in list(paths.CSV_CCAT.items()) + list(
-        paths.CSV_STRONGS.items()
-    ):
+    for key, directory in paths.CSV_VIEWS.items():
         dataset = paths.dataset_name(key)
         directory = root / directory.relative_to(paths.ROOT)
         results[dataset] = [

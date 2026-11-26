@@ -36,6 +36,7 @@ class IntegrationTests(unittest.TestCase):
                 paths.dataset_name("csv/accented/with-variants"),
                 paths.dataset_name("csv/strongs/no-parsing"),
                 paths.dataset_name("csv/strongs/with-parsing"),
+                paths.dataset_name("csv/unaccented"),
                 paths.TEI_DATASET,
                 paths.TEI_BYZ_DATASET,
             },
@@ -66,6 +67,9 @@ class IntegrationTests(unittest.TestCase):
         )
         self.assertEqual(
             len(self.results[paths.dataset_name("csv/strongs/no-parsing")]), 27
+        )
+        self.assertEqual(
+            len(self.results[paths.dataset_name("csv/unaccented")]), 27
         )
         self.assertEqual(len(self.results[paths.TEI_DATASET]), 27)
 
@@ -106,6 +110,7 @@ class IntegrationTests(unittest.TestCase):
                 "data/raw/repo/rp2018-2023/ccat",
                 "data/raw/repo/rp2018-2023/strongs",
                 paths.dataset_name("csv/strongs/no-parsing"),
+                paths.dataset_name("csv/unaccented"),
                 paths.TEI_DATASET,
             ):
                 self.assertIsNotNone(
@@ -117,10 +122,21 @@ class IntegrationTests(unittest.TestCase):
             )
             self.assertEqual(csv_record["text"], "")
 
-    def test_tei_matches_csv_no_parsing_exactly(self):
+    def test_unaccented_and_numbers_only_have_distinct_shapes(self):
+        unaccented = self._record(
+            paths.dataset_name("csv/unaccented"), "MAT", 1, 1
+        )["text"]
+        numbers_only = self._record(
+            paths.dataset_name("csv/strongs/no-parsing"), "MAT", 1, 1
+        )["text"]
+        self.assertNotRegex(unaccented, r"[\d{}]")
+        self.assertRegex(numbers_only, r"\d")
+        self.assertNotRegex(numbers_only, r"[{}]")
+
+    def test_tei_matches_csv_unaccented_exactly(self):
         rows = coverage.diff_rows(self.results)
         tei_rows = [
-            row for row in rows if row["comparison"] == "CSV no-parsing vs TEI"
+            row for row in rows if row["comparison"] == "CSV unaccented vs TEI"
         ]
         self.assertTrue(tei_rows)
         self.assertFalse(
@@ -409,6 +425,25 @@ class BaselineCsvTests(unittest.TestCase):
         self.assertEqual(
             lines[1], ",".join(str(value) for value in violation.as_row().values())
         )
+
+
+class SummaryDerivationCountTests(unittest.TestCase):
+    def test_missing_derivation_is_not_reported_as_all_existing(self):
+        text = report._summary(
+            {},
+            [],
+            [],
+            [],
+            [
+                {"status": "ok"},
+                {"status": "missing"},
+                {"status": "auxiliary"},
+            ],
+        )
+        self.assertIn(
+            "1 of 2 expected derivations exist; 1 missing", text
+        )
+        self.assertNotIn("All 2 expected derivations exist", text)
 
 
 class DataContractDocTests(unittest.TestCase):

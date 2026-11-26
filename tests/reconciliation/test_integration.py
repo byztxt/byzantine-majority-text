@@ -75,14 +75,38 @@ class IntegrationTests(unittest.TestCase):
         self.assertNotIn("variant-code", row)
         self.assertTrue(row.rstrip().endswith("| pending |"))
 
+    def test_summary_accounts_for_every_2018_difference(self):
+        results = self.results
+        source_stats = report._source_stats(results["files"])
+        derived_stats = report._derived_stats(results["files"])
+        history_rows = historical.evidence()
+        categories = report._categories(results["verses"])
+        summary = report._summary(
+            results, source_stats, derived_stats, categories, history_rows
+        )
+        rp2018 = {
+            row["category"]: row["count"]
+            for row in categories
+            if row["tier"] == "source" and row["edition"] == "rp2018"
+        }
+        self.assertEqual(rp2018.get("capitalization"), 2)
+        total = source_stats["rp2018"]["verses"] - source_stats["rp2018"]["match"]
+        self.assertEqual(sum(rp2018.values()), total)
+        self.assertIn("2 only in capitalization", summary)
+
     def test_strongs_provenance_is_official_source(self):
         # R7: `data/raw/repo/rp2018-2023/strongs/*.BP5` are Dr Robinson's official parsed files.
         # The only gap is the delivery route: no published ZIP contains one.
+        # Derive the expectation from the same code path instead of restating
+        # the delivery rule here.
         strongs = self.results["strongs"]
-        self.assertEqual(strongs["status"], "official-source-files")
         self.assertEqual(
-            strongs["delivery"],
-            "recorded" if strongs["hits"] else "not-recorded",
+            {key: strongs[key] for key in ("status", "delivery", "hits")},
+            {
+                "status": "official-source-files",
+                "delivery": "not-recorded",
+                "hits": [],
+            },
         )
 
     def test_strongs_delivery_follows_the_hits(self):

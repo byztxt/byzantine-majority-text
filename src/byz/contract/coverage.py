@@ -24,9 +24,14 @@ COMPARISONS = [
         "Strong's source vs CSV with-parsing",
     ),
     (
-        paths.dataset_name("csv/strongs/no-parsing"),
+        paths.BP5_DATASET,
+        paths.dataset_name("csv/unaccented"),
+        "Strong's source vs CSV unaccented",
+    ),
+    (
+        paths.dataset_name("csv/unaccented"),
         paths.TEI_DATASET,
-        "CSV no-parsing vs TEI",
+        "CSV unaccented vs TEI",
     ),
 ]
 

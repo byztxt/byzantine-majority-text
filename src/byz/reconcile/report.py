@@ -390,12 +390,13 @@ def _summary(results, source_stats, derived_stats, categories, history_rows):
             "",
             f"Current `data/raw/repo/rp2018-2023/ccat` is closest to `{best}`. For `{best}`, "
             f"{best_categories.get('letters', 0)} verses differ in main-text "
-            f"letters, {best_categories.get('punctuation', 0)} in punctuation, "
-            f"{apparatus} are apparatus differences ({apparatus_reading} reading "
-            f"changes, {apparatus_code} code-only changes), and "
-            f"{best_categories.get('accents-breathings', 0)} are diacritic-"
-            "ordering differences. Everything is itemised in `verses.csv` and the "
-            "decision log.",
+            f"letters, {best_categories.get('capitalization', 0)} only in "
+            f"capitalization, {best_categories.get('punctuation', 0)} in "
+            f"punctuation, {apparatus} are apparatus differences "
+            f"({apparatus_reading} reading changes, {apparatus_code} code-only "
+            f"changes), and {best_categories.get('accents-breathings', 0)} are "
+            "diacritic-ordering differences. Everything is itemised in "
+            "`verses.csv` and the decision log.",
             "",
         ]
     )

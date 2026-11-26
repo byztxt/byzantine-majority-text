@@ -8,19 +8,26 @@ same change.
 
 ## 1. Editions
 
-An **edition** is an immutable, officially published state of the text. Edition
-ids are lowercase and stable:
+Four editions are curated under `editions/`:
 
-- `rp2005` - Robinson-Pierpont 2005.
-- `rp2018` - Robinson-Pierpont 2018 (including later official corrections such
-  as the July 20, 2023 update, recorded as revision metadata).
-- `rp2026` - reserved for a future cycle; no data is invented before the
-  official files exist.
+- `rp2005` - official Robinson-Pierpont 2005 print edition.
+- `rp2005-2019` - released 2019 revision of the 2005 lineage.
+- `rp2018` - official Robinson-Pierpont 2018 print edition.
+- `rp2018-2023` - released current text: the 2018 edition with the July 20,
+  2023 adjustments and later minor fixes.
 
-An edition is defined by its official input archives, not by a git branch or by
-the current state of `master`. Editions may have a `revision` (date) and a
-`source_url`; both are recorded in provenance. Git tags freeze each edition
-(`rp2005`, `rp2018`, `rp2026`).
+**Official** means published in print by Dr. Maurice A. Robinson; **released**
+means published as an artifact in this repository. `rp2005` and `rp2018` are
+official, `rp2005-2019` and `rp2018-2023` are released. `rp2026` is reserved
+for a future cycle; no data is invented before the official files exist.
+
+An edition is defined by its pinned inputs under `data/`, not by a git branch or
+by the current state of `master`. Repository release tags are a separate axis
+from the curated editions: `v1.0.0`-`v2.0.3` are releases of the
+`rp2005-2019` lineage, and `v3.x.x` are releases of `rp2018-2023`. The official
+print editions have no repository release tag. A curated edition may record the
+tag it was materialised from (`rp2005-2019` records `v2.0.3`), but the build
+reads `data/` only and never reads a tag's files.
 
 ## 2. Official sources: PDFs and archives
 
@@ -36,7 +43,7 @@ companions.
 - 2018: `robinson-pierpont-2018-gnt-edition.pdf` (VTR, Nuremberg) -
   <https://byzantinetext.com/wp-content/uploads/2021/03/robinson-pierpont-2018-gnt-edition.pdf>
 
-The PDFs are stored at `data/raw/<edition>/official-pdf/` and recorded in
+The PDFs are stored at `data/raw/print/<edition>/official-pdf/` and recorded in
 `data/provenance/pdfs.toml`. If an archive or a repository file disagrees with a
 PDF, the conflict is recorded and escalated to the maintainer instead of being
 resolved automatically.
@@ -169,7 +176,7 @@ editions/<edition>/         # committed outputs only: manifest.json, csv/, tei/,
   manifest.json             # per-file hashes, inputs pinned under data/
 
 reports/
-  diff/<edition-a>--<edition-b>/
+  diffs/<edition-a>--<edition-b>/
     report.md               # human-readable, categorized
     changes.csv             # machine-readable
 
@@ -208,7 +215,8 @@ documented in `docs/EDITIONS.md`.
 
 The pipeline is deterministic and staged. Each stage has a clear input and output:
 
-1. **Ingest** - copy the extracted official files into `data/raw/<edition>/`;
+1. **Ingest** - copy the extracted official files into their class folder under
+   `data/raw/print/<edition>/` or `data/raw/repo/<edition>/`;
    verify checksums; never edit in place.
 2. **Parse** - turn CCAT/Beta/ASCII/BP5 into a canonical in-memory model.
 3. **Validate** - check structure, book coverage, verse numbering, encoding,
@@ -239,8 +247,11 @@ At minimum:
 - **Strong's number**: integer, with the repo's documented deviations from
   classic Strong's.
 
-Two-parsing words (for example James 4:5, 2 Timothy 2:6) keep both parsing/Strong's
-alternatives in the parsed views and appear once in the unparsed/TEI main text.
+Two-parsing words (for example James 4:5, 2 Timothy 2:6) keep both distinct
+parsing/Strong's alternatives in the with-parsing view. The numbers-only view
+keeps each distinct alternative number and collapses consecutive identical
+numbers for one word (`3588 3588` -> `3588`; `4412 4413` stays two). The
+unparsed/TEI main text lists the word once.
 
 ## 8. Output artifacts
 
@@ -254,9 +265,23 @@ repository-relative path and SHA-256.
 
 Per edition, matching the existing shapes where sensible:
 
-- variants dropped / kept;
-- parsing dropped / kept;
+- accented with/without variants;
+- unaccented plain text (no Strong's numbers, no parsing);
+- Strong's with parsing (numbers and `{...}` morphology);
+- Strong's numbers-only (`strongs/no-parsing`: numbers retained, morphology
+  dropped);
 - columns `chapter,verse,text` (as today), integer chapter/verse.
+
+Released editions (`rp2005-2019`, `rp2018-2023`) provide the unaccented and
+both Strong's views. Official editions provide the accented and unaccented
+views only, because their archives carry no Strong's/parsing data.
+
+The converter API spells the three Strong's shapes as explicit modes
+(`STRONGS_WITH_PARSING`, `STRONGS_NUMBERS_ONLY`, `STRONGS_PLAIN_TEXT`) on
+`convert_beta_to_unicode_strongs`. The old boolean `drop_parsing` argument was
+retired on 2026-11-26 because it dropped the Strong's numbers as well as the
+morphology. The numbers-only mode collapses consecutive identical numbers for
+one word and keeps distinct alternatives.
 
 ### TEI-XML
 
@@ -264,19 +289,23 @@ Per edition:
 
 - **Main text** - no apparatus, IGNTP-style `<div type="book">`,
   `<div type="chapter">`, `<ab n="...">`, `<w>`; valid, well-formed TEI P5.
-- **Apparatus** - follows the TEI P5 apparatus guidelines and the IGNTP
-  guidelines. Witnesses are declared in `<listWit>` (mapped from the variant
-  codes), and readings use `<app>`, `<lem>`, `<rdg>` with `@wit` and stable `@n`
-  anchors. The base/lemma witness is the Byzantine text. Validate against the TEI
-  RelaxNG schema in tests.
+  Accented and unaccented main-text TEI are implemented.
+- **Apparatus** (planned target, not implemented) - the TEI P5 apparatus
+  guidelines and the IGNTP guidelines. Witnesses would be declared in
+  `<listWit>` (mapped from the variant codes), and readings would use `<app>`,
+  `<lem>`, `<rdg>` with `@wit` and stable `@n` anchors, with the Byzantine text
+  as the lemma witness. RelaxNG validation is a target, not a current test.
 
 ### Deltas
 
-Per edition pair (`reports/diff/<a>--<b>/`):
+Per edition pair (`reports/diffs/<a>--<b>/`):
 
 - `report.md` - human-readable, grouped by book/chapter/verse and by category.
-- `changes.csv` - one row per change: edition pair, book, chapter, verse, word
-  position, old, new, category, source (main text or apparatus).
+- `changes.csv` - one row per source-tier difference, with the columns
+  `book,chapter,verse,category,source_word_diff,text_word_diff,source_left,source_right,text_left,text_right,text_changed,apparatus_word_diff,apparatus_changed`.
+- `source.diff`, `text.diff`, `apparatus.diff`, `derived.diff` - word-diff
+  views of the source tier, exact accented text, apparatus, and normalised
+  derived text.
 
 Comparison is verse-aligned and then word-aligned. Normalization-only differences
 (Unicode form, whitespace) are reported in their own category and never mixed with
@@ -289,10 +318,12 @@ textual change.
   `SOURCE_DATE_EPOCH`.
 - Pin dependencies in `requirements.txt` at the repository root
   (`beta-code==1.0.0`); install with `pip install -r requirements.txt`.
-- A clean rebuild must produce no diff against the committed artifacts; CI
-  enforces this with `git diff --exit-code` after a build.
-- Every artifact is listed in `editions/<edition>/manifest.json` with its hash and
-  the pipeline version.
+- A clean rebuild must produce no diff against the committed artifacts. There
+  is no GitHub CI yet (D6): the check is run locally and in the worktree tests,
+  and wiring `git diff --exit-code` into CI is a planned target.
+- Every artifact is listed in `editions/<edition>/manifest.json` with its hash;
+  the manifest records the producing command as `generated_by` (there is no
+  separate "pipeline version" key).
 - `PYTHONPATH=src python3 -m byz.verify` is the clean-tree integrity check: it
   re-hashes every pinned input under `data/` and every committed artifact, and
   exits non-zero on any mismatch, missing file, or unexpected file. It writes
@@ -314,8 +345,10 @@ Test layers:
   every format.
 - **Property/invariant** - every book present exactly once; no unmapped book;
   verse counts stable; NFC; no Beta-code leftovers in Unicode outputs.
-- **Schema** - TEI-XML validates against the TEI P5 RelaxNG schema and the
-  apparatus follows the documented structure.
+- **Schema** - current tests check that TEI-XML is well-formed and follows the
+  documented `div`/`ab`/`w` structure. RelaxNG validation against the TEI P5
+  schema, and the apparatus structure, are planned targets (Cycle 5), not
+  current claims.
 - **Determinism** - build twice, compare hashes; rebuild committed artifacts and
   assert no diff.
 - **Delta** - categorization and alignment tests over known edition pairs.

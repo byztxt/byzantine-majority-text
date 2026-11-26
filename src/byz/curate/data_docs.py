@@ -74,9 +74,11 @@ def _include_count(manifest: dict, root: str, folder: str) -> int:
     return 0
 
 
-def _tracked_count(relative_dir: str, pattern: str = "*") -> int:
+def _tracked_count(
+    relative_dir: str, pattern: str = "*", root=None
+) -> int:
     """Committed-file count for a folder the manifests do not pin."""
-    return files.tracked_count(relative_dir, pattern)
+    return files.tracked_count(relative_dir, pattern, root=root)
 
 
 def _manifests_by_id(manifests) -> dict:
@@ -147,9 +149,12 @@ def render_data_readme(manifests) -> str:
         "and `repo/` for this repository's own lineage. `data/provenance/`",
         "records where each input came from and what its files hash to.",
         "",
-        "Nothing here is a build output: the curated editions live under",
-        "`editions/` and contain outputs only. The Beta-code, variant, parsing,",
-        "and Strong's conventions are in `data/raw/repo/CONVENTIONS.md`.",
+        "Most files here are source material, not build outputs. `byz.build`",
+        "writes the eight input-tree READMEs, the current-text provenance record",
+        "`provenance/rp2018-2023.toml`, and the root `README.md`. The curated",
+        "edition CSV/TEI live under `editions/` and contain outputs only. The",
+        "Beta-code, variant, parsing, and Strong's conventions are in",
+        "`data/raw/repo/CONVENTIONS.md`.",
         "",
         "## Contents",
         "",
@@ -578,6 +583,11 @@ def render_source_readme(edition_id: str, manifest: dict) -> str:
                 "reference |",
                 f"| `official-pdf/` | {counts['pdf']} PDF | The published print "
                 "edition | Source of truth |",
+                "",
+                "`GREEK.CCT`, when the archive publishes it, is Dr Robinson's",
+                "alphabet/transliteration key, not a book. The manifest pins it",
+                "as part of the source snapshot, but `byz.build` skips it: the",
+                "exports are the 27 books plus the PA and ACT24 sections.",
             ]
         )
     elif edition_id == "rp2005-2019":

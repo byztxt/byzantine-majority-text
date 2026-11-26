@@ -25,7 +25,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests/reconciliation -v
 
 **Closest edition:** `rp2018`.
 
-Current `data/raw/repo/rp2018-2023/ccat` is closest to `rp2018`. For `rp2018`, 0 verses differ in main-text letters, 2 in punctuation, 134 are apparatus differences (89 reading changes, 45 code-only changes), and 23 are diacritic-ordering differences. Everything is itemised in `verses.csv` and the decision log.
+Current `data/raw/repo/rp2018-2023/ccat` is closest to `rp2018`. For `rp2018`, 0 verses differ in main-text letters, 2 only in capitalization, 2 in punctuation, 134 are apparatus differences (89 reading changes, 45 code-only changes), and 23 are diacritic-ordering differences. Everything is itemised in `verses.csv` and the decision log.
 
 
 ## Historical lineage
@@ -49,13 +49,13 @@ Current `data/raw/repo/rp2018-2023/ccat` is closest to `rp2018`. For `rp2018`, 0
 
 | Edition | Reference | Dataset | Verses matching |
 | --- | --- | --- | ---: |
-| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `ascii-one-line` | `editions/rp2018-2023/csv/unaccented` | 7951/7957 (99.92%) |
 | `rp2005` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
-| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7951/7957 (99.92%) |
+| `rp2005` | `preformatted` | `editions/rp2018-2023/csv/unaccented` | 7951/7957 (99.92%) |
 | `rp2005` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7951/7957 (99.92%) |
-| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `ascii-one-line` | `editions/rp2018-2023/csv/unaccented` | 7953/7957 (99.95%) |
 | `rp2018` | `ascii-one-line` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
-| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/strongs/no-parsing` | 7953/7957 (99.95%) |
+| `rp2018` | `preformatted` | `editions/rp2018-2023/csv/unaccented` | 7953/7957 (99.95%) |
 | `rp2018` | `preformatted` | `editions/rp2018-2023/tei/unaccented` | 7953/7957 (99.95%) |
 
 ## Mapping coverage

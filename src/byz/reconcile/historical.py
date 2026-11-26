@@ -67,8 +67,26 @@ def _load_current() -> dict:
     for path in sorted(paths.CCAT_DIR.glob("*.TXT")):
         num = path.name.split("_", 1)[0]
         abbr = paths.NUM_TO_ABBR.get(num)
-        if abbr:
-            rows[abbr] = normalize.parse_current_ccat(path.read_text())
+        if abbr is None:
+            raise ValueError(
+                f"current source has an unknown book number: {path.name}"
+            )
+        rows[abbr] = normalize.parse_current_ccat(
+            path.read_text(encoding="utf-8")
+        )
+    expected = set(paths.CANONICAL_BOOKS) | set(paths.SECTION_ABBRS)
+    missing = sorted(expected - set(rows))
+    unexpected = sorted(set(rows) - expected)
+    if missing or unexpected:
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            "current source does not contain the expected book set: "
+            + "; ".join(details)
+        )
     return rows
 
 

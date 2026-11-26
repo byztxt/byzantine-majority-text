@@ -1,7 +1,9 @@
 import hashlib
 import re
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from byz import generated
 from byz.curate import diff, docs, editions
@@ -448,10 +450,49 @@ class DocsTests(unittest.TestCase):
         self.assertNotIn("python3 -m byz.recover", block)
         self.assertNotIn("python3 -m byz.materialise", block)
 
+    def test_editions_doc_distinguishes_unaccented_from_numbers_only(self):
+        text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        prose = " ".join(text.split())
+        self.assertIn(
+            "`csv/unaccented/` is the plain unaccented text with no Strong's "
+            "numbers and no parsing",
+            prose,
+        )
+        self.assertIn("`csv/strongs/no-parsing/` keeps the Strong's numbers", prose)
+        self.assertNotIn("hold the same bytes", prose)
+        self.assertIn("### Book titles", text)
+        self.assertIn("`Second Timothy`", text)
+        self.assertIn("`Philippians`", text)
+        self.assertIn("corrected on 2026-11-26", text)
+        self.assertNotIn("titles the\nbooks `Second Timoty`", text)
+
+    def test_retired_no_parsing_points_at_the_plain_text_view(self):
+        text = (editions.DOCS_DIR / "EDITIONS.md").read_text(encoding="utf-8")
+        self.assertIn(
+            "| `csv-unicode/strongs/no-parsing` | "
+            "`editions/rp2018-2023/csv/unaccented` |",
+            text,
+        )
+        self.assertIn("numbers-only successor", text)
+        self.assertIn("2026-11-26 review fix changed 54 numbers-only", text)
+        self.assertNotIn(
+            "Their bytes changed only at the corrected apparatus literal", text
+        )
+
     def test_build_doc_has_no_retired_converter(self):
         text = (editions.DOCS_DIR / "BUILD.md").read_text(encoding="utf-8")
         for name in ("csv_converter", "tei_xml_converter", "Csv converter"):
             self.assertNotIn(name, text)
+
+    def test_missing_manifest_fails_loudly(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = Path(tmp) / "rp2005"
+            with mock.patch.object(
+                docs.editions, "edition_dir", lambda _: missing
+            ):
+                with self.assertRaises(ValueError) as caught:
+                    docs._manifests()
+            self.assertIn("missing edition manifest", str(caught.exception))
 
 
 if __name__ == "__main__":

@@ -7,6 +7,6 @@
     "no empty <w> elements",
     "intentional blank verses are empty <ab> elements"
   ],
-  "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
+  "purpose": "Unaccented TEI-XML export generated from csv/unaccented.",
   "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w"
 }

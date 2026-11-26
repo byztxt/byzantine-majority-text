@@ -74,8 +74,11 @@ RETIRED_PATHS = (
     ("csv-unicode/ccat/no-variants", "editions/rp2018-2023/csv/accented/no-variants"),
     ("csv-unicode/ccat/with-variants", "editions/rp2018-2023/csv/accented/with-variants"),
     ("csv-unicode/strongs/with-parsing", "editions/rp2018-2023/csv/strongs/with-parsing"),
-    ("csv-unicode/strongs/no-parsing", "editions/rp2018-2023/csv/strongs/no-parsing"),
-    ("csv-unicode/strongs/no-parsing (second view)", "editions/rp2018-2023/csv/unaccented"),
+    ("csv-unicode/strongs/no-parsing", "editions/rp2018-2023/csv/unaccented"),
+    (
+        "csv-unicode/strongs/no-parsing (numbers-only successor)",
+        "editions/rp2018-2023/csv/strongs/no-parsing",
+    ),
     ("tei-xml-unicode/no-accents", "editions/rp2018-2023/tei/unaccented"),
     ("tei-xml-unicode/no-accents/BYZ/byz.xml", "editions/rp2018-2023/tei/unaccented/BYZ/byz.xml"),
     ("tei-xml-unicode/assets/coll.png", "docs/assets/coll.png"),
@@ -90,7 +93,7 @@ RETIRED_PATHS = (
 # part of a real path.
 RETIRED_NON_PATHS = frozenset(
     {
-        "csv-unicode/strongs/no-parsing (second view)",
+        "csv-unicode/strongs/no-parsing (numbers-only successor)",
         "tei-xml-unicode/README.md (CollateX walkthrough)",
         "csv-unicode/README.md (multi-parsing note)",
     }
@@ -280,8 +283,12 @@ def _manifests() -> list:
     rows = []
     for edition_id in editions.EDITIONS:
         path = editions.edition_dir(edition_id) / "manifest.json"
-        if path.exists():
-            rows.append(json.loads(path.read_text(encoding="utf-8")))
+        if not path.is_file():
+            # A missing manifest means the build has not run: rendering the
+            # docs from a partial set would silently publish an incomplete
+            # edition table.
+            raise ValueError(f"missing edition manifest: {path}")
+        rows.append(json.loads(path.read_text(encoding="utf-8")))
     return rows
 
 
@@ -441,9 +448,16 @@ def write_editions_doc() -> str:
     retired_section += [
         "",
         "Those `csv-unicode/` and `tei-xml-unicode/` views were the previous",
-        "release's `rp2018-2023` files. Their bytes changed only at the corrected",
-        "apparatus literal, the 2026-11-21 move kept every `artifact_files` hash,",
-        "and the 2026-11-25 change replaced `source_files` with `inputs`.",
+        "release's `rp2018-2023` files. The retired `strongs/no-parsing` bytes",
+        "were plain unaccented text, so they now live in `csv/unaccented/`; the",
+        "current `csv/strongs/no-parsing/` is the new numbers-only view and is",
+        "not byte-identical to the retired path. The 2026-11-21 move kept every",
+        "`artifact_files` hash, the 2026-11-25 change replaced `source_files`",
+        "with `inputs`, and the 2026-11-26 review fix changed 54 numbers-only",
+        "CSVs (27 per released edition) plus the two unaccented-TEI book titles.",
+        "The retired `strongs/no-parsing` bytes still match `csv/unaccented/`;",
+        "the retired unaccented TEI matches `tei/unaccented/` except for the two",
+        "corrected titles.",
         "",
         "## Where the code and inputs moved",
         "",
@@ -469,7 +483,9 @@ def write_editions_doc() -> str:
         "`source_commit`, and `strongs_commit`), because they name the command",
         "and the git pathspecs that produce them. The `data/text/` targets in",
         "that table were themselves moved on 2026-11-25 into the repository",
-        "source class, as the next section records.",
+        "source class, as the section",
+        "*Where the inputs moved into the print and repo classes (2026-11-25)*",
+        "below records.",
         "",
         "See [Apparatus literals](#apparatus-literals) for the historical",
         "converter's damaged notes and how the regenerated edition avoids them.",
@@ -637,31 +653,33 @@ def write_editions_doc() -> str:
             "have no Strong's/parsing view because those data are not in the official",
             "URL files.",
             "",
-            "In `rp2018-2023`, `csv/unaccented/` and `csv/strongs/no-parsing/` hold",
-            "the same bytes: they are two names for one text (the plain Unicode",
-            "text and the Strong's view with parsing dropped). The duplication is",
-            "intentional, and a test asserts the identity.",
+            "In `rp2018-2023` and `rp2005-2019`, `csv/unaccented/` is the plain",
+            "unaccented text with no Strong's numbers and no parsing.",
+            "`csv/strongs/no-parsing/` keeps the Strong's numbers and drops the",
+            "`{...}` morphology, and `csv/strongs/with-parsing/` keeps both. The",
+            "unaccented TEI is generated from `csv/unaccented/`. The plain-text",
+            "and numbers-only views were byte-identical aliases before the",
+            "2026-11-26 review fix; they are distinct now.",
             "",
-            "### Inherited title quirks",
+            "### Book titles",
             "",
-            "The unaccented TEI for `2TI` and `PHP` in `rp2018-2023` titles the",
-            "books `Second Timoty` and `Phillipians`. Both spellings are inherited,",
-            "not introduced here: `rp2018-2023` preserves the titles of the earlier",
-            "`tei-xml-unicode/` outputs. They are preserved deliberately so the",
-            "edition's TEI bytes stay unchanged. Every other title, and the whole",
-            "accented TEI, uses the corrected spellings.",
+            "Every TEI book title uses `editions.BOOK_NAMES`, so `2TI` is",
+            "`Second Timothy` and `PHP` is `Philippians` in both the accented",
+            "and unaccented views. Two earlier spellings (`Second Timoty` and",
+            "`Phillipians`) were inherited from the retired convenience pipeline",
+            "and corrected on 2026-11-26.",
             "",
-            "`rp2005-2019` uses the corrected titles. It is regenerated from its",
-            "2019 sources, so it does not inherit the released artifacts'",
-            "misspellings. Do not copy the quirk into other editions without a new",
-            "release.",
+            "### Multi-parsing words",
             "",
             "In the `csv/strongs/with-parsing/` view a word may be followed by two",
             "sets of Strong's number and parsing code. These are alternative",
             "parsings of the same word (for example, a neuter form that can be",
             "either nominative or accusative), not two separate words; either",
-            "parsing is applicable. The convention is explained in",
-            "`data/raw/repo/CONVENTIONS.md`.",
+            "parsing is applicable. `csv/strongs/no-parsing/` keeps each distinct",
+            "alternative number but collapses consecutive identical numbers for",
+            "one word (for example, `το 3588 3588` becomes `το 3588`, while",
+            "2TI 2:6 `πρωτον 4412 4413` keeps both numbers). The convention is",
+            "explained in `data/raw/repo/CONVENTIONS.md`.",
             "",
             "### Rebuilding the curated editions",
             "",

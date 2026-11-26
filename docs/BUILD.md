@@ -59,7 +59,8 @@ edition CSV/TEI.
   `data/provenance/rp2018-2023.toml`. It renders the root README from
   `src/byz/curate/README.template.md`. `rp2005-2019` is generated from its 2019
   sources under `data/raw/repo/rp2005-2019/` exactly like the other editions;
-  the build never reads a git tag.
+  the build never reads a tag's files. It does list tags to compute each
+  released edition's release range.
 - `byz.diff` - write the successive edition diffs under `reports/diffs/`.
 - `byz.contract` - write `docs/DATA_CONTRACT.md`, `docs/HISTORY.md`,
   `docs/contract/*.json`, and `reports/baseline/`.
@@ -96,6 +97,12 @@ Regenerating `rp2005-2019` changes it relative to the artifacts released as
 for Byz) become `{NA`/`{Byz`, typography is normalised (`¶` paragraph markers,
 curly apostrophes), and the four intentional blank verses are emitted as empty
 records. The main text keeps the same words.
+
+`byz.build` also needs a git checkout with the release tags (it lists them for
+the release ranges) and it embeds each input's last commit in `manifest.json`,
+`data/provenance/rp2018-2023.toml`, the input-tree READMEs, and
+`reports/baseline/files.csv`. A squash or rebase therefore changes that metadata
+even when no input byte changes: rerun the generators and commit the result.
 
 See `docs/EDITIONS.md` for the edition model and release numbers.
 

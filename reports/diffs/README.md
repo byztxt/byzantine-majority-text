@@ -147,7 +147,9 @@ would see.
 
 ## Blank verses
 
-LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are empty rows in the
-official/current editions and absent in `rp2005-2019`. The source-tier
-comparison ignores row presence, so these four verses are out of scope for
-these diffs.
+LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the Byzantine
+tradition. Every curated edition, including `rp2005-2019`, carries them as
+present empty records: empty CSV text and empty `<ab/>` TEI elements. The
+source-tier comparison treats a present-empty record as a value, so an empty
+verse and an absent verse are not silently equal and these four verses are in
+scope like any other row.

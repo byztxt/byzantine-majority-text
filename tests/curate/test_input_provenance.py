@@ -9,6 +9,7 @@ just produced, so the record and the pins cannot disagree.
 import hashlib
 import json
 import re
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -88,7 +89,7 @@ class ProvenanceRecordTests(unittest.TestCase):
             self.record["generated_by"], "PYTHONPATH=src python3 -m byz.build"
         )
         for key in ("ccat_commit", "strongs_commit"):
-            self.assertRegex(self.record[key], r"^(?:[0-9a-f]{7,40})?$")
+            self.assertRegex(self.record[key], r"^[0-9a-f]{40}$")
 
     def test_no_url_timestamp_or_absolute_path(self):
         self.assertNotIn("http", self.raw)
@@ -137,6 +138,21 @@ class ProvenanceRecordTests(unittest.TestCase):
                 hashlib.sha256(path.read_bytes()).hexdigest(),
                 block["path"],
             )
+
+    def test_historical_commit_matches_the_tag(self):
+        result = subprocess.run(
+            ["git", "-C", str(ROOT), "rev-parse", "v2.0.3^{commit}"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            editions.EDITIONS["rp2005-2019"]["commit"],
+            result.stdout.strip(),
+        )
+        historical = manifests()["rp2005-2019"]
+        self.assertEqual(historical["commit"], result.stdout.strip())
 
 
 class WriterTests(unittest.TestCase):

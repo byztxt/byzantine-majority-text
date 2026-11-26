@@ -31,6 +31,10 @@ CSV_STRONGS = {
     "csv/strongs/no-parsing": CSV_DIR / "strongs" / "no-parsing",
     "csv/strongs/with-parsing": CSV_DIR / "strongs" / "with-parsing",
 }
+CSV_UNACCENTED = {
+    "csv/unaccented": CSV_DIR / "unaccented",
+}
+CSV_VIEWS = {**CSV_CCAT, **CSV_STRONGS, **CSV_UNACCENTED}
 
 TEI_DIR = CURRENT_DIR / "tei" / "unaccented"
 TEI_BYZ = TEI_DIR / "BYZ" / "byz.xml"
@@ -109,8 +113,13 @@ DERIVATION_EVIDENCE = {
         "src/byz/curate/build.py: build_all -> build_current reads "
         "data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs -> write_csv"
     ),
+    "unaccented": (
+        "src/byz/curate/build.py: build_all -> build_current reads "
+        "data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs(plain-text) "
+        "-> write_csv"
+    ),
     "tei": (
         "src/byz/curate/build.py: build_current -> write_tei() "
-        "from csv/strongs/no-parsing"
+        "from csv/unaccented"
     ),
 }

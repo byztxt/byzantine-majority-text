@@ -147,14 +147,41 @@ def apparatus_code_names_text() -> str:
     )
 
 
+def _check_loaded_books(found: dict, label: str) -> None:
+    """Fail loudly unless a loaded source holds the canonical books + sections."""
+    expected = set(paths.CANONICAL_BOOKS) | set(paths.SECTION_ABBRS)
+    missing = sorted(expected - set(found))
+    unexpected = sorted(set(found) - expected)
+    if missing or unexpected:
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            f"{label} does not contain the expected book set: "
+            f"{'; '.join(details)}"
+        )
+
+
 def _load_official(edition_id: str) -> dict:
     edition = editions.EDITIONS[edition_id]
     directory = editions.ROOT / edition["source_dir"]
     books = {}
     for path in sorted(directory.glob("*.CCT")):
-        abbr = sources.OFFICIAL_TO_ABBR.get(path.stem.upper())
-        if abbr:
-            books[abbr] = normalize.parse_cct(path.read_text())
+        code = path.stem.upper()
+        if code == "GREEK":
+            # Alphabet/transliteration notes, not a book.
+            continue
+        abbr = sources.OFFICIAL_TO_ABBR.get(code)
+        if abbr is None:
+            raise ValueError(
+                f"{edition_id} source has an unknown book code: {path.name}"
+            )
+        books[abbr] = normalize.parse_cct(
+            path.read_text(encoding="utf-8")
+        )
+    _check_loaded_books(books, f"{edition_id} CCAT source")
     return books
 
 
@@ -163,9 +190,18 @@ def _load_historical(edition_id: str) -> dict:
     directory = editions.ROOT / edition["source_dir"]
     books = {}
     for path in sorted(directory.glob("*.CCT")):
-        abbr = sources.OFFICIAL_TO_ABBR.get(path.stem.upper())
-        if abbr:
-            books[abbr] = normalize.parse_cct(path.read_text())
+        code = path.stem.upper()
+        if code == "GREEK":
+            continue
+        abbr = sources.OFFICIAL_TO_ABBR.get(code)
+        if abbr is None:
+            raise ValueError(
+                f"{edition_id} source has an unknown book code: {path.name}"
+            )
+        books[abbr] = normalize.parse_cct(
+            path.read_text(encoding="utf-8")
+        )
+    _check_loaded_books(books, f"{edition_id} historical source")
     return books
 
 
@@ -176,8 +212,14 @@ def _load_current(edition_id: str) -> dict:
     for path in sorted(directory.glob("*.TXT")):
         num = path.name.split("_", 1)[0]
         abbr = paths.NUM_TO_ABBR.get(num)
-        if abbr:
-            books[abbr] = normalize.parse_current_ccat(path.read_text())
+        if abbr is None:
+            raise ValueError(
+                f"{edition_id} source has an unknown book number: {path.name}"
+            )
+        books[abbr] = normalize.parse_current_ccat(
+            path.read_text(encoding="utf-8")
+        )
+    _check_loaded_books(books, f"{edition_id} current source")
     return books
 
 
@@ -790,10 +832,12 @@ would see.
 
 ## Blank verses
 
-LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are empty rows in the
-official/current editions and absent in `rp2005-2019`. The source-tier
-comparison ignores row presence, so these four verses are out of scope for
-these diffs.
+LUK 17:36, ACT 8:37, ACT 15:34, and ACT 24:7 are not part of the Byzantine
+tradition. Every curated edition, including `rp2005-2019`, carries them as
+present empty records: empty CSV text and empty `<ab/>` TEI elements. The
+source-tier comparison treats a present-empty record as a value, so an empty
+verse and an absent verse are not silently equal and these four verses are in
+scope like any other row.
 """
 
 README_TEXT = README_TEXT.replace(

@@ -10,7 +10,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             <titleStmt>
                 <title>The New Testament in the Original Greek: The Byzantine Textform</title>
                 <title type="collection" level="s" xml:lang="en">The New Testament</title>
-				<title type="work" level="m" xml:lang="en" n="16">Second Timoty</title>
+				<title type="work" level="m" xml:lang="en" n="16">Second Timothy</title>
 				<title type="short" level="m" xml:lang="en" n="16">2TI</title>                
                 <respStmt>
                     <resp>Created by</resp><name>Maurice A. Robinson and William Pierpont</name>

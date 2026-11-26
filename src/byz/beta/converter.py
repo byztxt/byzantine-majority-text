@@ -125,9 +125,33 @@ def convert_beta_to_unicode(beta):
     return restore_literals(unicode_line, apparatus_literals)
 
 
-def convert_beta_to_unicode_strongs(beta, drop_parsing):
-    """
-    Converts the standardised beta code to Unicode.
+# The three Strong's export shapes. They are named explicitly instead of using
+# a boolean, because a boolean called `drop_parsing` silently dropped the
+# Strong's numbers too and made `strongs/no-parsing` an alias of plain text.
+STRONGS_WITH_PARSING = "with-parsing"
+STRONGS_NUMBERS_ONLY = "numbers-only"
+STRONGS_PLAIN_TEXT = "plain-text"
+STRONGS_MODES = (
+    STRONGS_WITH_PARSING,
+    STRONGS_NUMBERS_ONLY,
+    STRONGS_PLAIN_TEXT,
+)
+
+
+def convert_beta_to_unicode_strongs(beta, mode):
+    """Convert one standardised Strong's line to Unicode in the given mode.
+
+    - ``with-parsing`` keeps the word, the Strong's number(s), and the
+      morphology token(s) (``{...}``).
+    - ``numbers-only`` keeps the word and the Strong's number(s) and drops the
+      morphology token(s). Consecutive identical numbers for one word collapse
+      to one, while distinct alternative numbers stay. This is the
+      ``strongs/no-parsing`` view.
+    - ``plain-text`` keeps only the word. This is the ``csv/unaccented`` view,
+      which the unaccented TEI renders.
+
+    The modes are explicit strings so a caller cannot mistake "drop parsing" for
+    "drop numbers". An unknown mode raises rather than guessing.
 
     This function makes use of the beta_code_to_greek()
     function from the beta-code package.
@@ -136,26 +160,39 @@ def convert_beta_to_unicode_strongs(beta, drop_parsing):
     `convert_beta_to_unicode`, even though the Strong's files carry no
     apparatus.
     """
+    if mode not in STRONGS_MODES:
+        raise ValueError(
+            f"unknown Strong's conversion mode {mode!r}; "
+            f"expected one of {', '.join(STRONGS_MODES)}"
+        )
     beta, apparatus_literals = protect_literals(beta)
     word_tokenised_beta = beta.split(" ")
 
     unicode_word_list = []
 
+    previous_number = None
     for word in word_tokenised_beta:
         if len(word) == 0:
             continue
         elif word.isdigit():
-            if drop_parsing:
+            if mode == STRONGS_PLAIN_TEXT:
                 continue
-            else:
-                unicode_word_list.append(word)
+            if mode == STRONGS_NUMBERS_ONLY and word == previous_number:
+                # A multi-parsing alternative can repeat the same Strong's
+                # number. Collapse only consecutive duplicates: distinct
+                # alternatives (for example `4412 4413`) stay.
+                continue
+            unicode_word_list.append(word)
+            previous_number = word
         elif word[0] == "{" and word[-1] == "}":
-            if drop_parsing:
+            if mode in (STRONGS_NUMBERS_ONLY, STRONGS_PLAIN_TEXT):
+                # A morphology token does not separate a word's numbers.
                 continue
-            else:
-                unicode_word_list.append(word)
+            unicode_word_list.append(word)
+            previous_number = None
         else:
             unicode_word_list.append(beta_code.beta_code_to_greek(word))
+            previous_number = None
 
     unicode_line = " ".join(unicode_word_list)
     return restore_literals(unicode_line, apparatus_literals)

@@ -894,8 +894,12 @@ so in `docs/BUILD.md`, `docs/EDITIONS.md`, and `docs/PROVENANCE.md`.
 - **Parsing reference.** `build_historical` derives the `.UB5` segmentation
   reference from the accented view generated from the same `.CCT` source, not
   from a released `csv/unaccented`. `csv/unaccented` and `csv/strongs/
-  no-parsing` are now the same text (a test asserts byte identity); the
-  byte-identity rebuild test proves the segmentation.
+  no-parsing` were the same text in this cycle (a test asserted byte identity);
+  the byte-identity rebuild test proves the segmentation.
+  **Superseded 2026-11-26:** the two views are now distinct.
+  `csv/unaccented` is plain text; `csv/strongs/no-parsing` is the numbers-only
+  view (Strong's numbers kept, morphology dropped, consecutive identical numbers
+  collapsed). See `SPECS/2026-11-26-pr46-review-fixes/`.
 - **Manifest schema drift.** `inputs` is a new format; an external consumer that
   reads `source_files` breaks. This is documented as a breaking change, not
   hidden behind a duplicate key.

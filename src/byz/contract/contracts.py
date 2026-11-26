@@ -87,13 +87,15 @@ DATASET_CONTRACTS = {
         ],
     },
     paths.dataset_name("csv/strongs/no-parsing"): {
-        "purpose": "Unicode CSV of the Strong's text with parsing dropped.",
+        "purpose": "Unicode CSV of the unaccented text with Strong's numbers retained and morphology (`{...}`) dropped; consecutive identical numbers for one word collapse.",
         "header": CSV_HEADER,
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
             "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
+            "Strong's numbers are present and morphology braces are absent",
+            "consecutive identical Strong's numbers for one word are collapsed",
         ],
     },
     paths.dataset_name("csv/strongs/with-parsing"): {
@@ -106,8 +108,19 @@ DATASET_CONTRACTS = {
             "no duplicate (chapter, verse) keys",
         ],
     },
+    paths.dataset_name("csv/unaccented"): {
+        "purpose": "Plain unaccented Unicode text with no Strong's numbers or parsing.",
+        "header": CSV_HEADER,
+        "invariants": [
+            "header is chapter,verse,text",
+            "chapter and verse are integers",
+            "text is non-empty except for the intentional blank verses",
+            "no duplicate (chapter, verse) keys",
+            "no Strong's numbers or morphology braces",
+        ],
+    },
     paths.TEI_DATASET: {
-        "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
+        "purpose": "Unaccented TEI-XML export generated from csv/unaccented.",
         "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w",
         "anchor": TEI_ANCHOR,
         "invariants": [

@@ -247,6 +247,15 @@ def verify_artifacts_external(manifest, edition_dir: Path) -> list:
 
 def verify_pdf(manifest, edition_id, root: Path) -> list:
     """Check the committed official PDF when the manifest pins one."""
+    if manifest.get("pdf") and "pdf_sha256" not in manifest:
+        return [
+            VerificationError(
+                edition_id,
+                str(manifest["pdf"]),
+                "invalid",
+                expected="pdf_sha256 is required when pdf is set",
+            )
+        ]
     if "pdf_sha256" not in manifest:
         return []
     relative = manifest.get("pdf", "")

@@ -1,8 +1,11 @@
 """Unit tests for the word-diff helpers used by the edition reports."""
 
+import tempfile
 import unittest
+from pathlib import Path
+from unittest import mock
 
-from byz.curate import diff
+from byz.curate import diff, editions
 from byz.reconcile import compare
 
 
@@ -112,6 +115,37 @@ class ApparatusWordDiffTests(unittest.TestCase):
             diff.load_text("no-such-edition")
 
 
+class SourceBookGuardTests(unittest.TestCase):
+    """A shrunken source tree must not silently shrink a diff."""
+
+    def test_official_loader_rejects_a_missing_book(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            ccat = root / "data" / "raw" / "print" / "rp2005" / "ccat"
+            ccat.mkdir(parents=True)
+            (ccat / "MT.CCT").write_text(
+                "     01:01 biblov\n", encoding="utf-8"
+            )
+            with mock.patch.object(diff.editions, "ROOT", root):
+                with self.assertRaises(ValueError) as caught:
+                    diff._load_official("rp2005")
+            self.assertIn("missing", str(caught.exception))
+            self.assertIn("MAR", str(caught.exception))
+
+    def test_current_loader_rejects_an_unknown_book(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            ccat = root / "data" / "raw" / "repo" / "rp2018-2023" / "ccat"
+            ccat.mkdir(parents=True)
+            (ccat / "99_XXX.TXT").write_text(
+                "1:1 biblov\n", encoding="utf-8"
+            )
+            with mock.patch.object(diff.editions, "ROOT", root):
+                with self.assertRaises(ValueError) as caught:
+                    diff._load_current("rp2018-2023")
+            self.assertIn("99_XXX.TXT", str(caught.exception))
+
+
 class TagChangeTests(unittest.TestCase):
     """C3: the report states the code change in its own direction."""
 
@@ -190,6 +224,16 @@ class ReadmeCategoryTests(unittest.TestCase):
 
     def test_missing_categories_say_so(self):
         self.assertIn("none in the current reports", diff.README_TEXT)
+
+    def test_blank_verses_are_present_in_every_edition(self):
+        text = " ".join(diff.README_TEXT.split())
+        self.assertIn(
+            "Every curated edition, including `rp2005-2019`, carries them as "
+            "present empty records",
+            text,
+        )
+        self.assertNotIn("absent in `rp2005-2019`", text)
+        self.assertNotIn("ignores row presence", text)
 
 
 class NormalizeTextTests(unittest.TestCase):

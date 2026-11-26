@@ -2,12 +2,16 @@
 
 import csv
 import io
+import re
 
-from . import contracts
+from . import contracts, paths
 from .encoding import read_text
 from .model import DatasetResult, Violation
 
 HEADER = contracts.CSV_HEADER
+
+UNACCENTED = paths.dataset_name("csv/unaccented")
+NO_PARSING = paths.dataset_name("csv/strongs/no-parsing")
 
 
 def validate(path, dataset) -> DatasetResult:
@@ -89,6 +93,63 @@ def validate(path, dataset) -> DatasetResult:
                     key=f"{book} {chapter_int}:{verse_int}",
                 )
             )
+        if dataset == UNACCENTED:
+            if re.search(r"\d", body):
+                violations.append(
+                    Violation(
+                        dataset,
+                        str(path),
+                        lineno,
+                        "unexpected-strongs",
+                        "unaccented text must not contain Strong's numbers",
+                        key=f"{book} {chapter_int}:{verse_int}",
+                    )
+                )
+            if "{" in body or "}" in body:
+                violations.append(
+                    Violation(
+                        dataset,
+                        str(path),
+                        lineno,
+                        "unexpected-parsing",
+                        "unaccented text must not contain morphology braces",
+                        key=f"{book} {chapter_int}:{verse_int}",
+                    )
+                )
+        elif dataset == NO_PARSING:
+            if "{" in body or "}" in body:
+                violations.append(
+                    Violation(
+                        dataset,
+                        str(path),
+                        lineno,
+                        "unexpected-parsing",
+                        "numbers-only text must not contain morphology braces",
+                        key=f"{book} {chapter_int}:{verse_int}",
+                    )
+                )
+            if body.strip() and not re.search(r"\d", body):
+                violations.append(
+                    Violation(
+                        dataset,
+                        str(path),
+                        lineno,
+                        "missing-strongs",
+                        "numbers-only text must keep the Strong's numbers",
+                        key=f"{book} {chapter_int}:{verse_int}",
+                    )
+                )
+            if re.search(r"\b(\d+)\s+\1\b", body):
+                violations.append(
+                    Violation(
+                        dataset,
+                        str(path),
+                        lineno,
+                        "repeated-strongs",
+                        "consecutive identical Strong's numbers must be collapsed",
+                        key=f"{book} {chapter_int}:{verse_int}",
+                    )
+                )
         key = (chapter_int, verse_int)
         if key in seen:
             violations.append(

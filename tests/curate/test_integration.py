@@ -688,7 +688,7 @@ class CurateIntegrationTests(unittest.TestCase):
         )
         self.assertIn("canonicalises dash spacing", diff.README_TEXT)
         self.assertIn("attached-vs-spaced dashes", diff.README_TEXT)
-        self.assertIn("empty rows", diff.README_TEXT)
+        self.assertIn("present empty records", diff.README_TEXT)
         self.assertIn("not patchable line-based diffs", diff.README_TEXT)
         self.assertIn("word-diff style", diff.README_TEXT)
         self.assertIn("no `-`/`+` whole-verse", diff.README_TEXT)
@@ -813,23 +813,29 @@ class CurateIntegrationTests(unittest.TestCase):
                     ):
                         self.assertNotIn(marker, text, f"{path.name}:{row}")
                     if kind == "no-parsing":
-                        self.assertNotRegex(text, r"\d|\{|\}")
+                        # Numbers-only: Strong's digits stay, morphology goes.
+                        self.assertNotRegex(text, r"[{}]")
+                        if text.strip():
+                            self.assertRegex(text, r"\d")
                     else:
                         self.assertNotIn(" 0 ", text)
                         self.assertNotIn(" 0 {", text)
 
-    def test_historical_unaccented_equals_strongs_no_parsing(self):
-        # Both views are generated from `parsed/*.UB5` and share one text, so
-        # they are byte-identical, as in `rp2018-2023`. The old edition copied
-        # the released unaccented CSV and generated the Strong's view separately,
-        # which left four verses segmented differently.
+    def test_historical_unaccented_and_numbers_only_are_distinct(self):
+        # The plain unaccented view has no numbers; the numbers-only view is
+        # exactly the same words with the Strong's numbers inserted. It is no
+        # longer a byte-identical alias.
         base = editions.edition_dir("rp2005-2019") / "csv"
         for path in (base / "strongs" / "no-parsing").glob("*.csv"):
             unaccented_path = base / "unaccented" / path.name
-            self.assertEqual(
+            for row in csv.DictReader(path.open(encoding="utf-8")):
+                self.assertNotRegex(row["text"], r"[{}]")
+            for row in csv.DictReader(unaccented_path.open(encoding="utf-8")):
+                self.assertNotRegex(row["text"], r"[\d{}]")
+            self.assertNotEqual(
                 path.read_bytes(),
                 unaccented_path.read_bytes(),
-                f"{path.name}: unaccented and strongs/no-parsing differ",
+                f"{path.name}: numbers-only and unaccented must differ",
             )
 
     def test_docs_cover_all_editions(self):

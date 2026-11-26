@@ -370,6 +370,12 @@ and the Strong's view without parsing are the same text; `recover_editions.py`
 writes both from `csv-unicode/strongs/no-parsing`. `editions/rp2018-2023/tei/accented`
 is generated from the accented source and has no working-tree counterpart.
 
+> **Superseded 2026-11-26:** `CURATED_DUPLICATE_VIEWS` no longer describes the
+> current tree. `csv/unaccented` is plain text and `csv/strongs/no-parsing` is
+> the numbers-only view; they are distinct and the byte-identity test was
+> replaced by shape tests plus a word-for-word unaccented-TEI check. See
+> `SPECS/2026-11-26-pr46-review-fixes/`.
+
 `source/` remains the source of truth for both trees. Edit `source/`, then
 regenerate both: the converters for `csv-unicode/` and `tei-xml-unicode/`,
 `recover_editions.py` and `build_editions.py` for `editions/`.

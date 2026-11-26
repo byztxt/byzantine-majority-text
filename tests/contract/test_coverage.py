@@ -5,7 +5,7 @@ from byz.contract.coverage import diff_rows
 from byz.contract.model import DatasetResult
 
 NO_VARIANTS = paths.dataset_name("csv/accented/no-variants")
-NO_PARSING = paths.dataset_name("csv/strongs/no-parsing")
+UNACCENTED = paths.dataset_name("csv/unaccented")
 
 
 def result(name, book, keys):
@@ -35,7 +35,7 @@ class CoverageTests(unittest.TestCase):
 
     def test_ignores_matching_keys(self):
         results = {
-            NO_PARSING: [result(NO_PARSING, "MAT", [(1, 1)])],
+            UNACCENTED: [result(UNACCENTED, "MAT", [(1, 1)])],
             paths.TEI_DATASET: [
                 result(paths.TEI_DATASET, "MAT", [(1, 1)])
             ],
@@ -44,7 +44,7 @@ class CoverageTests(unittest.TestCase):
         row = next(
             row
             for row in rows
-            if row["comparison"] == "CSV no-parsing vs TEI" and row["book"] == "MAT"
+            if row["comparison"] == "CSV unaccented vs TEI" and row["book"] == "MAT"
         )
         self.assertEqual(row["only_left"], 0)
         self.assertEqual(row["only_right"], 0)

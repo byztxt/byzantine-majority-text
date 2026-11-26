@@ -337,8 +337,8 @@ Adopted by the maintainer on 2026-11-16. The pipeline flags; the maintainer deci
 | ID | Question | Decision | Next step |
 | --- | --- | --- | --- |
 | D1 | What are `PA` and `ACT24`? | Keep them as separate pseudo-books linked to John 7:53-8:11 and Acts 24:6-8. | Revisit the TEI representation in Cycle 6. |
-| D2 | Is the TEI intentionally unaccented? | Yes. `editions/rp2018-2023/tei/unaccented` is the main-text export from `csv/strongs/no-parsing`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
-| D3 | How is the current text labelled? | `rp2018` with a `2023-07-20` revision, not a separate edition. | Confirm against the official archive in Cycle 2. |
+| D2 | Is the TEI intentionally unaccented? | Yes. `editions/rp2018-2023/tei/unaccented` is the plain unaccented main-text export from `csv/unaccented`. | Add an accented/apparatus TEI from CCAT in Cycle 6. |
+| D3 | How is the current text labelled? | A separate curated edition, `rp2018-2023`, based on the 2018 edition with the `2023-07-20` revision. | Recorded in `docs/EDITIONS.md`; confirm against the official archive in Cycle 2. |
 | D4 | Are the generated CSV/TEI trustworthy? | The source files are authoritative. The generated artifacts were stale in 2TI 2:22 and ACT 4:9 and have been regenerated. | Full byte-for-byte pipeline check in Cycle 3. |
 | D5 | Which view wins on disagreement? | The source files win; divergence is a bug to flag. | Enforce in the validators and the pipeline. |
 | D6 | Enforce the baseline contract in GitHub CI? | No GitHub CI. Run the contract validators/tests locally. Do not enforce artifact equality until Cycle 3. | Local test command documented; no workflow. |
@@ -356,6 +356,23 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
     unknown = len(inv_rows) - known
     categories = Counter(row["category"] for row in inv_rows)
     missing = [row for row in derivation_rows if row["status"] == "missing"]
+    derivation_expected = sum(
+        1 for row in derivation_rows if row["status"] != "auxiliary"
+    )
+    derivation_present = sum(
+        1 for row in derivation_rows if row["status"] == "ok"
+    )
+    if missing:
+        derivation_line = (
+            f"- {derivation_present} of {derivation_expected} expected "
+            f"derivations exist; {len(missing)} missing (see "
+            "`derivations.csv`); `demo_john_1.xml` is auxiliary."
+        )
+    else:
+        derivation_line = (
+            f"- All {derivation_expected} expected derivations exist; "
+            "`demo_john_1.xml` is auxiliary."
+        )
     diff_issues = [
         row
         for row in diff_rows
@@ -385,12 +402,12 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
         "of the Byzantine tradition (LUK 17:36, ACT 8:37, ACT 15:34, ACT 24:7) "
         "are preserved as explicit empty records in CSV and TEI (D7/D8).",
         "- Source and generated coverage now match; TEI matches "
-        "`strongs/no-parsing` exactly.",
+        "`csv/unaccented` exactly.",
         "- Regeneration also corrected two stale parsing artifacts: 2TI 2:22 "
         "(`A-APF-C` -> `A-APF`) and ACT 4:9 (duplicate `5101 {I-DSN}` removed).",
-        "- All 140 expected derivations exist; `demo_john_1.xml` is auxiliary.",
-        "- The current text is modelled as `rp2018` revision `2023-07-20` (D3); "
-        "the source files are authoritative (D5).",
+        derivation_line,
+        "- The current text is the separate curated edition `rp2018-2023` "
+        "(revision `2023-07-20`, D3); the source files are authoritative (D5).",
         "",
         "## Datasets",
         "",
@@ -432,7 +449,7 @@ def _summary(results, inv_rows, diff_rows, dataset_rows, derivation_rows):
             "- LUK 17:36, ACT 8:37, and ACT 15:34 are intentionally blank "
             "because they are not part of the Byzantine tradition; they are kept "
             "as empty records (D7/D8).",
-            "- TEI is generated from `strongs/no-parsing`, so it is unaccented and "
+            "- TEI is generated from `csv/unaccented`, so it is unaccented and "
             "has no parsing; this is intended (D2).",
             "- Generated CSV/TEI were unverified derivatives until this "
             "regeneration; source remains authoritative (D4/D5).",

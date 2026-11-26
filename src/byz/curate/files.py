@@ -37,7 +37,9 @@ def matching_files(root: Path, includes) -> dict:
     return matched
 
 
-def tracked_count(relative_dir: str, pattern: str = "*") -> int:
+def tracked_count(
+    relative_dir: str, pattern: str = "*", root: Path | None = None
+) -> int:
     """Return the number of tracked files under `relative_dir`.
 
     Used only for input folders that a manifest does not pin (the official
@@ -45,7 +47,8 @@ def tracked_count(relative_dir: str, pattern: str = "*") -> int:
     than globbing the directory means an untracked download cannot change a
     generated count. `pattern` is matched against the basename, so
     ``tracked_count("data/raw/print/rp2005/preformatted", "*.ASC")`` counts
-    only the committed `.ASC` files.
+    only the committed `.ASC` files. `root` defaults to the repository root and
+    exists so tests can exercise an isolated temporary checkout.
     """
     # `-C` pins the repository root, so the count is the same no matter which
     # directory the caller ran `byz.build` from. This mirrors
@@ -53,7 +56,7 @@ def tracked_count(relative_dir: str, pattern: str = "*") -> int:
     command = [
         "git",
         "-C",
-        str(editions.ROOT),
+        str(root or editions.ROOT),
         "ls-files",
         "-z",
         "--",

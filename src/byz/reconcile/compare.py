@@ -255,13 +255,7 @@ def source_rows() -> tuple[list, list, list]:
 
 
 def _load_current_csv(abbr: str) -> dict:
-    path = (
-        paths.CURRENT_DIR
-        / "csv"
-        / "strongs"
-        / "no-parsing"
-        / f"{abbr}.csv"
-    )
+    path = paths.CURRENT_DIR / "csv" / "unaccented" / f"{abbr}.csv"
     verses = {}
     with open(path, newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
@@ -304,7 +298,7 @@ def derived_rows() -> tuple[list, list]:
                 official = normalize.parse_ascii(members[member])
                 for dataset, loader in (
                     (
-                        paths.dataset_name("csv/strongs/no-parsing"),
+                        paths.dataset_name("csv/unaccented"),
                         _load_current_csv,
                     ),
                     (paths.TEI_DATASET, _load_current_tei),

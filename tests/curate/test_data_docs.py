@@ -9,6 +9,8 @@ relative link. No count is scraped from a directory glob.
 
 import json
 import re
+import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -170,6 +172,7 @@ class ContentTests(unittest.TestCase):
         )
         for needle in ("30 `.CCT`", "27 `*_Byz.txt`", "27 `.ASC`", "1 PDF"):
             self.assertIn(needle, text)
+        self.assertIn("GREEK.CCT", text)
         self.assertIn(
             "30 `.CCT`",
             (ROOT / "data/raw/repo/rp2005-2019/README.md").read_text(
@@ -266,24 +269,31 @@ class RenderTests(unittest.TestCase):
         )
 
     def test_untracked_file_does_not_change_a_pinned_count(self):
-        # R6.8: dropping an untracked file into an auxiliary directory (one the
-        # manifest does not pin) must not move a generated count. The file is
-        # created and removed inside the test, so the committed tree is
-        # untouched even when the assertion fails.
-        rows = manifests()
-        base = ROOT / "data" / "raw" / "print" / "rp2005" / "preformatted"
-        before = data_docs.render_source_readme("rp2005", rows["rp2005"])
-        stray = base / "untracked.ASC"
-        stray.write_text("not a published file\n", encoding="utf-8")
-        self.addCleanup(stray.unlink)
-        after = data_docs.render_source_readme("rp2005", rows["rp2005"])
-        self.assertEqual(before, after)
-        self.assertEqual(
-            data_docs._tracked_count(
-                "data/raw/print/rp2005/preformatted", "*.ASC"
-            ),
-            27,
-        )
+        # R6.8: an untracked file in an auxiliary directory must not move a
+        # generated count. Use a throwaway git repository, never the real data
+        # tree, so a failing assertion cannot leave a stray file behind.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            directory = root / "data" / "raw" / "print" / "rp2005" / "preformatted"
+            directory.mkdir(parents=True)
+            tracked = directory / "published.ASC"
+            tracked.write_text("published\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "init", "-q", str(root)], check=True
+            )
+            subprocess.run(
+                ["git", "-C", str(root), "add", str(tracked)], check=True
+            )
+            untracked = directory / "untracked.ASC"
+            untracked.write_text("not published\n", encoding="utf-8")
+            self.assertEqual(
+                data_docs._tracked_count(
+                    "data/raw/print/rp2005/preformatted",
+                    "*.ASC",
+                    root=root,
+                ),
+                1,
+            )
 
     def test_written_files_match_a_fresh_render(self):
         rows = manifests()
