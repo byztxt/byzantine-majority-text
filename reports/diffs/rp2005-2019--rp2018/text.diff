@@ -1,0 +1,12 @@
+# Exact derived artifact text from csv/accented/no-variants, for
+# every source-differing verse whose exact text differs (including
+# formatting-only changes). Paragraph markers (¶) and
+# apostrophe typography are shown as stored.
+# derived.diff is the normalised full view.
+# Word diff: rp2005-2019 -> rp2018 (exact Unicode accented main text)
+@@ MAT 1:18 [punctuation] @@
+¶Τοῦ δὲ Ἰησοῦ χριστοῦ ἡ γέννησις οὕτως [-ἦν.-]{+ἦν·+} [-Μνηστευθείσης-]{+μνηστευθείσης+} γὰρ τῆς μητρὸς αὐτοῦ Μαρίας τῷ Ἰωσήφ, πρὶν ἢ συνελθεῖν αὐτούς, εὑρέθη ἐν γαστρὶ ἔχουσα ἐκ πνεύματος ἁγίου.
+@@ ACT 28:2 [accents-breathings] @@
+Οἱ δὲ βάρβαροι παρεῖχον οὐ τὴν τυχοῦσαν φιλανθρωπίαν ἡμῖν· ἀνάψαντες γὰρ πυράν, προσελάβοντο πάντας ἡμᾶς, διὰ τὸν ὑετὸν τὸν ἐφεστῶτα, καὶ διὰ τὸ [-ψύχος.-]{+ψῦχος.+}
+@@ REV 11:15 [punctuation] @@
+¶Καὶ ὁ ἕβδομος ἄγγελος ἐσάλπισεν, καὶ ἐγένοντο φωναὶ μεγάλαι ἐν τῷ οὐρανῷ, λέγουσαι, Ἐγένετο ἡ βασιλεία τοῦ [-κόσμου,-]{+κόσμου+} τοῦ κυρίου [-ἡμῶν,-]{+ἡμῶν+} καὶ τοῦ χριστοῦ αὐτοῦ, καὶ βασιλεύσει εἰς τοὺς αἰῶνας τῶν αἰώνων.

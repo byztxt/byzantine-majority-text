@@ -4,31 +4,57 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 
-SOURCE = ROOT / "source"
-CCAT_DIR = SOURCE / "CCAT"
-BP5_DIR = SOURCE / "Strongs"
+# The current text is a repository-lineage source snapshot under `data/raw/repo/`,
+# beside the published print-edition extracts under `data/raw/print/`. Every
+# build reads these committed files directly; an edition directory contains
+# outputs only.
+REPO_DIR = ROOT / "data" / "raw" / "repo"
+CURRENT_INPUT_DIR = REPO_DIR / "rp2018-2023"
+CCAT_DIR = CURRENT_INPUT_DIR / "ccat"
+BP5_DIR = CURRENT_INPUT_DIR / "strongs"
+CCAT_DATASET = "data/raw/repo/rp2018-2023/ccat"
+BP5_DATASET = "data/raw/repo/rp2018-2023/strongs"
 
-CSV_DIR = ROOT / "csv-unicode"
+# The current text has one home: its curated edition. Every current-text path
+# and dataset name derives from this pair, so a path and a report label cannot
+# drift apart.
+CURRENT_EDITION = "rp2018-2023"
+CURRENT_PREFIX = f"editions/{CURRENT_EDITION}"
+CURRENT_DIR = ROOT / "editions" / CURRENT_EDITION
+
+CSV_DIR = CURRENT_DIR / "csv"
 CSV_CCAT = {
-    "ccat/no-variants": CSV_DIR / "ccat" / "no-variants",
-    "ccat/with-variants": CSV_DIR / "ccat" / "with-variants",
+    "csv/accented/no-variants": CSV_DIR / "accented" / "no-variants",
+    "csv/accented/with-variants": CSV_DIR / "accented" / "with-variants",
 }
 CSV_STRONGS = {
-    "strongs/no-parsing": CSV_DIR / "strongs" / "no-parsing",
-    "strongs/with-parsing": CSV_DIR / "strongs" / "with-parsing",
+    "csv/strongs/no-parsing": CSV_DIR / "strongs" / "no-parsing",
+    "csv/strongs/with-parsing": CSV_DIR / "strongs" / "with-parsing",
 }
+CSV_UNACCENTED = {
+    "csv/unaccented": CSV_DIR / "unaccented",
+}
+CSV_VIEWS = {**CSV_CCAT, **CSV_STRONGS, **CSV_UNACCENTED}
 
-TEI_DIR = ROOT / "tei-xml-unicode" / "no-accents"
+TEI_DIR = CURRENT_DIR / "tei" / "unaccented"
 TEI_BYZ = TEI_DIR / "BYZ" / "byz.xml"
-TEI_ASSETS = ROOT / "tei-xml-unicode" / "assets"
+TEI_DATASET = f"{CURRENT_PREFIX}/tei/unaccented"
+TEI_BYZ_DATASET = f"{TEI_DATASET}/BYZ"
+ASSETS_DIR = ROOT / "docs" / "assets"
+ASSETS_DATASET = "docs/assets"
 ESSAY_DIR = ROOT / "essay"
-SCRIPTS_DIR = ROOT / "scripts"
+
+
+def dataset_name(key: str) -> str:
+    """Repository-relative dataset name for a CSV view key."""
+    return f"{CURRENT_PREFIX}/{key}"
+
 
 REPORTS_DIR = ROOT / "reports" / "baseline"
 DOCS_DIR = ROOT / "docs"
 CONTRACT_DIR = DOCS_DIR / "contract"
 
-# Number -> abbreviation used by the converters (scripts/csv_converter.py).
+# Number -> abbreviation used by the build (`src/byz/curate/build.py`).
 BOOK_NUM_TO_ABBR = {
     "01": "MAT",
     "02": "MAR",
@@ -75,18 +101,25 @@ SECTION_ABBRS = list(SECTION_NUM_TO_ABBR.values())
 
 VARIANT_CODES = frozenset("NBCMSE")
 
-# Evidence for the derivation map, tied to the scripts that implement it.
+# Evidence for the derivation map, tied to the build functions that write each
+# view.
 DERIVATION_EVIDENCE = {
     "ccat": (
-        "scripts/csv_converter.py: path_ccat_no_variants / "
-        "path_ccat_with_variants, convert_book(drop_variants=...)"
+        "src/byz/curate/build.py: build_all -> build_current reads "
+        "data/raw/repo/rp2018-2023/ccat -> parse_cct_current(drop_variants=...) "
+        "-> write_csv"
     ),
     "strongs": (
-        "scripts/csv_converter.py: path_strongs_with_parsing / "
-        "path_strongs_no_parsing, convert_book(drop_parsing=...)"
+        "src/byz/curate/build.py: build_all -> build_current reads "
+        "data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs -> write_csv"
+    ),
+    "unaccented": (
+        "src/byz/curate/build.py: build_all -> build_current reads "
+        "data/raw/repo/rp2018-2023/strongs -> parse_bp5_strongs(plain-text) "
+        "-> write_csv"
     ),
     "tei": (
-        "scripts/tei_xml_converter.py: path_no_accents_csv = "
-        "'../csv-unicode/strongs/no-parsing'; convert_byz()/convert_book()"
+        "src/byz/curate/build.py: build_current -> write_tei() "
+        "from csv/unaccented"
     ),
 }

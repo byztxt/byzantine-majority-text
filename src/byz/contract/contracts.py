@@ -1,5 +1,7 @@
 """Machine-readable contracts consumed by the validators and written to docs/."""
 
+from . import paths
+
 VARIANT_CODES = list("NBCMSE")
 
 # Verses that are intentionally blank because they are not part of the
@@ -32,7 +34,7 @@ CSV_HEADER = ["chapter", "verse", "text"]
 TEI_ANCHOR = r"^B(\d{2})K(\d+)V(\d+)$"
 
 DATASET_CONTRACTS = {
-    "source/CCAT": {
+    paths.CCAT_DATASET: {
         "purpose": "Official accented Byzantine text in Beta code, with variants.",
         "filename": CCAT_FILENAME,
         "record": {"prefix": "chapter:verse", "line": CCAT_LINE},
@@ -48,7 +50,7 @@ DATASET_CONTRACTS = {
             "blank records are allowed only for the intentional blank verses",
         ],
     },
-    "source/Strongs": {
+    paths.BP5_DATASET: {
         "purpose": "Official unaccented text with Strong's numbers and parsing.",
         "filename": BP5_FILENAME,
         "record": {"prefix": "chapter.verse", "line": BP5_LINE},
@@ -62,7 +64,7 @@ DATASET_CONTRACTS = {
             "blank records are allowed only for the intentional blank verses",
         ],
     },
-    "csv-unicode/ccat/no-variants": {
+    paths.dataset_name("csv/accented/no-variants"): {
         "purpose": "Unicode CSV of CCAT with variants removed.",
         "header": CSV_HEADER,
         "invariants": [
@@ -73,7 +75,7 @@ DATASET_CONTRACTS = {
             "no Beta-code backslashes",
         ],
     },
-    "csv-unicode/ccat/with-variants": {
+    paths.dataset_name("csv/accented/with-variants"): {
         "purpose": "Unicode CSV of CCAT with variants retained.",
         "header": CSV_HEADER,
         "invariants": [
@@ -84,17 +86,19 @@ DATASET_CONTRACTS = {
             "no Beta-code backslashes",
         ],
     },
-    "csv-unicode/strongs/no-parsing": {
-        "purpose": "Unicode CSV of the Strong's text with parsing dropped.",
+    paths.dataset_name("csv/strongs/no-parsing"): {
+        "purpose": "Unicode CSV of the unaccented text with Strong's numbers retained and morphology (`{...}`) dropped; consecutive identical numbers for one word collapse.",
         "header": CSV_HEADER,
         "invariants": [
             "header is chapter,verse,text",
             "chapter and verse are integers",
             "text is non-empty except for the intentional blank verses",
             "no duplicate (chapter, verse) keys",
+            "Strong's numbers are present and morphology braces are absent",
+            "consecutive identical Strong's numbers for one word are collapsed",
         ],
     },
-    "csv-unicode/strongs/with-parsing": {
+    paths.dataset_name("csv/strongs/with-parsing"): {
         "purpose": "Unicode CSV of the Strong's text with parsing retained.",
         "header": CSV_HEADER,
         "invariants": [
@@ -104,8 +108,19 @@ DATASET_CONTRACTS = {
             "no duplicate (chapter, verse) keys",
         ],
     },
-    "tei-xml-unicode/no-accents": {
-        "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
+    paths.dataset_name("csv/unaccented"): {
+        "purpose": "Plain unaccented Unicode text with no Strong's numbers or parsing.",
+        "header": CSV_HEADER,
+        "invariants": [
+            "header is chapter,verse,text",
+            "chapter and verse are integers",
+            "text is non-empty except for the intentional blank verses",
+            "no duplicate (chapter, verse) keys",
+            "no Strong's numbers or morphology braces",
+        ],
+    },
+    paths.TEI_DATASET: {
+        "purpose": "Unaccented TEI-XML export generated from csv/unaccented.",
         "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w",
         "anchor": TEI_ANCHOR,
         "invariants": [
@@ -116,7 +131,7 @@ DATASET_CONTRACTS = {
             "intentional blank verses are empty <ab> elements",
         ],
     },
-    "tei-xml-unicode/BYZ": {
+    paths.TEI_BYZ_DATASET: {
         "purpose": "Combined TEI-XML of all 27 books.",
         "structure": "same as per-book TEI, with 27 book divisions",
         "anchor": TEI_ANCHOR,

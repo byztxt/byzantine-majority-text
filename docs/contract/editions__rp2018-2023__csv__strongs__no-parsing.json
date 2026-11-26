@@ -1,0 +1,16 @@
+{
+  "header": [
+    "chapter",
+    "verse",
+    "text"
+  ],
+  "invariants": [
+    "header is chapter,verse,text",
+    "chapter and verse are integers",
+    "text is non-empty except for the intentional blank verses",
+    "no duplicate (chapter, verse) keys",
+    "Strong's numbers are present and morphology braces are absent",
+    "consecutive identical Strong's numbers for one word are collapsed"
+  ],
+  "purpose": "Unicode CSV of the unaccented text with Strong's numbers retained and morphology (`{...}`) dropped; consecutive identical numbers for one word collapse."
+}

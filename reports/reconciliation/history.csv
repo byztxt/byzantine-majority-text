@@ -1,0 +1,7 @@
+state,compared_to,files,full_files,verses,match,percent
+v2.0.3 textonly-beta-code,rp2005,29,13,7972,7918,99.32%
+v2.0.3 textonly-beta-code,rp2018,29,26,7972,7969,99.96%
+v3.0.0 source/CCAT,rp2005,27,5,7957,7754,97.45%
+v3.0.0 source/CCAT,rp2018,27,9,7957,7796,97.98%
+current data/raw/repo/rp2018-2023/ccat,rp2005,29,7,7972,7769,97.45%
+current data/raw/repo/rp2018-2023/ccat,rp2018,29,11,7972,7811,97.98%

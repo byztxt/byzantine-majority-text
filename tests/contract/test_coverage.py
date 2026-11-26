@@ -1,7 +1,11 @@
 import unittest
 
+from byz.contract import paths
 from byz.contract.coverage import diff_rows
 from byz.contract.model import DatasetResult
+
+NO_VARIANTS = paths.dataset_name("csv/accented/no-variants")
+UNACCENTED = paths.dataset_name("csv/unaccented")
 
 
 def result(name, book, keys):
@@ -15,10 +19,8 @@ def result(name, book, keys):
 class CoverageTests(unittest.TestCase):
     def test_detects_missing_verse(self):
         results = {
-            "source/CCAT": [result("source/CCAT", "MAT", [(1, 1), (1, 2)])],
-            "csv-unicode/ccat/no-variants": [
-                result("csv-unicode/ccat/no-variants", "MAT", [(1, 1)])
-            ],
+            "data/raw/repo/rp2018-2023/ccat": [result("data/raw/repo/rp2018-2023/ccat", "MAT", [(1, 1), (1, 2)])],
+            NO_VARIANTS: [result(NO_VARIANTS, "MAT", [(1, 1)])],
         }
         rows = diff_rows(results)
         row = next(
@@ -33,18 +35,16 @@ class CoverageTests(unittest.TestCase):
 
     def test_ignores_matching_keys(self):
         results = {
-            "csv-unicode/strongs/no-parsing": [
-                result("csv-unicode/strongs/no-parsing", "MAT", [(1, 1)])
-            ],
-            "tei-xml-unicode/no-accents": [
-                result("tei-xml-unicode/no-accents", "MAT", [(1, 1)])
+            UNACCENTED: [result(UNACCENTED, "MAT", [(1, 1)])],
+            paths.TEI_DATASET: [
+                result(paths.TEI_DATASET, "MAT", [(1, 1)])
             ],
         }
         rows = diff_rows(results)
         row = next(
             row
             for row in rows
-            if row["comparison"] == "CSV no-parsing vs TEI" and row["book"] == "MAT"
+            if row["comparison"] == "CSV unaccented vs TEI" and row["book"] == "MAT"
         )
         self.assertEqual(row["only_left"], 0)
         self.assertEqual(row["only_right"], 0)

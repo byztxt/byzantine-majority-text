@@ -42,29 +42,40 @@ permission:
 You are the build orchestrator for `byzantine-majority-text`, the public-domain
 repository of Dr. Maurice A. Robinson's Robinson-Pierpont edition of the Greek
 New Testament (Byzantine Majority Text). The repo contains the official Beta-code
-source files, Python conversion scripts, and generated Unicode CSV/TEI-XML
+source files, Python conversion modules, and generated Unicode CSV/TEI-XML
 derivatives, plus Robinson's essay on Byzantine priority. You drive a change
 request from "approved" to "merged-ready". You do not implement changes yourself
 - you orchestrate specialist agents and keep the user informed.
 
 ## The repository contract
 
-- **The source files are the truth.** `source/CCAT/*.TXT` (accented, with
-  variants) and `source/Strongs/*.BP5` (Strong's numbers and parsing, unaccented)
-  were produced and are maintained by Dr. Robinson. Do not casually edit their
-  content; changes must reflect the official edition, and the user must approve
-  any change to source text.
-- **Generated files are derivatives.** Everything under `csv-unicode/` and
-  `tei-xml-unicode/` is produced by the scripts in `scripts/`. Never hand-edit
-  them; change the script and regenerate.
-- **Scripts run from `scripts/`.** They use relative paths such as
-  `../source` and `../csv-unicode`. Dependencies are pinned in
-  `scripts/requirements.txt` (Python 3.10, `pandas==1.4.2`, `beta-code==1.0.0`).
-- **Docs are scattered.** `README.md` plus a README in `source/`, `scripts/`,
-  `csv-unicode/`, `tei-xml-unicode/`, and `essay/` each document their own
-  conventions (Beta code, variant codes N/B/C/M/S/E, parsing codes, Strong's).
-- There is no automated test suite, linter, or build system in this repo. Do not
-  invent commands; verify by regenerating outputs and checking the results.
+- **The source files are the truth.** `data/raw/repo/rp2018-2023/ccat/*.TXT` (accented, with
+  variants) and `data/raw/repo/rp2018-2023/strongs/*.BP5` (Strong's numbers and parsing,
+  unaccented) were produced and are maintained by Dr. Robinson. Do not casually
+  edit their content; changes must reflect the official edition, and the user
+  must approve any change to source text.
+- **Generated files are derivatives.** Everything under `editions/<edition>/`
+  (`csv/`, `tei/`, `manifest.json`, `README.md`) is produced by
+  `PYTHONPATH=src python3 -m byz.build`. The same command writes the eight
+  input-tree READMEs under `data/` and `data/provenance/rp2018-2023.toml`; never
+  hand-edit those either (only `data/raw/repo/CONVENTIONS.md` is hand-maintained).
+  Change the source or the build and regenerate, then check with `byz.verify`.
+- **The pipeline is sources -> editions.** The two source classes under
+  `data/raw/` (`print/` and `repo/`) are the inputs; `editions/rp2018-2023/` is
+  the only home of the current text's CSV and TEI. There is no working-tree
+  mirror.
+- **Build from the repository root.** `byz.build` reads the committed `data/`
+  inputs; the shared converter module lives in `src/byz/beta/`. The
+  entry points are `PYTHONPATH=src python3 -m byz.<verb>` modules. Dependencies
+  are pinned in `requirements.txt` at the repository root (Python 3.10,
+  `beta-code==1.0.0`).
+- **Docs are described once.** `README.md` is generated from
+  `src/byz/curate/README.template.md`; `docs/BUILD.md` is the build reference;
+  `data/raw/repo/CONVENTIONS.md` and `essay/README.md` document their own conventions;
+  the pages under `docs/` cover editions, provenance, history, and release
+  notes.
+- There is no linter or build system. Verify by regenerating the affected
+  outputs and running the `unittest` suites under `tests/`.
 
 ## Your workflow
 
@@ -76,7 +87,7 @@ request from "approved" to "merged-ready". You do not implement changes yourself
 2. **Read the request, the constitution, and the relevant docs.** Read the plan
    or change request (if the user keeps plan files, honour them) plus
    `SPECS/MISSION.md`, `SPECS/TECH.md`, `SPECS/ROADMAP.md`, `README.md`,
-   `source/README.md`, `scripts/README.md`, and the README of every folder the
+   `data/raw/repo/CONVENTIONS.md`, `docs/BUILD.md`, and the README of every folder the
    change touches, so you can judge whether the work stays true to the repo.
 
 3. **Implement.** Invoke the `spec-implementer` agent (via the Task tool) with
@@ -96,7 +107,7 @@ request from "approved" to "merged-ready". You do not implement changes yourself
      genuine ambiguity.
 
 5. **Verify.** Invoke the `verifier` agent. It checks the change against the
-   request, regenerates the affected derivatives with the scripts, inspects the
+   request, regenerates the affected derivatives with the modules, inspects the
    output, and updates the affected READMEs to reflect what was actually
    implemented. If the verifier reports blockers, loop back to step 4/5.
 

@@ -1,10 +1,15 @@
+<!-- generated-file: do not edit by hand -->
+> **Generated file. Do not edit by hand.**
+> See the "Generated files" section of the repository README for the command
+> that regenerates it.
+
 # Internal history map
 
 This map is derived from git history only. It does not prove which official archive any file came from; that is the job of the external reconciliation cycle.
 
 ## Last corpus commit
 
-`dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts
+`40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate
 
 ## Tags
 
@@ -24,6 +29,12 @@ This map is derived from git history only. It does not prove which official arch
 - `v3.3.3`
 - `v3.3.4`
 
+`v2016-07-28` is an earlier 2005-lineage snapshot (2017-05-23). It is not
+curated as a separate edition: `v2.0.3` is the last pre-2023 release and
+supersedes it. The curated `rp2005-2019` source is the `textonly-beta-code`
+and `parsed` tree at `v2.0.3` (commit
+`8ec95671e463030347c2c643358eb56e58235b19`).
+
 ## Edition mapping (internal evidence)
 
 | Claim | Evidence |
@@ -36,11 +47,10 @@ This map is derived from git history only. It does not prove which official arch
 
 | Dataset | First added | Last changed |
 | --- | --- | --- |
-| `source/CCAT` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `16859b2` (2023-07-20) Add Pericope Adulterae and Acts 24 beta code |
-| `source/Strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `b7485a3` (2026-11-11) Fix morphology tags per Dr. Robinson (issue #43, partial) |
-| `csv-unicode/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
-| `csv-unicode/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
-| `tei-xml-unicode` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `dc10c89` (2026-11-16) Preserve intentional blank verses and regenerate artifacts |
+| `data/raw/repo/rp2018-2023/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
+| `data/raw/repo/rp2018-2023/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
+| `editions/rp2018-2023/csv` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate |
+| `editions/rp2018-2023/tei` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate |
 | `essay` | `e8e5189` (2023-09-03) Add Robinson's Case for Byz Priority essay | `d84f8e7` (2023-09-06) Update README |
 
 ## June-September 2023 commits touching the corpus
@@ -63,3 +73,24 @@ This map is derived from git history only. It does not prove which official arch
 - Whether the current text is RP2018, RP2018 plus July 2023 fixes, or a mix.
 
 These are open questions for the maintainer and the external reconciliation cycle.
+
+<!-- cycle2:begin -->
+## External archive evidence (Cycle 2)
+
+| Edition | Source verses matching official CCAT |
+| --- | ---: |
+| `rp2005` | 7769/7972 (97.45%) |
+| `rp2018` | 7811/7972 (97.98%) |
+
+| State | Compared to | Verses matching |
+| --- | --- | ---: |
+| `v2.0.3 textonly-beta-code` | `rp2005` | 7918/7972 (99.32%) |
+| `v2.0.3 textonly-beta-code` | `rp2018` | 7969/7972 (99.96%) |
+| `v3.0.0 source/CCAT` | `rp2005` | 7754/7957 (97.45%) |
+| `v3.0.0 source/CCAT` | `rp2018` | 7796/7957 (97.98%) |
+| `current data/raw/repo/rp2018-2023/ccat` | `rp2005` | 7769/7972 (97.45%) |
+| `current data/raw/repo/rp2018-2023/ccat` | `rp2018` | 7811/7972 (97.98%) |
+
+Closest official edition for the current source: `rp2018`.
+The current `data/raw/repo/rp2018-2023/ccat` was first added in `97371d7` (2023-05-30, merged in `v3.0.0`). The 2005-lineage text is in `textonly-beta-code` at `v2.0.3` and earlier, last updated 2019. See `docs/PROVENANCE.md`.
+<!-- cycle2:end -->

@@ -1,0 +1,299 @@
+# generated-file: do not edit by hand
+# See the "Generated files" section of the repository README for the command
+# that regenerates it.
+
+edition = "rp2018-2023"
+revision = "2023-07-20"
+method = "working-tree snapshot"
+extracted = "data/raw/repo/rp2018-2023"
+generated_by = "PYTHONPATH=src python3 -m byz.build"
+ccat_commit = "636160f7a579ac6955cd8b9714aa6a2bc797ca2f"
+strongs_commit = "636160f7a579ac6955cd8b9714aa6a2bc797ca2f"
+
+[[prefixes]]
+path = "ccat/"
+files = 29
+
+[[prefixes]]
+path = "strongs/"
+files = 27
+
+[[files]]
+path = "ccat/01_MAT.TXT"
+sha256 = "0de6c3ca28ea270a8902414b95df2a95d259c092e2cc37a0a39aeabad1373e29"
+size = 177691
+
+[[files]]
+path = "ccat/02_MAR.TXT"
+sha256 = "66d00c52d4ad6dbef408c223bf9fbb67fd4e36b8ee2c0f9acd4440963dd82733"
+size = 128418
+
+[[files]]
+path = "ccat/03_LUK.TXT"
+sha256 = "ac60224255311d85b5d7c7037d9a167ae253ed14189c8486c0c32fa722688fd3"
+size = 201855
+
+[[files]]
+path = "ccat/04_JOH.TXT"
+sha256 = "d3d4d6179c1a1dd2fa4ec37538794d505321d081da2dd10171d14045bc53da45"
+size = 149286
+
+[[files]]
+path = "ccat/04a_PA.TXT"
+sha256 = "2d8514b87e6acb7e179ff0b23e9284a4c5e4e81205751e00d095e7245c6c237a"
+size = 1691
+
+[[files]]
+path = "ccat/05_ACT.TXT"
+sha256 = "301d7bb2b6da6ff9c64dcd2c2ff2a75e937ed3cb6d91e2dbae03f606ac7a353a"
+size = 191771
+
+[[files]]
+path = "ccat/05a_ACT24.TXT"
+sha256 = "99dcf975641c3d582915b3de152e70a39f400c22f67b92038e49cbdadc989b96"
+size = 424
+
+[[files]]
+path = "ccat/06_ROM.TXT"
+sha256 = "2c8ebfccdabf836a5c90bf4e6b015ba9bee75622a21107b72dc1103f2d270d4f"
+size = 64254
+
+[[files]]
+path = "ccat/07_1CO.TXT"
+sha256 = "dcb4aef5491d081bbd144c9510bc08199435518e9643cd5b71ed3923ef21397e"
+size = 65697
+
+[[files]]
+path = "ccat/08_2CO.TXT"
+sha256 = "11f582ea1276b29e304e7559fdb0ca4fe59cdac7e26ecde4d59cb2929af985b4"
+size = 41774
+
+[[files]]
+path = "ccat/09_GAL.TXT"
+sha256 = "34707dd8287ff3e61d0aeb760650a3d5ea78b1ed14424eb7d76f3f521673dbea"
+size = 21092
+
+[[files]]
+path = "ccat/10_EPH.TXT"
+sha256 = "b857542bf9f4f82f055d5437cb6798c426faf49613b551d68c91a7b6f37722e8"
+size = 22599
+
+[[files]]
+path = "ccat/11_PHP.TXT"
+sha256 = "dc0ea9a1606b5e13b3ba538f084f391fa08cb747134b77ab341e8d62854adf85"
+size = 15021
+
+[[files]]
+path = "ccat/12_COL.TXT"
+sha256 = "c5ea129d881552419158da55c4ec93bd886d342e7519b66cb3b1d1264d8fa705"
+size = 15225
+
+[[files]]
+path = "ccat/13_1TH.TXT"
+sha256 = "a5830791383ea487b61b73ad69958710263eeb529c894f6a9830c214b18d9bcd"
+size = 13763
+
+[[files]]
+path = "ccat/14_2TH.TXT"
+sha256 = "b2f3992c7c7b08906f30bbc66d46a8524e38af6f7eee8d9f0ece28859096c37a"
+size = 7597
+
+[[files]]
+path = "ccat/15_1TI.TXT"
+sha256 = "968e5d911690bf886481a49b4eb2eda179d57b345a4973e15c15eeb86bbd59b8"
+size = 15711
+
+[[files]]
+path = "ccat/16_2TI.TXT"
+sha256 = "9498767677583a3dfecd7f75efdc92a92d1ff3ce0b9402382a81d0602b12b760"
+size = 11762
+
+[[files]]
+path = "ccat/17_TIT.TXT"
+sha256 = "4187450b8be10c9b4837f9eaba2df4a4975c538efa4d66695ad89626aaef0ee2"
+size = 6602
+
+[[files]]
+path = "ccat/18_PHM.TXT"
+sha256 = "076036f41e80c0a0715261739ed2fec6d57d09c2bf1d59bba3bcdfcbfabc2b93"
+size = 3117
+
+[[files]]
+path = "ccat/19_HEB.TXT"
+sha256 = "c97958477a4bff92100f8f7c912f3dc549b92178416e80e78905b097ab8e52b9"
+size = 46357
+
+[[files]]
+path = "ccat/20_JAM.TXT"
+sha256 = "b21f43f799b43cb57560a9a9014a5c1068e2b8d339ea1c45cffb737e7c9eb15b"
+size = 16984
+
+[[files]]
+path = "ccat/21_1PE.TXT"
+sha256 = "52a40b5baab0434a3c80e420d8bde4e7b42ed636580d9369d6f798d12ad317a6"
+size = 17196
+
+[[files]]
+path = "ccat/22_2PE.TXT"
+sha256 = "22ef3ab55cf5fbc2c230e3b430c2722d8313e326a1feb1baf18ae8624553fd4c"
+size = 10826
+
+[[files]]
+path = "ccat/23_1JO.TXT"
+sha256 = "9890202e717b4ea55e773caeaba22f6d1e80b707fe7d576b206ae15e60a2553e"
+size = 17955
+
+[[files]]
+path = "ccat/24_2JO.TXT"
+sha256 = "2d99ef22c5ff7f65dbb394e2cfe5e8dcc9ca3b1ca554166f3ad7db9084ac3845"
+size = 2295
+
+[[files]]
+path = "ccat/25_3JO.TXT"
+sha256 = "0c6e43ae3bb014f338e81f30aa51d480384cd64392ab937a651635c631279d5b"
+size = 2082
+
+[[files]]
+path = "ccat/26_JUD.TXT"
+sha256 = "29cae327bcc4906125dce94145f8fbd6d04ce0b00e39bf1b61441108eea9b70b"
+size = 5065
+
+[[files]]
+path = "ccat/27_REV.TXT"
+sha256 = "c818f7b9861d203fa95ee790cb07ff601f004363afa42e0407fad263a6920e09"
+size = 100495
+
+[[files]]
+path = "strongs/01_MAT.BP5"
+sha256 = "091d4e72c88a74600470f93d3ca7b1e034b9eaa3c0bd63d328aec487318f22a8"
+size = 367790
+
+[[files]]
+path = "strongs/02_MAR.BP5"
+sha256 = "3c358f98c983dc1e62ced755b3079a24e8f4b19fada8adac0e618556b826f549"
+size = 229175
+
+[[files]]
+path = "strongs/03_LUK.BP5"
+sha256 = "b2af171fe5eae2441ef753c64adc05088b408f186179964dd4c61ce75bf4ab89"
+size = 391245
+
+[[files]]
+path = "strongs/04_JOH.BP5"
+sha256 = "876b94397e61d1ae1d9531d31e9f9ec83462a699aae1a44a7b9b1f19ffa8e687"
+size = 307142
+
+[[files]]
+path = "strongs/05_ACT.BP5"
+sha256 = "573aa785634dacfa774708389eee404d64a9b879b7c5d0034f1806f4f49b34a9"
+size = 370762
+
+[[files]]
+path = "strongs/06_ROM.BP5"
+sha256 = "89a013fc568068b61f435f5d0a2cfab63c58877f879758e5800f930541cc8e3e"
+size = 139608
+
+[[files]]
+path = "strongs/07_1CO.BP5"
+sha256 = "f271d461765676d18daca4446f10722f12daaa08c23a9cbabb25a666ff3bff91"
+size = 134536
+
+[[files]]
+path = "strongs/08_2CO.BP5"
+sha256 = "03761f1c64c35cf7fff9a0a4c89dcb5830ec5c02192635ec6ed78b3989da813d"
+size = 87896
+
+[[files]]
+path = "strongs/09_GAL.BP5"
+sha256 = "4b78d4bda06978356cd50e3b58316dd4f92ecf433ec473c95f55d8cc40a41e6a"
+size = 44170
+
+[[files]]
+path = "strongs/10_EPH.BP5"
+sha256 = "3c9b6022f45c95cec70c10390553a246b3d3944cef1b17d52b1ec2ff73db5a06"
+size = 47758
+
+[[files]]
+path = "strongs/11_PHP.BP5"
+sha256 = "fde6fe5be3a2d198413612febcbaab9146c692e750d28318388d84fed0398604"
+size = 31810
+
+[[files]]
+path = "strongs/12_COL.BP5"
+sha256 = "ae02b79fd0b6dabd92e74386de29191b8a8420da8543a09214fee2be45c23ecc"
+size = 31391
+
+[[files]]
+path = "strongs/13_1TH.BP5"
+sha256 = "58b4c2be7a69e6a73b8b4a227a1d751244cb6cdce1f76c73ec200f77a98ef586"
+size = 29060
+
+[[files]]
+path = "strongs/14_2TH.BP5"
+sha256 = "095bbf63ba8dd7a62902366f8c279e35bed9738d9bfd807c7d18238c8f3d9094"
+size = 16066
+
+[[files]]
+path = "strongs/15_1TI.BP5"
+sha256 = "e2ba179f559cf27a92daa22d6ce86b8c79a4b71344b0f15de12f2ed1244b90d4"
+size = 32772
+
+[[files]]
+path = "strongs/16_2TI.BP5"
+sha256 = "9e497db761c1c778ef71334816c3538c7ce0d0390c3a84b6ac8a8c8ad3bf35aa"
+size = 24932
+
+[[files]]
+path = "strongs/17_TIT.BP5"
+sha256 = "9a3255d092bdbb13114e3142bad347aef9ba6b0afdaa67e337f3bbe7db33be9c"
+size = 13453
+
+[[files]]
+path = "strongs/18_PHM.BP5"
+sha256 = "5d1a0c529cc7a99bf7bf2efc2440d52034dddee229cdbebfa583cddac6ab1c42"
+size = 6517
+
+[[files]]
+path = "strongs/19_HEB.BP5"
+sha256 = "56609daf316cca6998ecb76897b9b09bef401630f33f4d59ba833b6bf503c6e4"
+size = 99477
+
+[[files]]
+path = "strongs/20_JAM.BP5"
+sha256 = "568a130fe98198d6c1c1e3496682f7c9f57671b3904e0d5909d1c265750457ee"
+size = 34828
+
+[[files]]
+path = "strongs/21_1PE.BP5"
+sha256 = "05182cfbded9012572989fd5ec6b1f6ef59eeea0b35ed347dffd274598795cc9"
+size = 34227
+
+[[files]]
+path = "strongs/22_2PE.BP5"
+sha256 = "b126013d860b081f2a29498734830cdfeb06a1679dfe8b57ef1a6be80081f687"
+size = 22195
+
+[[files]]
+path = "strongs/23_1JO.BP5"
+sha256 = "54ea82483017a6ec27399e723c21c0319c47d9511f68efccc9b96987def9a7ef"
+size = 40874
+
+[[files]]
+path = "strongs/24_2JO.BP5"
+sha256 = "0b0efe145e90b685136bfd1c6d4def8ebcfbc0774df398c4bac7e49eebd858a5"
+size = 4775
+
+[[files]]
+path = "strongs/25_3JO.BP5"
+sha256 = "a7f783a0587bcdf45ab8acd798512231d4ed7d8f5c24d82816baed35ccd472ee"
+size = 4305
+
+[[files]]
+path = "strongs/26_JUD.BP5"
+sha256 = "35e2b9917b8cd47c5fb5c35630847d9421c0b3391f0fa3d4bd1d4bb3cc335562"
+size = 9090
+
+[[files]]
+path = "strongs/27_REV.BP5"
+sha256 = "afd126f54df13b36c7c7f82ce88cc284084352c479014896c68612f26f942ce3"
+size = 189139

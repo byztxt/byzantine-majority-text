@@ -33,12 +33,12 @@ explicit finding - even "nothing found" is a finding.
 ### Horizon 0 - The instance (RCA)
 
 1. **Reproduce.** Reproduce with the smallest possible input: the affected verse
-   or book, the exact source line from `source/CCAT/*.TXT` or
-   `source/Strongs/*.BP5`, and the failing output in `csv-unicode/` or
-   `tei-xml-unicode/`. Run the relevant converter from `scripts/`
-   (`python3 csv_converter.py` or `python3 tei_xml_converter.py`) after
-   `pip install -r requirements.txt`. Confirm the failure is about the bug, not a
-   typo or a stale generated file.
+   or book, the exact source line from `data/raw/repo/rp2018-2023/ccat/*.TXT` or
+   `data/raw/repo/rp2018-2023/strongs/*.BP5`, and the failing output under
+   `editions/rp2018-2023/`. Regenerate from the repository root with
+   `PYTHONPATH=src python3 -m byz.build` after
+   `pip install -r requirements.txt` (from the repository root). Confirm the
+   failure is about the bug, not a typo or a stale generated file.
 2. **Mechanism.** Explain _why_ it fails - the data shape, Beta-code variant,
    regex overreach, ordering, unhandled parsing alternative, or a mismatch
    between Prof. Robinson's Beta code and the `beta-code` library - not just
@@ -83,7 +83,7 @@ for fixing alongside the instance.
 
 ### Horizon 2 - Codebase-wide category (the class)
 
-The same root cause across books, scripts, and outputs.
+The same root cause across books, modules, and outputs.
 
 1. **Name the category.** Give the class a stable name, drawn from the examples
    below, so future findings can reference the class:
@@ -94,9 +94,10 @@ The same root cause across books, scripts, and outputs.
 2. **Codify the signature.** Write down the searchable signature of the class:
    function name, regex, operator, literal shape, or field you are sweeping for.
 3. **Sweep the codebase.** Repeat the systematic search across all of
-   `source/CCAT/`, `source/Strongs/`, `scripts/`, `csv-unicode/`, and
-   `tei-xml-unicode/`. Check every book (including `04a_PA` and `05a_ACT24`) and
-   every output variant (with/without variants, with/without parsing).
+   `data/raw/repo/rp2018-2023/ccat/`, `data/raw/repo/rp2018-2023/strongs/`, `src/byz/curate/`, `editions/*/csv/`,
+   and `editions/*/tei/`. Check every book (including
+   `04a_PA` and `05a_ACT24`) and every output variant (with/without variants,
+   with/without parsing).
 4. **Report.** Produce a second table - same columns as H1 but for H2. Include
    false positives you eliminated and why. "No codebase-wide siblings found
    after sweeping Y" is a valid result, but you must state what you swept.
@@ -128,10 +129,10 @@ these, in order:
   produces the CSV/TEI record; every output path uses them, so conventions cannot
   drift between `with-variants` and `no-variants`, or between parsing and
   non-parsing outputs.
-- **Small check script.** A `scripts/check-output.py` (or similar) that
-  re-derives the generated files and asserts they match what is committed, checks
-  verse counts and book coverage, and validates CSV shape / XML well-formedness.
-  Wire the command into `scripts/README.md`.
+- **Small check script.** A check under `tests/` that re-derives the generated
+  files and asserts they match what is committed, checks verse counts and book
+  coverage, and validates CSV shape / XML well-formedness. Wire the command into
+  `docs/BUILD.md`.
 - **Round-trip / spot check.** Re-convert a known verse and assert the exact
   expected Unicode string and parsing, including a multi-parsing word.
 
@@ -178,6 +179,6 @@ over the implementer's job.
   new class in the relevant README (or a `SPECS/` plan) so it becomes a
   searchable precedent.
 - The governing invariant to cite for every conversion bug: **the source files
-  are the truth; the scripts are the only producers of the Unicode CSV/TEI-XML
+  are the truth; the modules are the only producers of the Unicode CSV/TEI-XML
   outputs. A wrong output is a script bug or a source bug, never something to
   patch by hand.**

@@ -14,7 +14,7 @@ def _tag(name):
     return f"{{{NS}}}{name}"
 
 
-def validate(path, dataset="tei-xml-unicode/no-accents") -> DatasetResult:
+def validate(path, dataset=paths.TEI_DATASET) -> DatasetResult:
     violations = []
     records = []
     try:

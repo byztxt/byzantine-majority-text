@@ -10,11 +10,12 @@ repository of the Robinson-Pierpont Byzantine Textform Greek New Testament.
 **Invoke it every time you write, extend, or modify a test or a validation
 check.**
 
-This repository currently has **no test suite, no linter, and no build system**.
-The source files under `source/CCAT/` and `source/Strongs/` are authoritative, and
-the scripts in `scripts/` generate the Unicode CSV and TEI-XML derivatives. Tests
-here should protect that pipeline: correct conversion, complete book coverage, and
-stable, well-formed output.
+This repository has **no linter and no build system**; verification is the
+`unittest` suites under `tests/`. The source files under `data/raw/repo/rp2018-2023/ccat/` and
+`data/raw/repo/rp2018-2023/strongs/` are authoritative, and the `python3 -m byz.<verb>` modules
+generate the Unicode CSV and TEI-XML derivatives. Tests here should protect that
+pipeline: correct conversion, complete book coverage, and stable, well-formed
+output.
 
 Before adding a test framework or dependency, ask the user. Prefer checks that run
 with the standard library (`python3 -m unittest`) or a small script over new
@@ -62,7 +63,9 @@ This project's real edge cases:
   preserved and rendered correctly.
 - **Parsing and Strong's** - words with two parsings and two Strong's numbers
   (e.g. James 4:5, 2 Timothy 2:6) must keep both in `with-parsing` and appear once
-  in `no-parsing`/TEI.
+  in `no-parsing`/TEI. In `no-parsing`, distinct alternative numbers stay
+  (2TI 2:6 `4412 4413`), while consecutive identical numbers for one word
+  collapse to one (`3588 3588` -> `3588`, 2026-11-26).
 - **Book coverage** - every book in `book_dict` is produced exactly once,
   including `04a_PA` and `05a_ACT24`, which have no Strong's equivalent.
 - **Format integrity** - CSVs parse, have the expected `chapter,verse,text`
@@ -85,7 +88,7 @@ private helper was called. This keeps checks stable across refactors.
   its parsing/Strong's data.
 - Prefer asserting the generated file set and counts over internal data
   structures.
-- Do not depend on `pandas` internals or on dict ordering.
+- Do not depend on third-party library internals or on dict ordering.
 
 ---
 
@@ -93,17 +96,19 @@ private helper was called. This keeps checks stable across refactors.
 
 - Name checks for the behaviour: `test_final_sigma_before_dash_is_not_medial`,
   `test_multiparsing_word_keeps_both_strongs_numbers`.
-- Group related checks by converter (`test_csv_converter`,
-  `test_tei_xml_converter`, `test_beta_standardisation`).
+- Group related checks by build stage (`test_parse_bp5_strongs`,
+  `test_parse_cct_accented`, `test_beta_standardisation`).
 - Keep each check focused on one behaviour.
 - Do not delete existing checks unless replaced by a stronger one.
 
-Suggested layout if a suite is added (ask the user first):
+The suites already exist; add to the matching one instead of creating a new test
+framework:
 
-- `tests/test_beta_standardisation.py` - the Beta-code helpers.
-- `tests/test_csv_converter.py` - CSV fields, variants, parsing.
-- `tests/test_tei_xml_converter.py` - XML well-formedness and structure.
-- `tests/test_output_coverage.py` - every book present, counts stable.
+- `tests/curate/test_build.py` - Beta-code helpers and the parsers.
+- `tests/curate/test_current_pipeline.py` - the byte-identity gate for
+  `rp2018-2023` and the identity/deletion locks.
+- `tests/curate/test_fidelity.py` - CSV/TEI content and well-formedness.
+- `tests/contract/` - inventory, dataset names, and coverage.
 
 ---
 
