@@ -1271,10 +1271,10 @@
       "root": "data/raw/repo/rp2018-2023"
     }
   ],
-  "latest_release": "v3.3.4",
+  "latest_release": "v4.0.0",
   "pdf": "",
   "pdf_url": "",
-  "release_range": "v3.0.0-v3.3.4",
+  "release_range": "v3.0.0-v4.0.0",
   "source_commit": "636160f7a579ac6955cd8b9714aa6a2bc797ca2f",
   "status": "released",
   "strongs_commit": "636160f7a579ac6955cd8b9714aa6a2bc797ca2f",

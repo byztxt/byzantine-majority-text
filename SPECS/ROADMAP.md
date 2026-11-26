@@ -154,7 +154,7 @@ successive-edition diffs.
 - Official PDFs are committed, checksummed, and linked; any PDF/archive conflict
   is flagged.
 - Release numbers are recorded: `rp2005-2019` = `v1.0.0`-`v2.0.3`;
-  `rp2018-2023` = `v3.0.0`-`v3.3.4` (and future tags).
+  `rp2018-2023` = `v3.0.0`-`v4.0.0` (and future tags).
 - Every edition has deterministic CSV/TEI and a manifest with hashes.
 - Successive diffs are word-level, categorized, and deterministic for both the
   Beta-code source tier and the derived Unicode text, with apparatus-only

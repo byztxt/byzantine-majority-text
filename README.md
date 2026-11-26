@@ -75,7 +75,7 @@ revision of the 2005 lineage.
 | `rp2005` | official | none |
 | `rp2005-2019` | released | `v1.0.0`-`v2.0.3` |
 | `rp2018` | official | none |
-| `rp2018-2023` | released | `v3.0.0`-`v3.3.4` |
+| `rp2018-2023` | released | `v3.0.0`-`v4.0.0` |
 
 See [`docs/EDITIONS.md`](docs/EDITIONS.md) and the
 [`editions/`](editions/) directory for the full explanation, PDF

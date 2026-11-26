@@ -188,7 +188,7 @@ def render(root=paths.ROOT) -> str:
             "| RP2005 is best approximated by the release 2.0.3 Unicode files | "
             "`README.md` (Versions section); tag `v2.0.3` |",
             "| Release 3.0.0 introduced RP2018 | `README.md` (Versions section); "
-            "tags `v3.0.0`..`v3.3.4` |",
+            "tags `v3.0.0`..`v4.0.0` |",
             "| The text claims to be up to date as of 2023-07-20 | `README.md`; "
             "commits `16859b2`, `18ea8e9`, `a6d4c1e` (all 2023-07-20) |",
             "",

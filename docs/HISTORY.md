@@ -28,6 +28,7 @@ This map is derived from git history only. It does not prove which official arch
 - `v3.3.2`
 - `v3.3.3`
 - `v3.3.4`
+- `v4.0.0`
 
 `v2016-07-28` is an earlier 2005-lineage snapshot (2017-05-23). It is not
 curated as a separate edition: `v2.0.3` is the last pre-2023 release and
@@ -40,7 +41,7 @@ and `parsed` tree at `v2.0.3` (commit
 | Claim | Evidence |
 | --- | --- |
 | RP2005 is best approximated by the release 2.0.3 Unicode files | `README.md` (Versions section); tag `v2.0.3` |
-| Release 3.0.0 introduced RP2018 | `README.md` (Versions section); tags `v3.0.0`..`v3.3.4` |
+| Release 3.0.0 introduced RP2018 | `README.md` (Versions section); tags `v3.0.0`..`v4.0.0` |
 | The text claims to be up to date as of 2023-07-20 | `README.md`; commits `16859b2`, `18ea8e9`, `a6d4c1e` (all 2023-07-20) |
 
 ## Dataset history

@@ -25,7 +25,7 @@ the [root README](../README.md#repository-layout).
 | `rp2005` | official | Published in print by Chilton Book Publishing, Southborough, Massachusetts | none | [`rp2005 PDF`](../data/raw/print/rp2005/official-pdf/editions-rp2.pdf) (`ccf5bb5467408fdd44a362764dc93383ddb5d5579c6601fac0ec0b83a095ecce`) |
 | `rp2005-2019` | released | The 2019 sources (textonly-beta-code + parsed), rebuilt by the current pipeline | [`v1.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v1.0.0)-[`v2.0.3`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v2.0.3) | none |
 | `rp2018` | official | Published in print by VTR, Nuremberg | none | [`rp2018 PDF`](../data/raw/print/rp2018/official-pdf/robinson-pierpont-2018-gnt-edition.pdf) (`00303ddc443816d363ccca8c3882ce83f4ecb858fa52d0313b80f445d263852c`) |
-| `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v3.3.4`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.3.4) | none |
+| `rp2018-2023` | released | Current maintained source; 2018 edition plus 2023 adjustments | [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v4.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v4.0.0) | none |
 
 ## Source feature matrix
 
@@ -74,7 +74,7 @@ ultimate source of truth. The machine-readable source is the official
 
 The current maintained text: the 2018 edition plus the 2023 adjustments
 and later minor fixes. It was first released in [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0) and continues
-to receive releases. Repo releases: [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v3.3.4`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.3.4) (and later tags).
+to receive releases. Repo releases: [`v3.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v3.0.0)-[`v4.0.0`](https://github.com/byztxt/byzantine-majority-text/releases/tag/v4.0.0) (and later tags).
 
 ## Why the history looks messy
 

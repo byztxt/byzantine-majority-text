@@ -847,6 +847,7 @@ class CurateIntegrationTests(unittest.TestCase):
         self.assertIn("released", text)
         self.assertIn("v1.0.0", text)
         self.assertIn("v3.0.0", text)
+        self.assertIn("v4.0.0", text)
         self.assertIn(
             "The marker delimiters are the fixed strings", text
         )

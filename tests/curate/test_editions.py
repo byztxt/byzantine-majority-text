@@ -34,7 +34,7 @@ class EditionTests(unittest.TestCase):
         self.assertEqual(historical["first_release"], "v1.0.0")
         self.assertEqual(historical["latest_release"], "v2.0.3")
         self.assertEqual(current["first_release"], "v3.0.0")
-        self.assertTrue(current["latest_release"].startswith("v3."))
+        self.assertEqual(current["latest_release"], "v4.0.0")
         self.assertEqual(
             historical["release_range"],
             f"{historical['first_release']}-{historical['latest_release']}",
@@ -207,7 +207,7 @@ class EditionsDocLinkTests(unittest.TestCase):
         self.assertNotIn("97371d7", stripped)
 
     def test_tag_range_links_both_endpoints(self):
-        for first, last in (("v1.0.0", "v2.0.3"), ("v3.0.0", "v3.3.4")):
+        for first, last in (("v1.0.0", "v2.0.3"), ("v3.0.0", "v4.0.0")):
             self.assertIn(
                 f"[`{first}`]({self.TAG_PREFIX}{first})-"
                 f"[`{last}`]({self.TAG_PREFIX}{last})",

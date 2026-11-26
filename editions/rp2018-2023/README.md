@@ -7,7 +7,7 @@
 
 - **Status:** released
 - **Basis:** Current maintained source; 2018 edition plus 2023 adjustments
-- **Repo releases:** `v3.0.0` to `v3.3.4`
+- **Repo releases:** `v3.0.0` to `v4.0.0`
 
 ## Layout
 

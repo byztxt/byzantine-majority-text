@@ -101,7 +101,7 @@ EDITIONS = {
         "title": "Robinson-Pierpont 2018 with 2023 adjustments (repo release)",
         "status": "released",
         "basis": "Current maintained source; 2018 edition plus 2023 adjustments",
-        "release_prefixes": ["v3."],
+        "release_prefixes": ["v3.", "v4."],
         "source_kind": "current",
         "input_class": "repo",
         "revision": "2023-07-20",
