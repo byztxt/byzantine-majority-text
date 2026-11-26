@@ -9,7 +9,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`636160f` (2026-11-26) Add official archive reconciliation and curated RP editions
+`ebb459c` (2026-11-26) Regenerate the commit-pinned metadata after the squash
 
 ## Tags
 
