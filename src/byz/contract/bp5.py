@@ -17,7 +17,7 @@ def book_num(path) -> str:
     return match.group(1) if match else ""
 
 
-def validate(path, dataset="source/Strongs") -> DatasetResult:
+def validate(path, dataset=paths.BP5_DATASET) -> DatasetResult:
     text, _ = read_text(path)
     num = book_num(path)
     abbr = paths.NUM_TO_ABBR.get(num, num)

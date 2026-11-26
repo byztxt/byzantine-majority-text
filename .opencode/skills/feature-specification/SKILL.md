@@ -1,9 +1,9 @@
 ---
 name: feature-specification
-description: Guide for planning changes to the byzantine-majority-text repository (scripts, Unicode CSV/TEI-XML regeneration, source-data corrections, docs, essay). Use when asked to plan or specify a non-trivial change.
+description: Guide for planning changes to the byzantine-majority-text repository (modules, Unicode CSV/TEI-XML regeneration, source-data corrections, docs, essay). Use when asked to plan or specify a non-trivial change.
 ---
 
-Read `README.md`, `source/README.md`, `scripts/README.md`, and the README of
+Read `README.md`, `data/raw/repo/CONVENTIONS.md`, `docs/BUILD.md`, and the README of
 every folder the change touches. These document the repository contract. Then
 create a plan for the requested change. Create a branch and ask the user about
 the plan before writing.
@@ -13,31 +13,31 @@ Create:
 - A new directory `SPECS/YYYY-MM-DD-<change-name>/` for this work.
 - In there:
   - `plan.md` as a series of numbered task groups. If a step needs checks, say
-    exactly how to verify it (install `scripts/requirements.txt`, run the
-    relevant converter from `scripts/`, inspect the regenerated files).
+    exactly how to verify it (install `requirements.txt` from the repository
+    root, run the relevant `python3 -m byz.<verb>` module, inspect the
+    regenerated files).
   - `requirements.md` for the scope, decisions, and context.
   - `validation.md` for how to know the change succeeded and can be merged.
 
 # Repository contract
 
-- **Source is authoritative.** `source/CCAT/*.TXT` (accented, with variants) and
-  `source/Strongs/*.BP5` (Strong's numbers and parsing, unaccented) come from
-  Dr. Maurice A. Robinson. Do not plan content changes to them unless the user
-  has approved a correction to the official edition. Preserve Beta code, variant
-  markers (N/B/C/M/S/E), parsing codes, and Strong's numbers exactly.
-- **Generated files are derivatives.** `csv-unicode/` and `tei-xml-unicode/` are
-  produced by `scripts/csv_converter.py` and `scripts/tei_xml_converter.py`. Plan
-  to regenerate them, never to hand-edit them.
-- **Scripts are Python 3.10** with pinned dependencies in
-  `scripts/requirements.txt` (`pandas==1.4.2`, `beta-code==1.0.0`). They use
-  relative paths (`../source`, `../csv-unicode`, `../tei-xml-unicode`) and must be
-  run from inside `scripts/`.
+- **Source is authoritative.** `data/raw/repo/rp2018-2023/ccat/*.TXT` (accented, with variants)
+  and `data/raw/repo/rp2018-2023/strongs/*.BP5` (Strong's numbers and parsing, unaccented) come
+  from Dr. Maurice A. Robinson. Do not plan content changes to them unless the
+  user has approved a correction to the official edition. Preserve Beta code,
+  variant markers (N/B/C/M/S/E), parsing codes, and Strong's numbers exactly.
+- **Generated files are derivatives.** Every CSV/TEI view under
+  `editions/<edition>/` is produced by `PYTHONPATH=src python3 -m byz.build`
+  from the committed `data/` inputs pinned in its manifest. Plan to
+  regenerate them, never to hand-edit them.
+- **Modules are Python 3.10** with the single pinned dependency in
+  `requirements.txt` at the repository root (`beta-code==1.0.0`). Run them from
+  the repository root as `PYTHONPATH=src python3 -m byz.<verb>`; the shared
+  converter module lives in `src/byz/beta/`.
 - **Everything is public domain.** Do not introduce license-incompatible content
   or dependencies.
-- **No tests, linter, or build system exist.** Plan verification around
-  regeneration, diffs, and explicit data checks (verse counts, CSV parsing,
-  XML well-formedness, no Beta-code remnants). Do not invent tooling. If you
-  propose adding tests or checks, ask first and keep them dependency-light.
+- **Verification is the `unittest` suites** under `tests/`, plus regenerating the
+  affected outputs and comparing them. Do not invent tooling.
 
 # Requirements
 
@@ -84,7 +84,7 @@ the same class, ask the user.
 - Where a field's meaning matters (book id, chapter/verse, variant code, parsing
   code, Strong's number), derive it from a single canonical source - never match
   free text in several places.
-- The converter scripts are the only producers of graded output; the source files
+- The converter modules are the only producers of graded output; the source files
   are the only authority on the text.
 
 # YAGNI

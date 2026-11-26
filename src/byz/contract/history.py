@@ -4,14 +4,78 @@ import subprocess
 
 from . import paths
 
+# Each row is (label, git pathspecs). The retired `csv-unicode` and
+# `tei-xml-unicode` pathspecs are git history selectors, not working-tree
+# paths: they keep the pre-2026 evidence (2022 TEI, 2023 CSV) visible after the
+# curated edition became the only home of those bytes. See
+# `SPECS/2026-11-19-retire-legacy-unicode-trees/` decision 9.
+#
+# The two input rows also list the pre-2026-11-21 pathspec `source/...` and the
+# retired 2026-11-25 location `data/text/...`, again git selectors rather than
+# working-tree paths: they keep the pre-move history of the repository input
+# tree visible after the files moved to
+# `data/raw/repo/rp2018-2023/{ccat,strongs}/`.
 DATASETS = [
-    ("source/CCAT", "source/CCAT"),
-    ("source/Strongs", "source/Strongs"),
-    ("csv-unicode/ccat", "csv-unicode/ccat"),
-    ("csv-unicode/strongs", "csv-unicode/strongs"),
-    ("tei-xml-unicode", "tei-xml-unicode"),
-    ("essay", "essay"),
+    (
+        paths.CCAT_DATASET,
+        (
+            "source/CCAT",
+            "data/text/CCAT",
+            "data/raw/repo/rp2018-2023/ccat",
+        ),
+    ),
+    (
+        paths.BP5_DATASET,
+        (
+            "source/Strongs",
+            "data/text/Strongs",
+            "data/raw/repo/rp2018-2023/strongs",
+        ),
+    ),
+    (
+        "editions/rp2018-2023/csv",
+        (
+            "csv-unicode/ccat",
+            "csv-unicode/strongs",
+            "editions/rp2018-2023/csv",
+        ),
+    ),
+    (
+        "editions/rp2018-2023/tei",
+        ("tei-xml-unicode", "editions/rp2018-2023/tei"),
+    ),
+    ("essay", ("essay",)),
 ]
+
+# Repository history selectors for the corpus-wide rows. The retired paths are
+# included so the June-September 2023 evidence does not disappear, and `source`
+# and `data/raw/repo` keep the input-tree history visible across its moves.
+# These are git selectors, not working-tree paths.
+CORPUS_PATHSPECS = (
+    "data/text",
+    "source",
+    "csv-unicode",
+    "tei-xml-unicode",
+    "editions",
+    "essay",
+    "data/raw/repo",
+)
+
+# `git log` selectors for the manifest's two input commit fields. The first two
+# paths are the pre-2026-11-21 and pre-2026-11-25 locations and the third is the
+# current one: a pure move therefore records the move commit, and a later
+# content edit records that edit. These are selectors, never working-tree
+# lookups.
+CCAT_COMMIT_PATHSPECS = (
+    "source/CCAT",
+    "data/text/CCAT",
+    "data/raw/repo/rp2018-2023/ccat",
+)
+STRONGS_COMMIT_PATHSPECS = (
+    "source/Strongs",
+    "data/text/Strongs",
+    "data/raw/repo/rp2018-2023/strongs",
+)
 
 
 def _fmt(value):
@@ -33,26 +97,29 @@ def _git(root, args):
     return result.stdout.strip()
 
 
-def _first_add(root, path):
+def _first_add(root, *pathspecs):
     out = _git(
-        root, ["log", "--diff-filter=A", "--format=%h|%cs|%s", "--", path]
+        root,
+        ["log", "--diff-filter=A", "--format=%h|%cs|%s", "--", *pathspecs],
     )
     lines = out.splitlines()
     return lines[-1] if lines else ""
 
 
-def _last_change(root, path):
-    return _git(root, ["log", "-1", "--format=%h|%cs|%s", "--", path])
+def _last_change(root, *pathspecs):
+    return _git(
+        root, ["log", "-1", "--format=%h|%cs|%s", "--", *pathspecs]
+    )
 
 
 def collect(root=paths.ROOT):
     rows = []
-    for label, path in DATASETS:
+    for label, pathspecs in DATASETS:
         rows.append(
             {
                 "dataset": label,
-                "first_added": _first_add(root, path),
-                "last_changed": _last_change(root, path),
+                "first_added": _first_add(root, *pathspecs),
+                "last_changed": _last_change(root, *pathspecs),
             }
         )
     return {
@@ -63,10 +130,7 @@ def collect(root=paths.ROOT):
                 "-1",
                 "--format=%h|%cs|%s",
                 "--",
-                "source",
-                "csv-unicode",
-                "tei-xml-unicode",
-                "essay",
+                *CORPUS_PATHSPECS,
             ],
         ),
         "tags": _git(root, ["tag", "--list"]).splitlines(),
@@ -79,10 +143,7 @@ def collect(root=paths.ROOT):
                 "--until=2023-10-01",
                 "--format=%h|%cs|%s",
                 "--",
-                "source",
-                "csv-unicode",
-                "tei-xml-unicode",
-                "essay",
+                *CORPUS_PATHSPECS,
             ],
         ).splitlines(),
     }
@@ -110,6 +171,15 @@ def render(root=paths.ROOT) -> str:
         lines.append("No tags in the repository.")
     lines.extend(
         [
+            "",
+            # Static text: this is a documented git fact (tag date and commit),
+            # not data read from the archives, so it is safe to emit verbatim
+            # even when the baseline contract is regenerated offline.
+            "`v2016-07-28` is an earlier 2005-lineage snapshot (2017-05-23). It is not",
+            "curated as a separate edition: `v2.0.3` is the last pre-2023 release and",
+            "supersedes it. The curated `rp2005-2019` source is the `textonly-beta-code`",
+            "and `parsed` tree at `v2.0.3` (commit",
+            "`8ec95671e463030347c2c643358eb56e58235b19`).",
             "",
             "## Edition mapping (internal evidence)",
             "",

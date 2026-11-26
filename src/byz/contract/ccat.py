@@ -59,7 +59,7 @@ def _brace_contents(body: str, path: str, dataset: str, lineno: int, violations)
     return contents
 
 
-def validate(path, dataset="source/CCAT") -> DatasetResult:
+def validate(path, dataset=paths.CCAT_DATASET) -> DatasetResult:
     text, _ = read_text(path)
     num = book_num(path)
     abbr = paths.NUM_TO_ABBR.get(num, num)

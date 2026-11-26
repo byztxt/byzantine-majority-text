@@ -56,27 +56,32 @@ act on.
    change actually satisfies it.
 
 3. **Analyze the change.**
-   - **Source integrity:** `source/CCAT/*.TXT` and `source/Strongs/*.BP5` are
-     Dr. Robinson's authoritative files. Any change to their content must be
+   - **Source integrity:** `data/raw/repo/rp2018-2023/ccat/*.TXT` and `data/raw/repo/rp2018-2023/strongs/*.BP5`
+     are Dr. Robinson's authoritative files. Any change to their content must be
      justified by the official edition and approved by the user. Flag unexplained
      edits to Greek text, parsing codes, Strong's numbers, or variant markers.
-   - **Generated files:** everything under `csv-unicode/` and
-     `tei-xml-unicode/` must come from the scripts. Flag hand-edits and any case
-     where the committed output does not match what the scripts produce.
-   - **Scripts:** review `scripts/*.py` for correctness, Python 3.10
-     compatibility, pinned-dependency assumptions, relative paths (they run from
-     inside `scripts/`), encoding, and handling of Beta code, variants, parsing,
+   - **Generated files:** everything under `editions/` must come from
+     `PYTHONPATH=src python3 -m byz.build`. Flag hand-edits and any case where
+     the committed output does not match what the build produces. `byz.verify`
+     checks inputs and artifacts against the manifests.
+   - **Code:** review `src/byz/**/*.py` for correctness, Python 3.10
+     compatibility, pinned-dependency assumptions, relative paths (the pipeline
+     runs from the repository root and modules resolve paths from there),
+     encoding, and handling of Beta code, variants, parsing,
      and multi-parsing words. Prefer early returns and simple structure; flag
      dead code and silent failures.
    - **Data consistency:** check verse/chapter numbering, book ids, variant and
-     parsing conventions (see `source/README.md`), CSV column shape, and TEI-XML
+     parsing conventions (see `data/raw/repo/CONVENTIONS.md`), CSV column shape, and TEI-XML
      well-formedness. A changed converter must not silently drop or duplicate
      verses, variants, or parsing alternatives.
-   - **Regeneration:** run the affected scripts from `scripts/` when possible and
-     confirm the diff matches the intended output. There is no test suite or
-     linter in this repo; do not invent ones.
-   - **Docs:** the README for the affected folder (and the root README) must be
-     updated when behaviour or the workflow changes.
+   - **Regeneration:** run the affected `python3 -m byz.<verb>` modules from the
+     repository root when possible and confirm the diff matches the intended
+     output. There is no linter in this repo; run the `unittest` suites
+     (`tests/contract`, `tests/curate`, `tests/reconciliation`) and do not invent
+     new ones.
+   - **Docs:** the README for the affected folder (and the root README, which is
+     generated from `src/byz/curate/README.template.md`) must be updated when
+     behaviour or the workflow changes.
    - **Bug-category review:** if the diff is a bug fix, check that the author
      followed `investigate-bug` - RCA with evidence, H1 narrow-radius sibling
      sweep, H2 codebase-wide category sweep, a general prevention mechanism, and
@@ -99,7 +104,8 @@ act on.
 - Focus entirely on the change. Be thorough, pedantic, and ultra-precise with
   file paths and line numbers, but maintain a collaborative, constructive tone.
 - Never edit code or any non-Markdown file. You may edit only `.md` files (e.g.
-  to record findings in a plan file) - never source, scripts, or generated data.
+  to record findings in a plan file) - never source text, modules, or generated
+  data.
 - When you finish, explain what you found in very simple terms: the overall
   verdict, the blocking issues that must be fixed, and the non-blocking
   suggestions worth considering.

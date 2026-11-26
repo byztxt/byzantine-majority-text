@@ -1,5 +1,16 @@
+# Build staging trees: a killed build must not leave these looking like a new
+# tracked edition (see tests/curate/test_editions_contain_only_outputs).
+editions/.*.staging/
+editions/.*.old/
+
 # Emacs backup files
 *~
 *.pyc
 __pycache__
 .Rproj.user
+
+# Local essay exports and R session history: the tracked essay sources are the
+# .qmd files, so a plain `git add -A` must not resurrect these copies.
+essay/*.docx
+essay/*.odt
+essay/.Rhistory

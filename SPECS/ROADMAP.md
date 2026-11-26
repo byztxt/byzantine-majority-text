@@ -15,7 +15,7 @@ later RP2026), with readable deltas and reproducible CSV/TEI-XML exports.
 - [x] Constitution: `SPECS/MISSION.md`, `SPECS/TECH.md`, `SPECS/ROADMAP.md`.
 - [x] Record the key decisions: artifacts live in git (`TECH.md` §8), the
   maintainer decides source conflicts (§4), path compatibility is best-effort
-  (§5), and RP2026 is deferred to Cycle 8.
+  (§5), and RP2026 is deferred to Cycle 7.
 
 ---
 
@@ -44,7 +44,7 @@ edition/revision the repo currently claims. No external archives are fetched.
 - Internal consistency report: every invariant violation with `file:line` and a
   known-exception/decision entry.
 - Derivation map (input → output) evidenced by the scripts; the converters were
-  run for D8, with the full byte-for-byte reproduction deferred to Cycle 3.
+  run for D8, with the full byte-for-byte reproduction deferred to Cycle 4.
 - Internal history map (`docs/HISTORY.md`) for the claimed RP2005/RP2018 and the
   July 2023 update.
 - A maintainer decision log for internal ambiguities, now adopted as D1-D8.
@@ -68,6 +68,11 @@ semantics may be ambiguous; git history may not establish provenance.
 ---
 
 ## Cycle 2 - Official archive reconciliation
+
+**Spec:** `SPECS/2026-11-16-official-archive-reconciliation/`.
+**Status:** Implementation complete on
+`feature/2026-11-16-official-archive-reconciliation`; maintainer decisions
+R1-R8 pending.
 
 **Goal:** add the official archives and determine, quantitatively, to what extent
 the current corpus matches them.
@@ -105,7 +110,73 @@ expire.
 
 ---
 
-## Cycle 3 - Pipeline skeleton & test harness
+## Cycle 3 - Edition recovery, curation & successive diffs
+
+**Spec:** `SPECS/2026-11-16-edition-recovery-curation/`.
+**Status:** Complete (2026-11-16). Review fixes implemented on
+`feature/2026-11-16-edition-recovery-curation` (PR #46). Verification is
+recorded in `validation.md`.
+**Note:** moved ahead of the pipeline skeleton because users need stable editions
+now. The pipeline refactor follows in Cycle 4.
+
+**Goal:** recover the 2005-lineage text from git, freeze the four editions
+(official 2005, released 2005+2019, official 2018, released 2018+2023),
+generate CSV and TEI for each, explain the history in docs, and produce
+successive-edition diffs.
+
+**Deliverables**
+
+- `editions/{rp2005,rp2005-2019,rp2018,rp2018-2023}/` with `source/`, `csv/`,
+  `tei/`, `manifest.json`, and `README.md`.
+- `rp2005-2019` recovered from `v2.0.3` (`textonly-beta-code` + `parsed`),
+  labelled as the 2019 repo revision of the 2005 lineage.
+- Official `rp2005` and `rp2018` frozen from the official PDFs and archives;
+  official `rp2018` distinguished from released `rp2018-2023`.
+- Official PDFs committed under `data/raw/<edition>/official-pdf/` and recorded
+  in `data/provenance/pdfs.toml`; the PDFs are the ultimate source of truth.
+- Successive diffs: `rp2005--rp2005-2019`, `rp2005-2019--rp2018`,
+  `rp2018--rp2018-2023`, and `rp2005--rp2018`, each with a Unicode-first
+  `report.md`, a machine-readable `changes.csv`, and diff-style `source.diff`,
+  `text.diff`, and `derived.diff` views (one hunk per verse, word-diff files).
+  Diffs are word-level for both the Beta-code source tier and
+  the derived Unicode accented main text.
+- `docs/EDITIONS.md`, root README "Editions" section, per-edition READMEs, and
+  updated script/folder READMEs.
+- Recovery, build, and diff scripts under `scripts/`, with tests.
+
+**Acceptance**
+
+- All four editions are curated and directly usable without git archaeology.
+- Official PDFs are committed, checksummed, and linked; any PDF/archive conflict
+  is flagged.
+- Release numbers are recorded: `rp2005-2019` = `v1.0.0`-`v2.0.3`;
+  `rp2018-2023` = `v3.0.0`-`v3.3.4` (and future tags).
+- Every edition has deterministic CSV/TEI and a manifest with hashes.
+- Successive diffs are word-level, categorized, and deterministic for both the
+  Beta-code source tier and the derived Unicode text, with apparatus-only
+  changes distinguished.
+- The authoritative files under `source/`, `csv-unicode/`,
+  `tei-xml-unicode/`, and `essay/` are unchanged. `data/raw/` is additive: this
+  cycle commits the official PDFs and the extracted archive inputs under
+  `data/raw/<edition>/` (the Cycle 2 deliverables), without modifying the
+  existing corpus datasets.
+
+**Risks:** the historical converter may not reproduce old artifacts exactly; the
+official `.CCT` parser is new; curated artifacts increase repo size.
+
+**Follow-ups**
+
+- [x] Fixed (2026-11-17): apparatus literals in the generated editions. The
+  converter now protects quoted notes (`[[ "..." ]]`) and the exact `"+"`, so
+  `rp2005`, `rp2018`, `rp2018-2023`, and `csv-unicode/ccat/with-variants` keep
+  them verbatim instead of transliterating them. The recovered `rp2005-2019`
+  with-variants derivative was corrected at MAR 16:8 (the only change to that
+  view), while its source files and the other views remain byte-identical to
+  `v2.0.3` (superseded 2026-11-25).
+
+---
+
+## Cycle 4 - Pipeline skeleton & test harness
 
 **Goal:** turn the existing converters into a reproducible, tested package
 without changing the current output.
@@ -118,7 +189,7 @@ without changing the current output.
 - A pytest suite covering Beta-code standardization, parsing, variant extraction,
   and golden output for a small real pericope.
 - Determinism check: build twice, compare hashes.
-- Baseline: regenerate the current RP2018 CSV and TEI outputs and prove they are
+- Baseline: regenerate the current `rp2018-2023` CSV and TEI outputs and prove they are
   byte-identical to the committed artifacts (or document every intended
   difference). Treat the source files as authoritative and flag divergence (D5).
 - Keep the D8 empty-record behavior (already implemented: intentional blank
@@ -134,49 +205,7 @@ without changing the current output.
 
 ---
 
-## Cycle 4 - Edition slots, snapshots & layout migration
-
-**Goal:** make editions symmetric and navigable, and move to the target layout.
-
-**Deliverables**
-
-- Restructure to `data/raw/<edition>/` and `editions/<edition>/{csv,tei}/` with
-  manifests and checksums.
-- Freeze `rp2005` and `rp2018` with tags and a `README` download guide.
-- Best-effort path compatibility for the current `csv-unicode/` and
-  `tei-xml-unicode/` paths; document every move and deprecation.
-- Migration spec capturing old-to-new path mapping.
-
-**Acceptance**
-
-- Each edition can be downloaded/checked out and rebuilt.
-- Every artifact is listed in a manifest with its hash.
-- READMEs and release notes describe the new layout and any path changes.
-
----
-
-## Cycle 5 - Delta engine
-
-**Goal:** make edition differences readable and trustworthy.
-
-**Deliverables**
-
-- Verse alignment, then word alignment, then categorization.
-- `reports/diff/rp2005--rp2018/` with `report.md` (human) and `changes.csv`
-  (machine), grouped by book and category (letters, accents/breathings,
-  punctuation, capitalization, apparatus, parsing, Strong's, normalization).
-- Tests over known differences plus synthetic edge cases (insertions, deletions,
-  split words, variant-only changes).
-
-**Acceptance**
-
-- Deltas are deterministic and committed.
-- A reviewer can explain each category from the report alone.
-- No normalization-only change is misreported as a textual change.
-
----
-
-## Cycle 6 - TEI-XML apparatus
+## Cycle 5 - TEI-XML apparatus
 
 **Goal:** produce a standards-compliant apparatus export.
 
@@ -196,7 +225,7 @@ without changing the current output.
 
 ---
 
-## Cycle 7 - Release automation & committed artifacts
+## Cycle 6 - Release automation & committed artifacts
 
 **Goal:** make every edition easy to download and verify.
 
@@ -216,7 +245,7 @@ without changing the current output.
 
 ---
 
-## Cycle 8 - RP2026 (future)
+## Cycle 7 - RP2026 (future)
 
 **Goal:** add the 2026 edition through the same pipeline, without special cases.
 

@@ -1,63 +1,5 @@
 {
-  "csv-unicode/ccat/no-variants": {
-    "header": [
-      "chapter",
-      "verse",
-      "text"
-    ],
-    "invariants": [
-      "header is chapter,verse,text",
-      "chapter and verse are integers",
-      "text is non-empty except for the intentional blank verses",
-      "no duplicate (chapter, verse) keys",
-      "no Beta-code backslashes"
-    ],
-    "purpose": "Unicode CSV of CCAT with variants removed."
-  },
-  "csv-unicode/ccat/with-variants": {
-    "header": [
-      "chapter",
-      "verse",
-      "text"
-    ],
-    "invariants": [
-      "header is chapter,verse,text",
-      "chapter and verse are integers",
-      "text is non-empty except for the intentional blank verses",
-      "no duplicate (chapter, verse) keys",
-      "no Beta-code backslashes"
-    ],
-    "purpose": "Unicode CSV of CCAT with variants retained."
-  },
-  "csv-unicode/strongs/no-parsing": {
-    "header": [
-      "chapter",
-      "verse",
-      "text"
-    ],
-    "invariants": [
-      "header is chapter,verse,text",
-      "chapter and verse are integers",
-      "text is non-empty except for the intentional blank verses",
-      "no duplicate (chapter, verse) keys"
-    ],
-    "purpose": "Unicode CSV of the Strong's text with parsing dropped."
-  },
-  "csv-unicode/strongs/with-parsing": {
-    "header": [
-      "chapter",
-      "verse",
-      "text"
-    ],
-    "invariants": [
-      "header is chapter,verse,text",
-      "chapter and verse are integers",
-      "text is non-empty except for the intentional blank verses",
-      "no duplicate (chapter, verse) keys"
-    ],
-    "purpose": "Unicode CSV of the Strong's text with parsing retained."
-  },
-  "source/CCAT": {
+  "data/raw/repo/rp2018-2023/ccat": {
     "filename": "^(\\d{2}a?)_([A-Z0-9]+)\\.TXT$",
     "invariants": [
       "every non-blank line starts with chapter:verse",
@@ -83,7 +25,7 @@
       "syntax": "{CODE OLD > NEW}"
     }
   },
-  "source/Strongs": {
+  "data/raw/repo/rp2018-2023/strongs": {
     "filename": "^(\\d{2})_([A-Z0-9]+)\\.BP5$",
     "invariants": [
       "every non-blank line starts with chapter.verse",
@@ -102,15 +44,65 @@
       "syntax": "word strongs {parsing} [strongs {parsing}]"
     }
   },
-  "tei-xml-unicode/BYZ": {
-    "anchor": "^B(\\d{2})K(\\d+)V(\\d+)$",
-    "invariants": [
-      "covers the same books as the per-book files"
+  "editions/rp2018-2023/csv/accented/no-variants": {
+    "header": [
+      "chapter",
+      "verse",
+      "text"
     ],
-    "purpose": "Combined TEI-XML of all 27 books.",
-    "structure": "same as per-book TEI, with 27 book divisions"
+    "invariants": [
+      "header is chapter,verse,text",
+      "chapter and verse are integers",
+      "text is non-empty except for the intentional blank verses",
+      "no duplicate (chapter, verse) keys",
+      "no Beta-code backslashes"
+    ],
+    "purpose": "Unicode CSV of CCAT with variants removed."
   },
-  "tei-xml-unicode/no-accents": {
+  "editions/rp2018-2023/csv/accented/with-variants": {
+    "header": [
+      "chapter",
+      "verse",
+      "text"
+    ],
+    "invariants": [
+      "header is chapter,verse,text",
+      "chapter and verse are integers",
+      "text is non-empty except for the intentional blank verses",
+      "no duplicate (chapter, verse) keys",
+      "no Beta-code backslashes"
+    ],
+    "purpose": "Unicode CSV of CCAT with variants retained."
+  },
+  "editions/rp2018-2023/csv/strongs/no-parsing": {
+    "header": [
+      "chapter",
+      "verse",
+      "text"
+    ],
+    "invariants": [
+      "header is chapter,verse,text",
+      "chapter and verse are integers",
+      "text is non-empty except for the intentional blank verses",
+      "no duplicate (chapter, verse) keys"
+    ],
+    "purpose": "Unicode CSV of the Strong's text with parsing dropped."
+  },
+  "editions/rp2018-2023/csv/strongs/with-parsing": {
+    "header": [
+      "chapter",
+      "verse",
+      "text"
+    ],
+    "invariants": [
+      "header is chapter,verse,text",
+      "chapter and verse are integers",
+      "text is non-empty except for the intentional blank verses",
+      "no duplicate (chapter, verse) keys"
+    ],
+    "purpose": "Unicode CSV of the Strong's text with parsing retained."
+  },
+  "editions/rp2018-2023/tei/unaccented": {
     "anchor": "^B(\\d{2})K(\\d+)V(\\d+)$",
     "invariants": [
       "XML is well-formed",
@@ -121,5 +113,13 @@
     ],
     "purpose": "Unaccented TEI-XML export generated from strongs/no-parsing.",
     "structure": "TEI/teiHeader/text/body/div[@type=book]/div[@type=chapter]/ab/w"
+  },
+  "editions/rp2018-2023/tei/unaccented/BYZ": {
+    "anchor": "^B(\\d{2})K(\\d+)V(\\d+)$",
+    "invariants": [
+      "covers the same books as the per-book files"
+    ],
+    "purpose": "Combined TEI-XML of all 27 books.",
+    "structure": "same as per-book TEI, with 27 book divisions"
   }
 }

@@ -12,7 +12,7 @@ def _csv_results(root):
     for key, directory in list(paths.CSV_CCAT.items()) + list(
         paths.CSV_STRONGS.items()
     ):
-        dataset = f"csv-unicode/{key}"
+        dataset = paths.dataset_name(key)
         directory = root / directory.relative_to(paths.ROOT)
         results[dataset] = [
             csv_view.validate(path, dataset)
@@ -24,28 +24,32 @@ def _csv_results(root):
 
 def validate_all(root=paths.ROOT):
     results = {
-        "source/CCAT": [
+        paths.CCAT_DATASET: [
             ccat.validate(path)
-            for path in sorted((root / "source" / "CCAT").glob("*.TXT"))
+            for path in sorted(
+                (root / paths.CCAT_DIR.relative_to(paths.ROOT)).glob("*.TXT")
+            )
             if path.is_file()
         ],
-        "source/Strongs": [
+        paths.BP5_DATASET: [
             bp5.validate(path)
-            for path in sorted((root / "source" / "Strongs").glob("*.BP5"))
+            for path in sorted(
+                (root / paths.BP5_DIR.relative_to(paths.ROOT)).glob("*.BP5")
+            )
             if path.is_file()
         ],
     }
     results.update(_csv_results(root))
 
     tei_dir = root / paths.TEI_DIR.relative_to(paths.ROOT)
-    results["tei-xml-unicode/no-accents"] = [
-        tei_view.validate(path)
+    results[paths.TEI_DATASET] = [
+        tei_view.validate(path, paths.TEI_DATASET)
         for path in sorted(tei_dir.glob("*.xml"))
         if path.is_file()
     ]
     tei_byz = root / paths.TEI_BYZ.relative_to(paths.ROOT)
-    results["tei-xml-unicode/BYZ"] = (
-        [tei_view.validate(tei_byz, "tei-xml-unicode/BYZ")]
+    results[paths.TEI_BYZ_DATASET] = (
+        [tei_view.validate(tei_byz, paths.TEI_BYZ_DATASET)]
         if tei_byz.is_file()
         else []
     )
