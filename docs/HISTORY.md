@@ -9,7 +9,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate
+`82c110f` (2026-11-26) Prepare v4.0.0 release metadata
 
 ## Tags
 
