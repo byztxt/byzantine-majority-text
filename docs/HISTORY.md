@@ -9,7 +9,7 @@ This map is derived from git history only. It does not prove which official arch
 
 ## Last corpus commit
 
-`ebb459c` (2026-11-26) Regenerate the commit-pinned metadata after the squash
+`40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate
 
 ## Tags
 
@@ -49,8 +49,8 @@ and `parsed` tree at `v2.0.3` (commit
 | --- | --- | --- |
 | `data/raw/repo/rp2018-2023/ccat` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
 | `data/raw/repo/rp2018-2023/strongs` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
-| `editions/rp2018-2023/csv` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
-| `editions/rp2018-2023/tei` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `636160f` (2026-11-26) Add official archive reconciliation and curated RP editions |
+| `editions/rp2018-2023/csv` | `97371d7` (2023-05-31) Update source files and Unicode CSVs | `40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate |
+| `editions/rp2018-2023/tei` | `e9ce9bf` (2022-08-24) Create TEI-XML version | `40819e3` (2026-11-26) Address PR 46 review: harden build, fix exports, regenerate |
 | `essay` | `e8e5189` (2023-09-03) Add Robinson's Case for Byz Priority essay | `d84f8e7` (2023-09-06) Update README |
 
 ## June-September 2023 commits touching the corpus
